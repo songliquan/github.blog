@@ -1,0 +1,484 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>音视频 | Bloging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Mr Song">
+    
+    <meta name="description" content="音视频录音 AVFoundation.h
+可以使用懒加载
+
+
+
+代码
+
+123456789101112131415- (IBAction)startRecord:(id)sender &amp;#123;    // 录音文件保存地址    NSURL *url = [NSURL URLWithString">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/09/22/音频/" title="音视频" itemprop="url">音视频</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Mr Song">Mr Song</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2013-09-22T06:48:09.000Z" itemprop="datePublished">2013-09-22</time>
+    更新日期:<time datetime="2015-09-27T04:36:18.000Z" itemprop="dateModified">2015-09-27</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#音视频"><span class="toc-number">1.</span> <span class="toc-text">音视频</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#录音_AVFoundation-h"><span class="toc-number">1.1.</span> <span class="toc-text">录音 AVFoundation.h</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#播放音效"><span class="toc-number">1.2.</span> <span class="toc-text">播放音效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#播放音乐"><span class="toc-number">1.3.</span> <span class="toc-text">播放音乐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#毛玻璃效果实现"><span class="toc-number">1.4.</span> <span class="toc-text">毛玻璃效果实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QQ音乐"><span class="toc-number">1.5.</span> <span class="toc-text">QQ音乐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AVPlayer（远程音乐/视频）"><span class="toc-number">1.6.</span> <span class="toc-text">AVPlayer（远程音乐/视频）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.7.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、音频播放"><span class="toc-number">1.7.1.</span> <span class="toc-text">一、音频播放</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、视频播放"><span class="toc-number">1.8.</span> <span class="toc-text">二、视频播放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、录音"><span class="toc-number">1.9.</span> <span class="toc-text">三、录音</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="音视频">音视频</h1><h2 id="录音_AVFoundation-h">录音 <code>AVFoundation.h</code></h2><ul>
+<li>可以使用懒加载</li>
+</ul>
+<p><img src="../images/Snip20150815_51.png" alt=""></p>
+<ul>
+<li>代码</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">IBAction</span>)startRecord:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line">    <span class="comment">// 录音文件保存地址</span></span><br><span class="line">    <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"file:///Users/song/Desktop/test.wav"</span>];</span><br><span class="line">    <span class="comment">// 创建录音文件</span></span><br><span class="line">    <span class="built_in">AVAudioRecorder</span> *record = [[<span class="built_in">AVAudioRecorder</span> alloc] initWithURL:url settings:<span class="literal">nil</span> error:<span class="literal">nil</span>];</span><br><span class="line">    <span class="comment">// 准备录音</span></span><br><span class="line">    [record prepareToRecord];</span><br><span class="line">    <span class="comment">// 开始录音</span></span><br><span class="line">    [record record];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.record</span> = record;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">IBAction</span>)stopRecord:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line">    <span class="comment">// 停止录音</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.record</span> stop];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置录制音频的质量</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建录音配置信息的字典</span></span><br><span class="line"><span class="built_in">NSMutableDictionary</span> *setting = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line"><span class="comment">// 音频格式</span></span><br><span class="line">setting[<span class="built_in">AVFormatIDKey</span>] = @(kAudioFormatAppleIMA4);</span><br><span class="line"><span class="comment">// 录音采样率(Hz) 如：AVSampleRateKey==8000/44100/96000（影响音频的质量）</span></span><br><span class="line">setting[<span class="built_in">AVSampleRateKey</span>] = @(<span class="number">8000.0</span>);</span><br><span class="line"><span class="comment">// 音频通道数 1 或 2</span></span><br><span class="line">setting[<span class="built_in">AVNumberOfChannelsKey</span>] = @(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// 线性音频的位深度  8、16、24、32</span></span><br><span class="line">setting[<span class="built_in">AVLinearPCMBitDepthKey</span>] = @(<span class="number">8</span>);</span><br><span class="line"><span class="comment">//录音的质量</span></span><br><span class="line">setting[<span class="built_in">AVEncoderAudioQualityKey</span>] = [<span class="built_in">NSNumber</span> numberWithInt:<span class="built_in">AVAudioQualityHigh</span>];</span><br></pre></td></tr></table></figure>
+<h2 id="播放音效">播放音效</h2><ul>
+<li>可以使用懒加载</li>
+</ul>
+<p><img src="../images/Snip20150815_54.png" alt=""></p>
+<ul>
+<li>通过字典实现多个文件的加载</li>
+</ul>
+<p><img src="../images/Snip20150815_55.png" alt=""></p>
+<ul>
+<li>封装成工具类</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  SLQMusic.m</span></span><br><span class="line"><span class="comment">//  播放音乐</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  Created by Christian on 15/8/17.</span></span><br><span class="line"><span class="comment">//  Copyright (c) 2015年 slq. All rights reserved.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">"SLQMusic.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;AVFoundation/AVFoundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SLQMusic</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *	 静态全局变量</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSMutableDictionary</span> *_players;</span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)initialize</span><br><span class="line">&#123;</span><br><span class="line">    _players = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *	通过名称播放歌曲</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">AVAudioPlayer</span> *)playWithMusicName:(<span class="built_in">NSString</span> *)musicName</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (musicName<span class="variable">.length</span> &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 定义音频播放器</span></span><br><span class="line">    <span class="built_in">AVAudioPlayer</span> *player = <span class="literal">nil</span>;</span><br><span class="line">    <span class="comment">// 2.从字典中取player,如果取出出来是空,则对应创建对应的播放器</span></span><br><span class="line">    player = _players[musicName];</span><br><span class="line">    <span class="keyword">if</span> (player == <span class="literal">nil</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSURL</span> *url = [[<span class="built_in">NSBundle</span> mainBundle] URLForResource:musicName withExtension:<span class="literal">nil</span>];</span><br><span class="line">        <span class="keyword">if</span> (url == <span class="literal">nil</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        player = [[<span class="built_in">AVAudioPlayer</span> alloc] initWithContentsOfURL:url error:<span class="literal">nil</span>];</span><br><span class="line">        [player prepareToPlay];</span><br><span class="line">        <span class="comment">// 将player存入字典</span></span><br><span class="line">        [_players setObject:player forKey:musicName];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、播放音乐</span></span><br><span class="line">    [player play];</span><br><span class="line">    <span class="keyword">return</span> player;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *	暂停播放</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="keyword">void</span>)pauseWithMusicName:(<span class="built_in">NSString</span> *)musicName</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (musicName<span class="variable">.length</span> &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 定义音频播放器</span></span><br><span class="line">    <span class="built_in">AVAudioPlayer</span> *player = <span class="literal">nil</span>;</span><br><span class="line">    <span class="comment">// 2.从字典中取player,如果取出出来是空,就退出</span></span><br><span class="line">    player = _players[musicName];</span><br><span class="line">    <span class="keyword">if</span> (player) &#123;</span><br><span class="line">        <span class="comment">// 3、暂停播放音乐</span></span><br><span class="line">        [player pause];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *	停止播放</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="keyword">void</span>)stopWithMusicName:(<span class="built_in">NSString</span> *)musicName</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (musicName<span class="variable">.length</span> &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 定义音频播放器</span></span><br><span class="line">    <span class="built_in">AVAudioPlayer</span> *player = <span class="literal">nil</span>;</span><br><span class="line">    <span class="comment">// 2.从字典中取player,如果取出出来是空,就退出</span></span><br><span class="line">    player = _players[musicName];</span><br><span class="line">    <span class="keyword">if</span> (player) &#123;</span><br><span class="line">        <span class="comment">// 3、暂停播放音乐</span></span><br><span class="line">        [player stop];</span><br><span class="line">        <span class="comment">// 从字典中移除</span></span><br><span class="line">        [_players removeObjectForKey:musicName];</span><br><span class="line">        player = <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h2 id="播放音乐">播放音乐</h2><ul>
+<li><code>AVAudioPlayer</code></li>
+</ul>
+<p><img src="../images/Snip20150815_57.png" alt=""></p>
+<ul>
+<li>默认每一个url对应一个<code>AVAudioPlayer</code>对象，所以可以通过字典比较好（工具类封装）</li>
+</ul>
+<h2 id="毛玻璃效果实现">毛玻璃效果实现</h2><p><img src="../images/Snip20150815_58.png" alt=""></p>
+<ul>
+<li>UIToolBar实现代码</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *	设置背景图片毛玻璃效果</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)setupBackgroundBlur</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 使用UIToolBar实现</span></span><br><span class="line">    <span class="built_in">UIToolbar</span> *tool = [[<span class="built_in">UIToolbar</span> alloc] init];</span><br><span class="line">    [tool setBarStyle:<span class="built_in">UIBarStyleBlack</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.largeImageView</span> addSubview:tool];</span><br><span class="line">    <span class="comment">// 使用屏幕宽高计算frame</span></span><br><span class="line">    tool<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, [<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span>, [<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.height</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="QQ音乐">QQ音乐</h2><ul>
+<li>主界面搭建</li>
+<li>storyboard 添加手势</li>
+</ul>
+<p><img src="../images/storyboard添加手势.gif" alt=""></p>
+<ul>
+<li><p><code>translatesAutoresizingMaskIntoConstraints</code>设置</p>
+<ul>
+<li>如果是从代码层面开始使用Autolayout,需要对使用的View的translatesAutoresizingMaskIntoConstraints的属性设置为NO.</li>
+<li>即可开始通过代码添加Constraint,否则View还是会按照以往的autoresizingMask进行计算.而在Interface Builder中勾选了Ues Autolayout,IB生成的控件的translatesAutoresizingMaskIntoConstraints属性都会被默认设置NO.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>后台播放</li>
+</ul>
+<p><img src="../images/Snip20150819_9_1.png" alt=""></p>
+<p><img src="../images/屏幕快照 2015-08-17 15.37.26.png" alt=""></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="comment">// 后台播放音频设置</span></span><br><span class="line">    <span class="built_in">AVAudioSession</span> *session  = [<span class="built_in">AVAudioSession</span> sharedInstance];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置播放类别</span></span><br><span class="line">    [session setCategory:<span class="built_in">AVAudioSessionCategoryPlayback</span> error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 激活会话</span></span><br><span class="line">    [session setActive:<span class="literal">YES</span> error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>MONowPlayingInfoCenter</code></li>
+</ul>
+<p><img src="../images/Snip20150817_1.png" alt=""><br><img src="../images/Snip20150817_2.png" alt=""></p>
+<ul>
+<li>锁屏事件中心</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setLockImage:(<span class="built_in">UIImage</span> *)image</span><br><span class="line">&#123;</span><br><span class="line">    SLQMusicItem *musicItem = [SLQMusicTool playingMusic];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、获取锁屏界面中心</span></span><br><span class="line">    <span class="built_in">MPNowPlayingInfoCenter</span> *lockCenter  = [<span class="built_in">MPNowPlayingInfoCenter</span> defaultCenter];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line"></span><br><span class="line">    [dict setObject:musicItem<span class="variable">.name</span> forKey:<span class="built_in">MPMediaItemPropertyAlbumTitle</span>];</span><br><span class="line">    [dict setObject:musicItem<span class="variable">.singer</span> forKey:<span class="built_in">MPMediaItemPropertyAlbumArtist</span>];</span><br><span class="line">    <span class="built_in">MPMediaItemArtwork</span> *artWork = [[<span class="built_in">MPMediaItemArtwork</span> alloc] initWithImage:image];</span><br><span class="line">    [dict setObject:artWork forKey:<span class="built_in">MPMediaItemPropertyArtwork</span>];</span><br><span class="line">    [dict setObject:@(<span class="keyword">self</span><span class="variable">.duration</span>) forKey:<span class="built_in">MPMediaItemPropertyPlaybackDuration</span>];</span><br><span class="line">    [dict setObject:@(<span class="keyword">self</span><span class="variable">.currentTime</span>) forKey:<span class="built_in">MPNowPlayingInfoPropertyElapsedPlaybackTime</span>];</span><br><span class="line"></span><br><span class="line">    lockCenter<span class="variable">.nowPlayingInfo</span> = dict;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 开始接受远程事件</span></span><br><span class="line">    [[<span class="built_in">UIApplication</span> sharedApplication] beginReceivingRemoteControlEvents];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *	接受远程事件</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)remoteControlReceivedWithEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">switch</span> (event<span class="variable">.subtype</span> ) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIEventSubtypeRemoteControlPlay</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIEventSubtypeRemoteControlPause</span>:</span><br><span class="line">            [<span class="keyword">self</span> playOrPause];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIEventSubtypeRemoteControlNextTrack</span>:</span><br><span class="line">            [<span class="keyword">self</span> nextMusic];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIEventSubtypeRemoteControlPreviousTrack</span>:</span><br><span class="line">            [<span class="keyword">self</span> previousMusic];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>监听事件</li>
+</ul>
+<p><img src="../images/Snip20150817_3.png" alt=""></p>
+<ul>
+<li>锁屏歌词（图片）</li>
+</ul>
+<h2 id="AVPlayer（远程音乐/视频）">AVPlayer（远程音乐/视频）</h2><ul>
+<li><p>可以播放网络音频或者视频，当然本地的也不在话下</p>
+</li>
+<li><p>播放远程音频</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 懒加载</span></span><br><span class="line">- (<span class="built_in">AVPlayer</span> *)player</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (!_player) &#123;</span><br><span class="line">        <span class="comment">// 初始化</span></span><br><span class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://cc.stream.qqmusic.qq.com/C100003j8IiV1X8Oaw.m4a?fromtag=52"</span>];</span><br><span class="line">       _player = [<span class="built_in">AVPlayer</span> playerWithURL:url];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>  _player;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 播放</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.player</span> play];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>播放远程视频</p>
+<ul>
+<li>播放视频必须添加layer，不然只有声音没有画面<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 懒加载</span></span><br><span class="line">- (<span class="built_in">AVPlayer</span> *)player</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (!_player) &#123;</span><br><span class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://v1.mukewang.com/19954d8f-e2c2-4c0a-b8c1-a4c826b5ca8b/L.mp4"</span>];</span><br><span class="line">        _player = [<span class="built_in">AVPlayer</span> playerWithURL:url ];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>  _player;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.player</span> play];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>指定层才能正常显示，一般iOS中视频显示比例是9：16</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 懒加载</span></span><br><span class="line">- (<span class="built_in">AVPlayer</span> *)player</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (!_player) &#123;</span><br><span class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://v1.mukewang.com/19954d8f-e2c2-4c0a-b8c1-a4c826b5ca8b/L.mp4"</span>];</span><br><span class="line"><span class="comment">//        _player = [AVPlayer playerWithURL:url ];</span></span><br><span class="line">        <span class="comment">// 使用item方法的话，以后可以随时更改url</span></span><br><span class="line">        <span class="built_in">AVPlayerItem</span> *item = [<span class="built_in">AVPlayerItem</span> playerItemWithURL:url];</span><br><span class="line">        _player = [<span class="built_in">AVPlayer</span> playerWithPlayerItem:item];</span><br><span class="line">        <span class="comment">// 添加播放层，这样才能显示出来</span></span><br><span class="line">        <span class="built_in">AVPlayerLayer</span> *layer = [<span class="built_in">AVPlayerLayer</span> playerLayerWithPlayer:_player];</span><br><span class="line">        <span class="comment">// 一把iOS中视频比例是9：16</span></span><br><span class="line">        layer<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span> * <span class="number">9</span> / <span class="number">16</span>);</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.view</span><span class="variable">.layer</span> addSublayer:layer];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>  _player;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>自己封装AVPlayer</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"VideoPlayView.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">VideoPlayView</span>()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 播放器 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">AVPlayer</span> *player;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 播放器的Layer</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="built_in">AVPlayerLayer</span> *playerLayer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIImageView</span> *imageView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *toolView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIButton</span> *playOrPauseBtn;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UISlider</span> *progressSlider;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UILabel</span> *timeLabel;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 记录当前是否显示了工具栏</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> isShowToolView;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 定时器 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSTimer</span> *progressTimer;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - 监听事件的处理</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)playOrPause:(<span class="built_in">UIButton</span> *)sender;</span><br><span class="line">- (<span class="keyword">IBAction</span>)switchOrientation:(<span class="built_in">UIButton</span> *)sender;</span><br><span class="line">- (<span class="keyword">IBAction</span>)slider;</span><br><span class="line">- (<span class="keyword">IBAction</span>)startSlider;</span><br><span class="line">- (<span class="keyword">IBAction</span>)tapAction:(<span class="built_in">UITapGestureRecognizer</span> *)sender;</span><br><span class="line">- (<span class="keyword">IBAction</span>)sliderValueChange;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">VideoPlayView</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 快速创建View的方法</span></span><br><span class="line">+ (instancetype)videoPlayView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> [[[<span class="built_in">NSBundle</span> mainBundle] loadNibNamed:<span class="string">@"VideoPlayView"</span> owner:<span class="literal">nil</span> options:<span class="literal">nil</span>] firstObject];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)awakeFromNib</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.player</span> = [[<span class="built_in">AVPlayer</span> alloc] init];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.playerLayer</span> = [<span class="built_in">AVPlayerLayer</span> playerLayerWithPlayer:<span class="keyword">self</span><span class="variable">.player</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.layer</span> addSublayer:<span class="keyword">self</span><span class="variable">.playerLayer</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.toolView</span><span class="variable">.alpha</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.isShowToolView</span> = <span class="literal">NO</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.progressSlider</span> setThumbImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"thumbImage"</span>] forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.progressSlider</span> setMaximumTrackImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"MaximumTrackImage"</span>] forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.progressSlider</span> setMinimumTrackImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"MinimumTrackImage"</span>] forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> removeProgressTimer];</span><br><span class="line">    [<span class="keyword">self</span> addProgressTimer];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.playOrPauseBtn</span><span class="variable">.selected</span> = <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)layoutSubviews</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> layoutSubviews];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.playerLayer</span><span class="variable">.frame</span> = <span class="keyword">self</span><span class="variable">.bounds</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - 设置播放的视频</span></span><br><span class="line">- (<span class="keyword">void</span>)setPlayerItem:(<span class="built_in">AVPlayerItem</span> *)playerItem</span><br><span class="line">&#123;</span><br><span class="line">    _playerItem = playerItem;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.player</span> replaceCurrentItemWithPlayerItem:playerItem];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.player</span> play];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否显示工具的View</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)tapAction:(<span class="built_in">UITapGestureRecognizer</span> *)sender &#123;</span><br><span class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.5</span> animations:^&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.isShowToolView</span>) &#123;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.toolView</span><span class="variable">.alpha</span> = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.isShowToolView</span> = <span class="literal">NO</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.toolView</span><span class="variable">.alpha</span> = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.isShowToolView</span> = <span class="literal">YES</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 暂停按钮的监听</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)playOrPause:(<span class="built_in">UIButton</span> *)sender &#123;</span><br><span class="line">    sender<span class="variable">.selected</span> = !sender<span class="variable">.selected</span>;</span><br><span class="line">    <span class="keyword">if</span> (sender<span class="variable">.selected</span>) &#123;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.player</span> play];</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span> addProgressTimer];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.player</span> pause];</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span> removeProgressTimer];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - 定时器操作</span></span><br><span class="line">- (<span class="keyword">void</span>)addProgressTimer</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.progressTimer</span> = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">1.0</span> target:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(updateProgressInfo) userInfo:<span class="literal">nil</span> repeats:<span class="literal">YES</span>];</span><br><span class="line">    [[<span class="built_in">NSRunLoop</span> mainRunLoop] addTimer:<span class="keyword">self</span><span class="variable">.progressTimer</span> forMode:<span class="built_in">NSRunLoopCommonModes</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)removeProgressTimer</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.progressTimer</span> invalidate];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.progressTimer</span> = <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)updateProgressInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1.更新时间</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.timeLabel</span><span class="variable">.text</span> = [<span class="keyword">self</span> timeString];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.设置进度条的value</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.progressSlider</span><span class="variable">.value</span> = CMTimeGetSeconds(<span class="keyword">self</span><span class="variable">.player</span><span class="variable">.currentTime</span>) / CMTimeGetSeconds(<span class="keyword">self</span><span class="variable">.player</span><span class="variable">.currentItem</span><span class="variable">.duration</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)timeString</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> duration = CMTimeGetSeconds(<span class="keyword">self</span><span class="variable">.player</span><span class="variable">.currentItem</span><span class="variable">.duration</span>);</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> currentTime = CMTimeGetSeconds(<span class="keyword">self</span><span class="variable">.player</span><span class="variable">.currentTime</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> stringWithCurrentTime:currentTime duration:duration];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 切换屏幕的方向</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)switchOrientation:(<span class="built_in">UIButton</span> *)sender &#123;</span><br><span class="line">    sender<span class="variable">.selected</span> = !sender<span class="variable">.selected</span>;</span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span><span class="variable">.delegate</span> respondsToSelector:<span class="keyword">@selector</span>(videoplayViewSwitchOrientation:)]) &#123;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.delegate</span> videoplayViewSwitchOrientation:sender<span class="variable">.selected</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)slider &#123;</span><br><span class="line">    [<span class="keyword">self</span> addProgressTimer];</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> currentTime = CMTimeGetSeconds(<span class="keyword">self</span><span class="variable">.player</span><span class="variable">.currentItem</span><span class="variable">.duration</span>) * <span class="keyword">self</span><span class="variable">.progressSlider</span><span class="variable">.value</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置当前播放时间</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.player</span> seekToTime:CMTimeMakeWithSeconds(currentTime, <span class="built_in">NSEC_PER_SEC</span>) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.player</span> play];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)startSlider &#123;</span><br><span class="line">    [<span class="keyword">self</span> removeProgressTimer];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)sliderValueChange &#123;</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> currentTime = CMTimeGetSeconds(<span class="keyword">self</span><span class="variable">.player</span><span class="variable">.currentItem</span><span class="variable">.duration</span>) * <span class="keyword">self</span><span class="variable">.progressSlider</span><span class="variable">.value</span>;</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> duration = CMTimeGetSeconds(<span class="keyword">self</span><span class="variable">.player</span><span class="variable">.currentItem</span><span class="variable">.duration</span>);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.timeLabel</span><span class="variable">.text</span> = [<span class="keyword">self</span> stringWithCurrentTime:currentTime duration:duration];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)stringWithCurrentTime:(<span class="built_in">NSTimeInterval</span>)currentTime duration:(<span class="built_in">NSTimeInterval</span>)duration</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> dMin = duration / <span class="number">60</span>;</span><br><span class="line">    <span class="built_in">NSInteger</span> dSec = (<span class="built_in">NSInteger</span>)duration % <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSInteger</span> cMin = currentTime / <span class="number">60</span>;</span><br><span class="line">    <span class="built_in">NSInteger</span> cSec = (<span class="built_in">NSInteger</span>)currentTime % <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *durationString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%02ld:%02ld"</span>, dMin, dSec];</span><br><span class="line">    <span class="built_in">NSString</span> *currentString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%02ld:%02ld"</span>, cMin, cSec];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@/%@"</span>, currentString, durationString];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>多个文件一个<code>playWithPlayerItem:</code><br><img src="../images/Snip20150817_4.png" alt=""></p>
+</li>
+<li><p><code>MPMoviePlayerViewController</code>控制器</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;MediaPlayer/MediaPlayer.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - 懒加载代码</span></span><br><span class="line">- (<span class="built_in">MPMoviePlayerViewController</span> *)playerVc</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (_playerVc == <span class="literal">nil</span>) &#123;</span><br><span class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://v1.mukewang.com/19954d8f-e2c2-4c0a-b8c1-a4c826b5ca8b/L.mp4"</span>];</span><br><span class="line"></span><br><span class="line">        _playerVc = [[<span class="built_in">MPMoviePlayerViewController</span> alloc] initWithContentURL:url];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _playerVc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)play &#123;</span><br><span class="line">    [<span class="keyword">self</span> presentViewController:<span class="keyword">self</span><span class="variable">.playerVc</span> animated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="../images/MPMoviePlayerViewController使用.gif" alt=""></p>
+<ul>
+<li><code>MPMoviePlayerController</code>控制器</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">MPMoviePlayerController</span> *)player</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (_player == <span class="literal">nil</span>) &#123;</span><br><span class="line">        <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://v1.mukewang.com/19954d8f-e2c2-4c0a-b8c1-a4c826b5ca8b/L.mp4"</span>];</span><br><span class="line"></span><br><span class="line">        _player = [[<span class="built_in">MPMoviePlayerController</span> alloc] initWithContentURL:url];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置控制器View所在的位置</span></span><br><span class="line">        _player<span class="variable">.view</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span> * <span class="number">9</span> / <span class="number">16</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置播放器的控制模式</span></span><br><span class="line">        _player<span class="variable">.controlStyle</span> = <span class="built_in">MPMovieControlStyleFullscreen</span>;</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.view</span> addSubview:<span class="keyword">self</span><span class="variable">.player</span><span class="variable">.view</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _player;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)play &#123;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.player</span> play];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="../images/MPMoviePlayerController的使用.gif" alt=""></p>
+<h2 id="总结">总结</h2><h3 id="一、音频播放">一、音频播放</h3><ul>
+<li><p>1.音效播放（短时间的音频文件）</p>
+<ul>
+<li>1&gt; <code>AudioServicesCreateSystemSoundID</code></li>
+<li>2&gt; <code>AudioServicesPlaySystemSound</code></li>
+</ul>
+</li>
+<li><p>2.音乐 播放（长时间的音频文件）</p>
+<ul>
+<li><p>1&gt; <code>AVAudioPlayer</code></p>
+<ul>
+<li>只能播放本地的音频文件</li>
+<li><blockquote>
+<p><code>MPMusicPlayerController</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>2&gt; <code>AVPlayer</code></p>
+<ul>
+<li>能播放本地、远程的音频、视频文件</li>
+<li>基于Layer显示，得自己去编写控制面板</li>
+</ul>
+</li>
+<li><p>3&gt; <code>MPMoviePlayerController</code></p>
+<ul>
+<li>能播放本地、远程的音频、视频文件</li>
+<li>自带播放控制面板（暂停、播放、播放进度、是否要全屏）</li>
+</ul>
+</li>
+<li><p>4&gt; <code>MPMoviePlayerViewController</code></p>
+<ul>
+<li>能播放本地、远程的音频、视频文件</li>
+<li>内部是封装了<code>MPMoviePlayerController</code></li>
+<li>播放界面默认就是全屏的</li>
+<li>如果播放功能比较简单，仅仅是简单地播放远程、本地的视频文件，建议用这个</li>
+</ul>
+</li>
+<li><p>5&gt; <code>DOUAudioStreamer</code></p>
+<ul>
+<li>能播放远程、本地的音频文件</li>
+<li>监听缓冲进度、下载速度、下载进度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、视频播放">二、视频播放</h2><ul>
+<li><p>1.音乐播放中2&gt; 3&gt; 4&gt;</p>
+</li>
+<li><p>2.VLC</p>
+</li>
+<li><p>3.FFmpeg</p>
+<ul>
+<li>kxmovie</li>
+<li>Vitamio</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、录音">三、录音</h2><ul>
+<li>1.AVAudioRecorder</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS/">iOS</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2013/09/22/音频/" data-title="音视频 | Bloging" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2013/09/26/格式化时间显示/" title="格式化时间显示">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  格式化时间显示</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2013/09/21/数据存储/"  title="数据存储">
+ <strong>NEXT:</strong><br/> 
+ <span>数据存储
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#音视频"><span class="toc-number">1.</span> <span class="toc-text">音视频</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#录音_AVFoundation-h"><span class="toc-number">1.1.</span> <span class="toc-text">录音 AVFoundation.h</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#播放音效"><span class="toc-number">1.2.</span> <span class="toc-text">播放音效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#播放音乐"><span class="toc-number">1.3.</span> <span class="toc-text">播放音乐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#毛玻璃效果实现"><span class="toc-number">1.4.</span> <span class="toc-text">毛玻璃效果实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QQ音乐"><span class="toc-number">1.5.</span> <span class="toc-text">QQ音乐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AVPlayer（远程音乐/视频）"><span class="toc-number">1.6.</span> <span class="toc-text">AVPlayer（远程音乐/视频）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.7.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、音频播放"><span class="toc-number">1.7.1.</span> <span class="toc-text">一、音频播放</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、视频播放"><span class="toc-number">1.8.</span> <span class="toc-text">二、视频播放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、录音"><span class="toc-number">1.9.</span> <span class="toc-text">三、录音</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/tags/autolayout/" title="autolayout">autolayout<sup>1</sup></a></li>
+		
+			<li><a href="/tags/iOS/" title="iOS">iOS<sup>21</sup></a></li>
+		
+			<li><a href="/tags/iPad/" title="iPad">iPad<sup>1</sup></a></li>
+		
+			<li><a href="/tags/scrollView/" title="scrollView">scrollView<sup>1</sup></a></li>
+		
+			<li><a href="/tags/换肤/" title="换肤">换肤<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://yoursite.com" target="_blank" title="Mr Song">Mr Song</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

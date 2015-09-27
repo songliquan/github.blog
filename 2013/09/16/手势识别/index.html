@@ -1,0 +1,379 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>手势识别 | Bloging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Mr Song">
+    
+    <meta name="description" content="手势识别 
+UIGestureRecognizer
+利用UIGestureRecognizer，能轻松识别用户在某个view上面做的一些常见手势UIGestureRecognizer是一个抽象类，定义了所有手势的基本行为，使用它的子类才能处理具体的手势
+
+123456UITapGestureReco">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/09/16/手势识别/" title="手势识别" itemprop="url">手势识别</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Mr Song">Mr Song</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2013-09-16T06:48:09.000Z" itemprop="datePublished">2013-09-16</time>
+    更新日期:<time datetime="2015-09-27T04:32:42.000Z" itemprop="dateModified">2015-09-27</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#手势识别"><span class="toc-number">1.</span> <span class="toc-text">手势识别</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UIGestureRecognizer"><span class="toc-number">1.1.</span> <span class="toc-text">UIGestureRecognizer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逐个实现每个手势"><span class="toc-number">1.2.</span> <span class="toc-text">逐个实现每个手势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、点按_UITapGestureRecognizer"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、点按 UITapGestureRecognizer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、捏合_可以使用两个手指进行缩放_UIPinchGestureRecognizer"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、捏合 可以使用两个手指进行缩放 UIPinchGestureRecognizer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、长按_UILongPressGestureRecognizer"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、长按 UILongPressGestureRecognizer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、清扫_轻轻向某个方向滑动"><span class="toc-number">1.2.4.</span> <span class="toc-text">4、清扫 轻轻向某个方向滑动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、旋转_UIRotationGestureRecognizer"><span class="toc-number">1.2.5.</span> <span class="toc-text">5、旋转 UIRotationGestureRecognizer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、拖拽_UIPanGestureRecognizer"><span class="toc-number">1.2.6.</span> <span class="toc-text">6、拖拽  UIPanGestureRecognizer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手势使用例子"><span class="toc-number">1.3.</span> <span class="toc-text">手势使用例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抽屉效果的实现"><span class="toc-number">1.3.1.</span> <span class="toc-text">抽屉效果的实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#宏的书写规则"><span class="toc-number">1.4.</span> <span class="toc-text">宏的书写规则</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="手势识别">手势识别</h1><p> <img src="../images/手势识别效果.gif" alt=""></p>
+<h2 id="UIGestureRecognizer">UIGestureRecognizer</h2><ul>
+<li>利用UIGestureRecognizer，能轻松识别用户在某个view上面做的一些常见手势<br>UIGestureRecognizer是一个抽象类，定义了所有手势的基本行为，使用它的子类才能处理具体的手势</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UITapGestureRecognizer</span>(敲击)</span><br><span class="line"><span class="built_in">UIPinchGestureRecognizer</span>(捏合，用于缩放)</span><br><span class="line"><span class="built_in">UIPanGestureRecognizer</span>(拖拽)</span><br><span class="line"><span class="built_in">UISwipeGestureRecognizer</span>(轻扫)</span><br><span class="line"><span class="built_in">UIRotationGestureRecognizer</span>(旋转)</span><br><span class="line"><span class="built_in">UILongPressGestureRecognizer</span>(长按)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用方法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建点按手势</span></span><br><span class="line"><span class="built_in">UITapGestureRecognizer</span> *gesture = [[<span class="built_in">UITapGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(tap:)];</span><br><span class="line"><span class="comment">// 给imageView添加手势，默认imageView不响应事件</span></span><br><span class="line"><span class="comment">// 设置imageView 响应事件</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.userInteractionEnabled</span> = <span class="literal">YES</span>;</span><br><span class="line">[<span class="keyword">self</span><span class="variable">.imageView</span> addGestureRecognizer:gesture];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>响应手势事件，可以在里面进行形变</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 响应手势事件</span></span><br><span class="line">- (<span class="keyword">void</span>)tap:(<span class="built_in">UITapGestureRecognizer</span> *)tap</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,__func__);</span><br><span class="line">    <span class="comment">// 旋转</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span> = <span class="built_in">CGAffineTransformRotate</span>(<span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span>, M_PI_4);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>手势的状态</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">UIGestureRecognizerState</span>) &#123;</span><br><span class="line">    <span class="comment">// 没有触摸事件发生，所有手势识别的默认状态</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStatePossible</span>,</span><br><span class="line">    <span class="comment">// 一个手势已经开始但尚未改变或者完成时</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStateBegan</span>,</span><br><span class="line">    <span class="comment">// 手势状态改变</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStateChanged</span>,</span><br><span class="line">    <span class="comment">// 手势完成</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStateEnded</span>,</span><br><span class="line">    <span class="comment">// 手势取消，恢复至Possible状态</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStateCancelled</span>,</span><br><span class="line">    <span class="comment">// 手势失败，恢复至Possible状态</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStateFailed</span>,</span><br><span class="line">    <span class="comment">// 识别到手势识别</span></span><br><span class="line">    <span class="built_in">UIGestureRecognizerStateRecognized</span> = <span class="built_in">UIGestureRecognizerStateEnded</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>手势的一些代理方法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark -  手势代理方法</span></span><br><span class="line"><span class="comment">// 是否开始手势</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)gestureRecognizerShouldBegin:(<span class="built_in">UIGestureRecognizer</span> *)gestureRecognizer</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//是否允许同时支持多个手势，默认是不支持多个手势</span></span><br><span class="line"><span class="comment">// 返回yes表示支持多个手势</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)gestureRecognizer:(<span class="built_in">UIGestureRecognizer</span> *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(<span class="built_in">UIGestureRecognizer</span> *)otherGestureRecognizer</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 是否允许接收手指的触摸点</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)gestureRecognizer:(<span class="built_in">UIGestureRecognizer</span> *)gestureRecognizer shouldReceiveTouch:(<span class="built_in">UITouch</span> *)touch</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//    NSLog(@"%@",touch);</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="逐个实现每个手势">逐个实现每个手势</h2><h3 id="1、点按_UITapGestureRecognizer">1、点按 UITapGestureRecognizer</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 各种手势</span></span><br><span class="line"><span class="comment">// UITapGestureRecognizer</span></span><br><span class="line"><span class="comment">// 点按</span></span><br><span class="line">- (<span class="keyword">void</span>)tapImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 创建点按手势</span></span><br><span class="line">    <span class="built_in">UITapGestureRecognizer</span> *gestur = [[<span class="built_in">UITapGestureRecognizeralloc</span>] initWithTarget:selfaction:<span class="keyword">@selector</span>(tap:)];</span><br><span class="line">    <span class="comment">// 给imageView添加手势，默认imageView不响应事件</span></span><br><span class="line">    gestur<span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">    gestur<span class="variable">.numberOfTapsRequired</span> = <span class="number">2</span>; <span class="comment">// 点击次数</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.imageView</span> addGestureRecognizer:gestur];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 响应点按手势事件</span></span><br><span class="line">- (<span class="keyword">void</span>)tap:(<span class="built_in">UITapGestureRecognizer</span> *)tap</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 连续点按两次就更换显示图片</span></span><br><span class="line">    <span class="keyword">if</span> (tap<span class="variable">.numberOfTapsRequired</span> == <span class="number">2</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.image</span> = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"qianbao"</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2、捏合_可以使用两个手指进行缩放_UIPinchGestureRecognizer">2、捏合 可以使用两个手指进行缩放 UIPinchGestureRecognizer</h3> <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//UIPinchGestureRecognizer</span></span><br><span class="line"><span class="comment">// 捏合，可以缩放</span></span><br><span class="line">- (<span class="keyword">void</span>)pinchImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIPinchGestureRecognizer</span> *pinch = [[<span class="built_in">UIPinchGestureRecognizeralloc</span>] initWithTarget:selfaction:<span class="keyword">@selector</span>(pinch:)];</span><br><span class="line">   <span class="comment">//pinch.delegate = self;</span></span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.imageViewaddGestureRecognizer</span>:pinch];</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)pinch:(<span class="built_in">UIPinchGestureRecognizer</span> *)pinch</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span> = <span class="built_in">CGAffineTransformScale</span>(<span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span>, pinch<span class="variable">.scale</span>,pinch<span class="variable">.scale</span>);</span><br><span class="line">    <span class="comment">// 复位</span></span><br><span class="line">    pinch<span class="variable">.scale</span> = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3、长按_UILongPressGestureRecognizer">3、长按 UILongPressGestureRecognizer</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// UILongPressGestureRecognizer</span></span><br><span class="line"><span class="comment">// 长按,默认会触发两次,开始时调用一次，结束时调用一次，可以根据手势状态</span></span><br><span class="line">- (<span class="keyword">void</span>)longPressImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UILongPressGestureRecognizer</span> *longPress = [[<span class="built_in">UILongPressGestureRecognizeralloc</span>] initWithTarget:selfaction:<span class="keyword">@selector</span>(longPress:)];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.imageView</span> addGestureRecognizer:longPress];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)longPress:(<span class="built_in">UILongPressGestureRecognizer</span> *)longP</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 判断手势状态，只在手势开始的时候执行。</span></span><br><span class="line">    <span class="keyword">if</span>(longP<span class="variable">.state</span> == <span class="built_in">UIGestureRecognizerStateBegan</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span> = <span class="built_in">CGAffineTransformRotate</span>(<span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span>, M_PI);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4、清扫_轻轻向某个方向滑动">4、清扫 轻轻向某个方向滑动</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// UISwipeGestureRecognizer</span></span><br><span class="line"><span class="comment">// 清扫手势，默认向右</span></span><br><span class="line">- (<span class="keyword">void</span>)swipeImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UISwipeGestureRecognizer</span> *swipe = [[<span class="built_in">UISwipeGestureRecognizeralloc</span>] initWithTarget:selfaction:<span class="keyword">@selector</span>(swipe:)];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.imageViewaddGestureRecognizer</span>:swipe];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果以后想要一个控件支持多个方向的轻扫，必须创建多个轻扫手势，一个轻扫手势只支持一个方向</span></span><br><span class="line">    <span class="comment">// 默认轻扫的方向是往右</span></span><br><span class="line">    <span class="built_in">UISwipeGestureRecognizer</span> *swipeUp = [[<span class="built_in">UISwipeGestureRecognizeralloc</span>] initWithTarget:selfaction:<span class="keyword">@selector</span>(swipe:)];</span><br><span class="line">    swipeUp<span class="variable">.direction</span> = <span class="built_in">UISwipeGestureRecognizerDirectionUp</span>;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.imageView</span> addGestureRecognizer:swipeUp];</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)swipe:(<span class="built_in">UISwipeGestureRecognizer</span> *)swipe</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 输出状态</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s\n%ld"</span>,__func__,swipe<span class="variable">.direction</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="5、旋转_UIRotationGestureRecognizer">5、旋转 UIRotationGestureRecognizer</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// UIRotationGestureRecognizer</span></span><br><span class="line"><span class="comment">// 旋转手势</span></span><br><span class="line">- (<span class="keyword">void</span>)rotateImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIRotationGestureRecognizer</span> *rotate = [[<span class="built_in">UIRotationGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(rotate:)];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.imageView</span> addGestureRecognizer:rotate];</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)rotate:(<span class="built_in">UIRotationGestureRecognizer</span> *)rotate</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span> = <span class="built_in">CGAffineTransformRotate</span>(<span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span>, rotate<span class="variable">.rotation</span>);</span><br><span class="line">    <span class="comment">// 复位</span></span><br><span class="line">    rotate<span class="variable">.rotation</span> = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6、拖拽_UIPanGestureRecognizer">6、拖拽  UIPanGestureRecognizer</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拖拽</span></span><br><span class="line">- (<span class="keyword">void</span>)panImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIPanGestureRecognizer</span> *pan = [[<span class="built_in">UIPanGestureRecognizeralloc</span>] initWithTarget:selfaction:<span class="keyword">@selector</span>(pan:)];</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.imageViewaddGestureRecognizer</span>:pan];</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)pan:(<span class="built_in">UIPanGestureRecognizer</span> *)pan</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 获取手势移动点</span></span><br><span class="line">    <span class="built_in">CGPoint</span> curP = [pan translationInView:<span class="keyword">self</span><span class="variable">.imageView</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span> = <span class="built_in">CGAffineTransformTranslate</span>(<span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span>, curP<span class="variable">.x</span>, curP<span class="variable">.y</span>);</span><br><span class="line">    <span class="comment">// 复位,一定要复位</span></span><br><span class="line">    [pan setTranslation:<span class="built_in">CGPointZeroinView</span>:<span class="keyword">self</span><span class="variable">.imageView</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在视图加载时进行调用即可</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line">    <span class="comment">// 设置imageView 响应事件</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.userInteractionEnabled</span> = <span class="literal">YES</span>;</span><br><span class="line">    <span class="comment">// 点按图形</span></span><br><span class="line">    [<span class="keyword">self</span> tapImage];</span><br><span class="line">    <span class="comment">// 长按</span></span><br><span class="line">    [selflongPressImage];</span><br><span class="line">    <span class="comment">// 清扫</span></span><br><span class="line">    [<span class="keyword">self</span> swipeImage];</span><br><span class="line">    <span class="comment">// 旋转</span></span><br><span class="line">    [<span class="keyword">self</span> rotateImage];</span><br><span class="line">    <span class="comment">// 缩放</span></span><br><span class="line">    [<span class="keyword">self</span> pinchImage];</span><br><span class="line">    <span class="comment">// 拖拽</span></span><br><span class="line"><span class="comment">//    [self panImage];</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="手势使用例子">手势使用例子</h2><h3 id="抽屉效果的实现">抽屉效果的实现</h3><ul>
+<li>1、需要三个视图，一个主视图，两个底部视图</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>,<span class="keyword">weak</span>) <span class="built_in">UIView</span> *mainView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>,<span class="keyword">weak</span>) <span class="built_in">UIView</span> *leftView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>,<span class="keyword">weak</span>) <span class="built_in">UIView</span> *rightView;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2、初始化界面</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化界面</span></span><br><span class="line">- (<span class="keyword">void</span>)initUI</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 左划显示视图</span></span><br><span class="line">    <span class="built_in">UIView</span> *left = [[<span class="built_in">UIView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.leftView</span> = left;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.leftView</span><span class="variable">.backgroundColor</span>  = [<span class="built_in">UIColorblueColor</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addSubview:<span class="keyword">self</span><span class="variable">.leftView</span>];</span><br><span class="line">    <span class="comment">// 右划显示视图</span></span><br><span class="line">    <span class="built_in">UIView</span> *right = [[<span class="built_in">UIView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.rightView</span> = right;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.rightView</span><span class="variable">.backgroundColor</span>  = [<span class="built_in">UIColorgreenColor</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addSubview:<span class="keyword">self</span><span class="variable">.rightView</span>];</span><br><span class="line">    <span class="comment">// 主视图</span></span><br><span class="line">    <span class="built_in">UIView</span> *main = [[<span class="built_in">UIView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.bounds</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.mainView</span> = main;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.mainView</span><span class="variable">.backgroundColor</span>  = [<span class="built_in">UIColorredColor</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addSubview:<span class="keyword">self</span><span class="variable">.mainView</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3、添加手势</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化界面</span></span><br><span class="line">    [<span class="keyword">self</span> initUI];</span><br><span class="line">    <span class="comment">//添加手势</span></span><br><span class="line">    <span class="built_in">UIPanGestureRecognizer</span> *pan = [[<span class="built_in">UIPanGestureRecognizeralloc</span>] initWithTarget:selfaction:<span class="keyword">@selector</span>(pan:)];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addGestureRecognizer:pan];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>手势监听方法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#define kLeft -250</span></span><br><span class="line"><span class="preprocessor">#define kRight 275</span></span><br><span class="line">- (<span class="keyword">void</span>)pan:(<span class="built_in">UIPanGestureRecognizer</span> *)pan</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//获取当前点</span></span><br><span class="line">    <span class="built_in">CGPoint</span> curP = [pan translationInView:<span class="keyword">self</span><span class="variable">.view</span>]; <span class="comment">// 转换指定view的位置</span></span><br><span class="line">    <span class="comment">// x轴偏移，y轴改变，宽度高度都跟着改变</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.mainView</span><span class="variable">.frame</span> = [<span class="keyword">self</span> frameWithOffsetX:curP<span class="variable">.x</span>];</span><br><span class="line">    <span class="comment">// 更新几个视图的状态</span></span><br><span class="line">    [<span class="keyword">self</span> observeValueForKeyPath:<span class="literal">nil</span> ofObject:<span class="literal">nil</span> change:<span class="literal">nil</span> context:<span class="literal">nil</span>];</span><br><span class="line">    <span class="comment">// 复位</span></span><br><span class="line">    [pan setTranslation:<span class="built_in">CGPointZero</span> inView:<span class="keyword">self</span><span class="variable">.view</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定位,手势结束后进行判断</span></span><br><span class="line">    <span class="keyword">if</span> (pan<span class="variable">.state</span> == <span class="built_in">UIGestureRecognizerStateEnded</span>) &#123;</span><br><span class="line">        <span class="comment">// 左划</span></span><br><span class="line">        <span class="built_in">CGFloat</span> target = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//  如果向右滑动操作屏幕的一半就定位到 275</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.mainView</span><span class="variable">.frame</span><span class="variable">.origin</span><span class="variable">.x</span> &gt; kWidth * <span class="number">0.5</span>) &#123;</span><br><span class="line">            target = kRight;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 否则就定位到 -250</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">CGRectGetMaxX</span>(<span class="keyword">self</span><span class="variable">.mainView</span><span class="variable">.frame</span>) &lt; kWidth * <span class="number">0.5</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            target = kLeft;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获得x轴的偏移量</span></span><br><span class="line">        <span class="built_in">CGFloat</span> offsetX = target - <span class="keyword">self</span><span class="variable">.mainView</span><span class="variable">.frame</span><span class="variable">.origin</span><span class="variable">.x</span> ;</span><br><span class="line"></span><br><span class="line">       [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.25</span> animations:^&#123;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">if</span> (target == <span class="number">0</span>)</span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">self</span><span class="variable">.mainView</span><span class="variable">.frame</span> = <span class="keyword">self</span><span class="variable">.view</span><span class="variable">.bounds</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">else</span></span><br><span class="line">           &#123;</span><br><span class="line">               <span class="keyword">self</span><span class="variable">.mainView</span><span class="variable">.frame</span> = [<span class="keyword">self</span> frameWithOffsetX:offsetX];</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>每次滑动时都要判断要显示的底部视图，显示left还是right,根据x值就可以判断</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听frame属性的改变</span></span><br><span class="line"><span class="comment">// 只要监听的属性一改变，就会调用观察者的这个方法，通知你有新值</span></span><br><span class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">id</span>)object change:(<span class="built_in">NSDictionary</span> *)change context:(<span class="keyword">void</span> *)context</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 更新几个视图的状态</span></span><br><span class="line">    <span class="comment">// 判断x坐标大小，大于0向右滑动，小于0 向左滑动</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">self</span><span class="variable">.mainView</span><span class="variable">.frame</span><span class="variable">.origin</span><span class="variable">.x</span> &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.rightView</span><span class="variable">.hidden</span> = <span class="literal">YES</span>;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.leftView</span><span class="variable">.hidden</span> = <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.rightView</span><span class="variable">.hidden</span> = <span class="literal">NO</span>;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.leftView</span><span class="variable">.hidden</span> = <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>每次滑动都要随时判断frame的状态，在方法 frameWithOffsetX 中进行判断</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#define kWidth 80 // 距离顶部最大距离</span></span><br><span class="line"><span class="comment">// 计算frame的位置信息</span></span><br><span class="line">- (<span class="built_in">CGRect</span>)frameWithOffsetX:(<span class="built_in">CGFloat</span>)offsetX</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGRect</span> frame = <span class="keyword">self</span><span class="variable">.mainView</span><span class="variable">.frame</span>;</span><br><span class="line">    <span class="comment">// 获得x轴偏移量</span></span><br><span class="line">    frame<span class="variable">.origin</span><span class="variable">.x</span> += offsetX;</span><br><span class="line">    <span class="comment">// 获得屏幕宽度好高度</span></span><br><span class="line">    <span class="built_in">CGFloat</span> screenW = [<span class="built_in">UIScreenmainScreen</span>]<span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> screenH = [<span class="built_in">UIScreenmainScreen</span>]<span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.height</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// y轴偏移量</span></span><br><span class="line">    <span class="built_in">CGFloat</span> offsetY = offsetX * kWidth / screenW;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获得上一次的高度</span></span><br><span class="line">    <span class="built_in">CGFloat</span> preH = frame<span class="variable">.size</span><span class="variable">.height</span>;</span><br><span class="line">    <span class="comment">// 获得上一次的宽度</span></span><br><span class="line">    <span class="built_in">CGFloat</span> preW = frame<span class="variable">.size</span><span class="variable">.width</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当前的高度</span></span><br><span class="line">    <span class="built_in">CGFloat</span> curH = preH - <span class="number">2</span> * offsetY;</span><br><span class="line">    <span class="keyword">if</span> (frame<span class="variable">.origin</span><span class="variable">.x</span> &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        curH = preH + <span class="number">2</span> * offsetY;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取缩放比例</span></span><br><span class="line">    <span class="built_in">CGFloat</span> scale = curH / preH;</span><br><span class="line">    <span class="comment">// 当前的宽度</span></span><br><span class="line">    <span class="built_in">CGFloat</span> curW = preW * scale;</span><br><span class="line">    <span class="comment">// 设置frame</span></span><br><span class="line">    frame<span class="variable">.origin</span><span class="variable">.y</span> = (screenH - curH) / <span class="number">2</span>;</span><br><span class="line">    frame<span class="variable">.size</span><span class="variable">.height</span> = curH;</span><br><span class="line">    frame<span class="variable">.size</span><span class="variable">.width</span> = curW;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> frame;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>4、自动提示宏</p>
+<ul>
+<li>在使用KVO对某个属性进行监听时，如果参数直接传入字符串，很有可能写错。可以使用自动提示宏来自动提示要监视的属性。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 使用KVO时刻监听属性的改变</span></span><br><span class="line">    <span class="comment">// Observer:观察者 谁想监听</span></span><br><span class="line">    <span class="comment">// KeyPath：监听的属性</span></span><br><span class="line">    <span class="comment">// options:监听新值的改变</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.mainViewaddObserver</span>:selfforKeyPath:keyPath(<span class="keyword">self</span><span class="variable">.mainView</span>, frame) options:<span class="built_in">NSKeyValueObservingOptionNewcontext</span>:<span class="literal">nil</span>];</span><br><span class="line">    <span class="comment">// 为了防止给属性添加监视器时写错，可以使用自动提示宏来传参数</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.mainView</span> addObserver:<span class="keyword">self</span> forKeyPath:@“frame”options:<span class="built_in">NSKeyValueObservingOptionNew</span> context:<span class="literal">nil</span>];</span><br><span class="line">在方法  observeValueForKeyPath  中对属性改变进行监听。</span><br></pre></td></tr></table></figure>
+<h2 id="宏的书写规则">宏的书写规则</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自动提示宏</span></span><br><span class="line"><span class="comment">// 宏的操作原理，每输入一个字母就会直接把宏右边的拷贝，并且会自动补齐前面的内容。</span></span><br><span class="line"><span class="comment">// 宏里面的#，会自动把后面的参数变成C语言的字符串,</span></span><br><span class="line"><span class="comment">// (obj.keyPath,keyPath) 逗号表达式，最终结果取keyPath</span></span><br><span class="line"><span class="comment">// void表示不使用这个参数的返回结果</span></span><br><span class="line"><span class="comment">// @() 表示把c语言字符串转换成OC字符串</span></span><br><span class="line"><span class="preprocessor">#define keyPath(obj,keyPath) @(((void)obj.keyPath,#keyPath))</span></span><br></pre></td></tr></table></figure>
+<p><a href="http://www.cnblogs.com/songliquan/" target="_blank" rel="external">http://www.cnblogs.com/songliquan/</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS/">iOS</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2013/09/16/手势识别/" data-title="手势识别 | Bloging" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2013/09/16/真机调试-分享-推动通知/" title="真机调试-分享-推送通知">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  真机调试-分享-推送通知</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2013/09/14/UITableView总结/"  title="UITableView总结">
+ <strong>NEXT:</strong><br/> 
+ <span>UITableView总结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#手势识别"><span class="toc-number">1.</span> <span class="toc-text">手势识别</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UIGestureRecognizer"><span class="toc-number">1.1.</span> <span class="toc-text">UIGestureRecognizer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逐个实现每个手势"><span class="toc-number">1.2.</span> <span class="toc-text">逐个实现每个手势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、点按_UITapGestureRecognizer"><span class="toc-number">1.2.1.</span> <span class="toc-text">1、点按 UITapGestureRecognizer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、捏合_可以使用两个手指进行缩放_UIPinchGestureRecognizer"><span class="toc-number">1.2.2.</span> <span class="toc-text">2、捏合 可以使用两个手指进行缩放 UIPinchGestureRecognizer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、长按_UILongPressGestureRecognizer"><span class="toc-number">1.2.3.</span> <span class="toc-text">3、长按 UILongPressGestureRecognizer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、清扫_轻轻向某个方向滑动"><span class="toc-number">1.2.4.</span> <span class="toc-text">4、清扫 轻轻向某个方向滑动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、旋转_UIRotationGestureRecognizer"><span class="toc-number">1.2.5.</span> <span class="toc-text">5、旋转 UIRotationGestureRecognizer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、拖拽_UIPanGestureRecognizer"><span class="toc-number">1.2.6.</span> <span class="toc-text">6、拖拽  UIPanGestureRecognizer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#手势使用例子"><span class="toc-number">1.3.</span> <span class="toc-text">手势使用例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抽屉效果的实现"><span class="toc-number">1.3.1.</span> <span class="toc-text">抽屉效果的实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#宏的书写规则"><span class="toc-number">1.4.</span> <span class="toc-text">宏的书写规则</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/tags/autolayout/" title="autolayout">autolayout<sup>1</sup></a></li>
+		
+			<li><a href="/tags/iOS/" title="iOS">iOS<sup>21</sup></a></li>
+		
+			<li><a href="/tags/iPad/" title="iPad">iPad<sup>1</sup></a></li>
+		
+			<li><a href="/tags/scrollView/" title="scrollView">scrollView<sup>1</sup></a></li>
+		
+			<li><a href="/tags/换肤/" title="换肤">换肤<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://yoursite.com" target="_blank" title="Mr Song">Mr Song</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

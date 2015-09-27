@@ -1,0 +1,437 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>数据存储 | Bloging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Mr Song">
+    
+    <meta name="description" content="数据存储
+IOS数据存储的几种方式
+XML属性列表（plist）
+归档 Preference(偏好设置)
+NSKeyedArchiver归档(NSCoding)
+SQLite3
+Core Data
+
+
+
+沙盒
+每个iOS应用都有自己的应用沙盒(应用沙盒就是文件系统目录)，与其他文件系统隔离。应用必须">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/09/21/数据存储/" title="数据存储" itemprop="url">数据存储</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Mr Song">Mr Song</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2013-09-21T06:48:09.000Z" itemprop="datePublished">2013-09-21</time>
+    更新日期:<time datetime="2015-09-27T04:33:01.000Z" itemprop="dateModified">2015-09-27</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据存储"><span class="toc-number">1.</span> <span class="toc-text">数据存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#沙盒"><span class="toc-number">1.1.</span> <span class="toc-text">沙盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1、plist文件"><span class="toc-number">1.2.</span> <span class="toc-text">1、plist文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、Preference_偏好设置"><span class="toc-number">1.3.</span> <span class="toc-text">2、Preference 偏好设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、NSKeyedArchiver_归档"><span class="toc-number">1.4.</span> <span class="toc-text">3、NSKeyedArchiver 归档</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="数据存储">数据存储</h1><ul>
+<li>IOS数据存储的几种方式<ul>
+<li>XML属性列表（plist）</li>
+<li>归档 Preference(偏好设置)</li>
+<li>NSKeyedArchiver归档(NSCoding)</li>
+<li>SQLite3</li>
+<li>Core Data</li>
+</ul>
+</li>
+</ul>
+<h2 id="沙盒">沙盒</h2><ul>
+<li>每个iOS应用都有自己的应用沙盒(应用沙盒就是文件系统目录)，与其他文件系统隔离。应用必须待在自己的沙盒里，其他应用不能访问该沙盒。沙盒的结构如下所示：</li>
+</ul>
+<p><img src="../images/屏幕快照 2015-06-13 19.05.06.png" alt=""></p>
+<p><img src="../images/屏幕快照 2015-06-13 19.08.29.png" alt=""></p>
+<ul>
+<li><p>分类</p>
+<ul>
+<li>应用程序包：(上图中的QQ.app)包含了所有的资源文件和可执行文件。</li>
+<li>Documents：保存应用运行时生成的需要持久化的数据，iTunes同步设备时会备份该目录。例如，游戏应用可将游戏存档保存在该目录。</li>
+<li>tmp：保存应用运行时所需的临时数据，使用完毕后再将相应的文件从该目录删除。应用没有运行时，系统也可能会清除该目录下的文件。iTunes同步设备时不会备份该目录。</li>
+<li>Library/Caches：保存应用运行时生成的需要持久化的数据，iTunes同步设备时不会备份该目录。一般存储体积大、不需要备份的非重要数据。</li>
+<li>Library/Preference：保存应用的所有偏好设置，iOS的Settings(设置)应用会在该目录中查找应用的设置信息。iTunes同步设备时会备份该目录。</li>
+</ul>
+</li>
+<li><p>每个目录的获取方法</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 临时目录</span></span><br><span class="line"><span class="built_in">NSString</span> *path = <span class="built_in">NSTemporaryDirectory</span>();</span><br><span class="line"><span class="comment">// /Users/song/Library/Developer/CoreSimulator/Devices/B040D34E-CF0E-41C2-9BD0-C309566CC349/data/Containers/Data/Application/A8519BA5-FB34-4B31-BB72-3948264AFB37/tmp/</span></span><br><span class="line"><span class="comment">// 主目录</span></span><br><span class="line"><span class="built_in">NSString</span> *path = <span class="built_in">NSHomeDirectory</span>();</span><br><span class="line"><span class="comment">//  /Users/song/Library/Developer/CoreSimulator/Devices/B040D34E-CF0E-41C2-9BD0-C309566CC349/data/Containers/Data/Application/E6A8A443-55CA-463B-886C-DAAF69E8F3BC</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Documents 目录，第三个参数为yes显示全路径，为NO时显示位波浪线 “~”</span></span><br><span class="line"><span class="built_in">NSString</span> *path1 = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="comment">// /Users/song/Library/Developer/CoreSimulator/Devices/B040D34E-CF0E-41C2-9BD0-C309566CC349/data/Containers/Data/Application/61B033AA-BBFB-4A3A-AD6E-2E332B78C2ED/Documents</span></span><br><span class="line"><span class="built_in">NSString</span> *path1 = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">NO</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//  ~/Documents</span></span><br><span class="line"><span class="comment">// cache 目录</span></span><br><span class="line"><span class="built_in">NSString</span> *path2 =<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="comment">// /Users/song/Library/Developer/CoreSimulator/Devices/B040D34E-CF0E-41C2-9BD0-C309566CC349/data/Containers/Data/Application/1B4923AF-4B1F-4C7A-941E-D3621D7945C3/Library/Caches</span></span><br><span class="line"><span class="comment">// PreferencePanes 目录</span></span><br><span class="line"><span class="built_in">NSString</span> *path2 =<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSPreferencePanesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="comment">// /Users/song/Library/Developer/CoreSimulator/Devices/B040D34E-CF0E-41C2-9BD0-C309566CC349/data/Containers/Data/Application/D654173E-DC23-4951-8C28-016878B5246B/Library/PreferencePanes</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>还有一个特殊的单例对象用来保存用户设置</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认保存到PreferencePanes目录</span></span><br><span class="line">[[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:@“hah” forKey:<span class="string">@"1"</span>];</span><br><span class="line">[[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setBool:<span class="literal">YES</span> forKey:@“<span class="number">2</span>”];</span><br></pre></td></tr></table></figure>
+<h2 id="1、plist文件">1、plist文件</h2><ul>
+<li><p>属性列表是一种XML格式的文件，拓展名为plist</p>
+</li>
+<li><p>如果对象是NSString、NSDictionary、NSArray、NSData、NSNumber等类型，就可以使用writeToFile:atomically:方法直接将对象写到属性列表文件中.</p>
+</li>
+<li><p>保存数据</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// plist保存数据</span></span><br><span class="line"><span class="comment">// 保存用户名、密码、记住密码、自动登录</span></span><br><span class="line"><span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionarydictionary</span>];</span><br><span class="line">[dict setObject:_userField<span class="variable">.text</span> forKey:<span class="string">@"user"</span>];</span><br><span class="line">[dict setObject:_pwdField<span class="variable">.text</span> forKey:<span class="string">@"pwd"</span>];</span><br><span class="line">[dict setObject:@(_rmbPwdSwitch<span class="variable">.on</span>) forKey:<span class="string">@"rmb"</span>];</span><br><span class="line">[dict setObject:@(_autoLoginSwitch<span class="variable">.on</span>) forKey:<span class="string">@"auto"</span>];</span><br><span class="line"><span class="comment">// 获取cache路径</span></span><br><span class="line"><span class="built_in">NSString</span> *cachePath = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="comment">// 取得文件的全路径</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [cachePath stringByAppendingPathComponent:<span class="string">@"userInfo.plist"</span>];</span><br><span class="line"><span class="comment">// 写入到文件</span></span><br><span class="line">        [dict writeToFile:filePath atomically:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
+<p><img src="../images/屏幕快照 2015-06-13 19.49.39.png" alt=""></p>
+<p><img src="../images/屏幕快照 2015-06-13 19.49.57.png" alt=""></p>
+<ul>
+<li>读取数据</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取plist中数据，显示在textField中</span></span><br><span class="line"><span class="comment">// 获取cache路径</span></span><br><span class="line"><span class="built_in">NSString</span> *cachePath = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="comment">// 取得文件的全路径</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [cachePath stringByAppendingPathComponent:<span class="string">@"userInfo.plist"</span>];</span><br><span class="line"><span class="comment">// 读取字典数据</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *dict = [<span class="built_in">NSDictionary</span> dictionaryWithContentsOfFile:filePath];</span><br><span class="line"><span class="comment">// 给控件赋值</span></span><br><span class="line"><span class="built_in">NSString</span> *userName = dict[<span class="string">@"user"</span>];</span><br><span class="line"><span class="built_in">NSString</span> *pwd  = dict[<span class="string">@"pwd"</span>];</span><br><span class="line"><span class="built_in">BOOL</span> rmb =  dict[<span class="string">@"rmb"</span>];</span><br><span class="line"><span class="built_in">BOOL</span> autoLogin = dict[<span class="string">@"autoLogin"</span>];</span><br><span class="line"></span><br><span class="line">_userField<span class="variable">.text</span> = userName;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (rmb == <span class="literal">YES</span>)</span><br><span class="line">&#123;</span><br><span class="line">    _pwdField<span class="variable">.text</span> = pwd;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_rmbPwdSwitch<span class="variable">.on</span> = rmb;</span><br><span class="line">_autoLoginSwitch<span class="variable">.on</span> = autoLogin;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>这里目前还有问题，那就是读取出来的bool变量全是YES。等明天研究一下再。</p>
+</li>
+<li><p>问题出来了，读取字典中得bool变量时要转换一下</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 给控件赋值</span></span><br><span class="line"><span class="built_in">NSString</span> *userName = dict[<span class="string">@"user"</span>];</span><br><span class="line"><span class="built_in">NSString</span> *pwd  = dict[<span class="string">@"pwd"</span>];</span><br><span class="line"><span class="built_in">BOOL</span> rmbPwd =  [dict[<span class="string">@"rmb"</span>] boolValue]; <span class="comment">// 要转换一下，不然读取结果不准确</span></span><br><span class="line"><span class="built_in">BOOL</span> login = [dict[<span class="string">@"autoLogin"</span>] boolValue];</span><br></pre></td></tr></table></figure>
+<h2 id="2、Preference_偏好设置">2、Preference 偏好设置</h2><ul>
+<li><p>内部实现也是一个plist文件。不过是否系统控制路径和名称。只需写入和读取就行，不用关系细节。</p>
+</li>
+<li><p>写入数据</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// preference 偏好设置</span></span><br><span class="line"> <span class="built_in">NSUserDefaults</span> *userDefault = [<span class="built_in">NSUserDefaults</span> standardUserDefaults]; <span class="comment">// 单例对象</span></span><br><span class="line">[userDefault setObject:_userField<span class="variable">.text</span> forKey:<span class="string">@"user"</span>];</span><br><span class="line">[userDefault setObject:_pwdField<span class="variable">.text</span> forKey:<span class="string">@"pwd"</span>];</span><br><span class="line">[userDefault setBool:_rmbPwdSwitch<span class="variable">.on</span> forKey:<span class="string">@"rmb"</span>];</span><br><span class="line">[userDefault setBool:_autoLoginSwitch<span class="variable">.on</span> forKey:<span class="string">@"autoLogin"</span>];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>读取数据</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 偏好设置，读取数据，</span></span><br><span class="line"><span class="built_in">NSUserDefaults</span> *userDefault = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line"><span class="built_in">NSString</span> *name = [userDefault stringForKey:<span class="string">@"user"</span>];</span><br><span class="line"><span class="built_in">NSString</span> *pwd = [userDefault stringForKey:<span class="string">@"pwd"</span>];</span><br><span class="line"><span class="built_in">BOOL</span> rmbPwd = [[userDefault boolForKey:@“rmb”] boolValue];</span><br><span class="line"><span class="built_in">BOOL</span> login = [[userDefault boolForKey:@“autoLogin”] boolValue];</span><br><span class="line"><span class="comment">// 给控件赋值</span></span><br><span class="line">_userField<span class="variable">.text</span> = name;</span><br><span class="line"><span class="keyword">if</span> (rmbPwd == <span class="literal">YES</span>)</span><br><span class="line">&#123;</span><br><span class="line">    _pwdField<span class="variable">.text</span> = pwd; <span class="comment">// 记住密码才赋值</span></span><br><span class="line">&#125;</span><br><span class="line">_rmbPwdSwitch<span class="variable">.on</span> = rmbPwd;</span><br><span class="line">_autoLoginSwitch<span class="variable">.on</span> = login;</span><br><span class="line"><span class="keyword">if</span> (login) &#123; <span class="comment">// 自动登录</span></span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> login:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：UserDefaults设置数据时，不是立即写入，而是根据时间戳定时地把缓存中的数据写入本地磁盘。所以调用了set方法之后数据有可能还没有写入磁盘应用程序就终止了。出现以上问题，可以通过调用synchornize方法强制写入<br><code>[defaults synchornize];</code></li>
+</ul>
+<h2 id="3、NSKeyedArchiver_归档">3、NSKeyedArchiver 归档</h2><ul>
+<li>如果对象是NSString、NSDictionary、NSArray、NSData、NSNumber等类型，可以直接用NSKeyedArchiver进行归档和恢复</li>
+<li>不是所有的对象都可以直接用这种方法进行归档，只有遵守了NSCoding协议的对象才可以</li>
+<li><p>NSCoding协议有2个方法：</p>
+<ul>
+<li><code>encodeWithCoder:</code></li>
+<li>每次归档对象时，都会调用这个方法。一般在这个方法里面指定如何归档对象中的每个实例变量，可以使用encodeObject:forKey:方法归档实例变量</li>
+<li><code>initWithCoder:</code></li>
+<li>每次从文件中恢复(解码)对象时，都会调用这个方法。一般在这个方法里面指定如何解码文件中的数据为对象的实例变量，可以使用decodeObject:forKey方法解码实例变量。</li>
+</ul>
+</li>
+<li><p>1、常见类型</p>
+</li>
+<li><p>写入常用类型</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 归档对象NSKeyedArchiver</span></span><br><span class="line">    <span class="comment">// 获取路径</span></span><br><span class="line">    <span class="built_in">NSString</span> *cachePath = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">// 取得文件的全路径</span></span><br><span class="line">    <span class="built_in">NSString</span> *filePath = [cachePath stringByAppendingPathComponent:<span class="string">@"info.data"</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//            [NSKeyedArchiver archiveRootObject:_userField.text toFile:filePath];</span></span><br><span class="line">    <span class="built_in">NSArray</span> *all = @[_userField<span class="variable">.text</span>,_pwdField<span class="variable">.text</span>,@(_rmbPwdSwitch<span class="variable">.on</span>),@(_autoLoginSwitch<span class="variable">.on</span>)];</span><br><span class="line">    [<span class="built_in">NSKeyedArchiver</span> archiveRootObject:all toFile:filePath];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>读取</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取路径</span></span><br><span class="line"><span class="built_in">NSString</span> *cachePath = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="comment">// 取得文件的全路径</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [cachePath stringByAppendingPathComponent:<span class="string">@"info.data"</span>];</span><br><span class="line"><span class="comment">// 归档对象NSKeyedArchiver</span></span><br><span class="line"><span class="comment">//    NSString *name =  [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];</span></span><br><span class="line"><span class="built_in">NSArray</span> *all = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:filePath];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,all);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>2、自定义对象</p>
+</li>
+<li><p>要读写自定义对象，自定义对象要遵守NSCoding协议，并实现两个方法，一个打包initWithCoder：，一个解包encodeWithCoder：。</p>
+</li>
+<li><p>以联系人为例</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SLQContact</span> : <span class="title">NSObject</span> &lt;<span class="title">NSCoding</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*姓名*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="comment">// 手机号</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *phone;</span><br><span class="line"></span><br><span class="line">+ (instancetype)contactWithName:(<span class="built_in">NSString</span> *)name andPhone:(<span class="built_in">NSString</span> *)phone;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现协议方法</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"SLQContact.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SLQContact</span></span></span><br><span class="line"></span><br><span class="line">+ (instancetype)contactWithName:(<span class="built_in">NSString</span> *)name andPhone:(<span class="built_in">NSString</span> *)phone</span><br><span class="line">&#123;</span><br><span class="line">    SLQContact *contact = [[<span class="keyword">self</span> alloc] init];</span><br><span class="line">    contact<span class="variable">.name</span> = name;</span><br><span class="line">    contact<span class="variable">.phone</span> = phone;</span><br><span class="line">    <span class="keyword">return</span>  contact;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 解包，按照key找属性</span></span><br><span class="line">- (<span class="keyword">void</span>)encodeWithCoder:(<span class="built_in">NSCoder</span> *)aCoder</span><br><span class="line">&#123;</span><br><span class="line">    [aCoder encodeObject:<span class="keyword">self</span><span class="variable">.name</span> forKey:<span class="string">@"name"</span>];</span><br><span class="line">    [aCoder encodeObject:<span class="keyword">self</span><span class="variable">.phone</span> forKey:<span class="string">@"phone"</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 打包，就是给属性指定一个key</span></span><br><span class="line">- (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.name</span> = [aDecoder decodeObjectForKey:<span class="string">@"name"</span>];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.phone</span> = [aDecoder decodeObjectForKey:<span class="string">@"phone"</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>  <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>然后在联系人控制器中读写归档文件</p>
+</li>
+<li><p>定义一个宏用来获取文件路径</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获得归档文件的路径</span></span><br><span class="line"><span class="preprocessor">#define SLQFilePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@<span class="title">"info.data"</span>]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>写如归档文件</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加按钮，按下后进入添加联系人界面</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)addBtn:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line"><span class="comment">//    [self performSegueWithIdentifier:@"contactToAdd" sender:nil];</span></span><br><span class="line">    <span class="comment">// 通过代码获取storyboard中得控制器</span></span><br><span class="line">    <span class="built_in">UIStoryboard</span> *story = [<span class="built_in">UIStoryboard</span> storyboardWithName:<span class="string">@"Main"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line">    <span class="comment">// 获取main。storyboard中得控制器，以标识符区分</span></span><br><span class="line">    SLQAddViewController* addVC = [story instantiateViewControllerWithIdentifier:<span class="string">@"add"</span>];</span><br><span class="line">    <span class="comment">// block封装待执行的代码</span></span><br><span class="line">    addVC<span class="variable">.block</span>= ^(SLQContact *contact)&#123;</span><br><span class="line">        <span class="comment">// 更新模型</span></span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contacts</span> addObject:contact];</span><br><span class="line">        <span class="comment">// 刷新表格</span></span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.tableView</span> reloadData];</span><br><span class="line">        <span class="comment">// 3.保存联系人,注意：如果归档数组，底层会遍历数组元素一个一个归档</span></span><br><span class="line">        [<span class="built_in">NSKeyedArchiverarchiveRootObject</span>:<span class="keyword">self</span><span class="variable">.contactstoFile</span>:SLQFilePath];</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 跳转到添加联系人界面</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.navigationController</span> pushViewController:addVC animated:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>读取归档文件，在属性contacts的setter方法中进行读取。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重写set方法</span></span><br><span class="line">- (<span class="built_in">NSMutableArray</span> *)contacts</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (_contacts == <span class="literal">nil</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 读取归档文件</span></span><br><span class="line">        _contacts = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:SLQFilePath];</span><br><span class="line">        <span class="keyword">if</span> (_contacts == <span class="literal">nil</span>) &#123; <span class="comment">// 如果读取的文件为空，初始化数组</span></span><br><span class="line">              _contacts = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> _contacts;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>还有两种存储方式，属于数据库范畴，继续学习。</li>
+</ul>
+<p><a href="http://www.cnblogs.com/songliquan/" target="_blank" rel="external">http://www.cnblogs.com/songliquan/</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2013/09/21/数据存储/" data-title="数据存储 | Bloging" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2013/09/22/音频/" title="音视频">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  音视频</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2013/09/20/网络/"  title="网络">
+ <strong>NEXT:</strong><br/> 
+ <span>网络
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据存储"><span class="toc-number">1.</span> <span class="toc-text">数据存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#沙盒"><span class="toc-number">1.1.</span> <span class="toc-text">沙盒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1、plist文件"><span class="toc-number">1.2.</span> <span class="toc-text">1、plist文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、Preference_偏好设置"><span class="toc-number">1.3.</span> <span class="toc-text">2、Preference 偏好设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、NSKeyedArchiver_归档"><span class="toc-number">1.4.</span> <span class="toc-text">3、NSKeyedArchiver 归档</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/tags/autolayout/" title="autolayout">autolayout<sup>1</sup></a></li>
+		
+			<li><a href="/tags/iOS/" title="iOS">iOS<sup>21</sup></a></li>
+		
+			<li><a href="/tags/iPad/" title="iPad">iPad<sup>1</sup></a></li>
+		
+			<li><a href="/tags/scrollView/" title="scrollView">scrollView<sup>1</sup></a></li>
+		
+			<li><a href="/tags/换肤/" title="换肤">换肤<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://yoursite.com" target="_blank" title="Mr Song">Mr Song</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,868 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>UITableView总结 | Bloging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Mr Song">
+    
+    <meta name="description" content="UITableView总结UITableView
+tableView如何显示数据
+设置dataSource数据源
+数据源要遵守UITableViewDataSource协议
+数据源要实现协议中的某些方法
+
+
+
+123456789101112131415161718192021222324/** * ">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/09/14/UITableView总结/" title="UITableView总结" itemprop="url">UITableView总结</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Mr Song">Mr Song</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2013-09-14T06:48:09.000Z" itemprop="datePublished">2013-09-14</time>
+    更新日期:<time datetime="2015-09-27T04:46:23.000Z" itemprop="dateModified">2015-09-27</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableView总结"><span class="toc-number">1.</span> <span class="toc-text">UITableView总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UITableView"><span class="toc-number">1.1.</span> <span class="toc-text">UITableView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tableView性能优化_-_cell的循环利用方式1"><span class="toc-number">1.2.</span> <span class="toc-text">tableView性能优化 - cell的循环利用方式1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tableView性能优化_-_cell的循环利用方式2"><span class="toc-number">1.3.</span> <span class="toc-text">tableView性能优化 - cell的循环利用方式2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tableView性能优化_-_cell的循环利用方式3"><span class="toc-number">1.4.</span> <span class="toc-text">tableView性能优化 - cell的循环利用方式3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误将UIViewController当做UITableViewController来用"><span class="toc-number">1.5.</span> <span class="toc-text">错误将UIViewController当做UITableViewController来用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UITableView的常见设置"><span class="toc-number">1.6.</span> <span class="toc-text">UITableView的常见设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UITableViewCell的常见设置"><span class="toc-number">1.7.</span> <span class="toc-text">UITableViewCell的常见设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义cell"><span class="toc-number">1.8.</span> <span class="toc-text">自定义cell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代理模式"><span class="toc-number">1.9.</span> <span class="toc-text">代理模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代理和通知的区别"><span class="toc-number">1.10.</span> <span class="toc-text">代理和通知的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KVC\KVO"><span class="toc-number">1.11.</span> <span class="toc-text">KVC\KVO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、UITableView的常用属性"><span class="toc-number">1.12.</span> <span class="toc-text">一、UITableView的常用属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、cell的循环利用方式"><span class="toc-number">1.13.</span> <span class="toc-text">二、cell的循环利用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、自定义cell"><span class="toc-number">1.14.</span> <span class="toc-text">三、自定义cell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1、等高cell"><span class="toc-number">1.15.</span> <span class="toc-text">1、等高cell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xib自定义cell"><span class="toc-number">1.16.</span> <span class="toc-text">xib自定义cell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码自定义cell(使用frame)"><span class="toc-number">1.17.</span> <span class="toc-text">代码自定义cell(使用frame)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码自定义cell(使用autolayout)"><span class="toc-number">1.18.</span> <span class="toc-text">代码自定义cell(使用autolayout)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义非等高的cell"><span class="toc-number">1.19.</span> <span class="toc-text">自定义非等高的cell</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="UITableView总结">UITableView总结</h1><h2 id="UITableView">UITableView</h2><ul>
+<li>tableView如何显示数据<ul>
+<li>设置dataSource数据源</li>
+<li>数据源要遵守UITableViewDataSource协议</li>
+<li>数据源要实现协议中的某些方法</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  告诉tableView一共有多少组数据</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)numberOfSectionsInTableView:(<span class="built_in">UITableView</span> *)tableView</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  告诉tableView第section组有多少行</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  告诉tableView第indexPath行显示怎样的cell</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  告诉tableView第section组的头部标题</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView titleForHeaderInSection:(<span class="built_in">NSInteger</span>)section</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  告诉tableView第section组的尾部标题</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView titleForFooterInSection:(<span class="built_in">NSInteger</span>)section</span><br></pre></td></tr></table></figure>
+<h2 id="tableView性能优化_-_cell的循环利用方式1">tableView性能优化 - cell的循环利用方式1</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  什么时候调用：每当有一个cell进入视野范围内就会调用</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 0.重用标识</span></span><br><span class="line">    <span class="comment">// 被static修饰的局部变量：只会初始化一次，在整个程序运行过程中，只有一份内存</span></span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">NSString</span> *ID = <span class="string">@"cell"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.先根据cell的标识去缓存池中查找可循环利用的cell</span></span><br><span class="line">    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:ID];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.如果cell为nil（缓存池找不到对应的cell）</span></span><br><span class="line">    <span class="keyword">if</span> (cell == <span class="literal">nil</span>) &#123;</span><br><span class="line">        cell = [[<span class="built_in">UITableViewCell</span> alloc] initWithStyle:<span class="built_in">UITableViewCellStyleDefault</span> reuseIdentifier:ID];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.覆盖数据</span></span><br><span class="line">    cell<span class="variable">.textLabel</span><span class="variable">.text</span> = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"testdata - %zd"</span>, indexPath<span class="variable">.row</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="tableView性能优化_-_cell的循环利用方式2">tableView性能优化 - cell的循环利用方式2</h2><ul>
+<li>定义一个全局变量</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义重用标识</span></span><br><span class="line"><span class="built_in">NSString</span> *ID = <span class="string">@"cell"</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注册某个标识对应的cell类型</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在这个方法中注册cell</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注册某个标识对应的cell类型</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tableView</span> registerClass:[<span class="built_in">UITableViewCell</span> class] forCellReuseIdentifier:ID];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在数据源方法中返回cell</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1.去缓存池中查找cell</span></span><br><span class="line">    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:ID];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.覆盖数据</span></span><br><span class="line">    cell<span class="variable">.textLabel</span><span class="variable">.text</span> = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"testdata - %zd"</span>, indexPath<span class="variable">.row</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="tableView性能优化_-_cell的循环利用方式3">tableView性能优化 - cell的循环利用方式3</h2><ul>
+<li><p>在storyboard中设置UITableView的Dynamic Prototypes Cell<br><img src="../images/Snip20150602_152.png" alt=""></p>
+</li>
+<li><p>设置cell的重用标识<br><img src="../images/Snip20150602_153.png" alt=""></p>
+</li>
+<li><p>在代码中利用重用标识获取cell</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 0.重用标识</span></span><br><span class="line"><span class="comment">// 被static修饰的局部变量：只会初始化一次，在整个程序运行过程中，只有一份内存</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *ID = <span class="string">@"cell"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.先根据cell的标识去缓存池中查找可循环利用的cell</span></span><br><span class="line"><span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:ID];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.覆盖数据</span></span><br><span class="line">cell<span class="variable">.textLabel</span><span class="variable">.text</span> = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"cell - %zd"</span>, indexPath<span class="variable">.row</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> cell;</span><br></pre></td></tr></table></figure>
+<h2 id="错误将UIViewController当做UITableViewController来用">错误将UIViewController当做UITableViewController来用</h2><p><img src="../images/Snip20150602_110.png" alt=""></p>
+<h2 id="UITableView的常见设置">UITableView的常见设置</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 分割线颜色</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.tableView</span><span class="variable">.separatorColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 隐藏分割线</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.tableView</span><span class="variable">.separatorStyle</span> = <span class="built_in">UITableViewCellSeparatorStyleNone</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="UITableViewCell的常见设置">UITableViewCell的常见设置</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 取消选中的样式</span></span><br><span class="line">cell<span class="variable">.selectionStyle</span> = <span class="built_in">UITableViewCellSelectionStyleNone</span>;</span><br><span class="line"><span class="comment">// 设置选中的背景色</span></span><br><span class="line"><span class="built_in">UIView</span> *selectedBackgroundView = [[<span class="built_in">UIView</span> alloc] init];</span><br><span class="line">selectedBackgroundView<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">cell<span class="variable">.selectedBackgroundView</span> = selectedBackgroundView;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置默认的背景色</span></span><br><span class="line">cell<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置默认的背景色</span></span><br><span class="line"><span class="built_in">UIView</span> *backgroundView = [[<span class="built_in">UIView</span> alloc] init];</span><br><span class="line">backgroundView<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line">cell<span class="variable">.backgroundView</span> = backgroundView;</span><br><span class="line"></span><br><span class="line"><span class="comment">// backgroundView的优先级 &gt; backgroundColor</span></span><br><span class="line"><span class="comment">// 设置指示器</span></span><br><span class="line"><span class="comment">//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;</span></span><br><span class="line">cell<span class="variable">.accessoryView</span> = [[<span class="built_in">UISwitch</span> alloc] init];</span><br></pre></td></tr></table></figure>
+<h2 id="自定义cell">自定义cell</h2><ul>
+<li><code>等高的cell</code><ul>
+<li><code>storyboard自定义cell</code><ul>
+<li>1.创建一个继承自UITableViewCell的子类，比如XMGDealCell<br><br><img src="../images/Snip20150602_305.png" alt=""></li>
+<li>2.在storyboard中<ul>
+<li>往cell里面增加需要用到的子控件<br><br><img src="../images/Snip20150602_302.png" alt=""></li>
+<li>设置cell的重用标识<br><br><img src="../images/Snip20150602_303.png" alt=""></li>
+<li>设置cell的class为XMGDealCell<br><br><img src="../images/Snip20150602_304.png" alt=""></li>
+</ul>
+</li>
+<li>3.在控制器中<ul>
+<li>利用重用标识找到cell</li>
+<li>给cell传递模型数据<br><br><img src="../images/Snip20150602_301.png" alt=""></li>
+</ul>
+</li>
+<li>4.在XMGDealCell中<ul>
+<li>将storyboard中的子控件连线到类扩展中<br><br><img src="../images/Snip20150602_299.png" alt=""></li>
+<li>需要提供一个模型属性，重写模型的set方法，在这个方法中设置模型数据到子控件上<br><br><img src="../images/Snip20150602_298.png" alt=""><br><img src="../images/Snip20150602_300.png" alt=""></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>xib自定义cell</code><ul>
+<li>1.创建一个继承自UITableViewCell的子类，比如XMGDealCell<br></li>
+<li>2.创建一个xib文件（文件名建议跟cell的类名一样），比如XMGDealCell.xib<ul>
+<li>拖拽一个UITableViewCell出来</li>
+<li>修改cell的class为XMGDealCell</li>
+<li>设置cell的重用标识</li>
+<li>往cell中添加需要用到的子控件</li>
+</ul>
+</li>
+<li>3.在控制器中<ul>
+<li>利用registerNib…方法注册xib文件</li>
+<li>利用重用标识找到cell（如果没有注册xib文件，就需要手动去加载xib文件）</li>
+<li>给cell传递模型数据<br></li>
+</ul>
+</li>
+<li>4.在XMGDealCell中<ul>
+<li>将xib中的子控件连线到类扩展中</li>
+<li>需要提供一个模型属性，重写模型的set方法，在这个方法中设置模型数据到子控件上</li>
+<li>也可以将创建获得cell的代码封装起来（比如cellWithTableView:方法)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>代码自定义cell(使用frame)</code><ul>
+<li>1.创建一个继承自UITableViewCell的子类，比如XMGDealCell<ul>
+<li>在initWithStyle:reuseIdentifier:方法中<ul>
+<li>添加子控件</li>
+<li>设置子控件的初始化属性（比如文字颜色、字体）</li>
+</ul>
+</li>
+<li>在layoutSubviews方法中设置子控件的frame</li>
+<li>需要提供一个模型属性，重写模型的set方法，在这个方法中设置模型数据到子控件</li>
+</ul>
+</li>
+<li>2.在控制器中<ul>
+<li>利用registerClass…方法注册XMGDealCell类</li>
+<li>利用重用标识找到cell（如果没有注册类，就需要手动创建cell）</li>
+<li>给cell传递模型数据</li>
+<li>也可以将创建获得cell的代码封装起来（比如cellWithTableView:方法）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>代码自定义cell(使用autolayout)</code><ul>
+<li>1.创建一个继承自UITableViewCell的子类，比如XMGDealCell<ul>
+<li>在initWithStyle:reuseIdentifier:方法中<ul>
+<li>添加子控件</li>
+<li>添加子控件的约束（建议使用<code>Masonry</code>）</li>
+<li>设置子控件的初始化属性（比如文字颜色、字体）</li>
+</ul>
+</li>
+<li>需要提供一个模型属性，重写模型的set方法，在这个方法中设置模型数据到子控件</li>
+</ul>
+</li>
+<li>2.在控制器中<ul>
+<li>利用registerClass…方法注册XMGDealCell类</li>
+<li>利用重用标识找到cell（如果没有注册类，就需要手动创建cell）</li>
+<li>给cell传递模型数据</li>
+<li>也可以将创建获得cell的代码封装起来（比如cellWithTableView:方法）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>非等高的cell</code></p>
+<ul>
+<li>xib自定义cell</li>
+<li>storyboard自定义cell</li>
+<li>代码自定义cell（frame）</li>
+<li>代码自定义cell（Autolayout）</li>
+</ul>
+</li>
+<li><p>在SLQFengCell中</p>
+</li>
+</ul>
+<h2 id="代理模式">代理模式</h2><ul>
+<li><p>代理设计模式的作用:</p>
+<ul>
+<li>1.A对象监听B对象的一些行为，A成为B的代理</li>
+<li>2.B对象想告诉A对象一些事情，A成为B的代理</li>
+</ul>
+</li>
+<li><p>代理设计模式的总结：</p>
+<ul>
+<li>如果你想监听别人的一些行为，那么你就要成为别人的代理</li>
+<li>如果你想告诉别人一些事情，那么就让别人成为你的代理</li>
+</ul>
+</li>
+<li><p>代理设计模式的开发步骤</p>
+<ul>
+<li>1.拟一份协议（协议名字的格式：控件名 + Delegate），在协议里面声明一些代理方法（一般代理方法都是@optional）</li>
+<li>2.声明一个代理属性：@property (nonatomic, weak) id&lt;代理协议&gt; delegate;</li>
+<li>3.在内部发生某些行为时，调用代理对应的代理方法，通知代理内部发生什么事</li>
+<li>4.设置代理：xxx.delegate = yyy;</li>
+<li>5.yyy对象遵守协议，实现代理方法</li>
+</ul>
+</li>
+</ul>
+<h2 id="代理和通知的区别">代理和通知的区别</h2><ul>
+<li>代理：1个对象只能告诉另1个对象发生了什么事</li>
+<li>通知：1个对象可以告诉N个对象发生了什么事</li>
+</ul>
+<h2 id="KVC\KVO">KVC\KVO</h2><ul>
+<li>KVC(Key Value Coding)常见作用：给模型属性赋值</li>
+<li>KVO(Key Value Observing)常用作用：监听模型属性值的改变</li>
+<li>KVO的使用步骤<br></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cc监听了aa的name属性的改变</span></span><br><span class="line">[aa addObserver:cc forKeyPath:<span class="string">@"name"</span> options: <span class="built_in">NSKeyValueObservingOptionOld</span> context:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// cc得实现监听方法</span></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 当监听到object的keyPath属性发生了改变</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)observeValueForKeyPath:(<span class="built_in">NSString</span> *)keyPath ofObject:(<span class="keyword">id</span>)object change:(<span class="built_in">NSDictionary</span> *)change context:(<span class="keyword">void</span> *)context</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"监听到%@对象的%@属性发生了改变， %@"</span>, object, keyPath, change);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="一、UITableView的常用属性">一、UITableView的常用属性</h2><ul>
+<li>1、分割线</li>
+</ul>
+<p><code>// 分割线</code><br><code>self.tableView.separatorColor = [UIColorredColor];</code><br><img src="../images/屏幕快照 2015-06-04 10.57.43.png" alt=""></p>
+<p><code>// 隐藏分割线</code><br><code>self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;</code><br><img src="../images/屏幕快照 2015-06-04 10.58.05.png" alt=""></p>
+<ul>
+<li>2、选中样式</li>
+</ul>
+<p><code>// cell选中样式，貌似几个枚举效果都一样</code><br><code>cell.selectionStyle = UITableViewCellSelectionStyleBlue;</code><br><img src="../images/屏幕快照 2015-06-04 11.01.58.png" alt=""></p>
+<p><code>// cell选中背景色</code><br><code>UIView *selectedBackground = [[UIView alloc] init];</code><br><code>selectedBackground.backgroundColor = [UIColor greenColor];</code><br><code>cell.selectedBackgroundView = selectedBackground;</code><br><img src="../images/屏幕快照 2015-06-04 11.04.50.png" alt=""></p>
+<ul>
+<li>3、背景色</li>
+</ul>
+<p><code>// cell默认背景色</code><br><code>cell.backgroundColor = [UIColor redColor];</code><br><img src="../images/屏幕快照 2015-06-04 11.10.38.png" alt=""></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// backgroundView 的优先级大于backgroundColor</span></span><br><span class="line"><span class="built_in">UIView</span> *background = [[<span class="built_in">UIView</span> alloc] init];</span><br><span class="line">background<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> orangeColor];</span><br><span class="line">cell<span class="variable">.backgroundView</span> = background;</span><br></pre></td></tr></table></figure>
+<p><img src="../images/屏幕快照 2015-06-04 11.10.58.png" alt=""></p>
+<ul>
+<li><p>设置背景色有两种方式，注意一点就是 :</p>
+<ul>
+<li>backgroundView 的优先级大于backgroundColor</li>
+</ul>
+</li>
+<li><p>4、指示器</p>
+<ul>
+<li>指示器默认显示的是第一个 UITableViewCellAccessoryNone</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">UITableViewCellAccessoryType</span>) &#123;</span><br><span class="line">    <span class="built_in">UITableViewCellAccessoryNone</span>,                   <span class="comment">// don't show any accessory view</span></span><br><span class="line">    <span class="built_in">UITableViewCellAccessoryDisclosureIndicator</span>,    <span class="comment">// regular chevron. doesn't track</span></span><br><span class="line">    <span class="built_in">UITableViewCellAccessoryDetailDisclosureButton</span>, <span class="comment">// info button w/ chevron. tracks</span></span><br><span class="line">    <span class="built_in">UITableViewCellAccessoryCheckmark</span>,              <span class="comment">// checkmark. doesn't track</span></span><br><span class="line">    <span class="built_in">UITableViewCellAccessoryDetailButton</span> <span class="built_in">NS_ENUM_AVAILABLE_IOS</span>(<span class="number">7</span>_0) <span class="comment">// info button. tracks</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>样式依次为：<br><img src="../images/屏幕快照 2015-06-04 11.18.42.png" alt=""><br><img src="../images/屏幕快照 2015-06-04 11.15.17.png" alt=""><br><img src="../images/屏幕快照 2015-06-04 11.17.19.png" alt=""><br><img src="../images/屏幕快照 2015-06-04 11.14.33.png" alt=""><br><img src="../images/屏幕快照 2015-06-04 11.14.56.png" alt=""></p>
+<p><code>// cell指示器</code><br><code>cell.accessoryType = UITableViewCellAccessoryCheckmark;</code></p>
+<ul>
+<li>也可以自定义View显示。</li>
+</ul>
+<p><code>// 显示预定义按钮</code><br><code>cell.accessoryView = [UIButtonbuttonWithType:UIButtonTypeContactAdd];</code><br><img src="../images/屏幕快照 2015-06-04 11.41.00.png" alt=""></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义view</span></span><br><span class="line"><span class="built_in">UILabel</span> *name  = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">name<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">200</span>, <span class="number">0</span>, <span class="number">80</span>, <span class="number">40</span>);</span><br><span class="line">name<span class="variable">.text</span> = [<span class="built_in">NSString</span> stringWithFormat: <span class="string">@"英雄%zd"</span>,indexPath<span class="variable">.row</span> + <span class="number">1</span>];</span><br><span class="line">name<span class="variable">.textAlignment</span> = <span class="built_in">NSTextAlignmentRight</span>;</span><br><span class="line">name<span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> lightGrayColor];</span><br><span class="line">cell<span class="variable">.accessoryView</span> = name;</span><br></pre></td></tr></table></figure>
+<p><img src="../images/屏幕快照 2015-06-04 11.43.17.png" alt=""></p>
+<h2 id="二、cell的循环利用方式">二、cell的循环利用方式</h2><ul>
+<li>1、方式1</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  什么时候调用：每当有一个cell进入视野范围内就会调用</span><br><span class="line"> */</span></span><br><span class="line"><span class="comment">// 0.重用标识</span></span><br><span class="line"><span class="comment">// 被static修饰的局部变量：只会初始化一次，在整个程序运行过程中，只有一份内存</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *ID = <span class="string">@"cell"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.先根据cell的标识去缓存池中查找可循环利用的cell</span></span><br><span class="line"><span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:ID];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.如果cell为nil（缓存池找不到对应的cell）</span></span><br><span class="line"><span class="keyword">if</span> (cell == <span class="literal">nil</span>) &#123;</span><br><span class="line">    cell = [[<span class="built_in">UITableViewCellalloc</span>] initWithStyle:<span class="built_in">UITableViewCellStyleDefaultreuseIdentifier</span>:ID];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.覆盖数据</span></span><br><span class="line">cell<span class="variable">.textLabel</span><span class="variable">.text</span> = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"testdata - %zd"</span>, indexPath<span class="variable">.row</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span>  cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>2、方式2</p>
+</li>
+<li><p>定义一个全局变量</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义重用标识</span></span><br><span class="line">  <span class="built_in">NSString</span> *ID = <span class="string">@"cell"</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注册某个标识对应的cell类型</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">      [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 注册某个标识对应的cell类型</span></span><br><span class="line">      [<span class="keyword">self</span><span class="variable">.tableView</span> registerClass:[<span class="built_in">UITableViewCell</span> class] forCellReuseIdentifier:ID];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在数据源方法中返回cell,<br>dequeueReusableCellWithIdentifier:方法会自动查找cell，如果没有找到，就按照注册类型的cell，重新创建一个并返回。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1.去缓存池中查找cell</span></span><br><span class="line">    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:ID];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.覆盖数据</span></span><br><span class="line">    cell<span class="variable">.textLabel</span><span class="variable">.text</span> = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"testdata - %zd"</span>, indexPath<span class="variable">.row</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>3、方式3</p>
+</li>
+<li><p>在storyboard中设置UITableView的Dynamic Prototypes Cell</p>
+</li>
+</ul>
+<p><img src="../images/Snip20150602_152.png" alt=""></p>
+<ul>
+<li>设置cell的重用标识</li>
+</ul>
+<p><img src="../images/Snip20150602_153.png" alt=""></p>
+<ul>
+<li>在代码中利用重用标识获取cell</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 0.重用标识</span></span><br><span class="line"><span class="comment">// 被static修饰的局部变量：只会初始化一次，在整个程序运行过程中，只有一份内存</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *ID = <span class="string">@"cell"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.先根据cell的标识去缓存池中查找可循环利用的cell</span></span><br><span class="line"> <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:ID];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.覆盖数据</span></span><br><span class="line">cell<span class="variable">.textLabel</span><span class="variable">.text</span> = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"cell - %zd"</span>, indexPath<span class="variable">.row</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span>  cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、自定义cell">三、自定义cell</h2><ul>
+<li><p>使用系统自带的cell有时不能满足需求，可以自定义cell，实现自己想要的界面。</p>
+</li>
+<li><p>cell的自定义分两种，等高的和不等高的，等高的比较容易实现。</p>
+</li>
+<li><p>实现界面如下：</p>
+</li>
+</ul>
+<p><img src="../images/屏幕快照 2015-06-04 15.07.43.png" alt=""></p>
+<h2 id="1、等高cell">1、等高cell</h2><ul>
+<li><p>storyboard实现自定义cell</p>
+</li>
+<li><p>创建一个继承自UITableViewCell的子类，比如SLQFengCell</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SLQFengCell</span> : <span class="title">UITableViewCell</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在storyboard中<ul>
+<li>往cell里面增加需要用到的子控件</li>
+<li>设置cell的重用标识</li>
+<li>设置cell的class为SLQFengCell</li>
+</ul>
+</li>
+<li>在控制器中<ul>
+<li>利用重用标识找到cell<br>-给cell传递模型数据</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// 从缓存池中获取数据，如果没有就根据ID创建一个</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *ID =<span class="string">@"feng"</span>;</span><br><span class="line">SLQFengCell *cell = [tableView     dequeueReusableCellWithIdentifier:ID];</span><br><span class="line"><span class="comment">// 传递模型数据</span></span><br><span class="line">cell<span class="variable">.fengNews</span> = <span class="keyword">self</span><span class="variable">.news</span>[indexPath<span class="variable">.row</span>];</span><br><span class="line"><span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在SLQFengCell中<ul>
+<li>将storyboard中的子控件连线到类扩展中</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@interfaceSLQFengCell ()</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span><span class="built_in">UIImageView</span> *image;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span><span class="built_in">UILabel</span> *titleLable;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span><span class="built_in">UILabel</span> *topicLable;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span><span class="built_in">UILabel</span> *commentLable;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>需要提供一个模型属性，重写模型的set方法，在这个方法中设置模型数据到子控件上</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">@classSLQFengNews;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SLQFengCell</span> : <span class="title">UITableViewCell</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) SLQFengNews *fengNews; <span class="comment">// 模型属性</span></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重写set方法，对模型对象就行赋值。</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 重写set方法</span></span><br><span class="line">- (<span class="keyword">void</span>)setFengNews:(SLQFengNews *)fengNews</span><br><span class="line">&#123;</span><br><span class="line">_fengNews = fengNews;</span><br><span class="line"><span class="comment">// 设置图片</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.image</span><span class="variable">.image</span> = [<span class="built_in">UIImage</span> imageNamed:fengNews<span class="variable">.image</span>];</span><br><span class="line"><span class="comment">// 设置标题</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.titleLable</span><span class="variable">.text</span> = fengNews<span class="variable">.title</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.titleLable</span><span class="variable">.font</span> = [<span class="built_in">UIFontsystemFontOfSize</span>:<span class="number">15</span>];</span><br><span class="line"><span class="comment">// 判断是否是专题</span></span><br><span class="line"><span class="keyword">if</span> (fengNews<span class="variable">.isTopic</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.topicLable</span><span class="variable">.hidden</span> = <span class="literal">NO</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.topicLable</span><span class="variable">.text</span> = <span class="string">@"专题"</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.topicLable</span><span class="variable">.font</span> = [<span class="built_in">UIFontboldSystemFontOfSize</span>:<span class="number">12</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.topicLable</span><span class="variable">.hidden</span> = <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 设置评论数</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.commentLable</span><span class="variable">.text</span> = fengNews<span class="variable">.comment</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.commentLable</span><span class="variable">.font</span> = [<span class="built_in">UIFontsystemFontOfSize</span>:<span class="number">12</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在模型类中添加对应数量的属性，并写一个对象方法返回模型初始化后的对象</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SLQFengNews</span> : <span class="title">NSObject</span></span></span><br><span class="line"><span class="comment">/*图片*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *image;</span><br><span class="line"><span class="comment">/*标题*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *title;</span><br><span class="line"><span class="comment">/*专题*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>,getter = isTopic) <span class="built_in">BOOL</span> topic;</span><br><span class="line"><span class="comment">/*评论数*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *comment;</span><br><span class="line">+ (instancetype)fengNewsWithDict:(<span class="built_in">NSDictionary</span> *)dict;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//实现文件</span></span><br><span class="line"><span class="preprocessor">#import <span class="title">"SLQFengNews.h"</span></span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SLQFengNews</span></span></span><br><span class="line"><span class="comment">// 根据字典返回对象</span></span><br><span class="line">+ (instancetype)fengNewsWithDict:(<span class="built_in">NSDictionary</span> *)dict</span><br><span class="line">&#123;</span><br><span class="line">    SLQFengNews *feng = [[SLQFengNewsalloc] init];</span><br><span class="line">    [feng setValuesForKeysWithDictionary:dict];</span><br><span class="line">    <span class="keyword">return</span>  feng;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>数据使用plist文件，保存各种信息</li>
+</ul>
+<h2 id="xib自定义cell">xib自定义cell</h2><ul>
+<li><p>很多步骤和在storyboard里差不多</p>
+<ul>
+<li>1.创建一个继承自UITableViewCell的子类，比如 SLQFengCell （同上）</li>
+<li>2.创建一个xib文件（文件名建议跟cell的类名一样），比如SLQFengCell.xib</li>
+</ul>
+</li>
+<li><p>拖拽一个UITableViewCell出来</p>
+<ul>
+<li>修改cell的class为 SLQFengCell （同上）</li>
+<li>设置cell的重用标识  （同上）</li>
+<li>往cell中添加需要用到的子控件，实现如下界面</li>
+</ul>
+</li>
+</ul>
+<p><img src="../images/屏幕快照 2015-06-04 16.30.12.png" alt=""></p>
+<ul>
+<li>3.在控制器中<ul>
+<li>利用registerNib…方法注册xib文件</li>
+<li>利用重用标识找到cell（如果没有注册xib文件，就需要手动去加载xib文件）</li>
+<li>给cell传递模型数据，代码如下，这里对cell的创建方法进行封装</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    SLQFengCell *cell = [SLQFengCell cellWithTableView:tableView]; <span class="comment">// 这里对cell的创建进行封装</span></span><br><span class="line">    <span class="comment">// 传递模型数据</span></span><br><span class="line">    cell<span class="variable">.fengNews</span> = <span class="keyword">self</span><span class="variable">.news</span>[indexPath<span class="variable">.row</span>];</span><br><span class="line">     <span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>4.在SLQFengCell中<br>  -将xib中的子控件连线到类扩展中（同上）<br>  -需要提供一个模型属性，重写模型的set方法，在这个方法中设置模型数据到子控件上（同上）<br>  -也可以将创建获得cell的代码封装起来（比如cellWithTableView:方法）</p>
+</li>
+<li><p>在 SLQFengCell类中定义方法cellWithTableView</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回cell对象，这里做加载xib的操作</span></span><br><span class="line">+ (instancetype)cellWithTableView:(<span class="built_in">UITableView</span> *)tableView</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *ID = <span class="string">@"feng"</span>;</span><br><span class="line">    SLQFengCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];</span><br><span class="line"><span class="keyword">if</span>(cell == <span class="literal">nil</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cell = [[[<span class="built_in">NSBundlemainBundle</span>] loadNibNamed:<span class="built_in">NSStringFromClass</span>([SLQFengCellclass]) owner:niloptions:<span class="literal">nil</span>] lastObject];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码自定义cell(使用frame)">代码自定义cell(使用frame)</h2><ul>
+<li>1.创建一个继承自UITableViewCell的子类，比如XMGDealCell<br>  -在initWithStyle:reuseIdentifier:方法中<br>  -添加子控件<ul>
+<li>设置子控件的初始化属性（比如文字颜色、字体）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化控件，添加控件到contentView，并设置相关的属性</span></span><br><span class="line">- (instancetype)initWithStyle:(<span class="built_in">UITableViewCellStyle</span>)style reuseIdentifier:(<span class="built_in">NSString</span> *)reuseIdentifier</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithStyle:style reuseIdentifier:reuseIdentifier])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">UIImageView</span> *image = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:image];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.image</span> = image;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">UILabel</span> *title  = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">        title<span class="variable">.numberOfLines</span> = <span class="number">0</span>;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:title];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.titleLable</span> = title;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">UILabel</span> *topic  = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">        topic<span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">        topic<span class="variable">.font</span> = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">12</span>];</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:topic];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.topicLable</span> = topic;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">UILabel</span> *comment  = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">        comment<span class="variable">.font</span> = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">12</span>];</span><br><span class="line">        comment<span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line">        comment<span class="variable">.textAlignment</span> = <span class="built_in">NSTextAlignmentRight</span>;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:comment];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.commentLable</span> = comment;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>  <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在layoutSubviews方法中设置子控件的frame</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置控件的frame</span></span><br><span class="line">- (<span class="keyword">void</span>)layoutSubviews</span><br><span class="line">&#123;</span><br><span class="line">    [superlayoutSubviews];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGFloat</span> contentH = <span class="keyword">self</span><span class="variable">.contentView</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> contentW = <span class="keyword">self</span><span class="variable">.contentView</span><span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> margin = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGFloat</span> imageX = margin;</span><br><span class="line">    <span class="built_in">CGFloat</span> imageY = margin;</span><br><span class="line">    <span class="built_in">CGFloat</span> imageW = <span class="number">50</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> imageH = contentH - <span class="number">2</span> * imageY;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.image</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(imageX, imageY, imageW, imageH);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// titleLabel</span></span><br><span class="line">    <span class="built_in">CGFloat</span> titleX = <span class="built_in">CGRectGetMaxX</span>(<span class="keyword">self</span><span class="variable">.image</span><span class="variable">.frame</span>) + margin;</span><br><span class="line">    <span class="built_in">CGFloat</span> titleY = imageY;</span><br><span class="line">    <span class="built_in">CGFloat</span> titleW = contentW - titleX - margin;</span><br><span class="line">    <span class="built_in">CGFloat</span> titleH = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.titleLable</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(titleX, titleY, titleW, titleH);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// topicLabel</span></span><br><span class="line">    <span class="built_in">CGFloat</span> topicX = titleX;</span><br><span class="line">    <span class="built_in">CGFloat</span> topicH = <span class="number">20</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> topicY = contentH - margin - topicH;</span><br><span class="line">    <span class="built_in">CGFloat</span> topicW = <span class="number">70</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.topicLable</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(topicX, topicY, topicW, topicH);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// commentLable</span></span><br><span class="line">    <span class="built_in">CGFloat</span> commentH = topicH;</span><br><span class="line">    <span class="built_in">CGFloat</span> commentY = topicY;</span><br><span class="line">    <span class="built_in">CGFloat</span> commentX = <span class="built_in">CGRectGetMaxX</span>(<span class="keyword">self</span><span class="variable">.topicLable</span><span class="variable">.frame</span>) + margin;</span><br><span class="line">    <span class="built_in">CGFloat</span> commentW = contentW - commentX - margin;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.commentLable</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(commentX, commentY, commentW, commentH);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>需要提供一个模型属性，重写模型的set方法，在这个方法中设置模型数据到子控件</li>
+</ul>
+<ul>
+<li><p>2.在控制器中</p>
+</li>
+<li><p>利用registerClass…方法注册SLQFengCell类</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [superviewDidLoad];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tableViewregisterClass</span>:[SLQFengCellclass] forCellReuseIdentifier:<span class="string">@"feng"</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>利用重用标识找到cell（如果没有注册类，就需要手动创建cell）</p>
+</li>
+<li><p>给cell传递模型数据 (同上)</p>
+</li>
+<li><p>也可以将创建获得cell的代码封装起来（比如cellWithTableView:方法） (同上)</p>
+</li>
+<li><p>代码参考</p>
+<p><a href="http://pan.baidu.com/s/1pJ7Oayn" target="_blank" rel="external"></a></p>
+</li>
+</ul>
+<h2 id="代码自定义cell(使用autolayout)">代码自定义cell(使用autolayout)</h2><ul>
+<li>1.创建一个继承自UITableViewCell的子类，比如XMGDealCell<ul>
+<li>在initWithStyle:reuseIdentifier:方法中</li>
+<li>添加子控件</li>
+<li>添加子控件的约束（masonry）（这里添加约束，layoutSubviews不用重写了）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化控件，添加控件到contentView，并设置相关的属性</span></span><br><span class="line">- (instancetype)initWithStyle:(<span class="built_in">UITableViewCellStyle</span>)style reuseIdentifier:(<span class="built_in">NSString</span> *)reuseIdentifier</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithStyle:style reuseIdentifier:reuseIdentifier])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">UIImageView</span> *image = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:image];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.image</span> = image;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">UILabel</span> *title  = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">        title<span class="variable">.numberOfLines</span> = <span class="number">0</span>;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:title];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.titleLable</span> = title;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">UILabel</span> *topic  = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">        topic<span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">        topic<span class="variable">.font</span> = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">12</span>];</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:topic];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.topicLable</span> = topic;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">UILabel</span> *comment  = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">        comment<span class="variable">.font</span> = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">12</span>];</span><br><span class="line">        comment<span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line">        comment<span class="variable">.textAlignment</span> = <span class="built_in">NSTextAlignmentRight</span>;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:comment];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.commentLable</span> = comment;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 添加约束</span></span><br><span class="line">        <span class="built_in">CGFloat</span> margin = <span class="number">10</span>;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.image</span> makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make<span class="variable">.size</span><span class="variable">.equalTo</span>(<span class="number">50</span>);</span><br><span class="line">            make<span class="variable">.top</span><span class="variable">.left</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.contentView</span><span class="variable">.top</span>)<span class="variable">.offset</span>(margin);</span><br><span class="line">        &#125;];</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.titleLable</span> makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make<span class="variable">.left</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.image</span><span class="variable">.right</span>)<span class="variable">.offset</span>(margin);</span><br><span class="line">            make<span class="variable">.top</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.image</span><span class="variable">.top</span>);</span><br><span class="line">            make<span class="variable">.right</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.contentView</span><span class="variable">.right</span>)<span class="variable">.offset</span>(-margin);</span><br><span class="line">        &#125;];</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.topicLable</span> makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make<span class="variable">.left</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.titleLable</span><span class="variable">.left</span>);</span><br><span class="line">            make<span class="variable">.bottom</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.image</span><span class="variable">.bottom</span>);</span><br><span class="line">            make<span class="variable">.width</span><span class="variable">.equalTo</span>(<span class="number">100</span>);</span><br><span class="line">        &#125;];</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.commentLable</span> makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make<span class="variable">.left</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.topicLable</span><span class="variable">.right</span>)<span class="variable">.offset</span>(margin);</span><br><span class="line">            make<span class="variable">.right</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.titleLable</span><span class="variable">.right</span>);</span><br><span class="line">            make<span class="variable">.bottom</span><span class="variable">.equalTo</span>(<span class="keyword">self</span><span class="variable">.topicLable</span><span class="variable">.bottom</span>);</span><br><span class="line">        &#125;];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>  <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置子控件的初始化属性（比如文字颜色、字体）</li>
+<li><p>需要提供一个模型属性，重写模型的set方法，在这个方法中设置模型数据到子控件</p>
+</li>
+<li><p>2.在控制器中 (同上)<br>-利用registerClass…方法注册SLQFengCell类</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [superviewDidLoad];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tableViewregisterClass</span>:[SLQFengCellclass] forCellReuseIdentifier:<span class="string">@"feng"</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>利用重用标识找到cell（如果没有注册类，就需要手动创建cell）</li>
+<li>给cell传递模型数据 (同上)</li>
+<li>也可以将创建获得cell的代码封装起来（比如cellWithTableView:方法） (同上)</li>
+</ul>
+<h2 id="自定义非等高的cell">自定义非等高的cell</h2><ul>
+<li><p>如常见的微博界面，有的微博只有文字，有的有文字和图片。这些微博的高度不固定需要重新计算。</p>
+</li>
+<li><p>这里简单说一下几种方法。前面的步骤和设置等高的cell一样。现在来说说不一样的地方。</p>
+</li>
+<li><p>效果如下：</p>
+</li>
+</ul>
+<p><img src="../images/屏幕快照 2015-06-05 22.33.08.png" alt=""></p>
+<ul>
+<li>1、在storyboard\xib里实现如下界面<ul>
+<li>使用自动布局添加约束,在xib里创建和在storyboard非常类似。</li>
+</ul>
+</li>
+</ul>
+<p><img src="../images/屏幕快照 2015-06-05 22.28.34.png" alt=""></p>
+<ul>
+<li>2、计算cell高度</li>
+<li>2.1、在模型类中给每个cell添加一个高度属性</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cell高度</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> cellHeight;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2.2、设置UILable的宽度</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//UILable的宽度，必须进行设置，不然计算时就出问题</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)awakeFromNib</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置label每一行文字的最大宽度</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 为了保证计算出来的数值跟真正显示出来的效果一致</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.contentLable</span><span class="variable">.preferredMaxLayoutWidth</span> = [[<span class="built_in">UIScreenmainScreen</span>] bounds]<span class="variable">.size</span><span class="variable">.width</span> -<span class="number">20</span>;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2.3、在cell的封装类计算cell高度cellHeight<ul>
+<li>这里需要注意的地方就是强制布局，因为在设置过数据后，每一个控件虽然都有数据了，但是数据并没有立即显示到tableView中，所以高度值是不准确的，主要是因为UILable的高度没计算出来。这里调用方法layoutIfNeeded                强制进行布局，也就是强制tableView进行更新数据，然后里面的UILable的高度就会有系统计算出来，高度值就是正确的高度值了。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 强制布局</span></span><br><span class="line">[<span class="keyword">self</span> layoutIfNeeded];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算高度</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.pictureImage</span><span class="variable">.hidden</span>)</span><br><span class="line">&#123;</span><br><span class="line">     weibo<span class="variable">.cellHeight</span> = <span class="built_in">CGRectGetMaxY</span>(<span class="keyword">self</span><span class="variable">.contentLable</span><span class="variable">.frame</span>) + <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">     weibo<span class="variable">.cellHeight</span> = <span class="built_in">CGRectGetMaxY</span>(<span class="keyword">self</span><span class="variable">.pictureImage</span><span class="variable">.frame</span>) + <span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2.4、实现两个代理方法<ul>
+<li>关键是 estimatedHeightForRowAtIndexPath 的实现，实现了这个，上边的强制布局才会有效。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  // 设置cell高度</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    SLQWeibo *weibo = <span class="keyword">self</span><span class="variable">.weibos</span>[indexPath<span class="variable">.row</span>];</span><br><span class="line">    <span class="keyword">return</span>  weibo<span class="variable">.cellHeight</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 返回每一行的估计高度</span><br><span class="line"> * 只要返回了估计高度，那么就会先调用tableView:cellForRowAtIndexPath:方法创建cell，再调   用tableView:heightForRowAtIndexPath:方法获取cell的真实高度</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView estimatedHeightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    return200; <span class="comment">// 不要设置的太小</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>3、UITableView的添加、删除和更新</p>
+<ul>
+<li>UITableView的数据进行修改时要手动对UITableView进行刷新。</li>
+</ul>
+</li>
+<li><p>3.1、添加一个工具栏以及三个按钮，并拖线实现单击事件</p>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">IBAction</span>)addBtn:(<span class="keyword">id</span>)sender;</span><br><span class="line">- (<span class="keyword">IBAction</span>)updateBtn:(<span class="keyword">id</span>)sender;</span><br><span class="line">- (<span class="keyword">IBAction</span>)deleteBtn:(<span class="keyword">id</span>)sender;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3.2、添加一行或者多行<ul>
+<li>对cell的修改，直接修改模型数据就行，UITableView的数据源会自动获取数据并显示到cell中。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加按钮</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)addBtn:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 添加到模型</span></span><br><span class="line">    SLQWeibo *weibo = [[SLQWeibo alloc] init];</span><br><span class="line">    weibo<span class="variable">.name</span> = <span class="string">@"天高皇帝远"</span>;</span><br><span class="line">    weibo<span class="variable">.vip</span> = <span class="literal">NO</span>;</span><br><span class="line">    weibo<span class="variable">.text</span> = <span class="string">@"上联：做 I T 风风雨雨又一年;\n下联：卖电脑辛辛苦苦每一天 ;\n横批：从小不学好，长大卖电脑！"</span>;</span><br><span class="line">    weibo<span class="variable">.icon</span> = [<span class="built_in">NSStringstringWithFormat</span>:<span class="string">@"01%d.png"</span>,arc4random_uniform(<span class="number">9</span>)];</span><br><span class="line">    <span class="comment">// 添加到数组</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.weibosinsertObject</span>:weibo atIndex:<span class="number">0</span>]; <span class="comment">// 添加到数组</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 刷新表格</span></span><br><span class="line">    <span class="comment">//[self.tableView reloadData];</span></span><br><span class="line">    <span class="comment">// 带有的的动画的删除方式，不过需要指定参数</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tableViewinsertRowsAtIndexPaths</span>:@[[<span class="built_in">NSIndexPathindexPathForItem</span>:<span class="number">0</span>inSection:<span class="number">0</span>]]withRowAnimation:<span class="built_in">UITableViewRowAnimationRight</span>];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3.3、更新某一行cell的数据</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 更新按钮</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)updateBtn:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    SLQWeibo *cell = <span class="keyword">self</span><span class="variable">.weibos</span>[<span class="number">2</span>];</span><br><span class="line">    cell<span class="variable">.text</span> = <span class="string">@"一天和同学出去吃饭，买单的时候想跟服务员开下玩笑。\n“哎呀，今天没带钱出来啊。”\n“你可以刷卡。”\n“可是我也没带卡出来的啊。”\n“那你可以刷碗！”"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 刷新表格</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tableViewreloadData</span>];</span><br><span class="line">    <span class="comment">// 带有的的动画的删除方式，需要指定参数</span></span><br><span class="line">    <span class="comment">//[self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:2 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3.4、删除一行或者多行</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除按钮</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)deleteBtn:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 删除第2、3行cell</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.weibosremoveObjectAtIndex</span>:<span class="number">2</span>];<span class="comment">// 从数组中移除</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.weibosremoveObjectAtIndex</span>:<span class="number">2</span>];<span class="comment">// 从数组中移除</span></span><br><span class="line">    <span class="comment">// 刷新表格</span></span><br><span class="line">    <span class="comment">//[self.tableView reloadData];</span></span><br><span class="line">    <span class="comment">// 带有的的动画的删除方式，需要指定参数</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tableViewdeleteRowsAtIndexPaths</span>:@[[<span class="built_in">NSIndexPathindexPathForItem</span>:<span class="number">2</span>inSection:<span class="number">0</span>],</span><br><span class="line">                                             [<span class="built_in">NSIndexPath</span> indexPathForItem:<span class="number">3</span> inSection:<span class="number">0</span>]</span><br><span class="line">                                             ] withRowAnimation:<span class="built_in">UITableViewRowAnimationLeft</span>];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结果如下：</li>
+</ul>
+<p><img src="../images/屏幕快照 2015-06-06 00.00.22.png" alt=""></p>
+<ul>
+<li>3.5、总结</li>
+<li><p>数据刷新的原则</p>
+<ul>
+<li>1、通过修改模型数据，来修改tableView的展示</li>
+<li>2、先修改模型数据</li>
+<li>3、再调用数据刷新方法</li>
+<li>4、不要直接修改cell上面子控件的属性</li>
+</ul>
+</li>
+<li><p>4、UITableView 编辑模式</p>
+<ul>
+<li>进入编辑模式需要设置一个属性editing。</li>
+</ul>
+</li>
+<li><p>4.1、进入编辑模式</p>
+<ul>
+<li>添加一个按钮，响应点击事件，改变UITableView的状态。默认是进入删除模式，还有一个添加模式。</li>
+</ul>
+</li>
+</ul>
+<p><img src="../images/屏幕快照 2015-06-06 21.32.28.png" alt=""></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 编辑按钮</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)editBtn:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 获取状态，并取反</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tableViewsetEditing</span>:!<span class="keyword">self</span><span class="variable">.tableView</span><span class="variable">.isEditinganimated</span>:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>进入添加模式需要实现代理方法：</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"></span><br><span class="line"> * 这个方法决定了编辑模式时，每一行的编辑类型：insert（+按钮）、delete（-按钮）</span><br><span class="line"></span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UITableViewCellEditingStyle</span>)tableView:(<span class="built_in">UITableView</span> *)tableView editingStyleForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span><span class="built_in">UITableViewCellEditingStyleInsert</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>4.2、左划删除cell<ul>
+<li>实现一个代理方法对左划进行响应。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  实现这个方法即可实现左划删除数据，并且可以响应添加和删除操作</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView commitEditingStyle:(<span class="built_in">UITableViewCellEditingStyle</span>)editingStyle forRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 左划删除</span></span><br><span class="line">    <span class="keyword">if</span> (editingStyle == <span class="built_in">UITableViewCellEditingStyleDelete</span>) <span class="comment">// 删除模式</span></span><br><span class="line">    &#123;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.weibos</span> removeObjectAtIndex:indexPath<span class="variable">.row</span>];<span class="comment">// 从数组中移除</span></span><br><span class="line">        <span class="comment">// 刷新表格</span></span><br><span class="line">        <span class="comment">//[self.tableView reloadData];</span></span><br><span class="line">        <span class="comment">// 带有的的动画的删除方式，需要指定参数</span></span><br><span class="line">        [tableView deleteRowsAtIndexPaths:@[indexPath]withRowAnimation:<span class="built_in">UITableViewRowAnimationLeft</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    elseif(editingStyle == <span class="built_in">UITableViewCellEditingStyleInsert</span>) <span class="comment">// 添加模式</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"UITableViewCellEditingStyleInsert--"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>4.3、批量删除方法1</p>
+</li>
+<li><p>给xib添加一个图片控件，显示选中状态,用于表示多选的状态，选中后如下面所示状</p>
+</li>
+</ul>
+<p><img src="../images/屏幕快照 2015-06-06 20.22.27.png" alt=""></p>
+<ul>
+<li>然后给模型添加一个属性，用于表示cell的选中状态</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*是否选中*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>,getter=isChecked) <span class="built_in">BOOL</span> checked;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>接着在封装cell类中得setter方法中对状态进行判断</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// setter 方法</span></span><br><span class="line">- (<span class="keyword">void</span>)setWeibo:(SLQWeibo *)weibo</span><br><span class="line">&#123;</span><br><span class="line">    _weibo = weibo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 是否是选中状态</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.checkImage</span><span class="variable">.hidden</span> = !weibo<span class="variable">.isChecked</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.nameLable</span><span class="variable">.text</span> = weibo<span class="variable">.name</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.iconImage</span><span class="variable">.image</span> = [<span class="built_in">UIImage</span> imageNamed:weibo<span class="variable">.icon</span>];</span><br><span class="line">    <span class="keyword">if</span> (weibo<span class="variable">.isVip</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.vipImage</span><span class="variable">.hidden</span> = <span class="literal">NO</span>;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.vipImage</span><span class="variable">.image</span> = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"vip"</span>];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.nameLable</span><span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">          <span class="keyword">self</span><span class="variable">.nameLable</span><span class="variable">.textColor</span> = [<span class="built_in">UIColor</span> blackColor];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.vipImage</span><span class="variable">.hidden</span> = <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.contentLable</span><span class="variable">.text</span> = weibo<span class="variable">.text</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(weibo<span class="variable">.picture</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.pictureImage</span><span class="variable">.hidden</span> = <span class="literal">NO</span>;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.pictureImage</span><span class="variable">.image</span> = [<span class="built_in">UIImage</span> imageNamed:weibo<span class="variable">.picture</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.pictureImage</span><span class="variable">.hidden</span> = <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算cell高度v</span></span><br><span class="line">    <span class="comment">// 强制布局</span></span><br><span class="line">    [selflayoutIfNeeded];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算高度</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.pictureImage</span><span class="variable">.hidden</span>)</span><br><span class="line">    &#123;</span><br><span class="line">         weibo<span class="variable">.cellHeight</span> = <span class="built_in">CGRectGetMaxY</span>(<span class="keyword">self</span><span class="variable">.contentLable</span><span class="variable">.frame</span>) + <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">         weibo<span class="variable">.cellHeight</span> = <span class="built_in">CGRectGetMaxY</span>(<span class="keyword">self</span><span class="variable">.pictureImage</span><span class="variable">.frame</span>) + <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>接着响应选中cell方法： didSelectRowAtIndexPath</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  cell 选中会调用这个方法</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView didSelectRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    [tableView deselectRowAtIndexPath:indexPath animated:<span class="literal">YES</span>]; <span class="comment">// 取消选中后cell北京变灰的状态</span></span><br><span class="line">    <span class="comment">//取出模型数据进行修改</span></span><br><span class="line">    SLQWeibo *weibo = <span class="keyword">self</span><span class="variable">.weibos</span>[indexPath<span class="variable">.row</span>]; <span class="comment">// 取出选中的cell模型数据</span></span><br><span class="line">    weibo<span class="variable">.checked</span> = !weibo<span class="variable">.isChecked</span>; <span class="comment">// 显示或者隐藏选中图标</span></span><br><span class="line">    [tableView reloadData]; <span class="comment">// 刷新表格</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>最后响应删除按钮</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除按钮</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)deleteBtn:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 删除多行数据</span></span><br><span class="line">    <span class="built_in">NSMutableArray</span> *deleteArray = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    <span class="keyword">for</span> (SLQWeibo *weibo <span class="keyword">in</span> <span class="keyword">self</span><span class="variable">.weibos</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (weibo<span class="variable">.isChecked</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            [deleteArray addObject:weibo]; <span class="comment">// 将选中的cell添加到待删除数组</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 删除所有选中数据</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.weibos</span> removeObjectsInArray:deleteArray];</span><br><span class="line">    <span class="comment">// 更新表格</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tableView</span> reloadData];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="../images/屏幕快照 2015-06-06 21.29.31.png" alt=""></p>
+<ul>
+<li>4.4、批量删除方法2</li>
+<li>这里使用一个待删除数组记录选中的cell，然后点击删除按钮后删除选中所有选中cell.</li>
+<li>首先，增加一个数组属性并初始化</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 待删除数组</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSMutableArray</span> *deleteWeibo;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [superviewDidLoad];</span><br><span class="line">    _deleteWeibo = [<span class="built_in">NSMutableArray</span> array]; <span class="comment">// 初始化数组</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>其次，在选中cell后进行判断 didSelectRowAtIndexPath</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  cell 选中会调用这个方法</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView didSelectRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    [tableView deselectRowAtIndexPath:indexPath animated:<span class="literal">YES</span>]; <span class="comment">// 取消选中后cell北京变灰的状态</span></span><br><span class="line">    <span class="comment">//取出模型数据进行修改</span></span><br><span class="line">    SLQWeibo *weibo = <span class="keyword">self</span><span class="variable">.weibos</span>[indexPath<span class="variable">.row</span>]; <span class="comment">// 取出选中的cell模型数据</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span><span class="variable">.deleteWeibo</span> containsObject:weibo]) <span class="comment">// 如果包含在数组中则从数组中移除</span></span><br><span class="line">    &#123;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.deleteWeibo</span> removeObject:weibo];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.deleteWeibo</span> addObject:weibo]; <span class="comment">// 否则就添加到数组</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [tableView reloadData]; <span class="comment">// 刷新表格</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>再次，在刷新表格时在 cellForRowAtIndexPath 方法中判断cell状态后再显示</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UITableViewCell</span> *) tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 获取cell对象</span></span><br><span class="line">    SLQWeiboCell *cell = [SLQWeiboCell cellWithTableView:tableView ];</span><br><span class="line">    cell<span class="variable">.weibo</span> = <span class="keyword">self</span><span class="variable">.weibos</span>[indexPath<span class="variable">.row</span>];</span><br><span class="line">    <span class="comment">// 判断选中状态</span></span><br><span class="line">    cell<span class="variable">.checkImage</span><span class="variable">.hidden</span> = ![<span class="keyword">self</span><span class="variable">.deleteWeibo</span> containsObject:cell<span class="variable">.weibo</span>];</span><br><span class="line">    <span class="keyword">return</span>  cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>最后，实现删除方法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除按钮</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)deleteBtn:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.weibos</span> removeObjectsInArray:<span class="keyword">self</span><span class="variable">.deleteWeibo</span>];</span><br><span class="line">    <span class="comment">// 更新表格</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tableView</span> reloadData];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清空删除数组</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.deleteWeibo</span> removeAllObjects];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>4.5、批量删除方法3：UITableView自带的方法</li>
+<li>UITableView 自带的批量删除操作，操作方式需要设置一个属性。</li>
+<li>首先，在加载tableView时设置属性，这样就可以在进入编辑模式时支持多选操作。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [superviewDidLoad];</span><br><span class="line">    <span class="comment">// 允许在编辑模式下多选</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.tableView</span><span class="variable">.allowsMultipleSelectionDuringEditing</span> = <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="../images/屏幕快照 2015-06-06 22.48.20.png" alt=""></p>
+<ul>
+<li>其次，就在就是在点击删除按钮后进行操作，因为选中的cell有tableView自己保存，直接获取就好了。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除按钮</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)deleteBtn:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSArray</span> *selected = [<span class="keyword">self</span><span class="variable">.tableView</span> indexPathsForSelectedRows];</span><br><span class="line">    <span class="built_in">NSMutableArray</span> *delete = [<span class="built_in">NSMutableArrayarray</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSIndexPath</span> * obj <span class="keyword">in</span> selected)</span><br><span class="line">    &#123;</span><br><span class="line">        [delete addObject:<span class="keyword">self</span><span class="variable">.weibos</span>[obj<span class="variable">.row</span>]];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 删除选中项</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.weibosremoveObjectsInArray</span>:delete];</span><br><span class="line">    <span class="comment">// 更新表格</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tableViewreloadData</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>最后，其他的代码如下，大部分和上一个设置一样。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  cell 选中会调用这个方法</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView didSelectRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section</span><br><span class="line">&#123;</span><br><span class="line">    returnself<span class="variable">.weibos</span><span class="variable">.count</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *) tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 获取cell对象</span></span><br><span class="line">    SLQWeiboCell *cell = [SLQWeiboCell cellWithTableView:tableView ];</span><br><span class="line">    cell<span class="variable">.weibo</span> = <span class="keyword">self</span><span class="variable">.weibos</span>[indexPath<span class="variable">.row</span>];</span><br><span class="line">    <span class="keyword">return</span>  cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="../images/屏幕快照 2015-06-06 22.53.54.png" alt=""></p>
+<ul>
+<li><p>5、tableView其他属性</p>
+<ul>
+<li>tableFooterView / tableHeaderView</li>
+<li>头部和尾部显示控件，默认都是水平垂直居中，并填充<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 给tableView 添加头部显示的View</span></span><br><span class="line">SLQPageScroll *pageView = [SLQPageScroll pageScroll];</span><br><span class="line">pageView<span class="variable">.imageNames</span> = @[<span class="string">@"ad_01"</span>,<span class="string">@"ad_02"</span>,<span class="string">@"ad_03"</span>,<span class="string">@"ad_04"</span>];</span><br><span class="line"><span class="keyword">self</span><span class="variable">.tableView</span><span class="variable">.tableHeaderView</span> = pageView;</span><br><span class="line"><span class="comment">// 尾部添加控件</span></span><br><span class="line">SLQLoadData *loadData = [SLQLoadData loadData];</span><br><span class="line"><span class="comment">// 指定控制器为代理对象</span></span><br><span class="line">loadData<span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.tableView</span><span class="variable">.tableFooterView</span> = loadData;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>6、自定义cell上的按钮</p>
+</li>
+</ul>
+<p><img src="../images/屏幕快照 2015-06-14 10.00.47.png" alt=""></p>
+<ul>
+<li>这是IOS8.0新增的一个代理方法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义按钮样式</span></span><br><span class="line">- (<span class="built_in">NSArray</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView editActionsForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 创建按钮样式</span></span><br><span class="line">    <span class="built_in">UITableViewRowAction</span> *action1 = [<span class="built_in">UITableViewRowActionrowActionWithStyle</span>:<span class="built_in">UITableViewRowActionStyleDefaulttitle</span>:<span class="string">@"增加"</span>handler:^(<span class="built_in">UITableViewRowAction</span> *action, <span class="built_in">NSIndexPath</span> *indexPath) &#123;</span><br><span class="line">        <span class="comment">// 处理按钮按下事件</span></span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    action1<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line">    <span class="built_in">UITableViewRowAction</span> *action2 = [<span class="built_in">UITableViewRowActionrowActionWithStyle</span>:<span class="built_in">UITableViewRowActionStyleDefaulttitle</span>:<span class="string">@"删除"</span>handler:^(<span class="built_in">UITableViewRowAction</span> *action, <span class="built_in">NSIndexPath</span> *indexPath) &#123;</span><br><span class="line">        <span class="comment">// 删除模型数据</span></span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contacts</span> removeObjectAtIndex:indexPath<span class="variable">.row</span>];</span><br><span class="line">        <span class="comment">// 刷新表格</span></span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.tableView</span> reloadData];</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="built_in">UITableViewRowAction</span> *action3 = [<span class="built_in">UITableViewRowActionrowActionWithStyle</span>:<span class="built_in">UITableViewRowActionStyleDefaulttitle</span>:<span class="string">@"haha"</span>handler:^(<span class="built_in">UITableViewRowAction</span> *action, <span class="built_in">NSIndexPath</span> *indexPath) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="keyword">return</span> @[action1,action2,action3];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.cnblogs.com/songliquan/" target="_blank" rel="external">http://www.cnblogs.com/songliquan/</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS/">iOS</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2013/09/14/UITableView总结/" data-title="UITableView总结 | Bloging" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2013/09/16/手势识别/" title="手势识别">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  手势识别</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2013/09/13/项目实战/"  title="项目总结">
+ <strong>NEXT:</strong><br/> 
+ <span>项目总结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableView总结"><span class="toc-number">1.</span> <span class="toc-text">UITableView总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UITableView"><span class="toc-number">1.1.</span> <span class="toc-text">UITableView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tableView性能优化_-_cell的循环利用方式1"><span class="toc-number">1.2.</span> <span class="toc-text">tableView性能优化 - cell的循环利用方式1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tableView性能优化_-_cell的循环利用方式2"><span class="toc-number">1.3.</span> <span class="toc-text">tableView性能优化 - cell的循环利用方式2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tableView性能优化_-_cell的循环利用方式3"><span class="toc-number">1.4.</span> <span class="toc-text">tableView性能优化 - cell的循环利用方式3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#错误将UIViewController当做UITableViewController来用"><span class="toc-number">1.5.</span> <span class="toc-text">错误将UIViewController当做UITableViewController来用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UITableView的常见设置"><span class="toc-number">1.6.</span> <span class="toc-text">UITableView的常见设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UITableViewCell的常见设置"><span class="toc-number">1.7.</span> <span class="toc-text">UITableViewCell的常见设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义cell"><span class="toc-number">1.8.</span> <span class="toc-text">自定义cell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代理模式"><span class="toc-number">1.9.</span> <span class="toc-text">代理模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代理和通知的区别"><span class="toc-number">1.10.</span> <span class="toc-text">代理和通知的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KVC\KVO"><span class="toc-number">1.11.</span> <span class="toc-text">KVC\KVO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、UITableView的常用属性"><span class="toc-number">1.12.</span> <span class="toc-text">一、UITableView的常用属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、cell的循环利用方式"><span class="toc-number">1.13.</span> <span class="toc-text">二、cell的循环利用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、自定义cell"><span class="toc-number">1.14.</span> <span class="toc-text">三、自定义cell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1、等高cell"><span class="toc-number">1.15.</span> <span class="toc-text">1、等高cell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xib自定义cell"><span class="toc-number">1.16.</span> <span class="toc-text">xib自定义cell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码自定义cell(使用frame)"><span class="toc-number">1.17.</span> <span class="toc-text">代码自定义cell(使用frame)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码自定义cell(使用autolayout)"><span class="toc-number">1.18.</span> <span class="toc-text">代码自定义cell(使用autolayout)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义非等高的cell"><span class="toc-number">1.19.</span> <span class="toc-text">自定义非等高的cell</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/tags/autolayout/" title="autolayout">autolayout<sup>1</sup></a></li>
+		
+			<li><a href="/tags/iOS/" title="iOS">iOS<sup>21</sup></a></li>
+		
+			<li><a href="/tags/iPad/" title="iPad">iPad<sup>1</sup></a></li>
+		
+			<li><a href="/tags/scrollView/" title="scrollView">scrollView<sup>1</sup></a></li>
+		
+			<li><a href="/tags/换肤/" title="换肤">换肤<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://yoursite.com" target="_blank" title="Mr Song">Mr Song</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

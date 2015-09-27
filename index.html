@@ -92,18 +92,219 @@ Git http://git-scm.com/download/
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2015/09/26/hello-world/" title="Hello World" itemprop="url">
+    <a href="/2014/09/26/导航控制器/" title="UIApplication/导航控制器" itemprop="url">
   
-    <h1 itemprop="name">Hello World</h1>
+    <h1 itemprop="name">UIApplication/导航控制器</h1>
     
      
-           <p itemprop="description" >Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the </p>
+           <p itemprop="description" >UIApplication/导航控制器UIApplication
+每一个应用都有自己的UIApplication对象，而且是单例的
+通过[UIApplication sharedApplication]可以获得这个单例对象
+一个iOS程序启动后创建的第一个对象就是UIApplic</p>
         
     
-    <time datetime="2015-09-26T02:33:11.000Z" itemprop="datePublished">2015-09-26</time>
+    <time datetime="2014-09-26T06:48:09.000Z" itemprop="datePublished">2014-09-26</time>
   </a>
 </section>
 
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2014/02/26/qq列表简单实现/" title="QQ列表简单实现" itemprop="url">
+  
+    <h1 itemprop="name">QQ列表简单实现</h1>
+    
+     
+           <p itemprop="description" >QQ列表简单实现
+0、首先说说实现思路
+自定义UITableView，每一个分组都是一个UITableViewHeaderFooterView,然后自定义cell，这里分组的实现主要是自定义UITableViewHeaderFooterView 这个折叠效果主要靠这个header</p>
+        
+    
+    <time datetime="2014-02-26T06:48:09.000Z" itemprop="datePublished">2014-02-26</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2014/02/26/核心动画/" title="核心动画" itemprop="url">
+  
+    <h1 itemprop="name">核心动画</h1>
+    
+     
+           <p itemprop="description" >核心动画
+注意事项 ：locationInView和translationInView
+
+1234// 返回相对于控件自身内部触摸点的位置[pan locationInView:self];// 返回两个触摸点之间的偏移量，这个是偏移量，其实和具体的控件关系不大CGPoint c</p>
+        
+    
+    <time datetime="2014-02-26T06:48:09.000Z" itemprop="datePublished">2014-02-26</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2014/01/26/二维码/" title="二维码" itemprop="url">
+  
+    <h1 itemprop="name">二维码</h1>
+    
+     
+           <p itemprop="description" >二维码生成二维码
+二维码可以存放纯文本、名片或者URL
+生成二维码的步骤：
+导入CoreImage框架
+通过滤镜CIFilter生成二维码
+1、创建过滤器
+2、恢复滤镜的默认属性
+3、设置内容
+4、获取输出文件
+5、显示二维码
+
+
+
+
+代码实现 CoreImage
+
+123456</p>
+        
+    
+    <time datetime="2014-01-26T06:48:09.000Z" itemprop="datePublished">2014-01-26</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2013/12/26/多线程/" title="多线程" itemprop="url">
+  
+    <h1 itemprop="name">多线程</h1>
+    
+     
+           <p itemprop="description" >多线程基础知识
+进程
+每一个程序在内存中都有一个进程
+每个进程之间是独立的，每个进程均运行在其专用且受保护的内存空间内
+一个进程可以有多个线程
+
+
+线程
+一个进程要执行任务，必须有线程
+一个进程至少有一个线程
+线程是进程的基本执行单元
+
+
+线程的执行方式
+串行，多个任务在线程内部</p>
+        
+    
+    <time datetime="2013-12-26T06:00:09.000Z" itemprop="datePublished">2013-12-26</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2013/11/26/RunLoop/" title="RunLoop" itemprop="url">
+  
+    <h1 itemprop="name">RunLoop</h1>
+    
+     
+           <p itemprop="description" >RunLoop基本作用
+保持程序运行状态。简单一点就是在main函数里加入一个死循环，使得程序不会退出。
+处理各种app中的事件（比如触摸、定时器事件、selector事件等）。
+节省CPU资源，有事做就做事，没事做就休息。
+
+123456int main(int argc, c</p>
+        
+    
+    <time datetime="2013-11-26T06:48:09.000Z" itemprop="datePublished">2013-11-26</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2013/11/26/定位、地图/" title="定位、地图" itemprop="url">
+  
+    <h1 itemprop="name">定位、地图</h1>
+    
+     
+           <p itemprop="description" >定位、地图
+定位 CoreLocation
+地图 MapKit
+
+CoreLocation
+CLLocationManager
+在获取用户信息时会弹出获取用户隐私的对话框
+
+
+
+iOS设置里每个应用的位置授权信息
+
+
+可以在info.plist的文件中添加一个描述信息-
+6.0
+</p>
+        
+    
+    <time datetime="2013-11-26T06:48:09.000Z" itemprop="datePublished">2013-11-26</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2013/10/26/代理传值和block传值/" title="代理传值和block传值" itemprop="url">
+  
+    <h1 itemprop="name">代理传值和block传值</h1>
+    
+     
+           <p itemprop="description" >代理传值和block传值代理传值和block传值
+在两个不同的控制器之间传递数据，可以使用代理传值或者block传值。
+
+例子是一个简单通讯录。
+
+主界面如下：
+
+
+
+
+添加联系人界面
+
+
+
+查看/编辑联系人界面：默认是查看模式，点击编辑后进入编辑模式
+
+
+
+编辑模式
+
+
+
+数据</p>
+        
+    
+    <time datetime="2013-10-26T06:48:09.000Z" itemprop="datePublished">2013-10-26</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2013/10/26/传感器-加速计-蓝牙/" title="传感器-加速计-蓝牙" itemprop="url">
+  
+    <h1 itemprop="name">传感器-加速计-蓝牙</h1>
+    
+     
+           <p itemprop="description" >传感器iPhone 内部传感器
+iPhone内置的传感器有
+运动传感器\加速度传感器\加速计（Motion/Accelerometer Sensor）
+环境光传感器（Ambient Light Sensor）
+距离传感器（Proximity Sensor）
+磁力计传感器（Magn</p>
+        
+    
+    <time datetime="2013-10-26T06:48:09.000Z" itemprop="datePublished">2013-10-26</time>
+  </a>
+</section>
+
+
+  <nav id="page-nav" class="clearfix">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </div>
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
@@ -115,6 +316,25 @@ Git http://git-scm.com/download/
   
 
   
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/tags/autolayout/" title="autolayout">autolayout<sup>1</sup></a></li>
+		
+			<li><a href="/tags/iOS/" title="iOS">iOS<sup>21</sup></a></li>
+		
+			<li><a href="/tags/iPad/" title="iPad">iPad<sup>1</sup></a></li>
+		
+			<li><a href="/tags/scrollView/" title="scrollView">scrollView<sup>1</sup></a></li>
+		
+			<li><a href="/tags/换肤/" title="换肤">换肤<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
 
   <div class="rsspart">
 	<a href="null" target="_blank" title="rss">RSS 订阅</a>
