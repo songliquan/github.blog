@@ -1,0 +1,466 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>swift.md | Bloging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Mr Song">
+    
+    <meta name="description" content="Swift 与众不同的地方switch（元组）
+特点
+
+其他语言中的switch语句只能比较离散的整形数据（字符可以转换成整数）
+但是swift中可以比较整数、浮点数、字符、字符串、和元组数据类型，而且它可以是离散的也可以使连续的范围
+而且在swift中case语句不需要显示的添加break语句，分">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/archives">存档</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/29/swift-md/" title="swift.md" itemprop="url">swift.md</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Mr Song">Mr Song</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-09-29T08:54:36.000Z" itemprop="datePublished">2015-09-29</time>
+    更新日期:<time datetime="2015-10-01T01:42:32.000Z" itemprop="dateModified">2015-10-01</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift_与众不同的地方"><span class="toc-number">1.</span> <span class="toc-text">Swift 与众不同的地方</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#switch（元组）"><span class="toc-number">1.1.</span> <span class="toc-text">switch（元组）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环"><span class="toc-number">1.2.</span> <span class="toc-text">循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跳转语句"><span class="toc-number">1.3.</span> <span class="toc-text">跳转语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛型和泛型函数"><span class="toc-number">1.4.</span> <span class="toc-text">泛型和泛型函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.5.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swift中的面向对象"><span class="toc-number">1.6.</span> <span class="toc-text">swift中的面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举"><span class="toc-number">1.6.1.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构体"><span class="toc-number">1.6.2.</span> <span class="toc-text">结构体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可选类型和可选链"><span class="toc-number">1.7.</span> <span class="toc-text">可选类型和可选链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问限定"><span class="toc-number">1.8.</span> <span class="toc-text">访问限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性和下标"><span class="toc-number">1.9.</span> <span class="toc-text">属性和下标</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="Swift_与众不同的地方">Swift 与众不同的地方</h1><h2 id="switch（元组）">switch（元组）</h2><ul>
+<li><p>特点</p>
+<ul>
+<li>其他语言中的switch语句只能比较离散的整形数据（字符可以转换成整数）</li>
+<li>但是swift中可以比较整数、浮点数、字符、字符串、和元组数据类型，而且它可以是离散的也可以使连续的范围</li>
+<li>而且在swift中case语句不需要显示的添加break语句，分支语句会自动进行跳转</li>
+<li>每个switch语句至少有一个default语句</li>
+</ul>
+</li>
+<li><p>switch中比较元组</p>
+<ul>
+<li>可以在元组中进行值绑定，来对某一个值进行判断</li>
+<li>可以使用where 语句对元组中的条件进行判断</li>
+</ul>
+</li>
+</ul>
+<h2 id="循环">循环</h2><ul>
+<li>switch 中支持4中循环语句，while、do while、for、for in</li>
+<li>其中for in 是专门为集合对象实现的</li>
+</ul>
+<h2 id="跳转语句">跳转语句</h2><ul>
+<li>break、contune、fallthrough、return</li>
+<li><p>break </p>
+<ul>
+<li>主要用户循环体中终止循环 </li>
+<li>break的使用有两种方式<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">break</span>	<span class="comment">// 	没有标签</span></span><br><span class="line"><span class="keyword">break</span> label <span class="comment">// 添加标签</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// break语句中标签的使用</span></span><br><span class="line">label1: <span class="keyword">for</span> var x = <span class="number">0</span>; x &lt; <span class="number">5</span>; x++ &#123; <span class="comment">// 标签1</span></span><br><span class="line">    label2: <span class="keyword">for</span> var y = <span class="number">0</span>; y &gt; <span class="number">0</span>; y-- &#123; <span class="comment">// 标签2</span></span><br><span class="line">        <span class="keyword">if</span> x == y &#123;</span><br><span class="line">        <span class="keyword">break</span> label1 <span class="comment">// 默认是跳出标签2，加上标签，可以直接跳出到指定循环</span></span><br><span class="line">        &#125;</span><br><span class="line">        print(<span class="string">"(x,y) = (\(x),\(y))"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>continue </p>
+<ul>
+<li><p>continue 的使用和break类似，可以使用标签指定继续的循环</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">// continue语句中标签的使用</span></span><br><span class="line">	label1: <span class="keyword">for</span> var x = <span class="number">0</span>; x &lt; <span class="number">5</span>; x++ &#123; <span class="comment">// 标签1</span></span><br><span class="line">	    label2: <span class="keyword">for</span> var y = <span class="number">0</span>; y &gt; <span class="number">0</span>; y-- &#123; <span class="comment">// 标签2</span></span><br><span class="line">	        <span class="keyword">if</span> x == y &#123;</span><br><span class="line">	            <span class="keyword">continue</span> label1 <span class="comment">// 默认是跳出标签2，加上标签，可以直接跳出到指定循环</span></span><br><span class="line">	        &#125;</span><br><span class="line">	        print(<span class="string">"(x,y) = (\(x),\(y))"</span>)</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	```	</span><br><span class="line"></span><br><span class="line">- fallthrough</span><br><span class="line">	- fallthrough是贯通语句，在swift的swiftch语句中<span class="keyword">case</span>语句不能贯通，但是如果我们需要设置贯通语句，可以使用fallthrough语句</span><br><span class="line">	- 在<span class="keyword">switch</span>语句中<span class="keyword">case</span>后fallthrough，会执行下一个<span class="keyword">case</span>语句</span><br><span class="line">- <span class="keyword">return</span> </span><br><span class="line">	- 函数返回值</span><br><span class="line"><span class="preprocessor">## 数组和字典</span></span><br><span class="line">- 数组</span><br><span class="line">	- 和oc中数组没啥大的区别</span><br><span class="line">- 字典</span><br><span class="line">	- 字典的遍历有两种方式，一种是遍历keys，一种是遍历values，或者同时遍历</span><br><span class="line">- 集合的复制</span><br><span class="line">	- 值传递和引用传递</span><br><span class="line">	</span><br><span class="line"><span class="preprocessor">## 函数</span></span><br><span class="line">- 参数传递</span><br><span class="line">	- 外部参数名和内部参数名</span><br><span class="line">	- 外部参数名可以在调用函数时显示出来  </span><br><span class="line"></span><br><span class="line">	```objc</span><br><span class="line">	func rectangle(W width:Int, H height:Int) -&gt; Int &#123;</span><br><span class="line">		<span class="comment">// 	其中W\H是外部参数名，在外部调用这个方法时会显示出来，提示这个参数是神马意思</span></span><br><span class="line">		<span class="comment">// width\height 是内部参数，在函数内部调用使用</span></span><br><span class="line">		<span class="keyword">return</span> width * height</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>也可以让内部便令名变为外部变量名，使用字符 “#”</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func rectangle(<span class="preprocessor">#width:Int, #height:Int) -&gt; Int&#123;</span></span><br><span class="line">	<span class="comment">// 	其中W\H是外部参数名，在外部调用这个方法时会显示出来，提示这个参数是神马意思</span></span><br><span class="line">	<span class="comment">// width\height 是内部参数，在函数内部调用使用</span></span><br><span class="line">	<span class="keyword">return</span> width * height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>参数默认值</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func rectangle(<span class="preprocessor">#width:Int = 100, #height:Int = 100) -&gt; Int &#123;</span></span><br><span class="line">	<span class="comment">// 	其中W\H是外部参数名，在外部调用这个方法时会显示出来，提示这个参数是神马意思</span></span><br><span class="line">	<span class="comment">// width\height 是内部参数，在函数内部调用使用</span></span><br><span class="line">	<span class="keyword">return</span> width * height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>可变参数</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">func sum(numbers: Double... ) -&gt; Double &#123;</span><br><span class="line">	var total: Double = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> num <span class="keyword">in</span> numbers &#123;</span><br><span class="line">		total += num</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>参数的引用传递</p>
+<ul>
+<li>在众多数据类型中，只有类是引用传递，其他的数据类型如整形、浮点型、布尔型、字符串、元组、集合、数据、枚举、结构体都是值传递。</li>
+<li><p>如果一定要把一个值传递的类型的数据变为引用传递模型的话，可使用关键字’inout’</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func rectangle(<span class="keyword">inout</span> width:Int, increased:Int = <span class="number">1</span> ) &#123;</span><br><span class="line">	width += increased</span><br><span class="line">&#125;</span><br><span class="line">var value:Int = <span class="number">10</span></span><br><span class="line">rectangle(&amp;value) <span class="comment">// 结果是11</span></span><br><span class="line">rectangle(&amp;value,<span class="number">100</span>) <span class="comment">// 结果是111</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>函数返回值</p>
+<ul>
+<li>特别之处是可以返回一个元组，表示多个值</li>
+<li><code>func rectangleArea(width:Double, increased:Double = 1 ) -&gt; (area:Double,height:Double) //返回面积和高度</code> </li>
+</ul>
+</li>
+<li>函数类型<ul>
+<li>函数类型包括函数参数类型和返回值类型</li>
+<li><code>(Double, Double） -&gt; Double //传入宽高，计算面积</code></li>
+<li>这个就是函数类型，函数类型可以作为其他函数的返回类型</li>
+<li>比如写一个通用的方法来计算更多种图形的面积，这时可以使用这个函数类型作为返回值</li>
+<li>函数类型还可以作为参数类型使用，可以直接使用返回值作为参数，然后可以在函数内部调用这个函数</li>
+</ul>
+</li>
+<li>函数重载<ul>
+<li>和C++中函数重载类似，但是在swift中<code>函数返回值类型</code>也可以作为不同函数的判断标准</li>
+</ul>
+</li>
+<li>嵌套函数<ul>
+<li>可以在函数内部定义并调用函数</li>
+</ul>
+</li>
+</ul>
+<h2 id="泛型和泛型函数">泛型和泛型函数</h2><ul>
+<li>泛型就是在运行时才确定类型的一种机制,这个C++中的泛型如出一辙</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">func add(a:Int, b:Int) -&gt; Int</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line">func add(a:Double, b:Double) -&gt; Double</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果用泛型计算两个数的和，可以写成下面这个样</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">func add&lt;T&gt;)(a:T, b:T) -&gt; T &#123;</span><br><span class="line">	<span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 或者指定多重类型</span></span><br><span class="line">func add&lt;T,U&gt;(a:T, b:U) -&gt; T &#123;</span><br><span class="line">	<span class="keyword">return</span> a + T(b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果比较两个类型的话，那么必须要遵守<code>Comparable</code>协议才可以</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func isEquals&lt;T: Comparable&gt;(a:T, b:T) -&gt; Bool &#123;</span><br><span class="line">	<span class="keyword">return</span> (a == b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="闭包">闭包</h2><ul>
+<li>闭包是自包含的匿名函数代码块，可以作为表达式、函数参数和函数返回值。</li>
+<li>`{ (参数列表) -&gt; 返回值类型 in<pre><code>语句组
+</code></pre>  }`</li>
+<li><p>使用举例</p>
+<ul>
+<li>完整版本 `{(a:Int, b:Int) -&gt; Int in <pre><code><span class="keyword">return</span> <span class="literal">a</span> + b
+</code></pre>  }`</li>
+<li>简化版本 <code>{a,b in return a + b }</code></li>
+<li>如果闭包中只有一条return语句，那么return 语句可以省略<code>{a,b in a + b }</code></li>
+<li>缩写参数名称 <code>{$0 + $1}</code> swift会自动推到出参数类型，$0表示第一个参数，$1表示第二个参数</li>
+<li><p>闭包作为返回值,直接可以为变量和常量赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let reslut:Int = &#123;(a:Int, b:Int) -&#62; Int in &#10;&#9;return a + b&#10;&#125;(10, 89)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>捕获上下文中的变量和常量</p>
+<ul>
+<li>嵌套函数和闭包可以访问其所在上下文中的常量和变量，这就是<code>捕获值</code>。即便是定义这些常量或变量的作用域已经不存在，嵌套函数或闭包仍然可以在函数体内或闭包内修改或引用这些值。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="swift中的面向对象">swift中的面向对象</h2><h3 id="枚举">枚举</h3><ul>
+<li>swift中枚举可以存储多种数据类型，并不是真正的整数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// &#40664;&#35748;&#24182;&#19981;&#26159;&#25972;&#24418;&#10;enum WeekDays &#123;&#10;&#9;case Monday&#10;&#9;case Tuesday&#10;&#9;case Wednesday&#10;&#9;case Thursday&#10;&#9;case Friday&#10;&#125;&#10;// &#31616;&#20889;&#10;&#9;enum WeekDays &#123;&#10;&#9;case Monday, Tuesday, Wednesday, Thursday, Friday&#10;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意：在switch中使用枚举类型时，语句中的case必须全部包含枚举中所有成员，不能多也不能少，包括default语句。</li>
+<li>指定没枚举的原始值，可以是字符、字符串、整数、浮点数等</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// &#25351;&#23450;&#26522;&#20030;&#30340;&#21407;&#22987;&#20540;&#10;enum WeekDays: Int &#123;&#10;&#9;case Monday = 0&#10;&#9;case Tuesday&#10;&#9;case Wednesday&#10;&#9;case Thursday&#10;&#9;case Friday&#10;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>原始值使用的话，要用到函数 <code>toRaw()</code> 和 <code>fromRaw()</code> </li>
+</ul>
+<h3 id="结构体">结构体</h3><ul>
+<li>swift中结构体和类非常类似，可以定义成员变量和方法</li>
+<li>结构体不具备继承、运行时强制类型转换、析构函数、引用计数等</li>
+<li>除了对象是引用传递，其他数据类型都是值传递，引用之间的比较可以使用 ‘===’ 和 ‘!===’</li>
+</ul>
+<h2 id="可选类型和可选链">可选类型和可选链</h2><ul>
+<li><p>“?” 和 “!”</p>
+<ul>
+<li>不确定一个变量是否有值，可以加 ?</li>
+<li><p>可选绑定 : 如果赋值不为nil的话就执行if语句</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if let result: Double? = divide(100,0) &#123;&#10;&#9;print(&#34;success&#34;)&#10;&#125;&#10;else &#123;&#10;&#9;print(&#34;failure&#34;)&#10;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- 强制拆封 : 使用 ！ 来强制拆封
+- `<span class="keyword">let</span> <span class="literal">result</span>: <span class="type">Double</span>? = divide(<span class="number">100</span>,<span class="number">0</span>)
+    print(<span class="literal">result</span>!) `
+</code></pre><ul>
+<li>可选链<ul>
+<li>一些可选类型内部包含其他可选类型，然后产生层级关系。</li>
+</ul>
+</li>
+</ul>
+<h2 id="访问限定">访问限定</h2><ul>
+<li>访问范围的界定主要有：模块和源文件</li>
+<li>访问级别：public、internal、private</li>
+<li>可修饰类、结构体、枚举等面向对象的类型，还可以修饰变量、常量、下标、元组、函数、属性等。以上这些统称“实体”</li>
+<li>使用方式<ul>
+<li>public : 只要在import进所在模块，那么在     该模块中都可访问</li>
+<li>internal : 只能访问自己模块的任何internal实体，不能访问其他模块中的internal实体，默认就是internal修饰符</li>
+<li>private : 只能在当前源文件中访问的实体。</li>
+</ul>
+</li>
+<li>设计原则<ul>
+<li>如果是自己在本文件内部使用，就用默认的就行。</li>
+<li>如果是开发第三方框架的话，那么一定要设计好访问级别，接口一定要public。其他的可以private</li>
+</ul>
+</li>
+</ul>
+<h2 id="属性和下标">属性和下标</h2><ul>
+<li></li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/swift/">swift</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/09/29/swift-md/" data-title="swift.md | Bloging" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2013/01/05/github搭建博客/"  title="github搭建个人博客">
+ <strong>NEXT:</strong><br/> 
+ <span>github搭建个人博客
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift_与众不同的地方"><span class="toc-number">1.</span> <span class="toc-text">Swift 与众不同的地方</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#switch（元组）"><span class="toc-number">1.1.</span> <span class="toc-text">switch（元组）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环"><span class="toc-number">1.2.</span> <span class="toc-text">循环</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跳转语句"><span class="toc-number">1.3.</span> <span class="toc-text">跳转语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛型和泛型函数"><span class="toc-number">1.4.</span> <span class="toc-text">泛型和泛型函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.5.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swift中的面向对象"><span class="toc-number">1.6.</span> <span class="toc-text">swift中的面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举"><span class="toc-number">1.6.1.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构体"><span class="toc-number">1.6.2.</span> <span class="toc-text">结构体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可选类型和可选链"><span class="toc-number">1.7.</span> <span class="toc-text">可选类型和可选链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问限定"><span class="toc-number">1.8.</span> <span class="toc-text">访问限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性和下标"><span class="toc-number">1.9.</span> <span class="toc-text">属性和下标</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/swift/" title="swift">swift<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://yoursite.com" target="_blank" title="Mr Song">Mr Song</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
