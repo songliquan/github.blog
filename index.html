@@ -110,10 +110,6 @@
 </ul>
 </li>
 </ul>
-<h2 id="循环">循环</h2><ul>
-<li>switch 中支持4中循环语句，while、do while、for、for in</li>
-<li>其中for in 是专门为集合对象实现的</li>
-</ul>
 <h2 id="跳转语句">跳转语句</h2><ul>
 <li>break、contune、fallthrough、return</li>
 </ul>
@@ -284,7 +280,7 @@
 <li>访问级别：public、internal、private</li>
 <li>可修饰类、结构体、枚举等面向对象的类型，还可以修饰变量、常量、下标、元组、函数、属性等。以上这些统称“实体”</li>
 <li>使用方式<ul>
-<li>public : 只要在import进所在模块，那么在     该模块中都可访问</li>
+<li>public : 只要在import进所在模块，那么在该模块中都可访问</li>
 <li>internal : 只能访问自己模块的任何internal实体，不能访问其他模块中的internal实体，默认就是internal修饰符</li>
 <li>private : 只能在当前源文件中访问的实体。</li>
 </ul>
@@ -295,7 +291,34 @@
 </ul>
 </li>
 </ul>
-<h2 id="属性和下标">属性和下标</h2><ul>
+<h2 id="属性和下标">属性和下标</h2><h3 id="1、存储属性">1、存储属性</h3><ul>
+<li>存储属性适用于类和结构体两种类型，包括常量属性和变量属性</li>
+<li>可以对存储属性进行延迟加载</li>
+<li><p>属性观察者</p>
+<ul>
+<li><code>willSet</code> 在设置新值之前调用</li>
+<li><p><code>didSet</code> 在设置新值之后马上调用</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fullName: <span class="type">String</span> &#123;</span><br><span class="line">      <span class="keyword">didSet</span> &#123;</span><br><span class="line">           fullName = firstName + <span class="string">"."</span> + secondName</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2、计算属性">2、计算属性</h3><ul>
+<li><p>计算属性本身不存储数据，只从其他存储属性中获得数据。类、结构体、枚举都可以定义计算属性</p>
+  <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> firstName: <span class="type">String</span> = <span class="string">"Jone"</span></span><br><span class="line"><span class="keyword">var</span> secondName: <span class="type">String</span> = <span class="string">"Hu"</span></span><br><span class="line"><span class="comment">// 计算属性</span></span><br><span class="line"><span class="keyword">var</span> fullName: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> firstName + <span class="string">"."</span> + secondName</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span> (newValue) &#123;</span><br><span class="line">        <span class="keyword">let</span> names = newValue.componentsSeparatedByString(<span class="string">"."</span>)</span><br><span class="line">        firstName = names[<span class="number">0</span>]</span><br><span class="line">        secondName = names[<span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>只读计算属性，只写set方法即可，这是可以省略<code>set</code>，直接<code>return</code>即可</p>
+  <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> firstName: <span class="type">String</span> = <span class="string">"Jone"</span></span><br><span class="line"><span class="keyword">var</span> secondName: <span class="type">String</span> = <span class="string">"Hu"</span></span><br><span class="line"><span class="comment">// 计算属性</span></span><br><span class="line"><span class="keyword">var</span> fullName: <span class="type">String</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> firstName + <span class="string">"."</span> + secondName</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>静态属性</p>
+<ul>
+<li>可以在类、结构体、枚举中定义静态属性</li>
+</ul>
+</li>
+</ul>
+<h3 id="3、下标">3、下标</h3><ul>
 <li></li>
 </ul>
 
