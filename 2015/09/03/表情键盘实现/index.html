@@ -1,0 +1,534 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>表情键盘实现 | Bloging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Mr Song">
+    
+
+    
+    <meta name="description" content="表情键盘实现
+直接自定义文本输入框的inputView属性，直接改成自己想要的UIView即可。
+表情保存在本地，从沙盒中读取
+
+emoji表情显示
+emoji对应十六进制,如果要显示的话，需要转换一下
+
+// emoji对应十六进制func emojiToShow(code: String) -&amp;gt; String &amp;#123;    // 创建扫描器    let scanner = NSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="表情键盘实现">
+<meta property="og:url" content="http://yoursite.com/2015/09/03/表情键盘实现/index.html">
+<meta property="og:site_name" content="Bloging">
+<meta property="og:description" content="表情键盘实现
+直接自定义文本输入框的inputView属性，直接改成自己想要的UIView即可。
+表情保存在本地，从沙盒中读取
+
+emoji表情显示
+emoji对应十六进制,如果要显示的话，需要转换一下
+
+// emoji对应十六进制func emojiToShow(code: String) -&amp;gt; String &amp;#123;    // 创建扫描器    let scanner = NSS">
+<meta property="og:updated_time" content="2015-10-05T00:13:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="表情键盘实现">
+<meta name="twitter:description" content="表情键盘实现
+直接自定义文本输入框的inputView属性，直接改成自己想要的UIView即可。
+表情保存在本地，从沙盒中读取
+
+emoji表情显示
+emoji对应十六进制,如果要显示的话，需要转换一下
+
+// emoji对应十六进制func emojiToShow(code: String) -&amp;gt; String &amp;#123;    // 创建扫描器    let scanner = NSS">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/09/03/表情键盘实现/" title="表情键盘实现" itemprop="url">表情键盘实现</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Mr Song" target="_blank" itemprop="author">Mr Song</a>
+		
+  <p class="article-time">
+    <time datetime="2015-09-03T02:25:18.000Z" itemprop="datePublished"> 发表于 2015-09-03</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#表情键盘实现"><span class="toc-number">1.</span> <span class="toc-text">表情键盘实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#emoji表情显示"><span class="toc-number">1.1.</span> <span class="toc-text">emoji表情显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片显示"><span class="toc-number">1.2.</span> <span class="toc-text">图片显示</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="表情键盘实现">表情键盘实现</h1><ul>
+<li>直接自定义文本输入框的<code>inputView</code>属性，直接改成自己想要的UIView即可。</li>
+<li>表情保存在本地，从沙盒中读取</li>
+</ul>
+<h2 id="emoji表情显示">emoji表情显示</h2><ul>
+<li>emoji对应十六进制,如果要显示的话，需要转换一下</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// emoji对应十六进制</span></span><br><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">emojiToShow</span><span class="params">(code: String)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">    <span class="comment">// 创建扫描器</span></span><br><span class="line">    <span class="keyword">let</span> scanner = <span class="type">NSScanner</span>(string: code)</span><br><span class="line">    <span class="comment">// 将十六进制数据转换成字符串</span></span><br><span class="line">    <span class="keyword">var</span> result: <span class="type">UInt32</span> = <span class="number">0</span></span><br><span class="line">    scanner.scanHexInt(&amp;result)</span><br><span class="line">    <span class="comment">// 字符串转换成emoji字符串</span></span><br><span class="line">    <span class="keyword">let</span> emojiStr = <span class="type">Character</span>(<span class="type">UnicodeScalar</span>(result))</span><br><span class="line">    <span class="keyword">return</span> <span class="type">String</span>(emojiStr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="图片显示">图片显示</h2><ul>
+<li>在文本输入框里显示小图片作为表情使用</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1、显示图片，通过富文本 </span></span><br><span class="line"><span class="keyword">let</span> attachment = <span class="type">NSTextAttachment</span>()</span><br><span class="line"><span class="comment">// 然后加载图片</span></span><br><span class="line">attachment.image = <span class="type">UIImage</span>(contentsOfFile: emoticon.imagePath!)</span><br><span class="line"><span class="comment">// 设置附件大小,稍微下移一点，图片比较答，而emoji比较小</span></span><br><span class="line">attachment.bounds = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: -<span class="number">4</span>, width: <span class="number">20</span>, height: <span class="number">20</span>)</span><br><span class="line"><span class="comment">// 2、根据附件创建属性字符串</span></span><br><span class="line"><span class="keyword">let</span> imageText = <span class="type">NSAttributedString</span>(attachment: attachment)</span><br><span class="line"><span class="comment">// 3、拿到当前的所有字符串内容</span></span><br><span class="line"><span class="keyword">let</span> strM = <span class="type">NSMutableAttributedString</span>(attributedString: <span class="keyword">self</span>.textView.attributedText)</span><br><span class="line"><span class="comment">// 4.插入表情到当前光标所在的位置</span></span><br><span class="line"><span class="keyword">let</span> range = <span class="keyword">self</span>.textView.selectedRange</span><br><span class="line">strM.replaceCharactersInRange(range,withAttributedString: imageText)</span><br><span class="line"><span class="comment">// 设置附件尺寸</span></span><br><span class="line">strM.addAttribute(<span class="type">NSFontAttributeName</span>,value: <span class="type">UIFont</span>.systemFontOfSize(<span class="number">19</span>),range: <span class="type">NSMakeRange</span>(range.location, <span class="number">1</span>))</span><br><span class="line"><span class="comment">// 5、重新赋值</span></span><br><span class="line"><span class="keyword">self</span>.textView.attributedText = strM</span><br><span class="line"><span class="comment">// 设置光标位置</span></span><br><span class="line"><span class="keyword">self</span>.textView.selectedRange = <span class="type">NSMakeRange</span>(range.location  + <span class="number">1</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/swift/">swift</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/09/03/表情键盘实现/" data-title="表情键盘实现 | Bloging" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/26/swift新特性/" title="Swift与众不同的地方">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Swift与众不同的地方</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2013/03/05/qq好友列表实现/"  title="QQ好友列表实现">
+ <strong>下一篇：</strong><br/> 
+ <span>QQ好友列表实现
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/09/03/表情键盘实现/" data-title="表情键盘实现" data-url="http://yoursite.com/2015/09/03/表情键盘实现/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#表情键盘实现"><span class="toc-number">1.</span> <span class="toc-text">表情键盘实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#emoji表情显示"><span class="toc-number">1.1.</span> <span class="toc-text">emoji表情显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片显示"><span class="toc-number">1.2.</span> <span class="toc-text">图片显示</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="slq0378" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/OC/" title="OC">OC<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift/" title="swift">swift<sup>3</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/72784204/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> This is my blog,believe it or not. <br/>
+			To be or not to be, this is the question.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:slq0378@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Song"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-68091434-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
