@@ -31,7 +31,7 @@ emoji表情显示
 emoji对应十六进制,如果要显示的话，需要转换一下
 
 // emoji对应十六进制func emojiToShow(code: String) -&amp;gt; String &amp;#123;    // 创建扫描器    let scanner = NSS">
-<meta property="og:updated_time" content="2015-10-05T00:13:43.000Z">
+<meta property="og:updated_time" content="2015-10-05T13:59:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="表情键盘实现">
 <meta name="twitter:description" content="表情键盘实现
@@ -117,7 +117,7 @@ emoji对应十六进制,如果要显示的话，需要转换一下
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#表情键盘实现"><span class="toc-number">1.</span> <span class="toc-text">表情键盘实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#emoji表情显示"><span class="toc-number">1.1.</span> <span class="toc-text">emoji表情显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片显示"><span class="toc-number">1.2.</span> <span class="toc-text">图片显示</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#表情键盘实现"><span class="toc-number">1.</span> <span class="toc-text">表情键盘实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#emoji表情显示"><span class="toc-number">1.1.</span> <span class="toc-text">emoji表情显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片显示"><span class="toc-number">1.2.</span> <span class="toc-text">图片显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结一下表情键盘"><span class="toc-number">1.3.</span> <span class="toc-text">总结一下表情键盘</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -133,6 +133,13 @@ emoji对应十六进制,如果要显示的话，需要转换一下
 <li>在文本输入框里显示小图片作为表情使用</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1、显示图片，通过富文本 </span></span><br><span class="line"><span class="keyword">let</span> attachment = <span class="type">NSTextAttachment</span>()</span><br><span class="line"><span class="comment">// 然后加载图片</span></span><br><span class="line">attachment.image = <span class="type">UIImage</span>(contentsOfFile: emoticon.imagePath!)</span><br><span class="line"><span class="comment">// 设置附件大小,稍微下移一点，图片比较答，而emoji比较小</span></span><br><span class="line">attachment.bounds = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: -<span class="number">4</span>, width: <span class="number">20</span>, height: <span class="number">20</span>)</span><br><span class="line"><span class="comment">// 2、根据附件创建属性字符串</span></span><br><span class="line"><span class="keyword">let</span> imageText = <span class="type">NSAttributedString</span>(attachment: attachment)</span><br><span class="line"><span class="comment">// 3、拿到当前的所有字符串内容</span></span><br><span class="line"><span class="keyword">let</span> strM = <span class="type">NSMutableAttributedString</span>(attributedString: <span class="keyword">self</span>.textView.attributedText)</span><br><span class="line"><span class="comment">// 4.插入表情到当前光标所在的位置</span></span><br><span class="line"><span class="keyword">let</span> range = <span class="keyword">self</span>.textView.selectedRange</span><br><span class="line">strM.replaceCharactersInRange(range,withAttributedString: imageText)</span><br><span class="line"><span class="comment">// 设置附件尺寸</span></span><br><span class="line">strM.addAttribute(<span class="type">NSFontAttributeName</span>,value: <span class="type">UIFont</span>.systemFontOfSize(<span class="number">19</span>),range: <span class="type">NSMakeRange</span>(range.location, <span class="number">1</span>))</span><br><span class="line"><span class="comment">// 5、重新赋值</span></span><br><span class="line"><span class="keyword">self</span>.textView.attributedText = strM</span><br><span class="line"><span class="comment">// 设置光标位置</span></span><br><span class="line"><span class="keyword">self</span>.textView.selectedRange = <span class="type">NSMakeRange</span>(range.location  + <span class="number">1</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="总结一下表情键盘">总结一下表情键盘</h2><ul>
+<li>首先一个<code>UIViewController</code>，然后子控件有两个<code>collectionVeiw</code>和<code>toolbar</code></li>
+<li><code>collectionVeiw</code> 用来显示不同的表情组，<code>toolbar</code>用来指示不同的表情组</li>
+<li>然后定义模型保存表情数据 <code>EmoticonPackage</code> 根据plist文件定义字段</li>
+<li>每一页显示固定数量的表情，最后一个cell添加一个删除按钮</li>
+<li>最后将图片表情以富文本的附件<code>NSTextAttachment</code>形式插入到文本中</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -194,7 +201,7 @@ emoji对应十六进制,如果要显示的话，需要转换一下
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#表情键盘实现"><span class="toc-number">1.</span> <span class="toc-text">表情键盘实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#emoji表情显示"><span class="toc-number">1.1.</span> <span class="toc-text">emoji表情显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片显示"><span class="toc-number">1.2.</span> <span class="toc-text">图片显示</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#表情键盘实现"><span class="toc-number">1.</span> <span class="toc-text">表情键盘实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#emoji表情显示"><span class="toc-number">1.1.</span> <span class="toc-text">emoji表情显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片显示"><span class="toc-number">1.2.</span> <span class="toc-text">图片显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结一下表情键盘"><span class="toc-number">1.3.</span> <span class="toc-text">总结一下表情键盘</span></a></li></ol></li></ol>
  
   </div>
 
@@ -224,7 +231,7 @@ emoji对应十六进制,如果要显示的话，需要转换一下
 			
 		
 			
-				<li><a href="/tags/swift/" title="swift">swift<sup>3</sup></a></li>
+				<li><a href="/tags/swift/" title="swift">swift<sup>4</sup></a></li>
 			
 		
 		</ul>
