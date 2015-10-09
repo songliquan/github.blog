@@ -83,9 +83,13 @@
 					 
 						<li><a href="/">Home</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+						<li><a href="/Categories">Categories</a></li>
 					
-						<li><a href="/about">About</a></li>
+						<li><a href="/Archives">Archives</a></li>
+					
+						<li><a href="/Tags">Tags</a></li>
+					
+						<li><a href="/About">About</a></li>
 					
 					<li>
  					
@@ -153,23 +157,23 @@
 <h2 id="语法规则">语法规则</h2><ul>
 <li>1&gt;    集合</li>
 </ul>
-<figure class="highlight scheme"><table><tr><td class="code"><pre><span class="line"><span class="list">[<span class="keyword">xyz</span>]		字符集合<span class="list">(<span class="keyword">x/y或z</span>)</span></span><br><span class="line"><span class="list">[<span class="keyword">a-z</span>]		字符范围</span><br><span class="line"><span class="list">[<span class="keyword">a-zA-Z</span>]</span><br><span class="line"><span class="list">[<span class="keyword">^xyz</span>]		负值字符集合 <span class="list">(<span class="keyword">任何字符</span>, 除了xyz)</span></span><br><span class="line"><span class="list">[<span class="keyword">^a-z</span>]		负值字符范围</span><br><span class="line"><span class="list">[<span class="keyword">a-d</span>]<span class="list">[<span class="keyword">m-p</span>]  并集<span class="list">(<span class="keyword">a到d</span> 或 m到p)</span></span></span></span></span></span></span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[xyz]&#9;&#9;&#23383;&#31526;&#38598;&#21512;(x/y&#25110;z)&#10;[a-z]&#9;&#9;&#23383;&#31526;&#33539;&#22260;&#10;[a-zA-Z]&#10;[^xyz]&#9;&#9;&#36127;&#20540;&#23383;&#31526;&#38598;&#21512; (&#20219;&#20309;&#23383;&#31526;, &#38500;&#20102;xyz)&#10;[^a-z]&#9;&#9;&#36127;&#20540;&#23383;&#31526;&#33539;&#22260;&#10;[a-d][m-p]  &#24182;&#38598;(a&#21040;d &#25110; m&#21040;p)</span><br></pre></td></tr></table></figure>
 <ul>
 <li>2&gt;    常用元字符</li>
 </ul>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">.			匹配除换行符以外的任意字符</span><br><span class="line"><span class="command">\w</span>			匹配字母或数字或下划线或汉字 <span class="special">[</span>a-zA-Z_0-9<span class="special">]</span></span><br><span class="line"><span class="command">\s</span>			匹配任意的空白符（空格、TAB<span class="command">\t</span>、回车<span class="command">\r</span> <span class="command">\n</span>）</span><br><span class="line"><span class="command">\d</span>			匹配数字 <span class="special">[</span>0-9<span class="special">]</span></span><br><span class="line">^			匹配字符串的开始</span><br><span class="line"><span class="formula">$			匹配字符串的结束</span><br><span class="line"><span class="command">\b</span>			匹配单词的开始或结束</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#9;&#9;&#9;&#21305;&#37197;&#38500;&#25442;&#34892;&#31526;&#20197;&#22806;&#30340;&#20219;&#24847;&#23383;&#31526;&#10;\w&#9;&#9;&#9;&#21305;&#37197;&#23383;&#27597;&#25110;&#25968;&#23383;&#25110;&#19979;&#21010;&#32447;&#25110;&#27721;&#23383; [a-zA-Z_0-9]&#10;\s&#9;&#9;&#9;&#21305;&#37197;&#20219;&#24847;&#30340;&#31354;&#30333;&#31526;&#65288;&#31354;&#26684;&#12289;TAB\t&#12289;&#22238;&#36710;\r \n&#65289;&#10;\d&#9;&#9;&#9;&#21305;&#37197;&#25968;&#23383; [0-9]&#10;^&#9;&#9;&#9;&#21305;&#37197;&#23383;&#31526;&#20018;&#30340;&#24320;&#22987;&#10;$&#9;&#9;&#9;&#21305;&#37197;&#23383;&#31526;&#20018;&#30340;&#32467;&#26463;&#10;\b&#9;&#9;&#9;&#21305;&#37197;&#21333;&#35789;&#30340;&#24320;&#22987;&#25110;&#32467;&#26463;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>2&gt;    常用反义符</li>
 </ul>
-<figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line"><span class="string">\W</span>          匹配任意不是字母，数字，下划线，汉字的字符[^<span class="string">\w]</span></span><br><span class="line"><span class="string">\S</span>			匹配任意不是空白符的字符 [^<span class="string">\s]</span></span><br><span class="line"><span class="string">\D</span>			匹配任意非数字的字符[^<span class="number">0</span>-<span class="number">9</span>]</span><br><span class="line"><span class="string">\B</span>			匹配不是单词开头或结束的位置</span><br><span class="line">[^x]		匹配除了x以外的任意字符</span><br><span class="line">[^aeiou]	匹配除了aeiou这几个字母以外的任意字符</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\W          &#21305;&#37197;&#20219;&#24847;&#19981;&#26159;&#23383;&#27597;&#65292;&#25968;&#23383;&#65292;&#19979;&#21010;&#32447;&#65292;&#27721;&#23383;&#30340;&#23383;&#31526;[^\w]&#10;\S&#9;&#9;&#9;&#21305;&#37197;&#20219;&#24847;&#19981;&#26159;&#31354;&#30333;&#31526;&#30340;&#23383;&#31526; [^\s]&#10;\D&#9;&#9;&#9;&#21305;&#37197;&#20219;&#24847;&#38750;&#25968;&#23383;&#30340;&#23383;&#31526;[^0-9]&#10;\B&#9;&#9;&#9;&#21305;&#37197;&#19981;&#26159;&#21333;&#35789;&#24320;&#22836;&#25110;&#32467;&#26463;&#30340;&#20301;&#32622;&#10;[^x]&#9;&#9;&#21305;&#37197;&#38500;&#20102;x&#20197;&#22806;&#30340;&#20219;&#24847;&#23383;&#31526;&#10;[^aeiou]&#9;&#21305;&#37197;&#38500;&#20102;aeiou&#36825;&#20960;&#20010;&#23383;&#27597;&#20197;&#22806;&#30340;&#20219;&#24847;&#23383;&#31526;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>4&gt;    常用限定符</li>
 </ul>
-<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="comment">*			重复零次或更多次</span></span><br><span class="line">+			重复一次或更多次</span><br><span class="line">?			重复零次或一次</span><br><span class="line">&#123;<span class="keyword">n</span>&#125;			重复<span class="keyword">n</span>次</span><br><span class="line">&#123;<span class="keyword">n</span>,&#125;		重复<span class="keyword">n</span>次或更多次</span><br><span class="line">&#123;<span class="keyword">n</span>,<span class="keyword">m</span>&#125;		重复<span class="keyword">n</span>到<span class="keyword">m</span>次,</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">*&#9;&#9;&#9;&#37325;&#22797;&#38646;&#27425;&#25110;&#26356;&#22810;&#27425;&#10;+&#9;&#9;&#9;&#37325;&#22797;&#19968;&#27425;&#25110;&#26356;&#22810;&#27425;&#10;?&#9;&#9;&#9;&#37325;&#22797;&#38646;&#27425;&#25110;&#19968;&#27425;&#10;&#123;n&#125;&#9;&#9;&#9;&#37325;&#22797;n&#27425;&#10;&#123;n,&#125;&#9;&#9;&#37325;&#22797;n&#27425;&#25110;&#26356;&#22810;&#27425;&#10;&#123;n,m&#125;&#9;&#9;&#37325;&#22797;n&#21040;m&#27425;,</span><br></pre></td></tr></table></figure>
 <ul>
 <li>5&gt;    贪婪和懒惰</li>
 </ul>
-<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="comment">*?			重复任意次，但尽可能少重复</span></span><br><span class="line"><span class="comment">*+			重复1次或更多次，但尽可能少重复</span></span><br><span class="line">??			重复0次或1次，但尽可能少重复</span><br><span class="line">&#123;<span class="keyword">n</span>,<span class="keyword">m</span>&#125;?      重复<span class="keyword">n</span>到<span class="keyword">m</span>次，但尽可能少重复</span><br><span class="line">&#123;<span class="keyword">n</span>,&#125;?		重复<span class="keyword">n</span>次以上，但尽可能少重复</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">*?&#9;&#9;&#9;&#37325;&#22797;&#20219;&#24847;&#27425;&#65292;&#20294;&#23613;&#21487;&#33021;&#23569;&#37325;&#22797;&#10;*+&#9;&#9;&#9;&#37325;&#22797;1&#27425;&#25110;&#26356;&#22810;&#27425;&#65292;&#20294;&#23613;&#21487;&#33021;&#23569;&#37325;&#22797;&#10;??&#9;&#9;&#9;&#37325;&#22797;0&#27425;&#25110;1&#27425;&#65292;&#20294;&#23613;&#21487;&#33021;&#23569;&#37325;&#22797;&#10;&#123;n,m&#125;?      &#37325;&#22797;n&#21040;m&#27425;&#65292;&#20294;&#23613;&#21487;&#33021;&#23569;&#37325;&#22797;&#10;&#123;n,&#125;?&#9;&#9;&#37325;&#22797;n&#27425;&#20197;&#19978;&#65292;&#20294;&#23613;&#21487;&#33021;&#23569;&#37325;&#22797;</span><br></pre></td></tr></table></figure>
 <h2 id="使用过程">使用过程</h2><ul>
 <li>1、创建规则</li>
 <li>2、创建正则表达式对象</li>
@@ -179,7 +183,7 @@
 <ul>
 <li>其他几个常用方法</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 匹配字符串中所有的符合规则的字符串, 返回匹配到的NSTextCheckingResult数组</span></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">matchesInString</span><span class="params">(string: String, options: NSMatchingOptions, range: NSRange)</span></span> -&gt; [<span class="type">NSTextCheckingResult</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按照规则匹配字符串, 返回匹配到的个数</span></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">numberOfMatchesInString</span><span class="params">(string: String, options: NSMatchingOptions, range: NSRange)</span></span> -&gt; <span class="type">Int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 按照规则匹配字符串, 返回第一个匹配到的字符串的NSTextCheckingResult</span></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">firstMatchInString</span><span class="params">(string: String, options: NSMatchingOptions, range: NSRange)</span></span> -&gt; <span class="type">NSTextCheckingResult</span>?</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按照规则匹配字符串, 返回第一个匹配到的字符串的范围</span></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">rangeOfFirstMatchInString</span><span class="params">(string: String, options: NSMatchingOptions, range: NSRange)</span></span> -&gt; <span class="type">NSRange</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// &#21305;&#37197;&#23383;&#31526;&#20018;&#20013;&#25152;&#26377;&#30340;&#31526;&#21512;&#35268;&#21017;&#30340;&#23383;&#31526;&#20018;, &#36820;&#22238;&#21305;&#37197;&#21040;&#30340;NSTextCheckingResult&#25968;&#32452;&#10;public func matchesInString(string: String, options: NSMatchingOptions, range: NSRange) -&#62; [NSTextCheckingResult]&#10;&#10;// &#25353;&#29031;&#35268;&#21017;&#21305;&#37197;&#23383;&#31526;&#20018;, &#36820;&#22238;&#21305;&#37197;&#21040;&#30340;&#20010;&#25968;&#10;public func numberOfMatchesInString(string: String, options: NSMatchingOptions, range: NSRange) -&#62; Int&#10;&#10;// &#25353;&#29031;&#35268;&#21017;&#21305;&#37197;&#23383;&#31526;&#20018;, &#36820;&#22238;&#31532;&#19968;&#20010;&#21305;&#37197;&#21040;&#30340;&#23383;&#31526;&#20018;&#30340;NSTextCheckingResult&#10;public func firstMatchInString(string: String, options: NSMatchingOptions, range: NSRange) -&#62; NSTextCheckingResult?&#10;&#10;// &#25353;&#29031;&#35268;&#21017;&#21305;&#37197;&#23383;&#31526;&#20018;, &#36820;&#22238;&#31532;&#19968;&#20010;&#21305;&#37197;&#21040;&#30340;&#23383;&#31526;&#20018;&#30340;&#33539;&#22260;&#10;public func rangeOfFirstMatchInString(string: String, options: NSMatchingOptions, range: NSRange) -&#62; NSRange</span><br></pre></td></tr></table></figure>
 <h2 id="使用子类来匹配日期、地址、和URL">使用子类来匹配日期、地址、和URL</h2><ul>
 <li>看官网文档解释，可以知道这个<code>NSDataDetector</code>主要用来匹配日期、地址、和URL。在使用时指定要匹配的类型</li>
 </ul>
@@ -250,6 +254,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2015/10/06/数据库应用/" title="数据库应用">
+  <strong>上一篇：</strong><br/>
+  <span>
+  数据库应用</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2015/10/02/swift坑-tableView中注册cell/"  title="swift坑-tableView中注册cell">
@@ -281,14 +293,10 @@
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
-  
-<div class="github-card">
-<p class="asidetitle">Github 名片</p>
-<div class="github-card" data-github="slq0378" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
 </div>
-  </div>
-
 
 
   
@@ -303,7 +311,7 @@
 			
 		
 			
-				<li><a href="/tags/swift/" title="swift">swift<sup>4</sup></a></li>
+				<li><a href="/tags/swift/" title="swift">swift<sup>5</sup></a></li>
 			
 		
 		</ul>
@@ -314,27 +322,12 @@
   <p class="asidetitle">友情链接</p>
     <ul>
         
-          <li>
-            
-            	<a href="http://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
-            
-          </li>
-        
     </ul>
 </div>
-
-  
-
 
   <div class="rsspart">
 	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
-</div>
-
 
 </aside>
 </div>

@@ -1,0 +1,634 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>数据库应用 | Bloging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Mr Song">
+    
+
+    
+    <meta name="description" content="SQLiteSLQLite简介
+什么是SQLite
+SQLite是一款轻型的嵌入式数据库
+它占用资源非常的低，在嵌入式设备中，可能只需要几百K的内存就够了
+它的处理速度比Mysql、PostgreSQL这两款著名的数据库都还快
+
+
+什么是数据库
+数据库（Database）是按照数据结构来组织、存储和管理数据的仓库
+数据库可以分为2大种类
+关系型数据库（主流）
+对象型数据库
+
+
+常用关系型数据库
+P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库应用">
+<meta property="og:url" content="http://yoursite.com/2015/10/06/数据库应用/index.html">
+<meta property="og:site_name" content="Bloging">
+<meta property="og:description" content="SQLiteSLQLite简介
+什么是SQLite
+SQLite是一款轻型的嵌入式数据库
+它占用资源非常的低，在嵌入式设备中，可能只需要几百K的内存就够了
+它的处理速度比Mysql、PostgreSQL这两款著名的数据库都还快
+
+
+什么是数据库
+数据库（Database）是按照数据结构来组织、存储和管理数据的仓库
+数据库可以分为2大种类
+关系型数据库（主流）
+对象型数据库
+
+
+常用关系型数据库
+P">
+<meta property="og:updated_time" content="2015-10-09T14:24:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库应用">
+<meta name="twitter:description" content="SQLiteSLQLite简介
+什么是SQLite
+SQLite是一款轻型的嵌入式数据库
+它占用资源非常的低，在嵌入式设备中，可能只需要几百K的内存就够了
+它的处理速度比Mysql、PostgreSQL这两款著名的数据库都还快
+
+
+什么是数据库
+数据库（Database）是按照数据结构来组织、存储和管理数据的仓库
+数据库可以分为2大种类
+关系型数据库（主流）
+对象型数据库
+
+
+常用关系型数据库
+P">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/Categories">Categories</a></li>
+					
+						<li><a href="/Archives">Archives</a></li>
+					
+						<li><a href="/Tags">Tags</a></li>
+					
+						<li><a href="/About">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/10/06/数据库应用/" title="数据库应用" itemprop="url">数据库应用</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Mr Song" target="_blank" itemprop="author">Mr Song</a>
+		
+  <p class="article-time">
+    <time datetime="2015-10-06T13:15:51.000Z" itemprop="datePublished"> 发表于 2015-10-06</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQLite"><span class="toc-number">1.</span> <span class="toc-text">SQLite</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SLQLite简介"><span class="toc-number">1.1.</span> <span class="toc-text">SLQLite简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Navicat_界面化管理工具"><span class="toc-number">1.2.</span> <span class="toc-text">Navicat 界面化管理工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL语句"><span class="toc-number">1.3.</span> <span class="toc-text">SQL语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQLite3使用"><span class="toc-number">1.4.</span> <span class="toc-text">SQLite3使用</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="SQLite">SQLite</h1><h2 id="SLQLite简介">SLQLite简介</h2><ul>
+<li>什么是SQLite<ul>
+<li>SQLite是一款轻型的嵌入式数据库</li>
+<li>它占用资源非常的低，在嵌入式设备中，可能只需要几百K的内存就够了</li>
+<li>它的处理速度比Mysql、PostgreSQL这两款著名的数据库都还快</li>
+</ul>
+</li>
+<li>什么是数据库<ul>
+<li>数据库（Database）是按照数据结构来组织、存储和管理数据的仓库</li>
+<li>数据库可以分为2大种类</li>
+<li>关系型数据库（主流）</li>
+<li>对象型数据库</li>
+</ul>
+</li>
+<li>常用关系型数据库<ul>
+<li>PC端：Oracle、MySQL、SQL Server、Access、DB2、Sybase</li>
+<li>嵌入式\移动客户端：SQLite<h2 id="Navicat_界面化管理工具">Navicat 界面化管理工具</h2></li>
+</ul>
+</li>
+<li>使用方式参考官方文档就好</li>
+<li><a href="http://www.navicat.com.cn/products/navicat-for-sqlite" target="_blank" rel="external">http://www.navicat.com.cn/products/navicat-for-sqlite</a></li>
+</ul>
+<h2 id="SQL语句">SQL语句</h2><ul>
+<li>数据定义语句（DDL：Data Definition Language）<ul>
+<li>包括create和drop等操作</li>
+<li>在数据库中创建新表或删除表（create table或 drop table）</li>
+</ul>
+</li>
+<li>数据操作语句（DML：Data Manipulation Language）<ul>
+<li>包括insert、update、delete等操作</li>
+<li>上面的3种操作分别用于添加、修改、删除表中的数据</li>
+</ul>
+</li>
+<li><p>数据查询语句（DQL：Data Query Language）</p>
+<ul>
+<li>可以用于查询获得表中的数据</li>
+<li>关键字select是DQL（也是所有SQL）用得最多的操作</li>
+<li>其他DQL常用的关键字有where，order by，group by和having<h2 id="SQLite3使用">SQLite3使用</h2></li>
+</ul>
+</li>
+<li><p>在iOS中使用SQLite3，首先要添加库文件libsqlite3.dylib和导入主头文件</p>
+</li>
+<li><p><code>#import &lt;sqlite3.h&gt;</code></p>
+</li>
+<li><p>1.打开数据库</p>
+</li>
+</ul>
+<pre><code>    int sqlite3_open(
+        const char *filename,   // 数据库的文件路径
+        sqlite3 **ppDb          // 数据库实例
+    );
+<span class="comment"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#10;- 2.&#25191;&#34892;&#20219;&#20309;SQL&#35821;&#21477;</span><br></pre></td></tr></table></figure></span>
+
+    int sqlite3_exec(
+        sqlite3*,                                  // 一个打开的数据库实例
+        const char *sql,                           // 需要执行的SQL语句
+        int (*callback)(void*,int,char**,char**),  // SQL语句执行完毕后的回调
+        void *,                                    // 回调函数的第1个参数
+        char **errmsg                              // 错误信息
+    );
+<span class="comment"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#10;- 3.&#26816;&#26597;SQL&#35821;&#21477;&#30340;&#21512;&#27861;&#24615;&#65288;&#26597;&#35810;&#21069;&#30340;&#20934;&#22791;&#65289;</span><br></pre></td></tr></table></figure></span>
+
+    int sqlite3_prepare_v2(
+        sqlite3 *db,            // 数据库实例
+        const char *zSql,       // 需要检查的SQL语句
+        int nByte,              // SQL语句的最大字节长度
+        sqlite3_stmt **ppStmt,  // sqlite3_stmt实例，用来获得数据库数据
+        const char **pzTail
+    );
+<span class="comment"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#10;- 4.&#26597;&#35810;&#19968;&#34892;&#25968;&#25454;</span><br></pre></td></tr></table></figure></span>
+
+    int sqlite3_step(sqlite3_stmt*); // 如果查询到一行数据，就会返回SQLITE_ROW
+<span class="comment"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#10;- 5.&#21033;&#29992;stmt&#33719;&#24471;&#26576;&#19968;&#23383;&#27573;&#30340;&#20540;&#65288;&#23383;&#27573;&#30340;&#19979;&#26631;&#20174;0&#24320;&#22987;&#65289;</span><br></pre></td></tr></table></figure></span>
+
+    double sqlite3_column_double(sqlite3_stmt*, int iCol);  // 浮点数据
+    int sqlite3_column_int(sqlite3_stmt*, int iCol); // 整型数据
+    sqlite3_int64 sqlite3_column_int64(sqlite3_stmt*, int iCol); // 长整型数据
+    const void *sqlite3_column_blob(sqlite3_stmt*, int iCol); // 二进制文本数据
+    const unsigned char *sqlite3_column_text(sqlite3_stmt*, int iCol);  // 字符串数据
+<span class="comment"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#13;- &#20195;&#30721;&#28436;&#31034;&#10;&#13;&#13;```&#13;&#9;/*&#31616;&#21333;&#32422;&#26463;*/&#10;&#9;CREATE TABLE IF NOT EXISTS t_student(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER);&#10;&#9;CREATE TABLE IF NOT EXISTS t_student(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, age INTEGER NOT NULL);&#10;&#9;CREATE TABLE IF NOT EXISTS t_student(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT UNIQUE, age INTEGER);&#10;&#9;CREATE TABLE IF NOT EXISTS t_student(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER DEFAULT 1);&#10;&#9;&#10;&#9;/*&#20998;&#39029;*/&#10;&#9;SELECT * FROM t_student ORDER BY id ASC LIMIT 30, 10;&#10;&#9;&#10;&#9;/*&#25490;&#24207;*/&#10;&#9;SELECT * FROM t_student WHERE score &#62; 50 ORDER BY age DESC;&#10;&#9;SELECT * FROM t_student WHERE score &#60; 50 ORDER BY age ASC , score DESC;&#10;&#9;&#10;&#9;/*&#35745;&#37327;*/&#10;&#9;SELECT COUNT(*) FROM t_student WHERE age &#62; 50;&#10;&#9;&#10;&#9;/*&#21035;&#21517;*/&#10;&#9;SELECT name as myName, age as myAge, score as myScore FROM t_student;&#10;&#9;SELECT name myName, age myAge, score myScore FROM t_student;&#10;&#9;SELECT s.name myName, s.age myAge, s.score myScore FROM t_student s WHERE s.age &#62; 50;&#10;&#9;&#10;&#9;/*&#26597;&#35810;*/&#10;&#9;SELECT name, age, score FROM t_student;&#10;&#9;SELECT * FROM t_student;&#10;&#9;&#10;&#9;/*&#20462;&#25913;&#25351;&#23450;&#25968;&#25454;*/&#10;&#9;UPDATE t_student SET name = &#39;MM&#39; WHERE age = 10;&#10;&#9;UPDATE t_student SET name = &#39;WW&#39; WHERE age is 7;&#10;&#9;UPDATE t_student SET name = &#39;XXOO&#39; WHERE age &#60; 20;&#10;&#9;UPDATE t_student SET name = &#39;NNMM&#39; WHERE age &#60; 50 and score &#62; 10;&#10;&#9;&#10;&#9;/*&#21024;&#38500;&#25968;&#25454;*/&#10;&#9;DELETE FROM t_student;&#10;&#9;&#10;&#9;/*&#26356;&#26032;&#25968;&#25454;*/&#10;&#9;UPDATE t_student SET name = &#39;LNJ&#39;;&#10;&#9;&#10;&#9;/*&#25554;&#20837;&#25968;&#25454;*/&#10;&#9;&#10;&#9; INSERT INTO t_student(age, score, name) VALUES (&#39;28&#39;, 100, &#39;jonathan&#39;);&#10;&#9; INSERT INTO t_student(name, age) VALUES (&#39;lee&#39;, &#39;28&#39;);&#10;&#9; INSERT INTO t_student(score) VALUES (100);&#10;&#9;&#10;&#9;/*&#25554;&#20837;&#25968;&#25454;*/&#10;&#9;INSERT INTO t_student(name, age, score) VALUES (&#39;lee&#39;, &#39;28&#39;, 100);&#10;&#9;&#10;&#9;/*&#28155;&#21152;&#20027;&#38190;*/&#10;&#9;CREATE TABLE IF NOT EXISTS t_student (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER, score REAL);&#10;&#9;/*&#28155;&#21152;&#20027;&#38190;*/&#10;&#9;CREATE TABLE IF NOT EXISTS t_student (id INTEGER, name TEXT, age INTEGER, score REAL, PRIMARY KEY(id));&#10;&#9;&#10;&#9;/*&#21024;&#38500;&#34920;*/&#10;&#9;DROP TABLE IF EXISTS t_student;&#10;&#9;&#10;&#9;/*&#21019;&#24314;&#34920;*/&#10;&#9;CREATE TABLE IF NOT EXISTS t_student(id INTEGER , name TEXT, age , score REAL);</span><br></pre></td></tr></table></figure></span>
+
+
+- 使用示例
+
+<span class="comment"><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// static的作用：能保证_db这个变量只被IWStudentTool.m直接访问</span></span><br><span class="line"><span class="keyword">static</span> sqlite3 *_db;</span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)initialize</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 0.获得沙盒中的数据库文件名</span></span><br><span class="line">    <span class="built_in">NSString</span> *filename = [[<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject] stringByAppendingPathComponent:<span class="string">@"student.sqlite"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.创建(打开)数据库（如果数据库文件不存在，会自动创建）</span></span><br><span class="line">    <span class="keyword">int</span> result = sqlite3_open(filename<span class="variable">.UTF8String</span>, &amp;_db);</span><br><span class="line">    <span class="keyword">if</span> (result == SQLITE_OK) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"成功打开数据库"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2.创表</span></span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *sql = <span class="string">"create table if not exists t_student (id integer primary key autoincrement, name text, age integer);"</span>;</span><br><span class="line">        <span class="keyword">char</span> *errorMesg = <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">int</span> result = sqlite3_exec(_db, sql, <span class="literal">NULL</span>, <span class="literal">NULL</span>, &amp;errorMesg);</span><br><span class="line">        <span class="keyword">if</span> (result == SQLITE_OK) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"成功创建t_student表"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"创建t_student表失败:%s"</span>, errorMesg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"打开数据库失败"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
+
+- 增删改查
+
+<span class="comment"><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">	+ (<span class="built_in">BOOL</span>)addStudent:(IWStudent *)student</span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="built_in">NSString</span> *sql = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"insert into t_student (name, age) values('%@', %d);"</span>, student<span class="variable">.name</span>, student<span class="variable">.age</span>];</span><br><span class="line">	</span><br><span class="line">	    <span class="keyword">char</span> *errorMesg = <span class="literal">NULL</span>;</span><br><span class="line">	    <span class="keyword">int</span> result = sqlite3_exec(_db, sql<span class="variable">.UTF8String</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>, &amp;errorMesg);</span><br><span class="line">	</span><br><span class="line">	    <span class="keyword">return</span> result == SQLITE_OK;</span><br><span class="line">	&#125;</span><br><span class="line">	+ (<span class="built_in">NSArray</span> *)students</span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="comment">// 0.定义数组</span></span><br><span class="line">	    <span class="built_in">NSMutableArray</span> *students = <span class="literal">nil</span>;</span><br><span class="line">	</span><br><span class="line">	    <span class="comment">// 1.定义sql语句</span></span><br><span class="line">	    <span class="keyword">const</span> <span class="keyword">char</span> *sql = <span class="string">"select id, name, age from t_student;"</span>;</span><br><span class="line">	</span><br><span class="line">	    <span class="comment">// 2.定义一个stmt存放结果集</span></span><br><span class="line">	    sqlite3_stmt *stmt = <span class="literal">NULL</span>;</span><br><span class="line">	</span><br><span class="line">	    <span class="comment">// 3.检测SQL语句的合法性</span></span><br><span class="line">	    <span class="keyword">int</span> result = sqlite3_prepare_v2(_db, sql, -<span class="number">1</span>, &amp;stmt, <span class="literal">NULL</span>);</span><br><span class="line">	    <span class="keyword">if</span> (result == SQLITE_OK) &#123;</span><br><span class="line">	        <span class="built_in">NSLog</span>(<span class="string">@"查询语句是合法的"</span>);</span><br><span class="line">	        students = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">	</span><br><span class="line">	        <span class="comment">// 4.执行SQL语句，从结果集中取出数据</span></span><br><span class="line">	        <span class="keyword">while</span> (sqlite3_step(stmt) == SQLITE_ROW) &#123; <span class="comment">// 真的查询到一行数据</span></span><br><span class="line">	            <span class="comment">// 获得这行对应的数据</span></span><br><span class="line">	</span><br><span class="line">	            IWStudent *student = [[IWStudent alloc] init];</span><br><span class="line">	</span><br><span class="line">	            <span class="comment">// 获得第0列的id</span></span><br><span class="line">	            student<span class="variable">.ID</span> = sqlite3_column_int(stmt, <span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	            <span class="comment">// 获得第1列的name</span></span><br><span class="line">	            <span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *sname = sqlite3_column_text(stmt, <span class="number">1</span>);</span><br><span class="line">	            student<span class="variable">.name</span> = [<span class="built_in">NSString</span> stringWithUTF8String:(<span class="keyword">const</span> <span class="keyword">char</span> *)sname];</span><br><span class="line">	</span><br><span class="line">	            <span class="comment">// 获得第2列的age</span></span><br><span class="line">	            student<span class="variable">.age</span> = sqlite3_column_int(stmt, <span class="number">2</span>);</span><br><span class="line">	</span><br><span class="line">	            <span class="comment">// 添加到数组</span></span><br><span class="line">	            [students addObject:student];</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	        <span class="built_in">NSLog</span>(<span class="string">@"查询语句非合法"</span>);</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    <span class="keyword">return</span> students;</span><br><span class="line">	&#125;</span><br><span class="line">	+ (<span class="built_in">NSArray</span> *)studentsWithCondition:(<span class="built_in">NSString</span> *)condition</span><br><span class="line">	&#123;</span><br><span class="line">	    <span class="comment">// 0.定义数组</span></span><br><span class="line">	    <span class="built_in">NSMutableArray</span> *students = <span class="literal">nil</span>;</span><br><span class="line">	</span><br><span class="line">	    <span class="comment">// 1.定义sql语句</span></span><br><span class="line">	    <span class="keyword">const</span> <span class="keyword">char</span> *sql = <span class="string">"select id, name, age from t_student where name like ?;"</span>;</span><br><span class="line">	</span><br><span class="line">	    <span class="comment">// 2.定义一个stmt存放结果集</span></span><br><span class="line">	    sqlite3_stmt *stmt = <span class="literal">NULL</span>;</span><br><span class="line">	</span><br><span class="line">	    <span class="comment">// 3.检测SQL语句的合法性</span></span><br><span class="line">	    <span class="keyword">int</span> result = sqlite3_prepare_v2(_db, sql, -<span class="number">1</span>, &amp;stmt, <span class="literal">NULL</span>);</span><br><span class="line">	    <span class="keyword">if</span> (result == SQLITE_OK) &#123;</span><br><span class="line">	        <span class="built_in">NSLog</span>(<span class="string">@"查询语句是合法的"</span>);</span><br><span class="line">	        students = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">	</span><br><span class="line">	        <span class="comment">// 填补占位符的内容</span></span><br><span class="line">	        <span class="built_in">NSString</span> *newCondition = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%%%@%%"</span>, condition];</span><br><span class="line">	<span class="comment">//        NSLog(@"%@", newCondition);</span></span><br><span class="line">	        sqlite3_bind_text(stmt, <span class="number">1</span>, newCondition<span class="variable">.UTF8String</span>, -<span class="number">1</span>, <span class="literal">NULL</span>);</span><br><span class="line">	</span><br><span class="line">	        <span class="comment">// 4.执行SQL语句，从结果集中取出数据</span></span><br><span class="line">	        <span class="keyword">while</span> (sqlite3_step(stmt) == SQLITE_ROW) &#123; <span class="comment">// 真的查询到一行数据</span></span><br><span class="line">	            <span class="comment">// 获得这行对应的数据</span></span><br><span class="line">	</span><br><span class="line">	            IWStudent *student = [[IWStudent alloc] init];</span><br><span class="line">	</span><br><span class="line">	            <span class="comment">// 获得第0列的id</span></span><br><span class="line">	            student<span class="variable">.ID</span> = sqlite3_column_int(stmt, <span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	            <span class="comment">// 获得第1列的name</span></span><br><span class="line">	            <span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *sname = sqlite3_column_text(stmt, <span class="number">1</span>);</span><br><span class="line">	            student<span class="variable">.name</span> = [<span class="built_in">NSString</span> stringWithUTF8String:(<span class="keyword">const</span> <span class="keyword">char</span> *)sname];</span><br><span class="line">	</span><br><span class="line">	            <span class="comment">// 获得第2列的age</span></span><br><span class="line">	            student<span class="variable">.age</span> = sqlite3_column_int(stmt, <span class="number">2</span>);</span><br><span class="line">	</span><br><span class="line">	            <span class="comment">// 添加到数组</span></span><br><span class="line">	            [students addObject:student];</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	        <span class="built_in">NSLog</span>(<span class="string">@"查询语句非合法"</span>);</span><br><span class="line">	    &#125;</span><br><span class="line">	</span><br><span class="line">	    <span class="keyword">return</span> students;</span><br><span class="line">	&#125;</span><br><span class="line">```<span class="preprocessor">## FMDB</span></span><br><span class="line">- FMDB是iOS平台的SQLite数据库框架,FMDB以OC的方式封装了SQLite的C语言API- FMDB有三个主要的类- FMDatabase	- 一个FMDatabase对象就代表一个单独的SQLite数据库	- 用来执行SQL语句- FMResultSet	- 使用FMDatabase执行查询后的结果集- FMDatabaseQueue	- 用于在多线程中执行多个查询或更新，它是线程安全的<span class="preprocessor">### 1、打开数据库</span></span><br><span class="line">- 通过指定SQLite数据库文件路径来创建FMDatabase对象```	FMDatabase *db = [FMDatabase databaseWithPath:path];	<span class="keyword">if</span> (![db open]) &#123;	    <span class="built_in">NSLog</span>(<span class="string">@"数据库打开失败！"</span>);	&#125;```- 文件路径有三种情况	- 具体文件路径	- 如果不存在会自动创建- 空字符串<span class="string">@""</span>	- 会在临时目录创建一个空的数据库	- 当FMDatabase连接关闭时，数据库文件也被删除- <span class="literal">nil</span>	- 会创建一个内存中临时数据库，当FMDatabase连接关闭时，数据库会被销毁<span class="preprocessor">### 2、执行更新操作</span></span><br><span class="line">- 在FMDB中，除查询以外的所有操作，都称为“更新”	- create、drop、insert、update、delete等- 使用executeUpdate:方法执行更新```	- (<span class="built_in">BOOL</span>)executeUpdate:(<span class="built_in">NSString</span>*)sql, ...	- (<span class="built_in">BOOL</span>)executeUpdateWithFormat:(<span class="built_in">NSString</span>*)format, ...	- (<span class="built_in">BOOL</span>)executeUpdate:(<span class="built_in">NSString</span>*)sql withArgumentsInArray:(<span class="built_in">NSArray</span> *)arguments```- 示例- `[db executeUpdate:<span class="string">@"UPDATE t_student SET age = ? WHERE name = ?;"</span>, @<span class="number">20</span>, <span class="string">@"Jack"</span>]`</span><br><span class="line"><span class="preprocessor">### 3、执行查询</span></span><br><span class="line">- 查询方法```	- (FMResultSet *)executeQuery:(<span class="built_in">NSString</span>*)sql, ...	- (FMResultSet *)executeQueryWithFormat:(<span class="built_in">NSString</span>*)format, ...	- (FMResultSet *)executeQuery:(<span class="built_in">NSString</span> *)sql withArgumentsInArray:(<span class="built_in">NSArray</span> *)arguments</span><br></pre></td></tr></table></figure></span>
+
+
+
+- 示例
+</code></pre><pre><code><span class="comment">// 查询数据</span>
+FMResultSet *rs = [db <span class="string">executeQuery:</span>@<span class="string">"SELECT * FROM t_student"</span>];
+
+<span class="comment">// 遍历结果集</span>
+<span class="keyword">while</span> ([rs next]) {
+    NSString *name = [rs <span class="string">stringForColumn:</span>@<span class="string">"name"</span>];
+    <span class="typename">int</span> age = [rs <span class="string">intForColumn:</span>@<span class="string">"age"</span>];
+    <span class="typename">double</span> score = [rs <span class="string">doubleForColumn:</span>@<span class="string">"score"</span>];
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#13;### 4&#12289;&#22810;&#32447;&#31243;&#25805;&#20316;&#10;&#13;- &#22914;&#26524;&#35201;&#36827;&#34892;&#28023;&#37327;&#25805;&#20316;&#30340;&#35805;&#65292;&#23601;&#35201;&#29992;&#21040;&#22810;&#32447;&#31243;&#26469;&#21152;&#24555;&#36895;&#24230;&#10;- &#20294;&#26159;&#25968;&#25454;&#24211;&#25805;&#20316;&#10;- `FMDatabaseQueue`&#20351;&#29992;&#36825;&#20010;&#31867;</span><br></pre></td></tr></table></figure>
+<pre><code><span class="comment">//FMDatabaseQueue的创建</span>
+FMDatabaseQueue *<span class="built_in">queue</span> = [FMDatabaseQueue databaseQueueWithPath:path];
+</code></pre><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#10;- &#22522;&#26412;&#25805;&#20316;</span><br></pre></td></tr></table></figure>
+<pre><code><span class="collection">[queue inDatabase:^<span class="list">(<span class="keyword">FMDatabase</span> *db)</span> <span class="collection">{
+    <span class="collection">[db executeUpdate:@<span class="string">"INSERT INTO t_student(name) VALUES (?)"</span>, @<span class="string">"Jack"</span>]</span><span class="comment">;</span>
+    <span class="collection">[db executeUpdate:@<span class="string">"INSERT INTO t_student(name) VALUES (?)"</span>, @<span class="string">"Rose"</span>]</span><span class="comment">;</span>
+    <span class="collection">[db executeUpdate:@<span class="string">"INSERT INTO t_student(name) VALUES (?)"</span>, @<span class="string">"Jim"</span>]</span><span class="comment">;</span>
+
+    FMResultSet *rs = <span class="collection">[db executeQuery:@<span class="string">"select * from t_student"</span>]</span><span class="comment">;</span>
+    while <span class="list">(<span class="collection">[rs next]</span>)</span> <span class="collection">{
+        // …
+    }</span>
+}</span>]</span><span class="comment">;</span>
+</code></pre><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#10;- &#20351;&#29992;&#20107;&#21153;&#13;&#13;```&#13;&#9;[queue inTransaction:^(FMDatabase *db, BOOL *rollback) &#123;&#13;&#9;    [db executeUpdate:@&#34;INSERT INTO t_student(name) VALUES (?)&#34;, @&#34;Jack&#34;];&#13;&#9;    [db executeUpdate:@&#34;INSERT INTO t_student(name) VALUES (?)&#34;, @&#34;Rose&#34;];&#13;&#9;    [db executeUpdate:@&#34;INSERT INTO t_student(name) VALUES (?)&#34;, @&#34;Jim&#34;];&#13;&#9;    &#13;&#9;    FMResultSet *rs = [db executeQuery:@&#34;select * from t_student&#34;];&#13;&#9;    while ([rs next]) &#123;&#13;&#9;        // &#8230;&#13;&#9;    &#125;&#13;&#9;&#125;];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>事务回滚<br>  <code>*rollback = YES;</code></li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/swift/">swift</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/10/06/数据库应用/" data-title="数据库应用 | Bloging" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/10/04/正则表达式/"  title="正则表达式">
+ <strong>下一篇：</strong><br/> 
+ <span>正则表达式
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/10/06/数据库应用/" data-title="数据库应用" data-url="http://yoursite.com/2015/10/06/数据库应用/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQLite"><span class="toc-number">1.</span> <span class="toc-text">SQLite</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SLQLite简介"><span class="toc-number">1.1.</span> <span class="toc-text">SLQLite简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Navicat_界面化管理工具"><span class="toc-number">1.2.</span> <span class="toc-text">Navicat 界面化管理工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL语句"><span class="toc-number">1.3.</span> <span class="toc-text">SQL语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQLite3使用"><span class="toc-number">1.4.</span> <span class="toc-text">SQLite3使用</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/OC/" title="OC">OC<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift/" title="swift">swift<sup>5</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> This is my blog,believe it or not. <br/>
+			To be or not to be, this is the question.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:slq0378@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Song"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-68091434-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

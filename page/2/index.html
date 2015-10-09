@@ -55,9 +55,13 @@
 					 
 						<li><a href="/">Home</a></li>
 					
-						<li><a href="/archives">Archives</a></li>
+						<li><a href="/Categories">Categories</a></li>
 					
-						<li><a href="/about">About</a></li>
+						<li><a href="/Archives">Archives</a></li>
+					
+						<li><a href="/Tags">Tags</a></li>
+					
+						<li><a href="/About">About</a></li>
 					
 					<li>
  					
@@ -75,174 +79,60 @@
     <div id="container">
       <div id="main">
 
-   
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2013/02/04/UI总结/" title="UI总结" itemprop="url">
+  
+    <h1 itemprop="name">UI总结</h1>
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+     
+           <p itemprop="description" >UI总结1、程序启动后的开始动画
+程序启动后可以加载一个简单的动画界面来介绍程序或者用户信息。
+
+可以使用一个xib来描述界面。并且如果想在程序加载完成后第一个加载这个xib文件，需要在Appdelegate中手动加载这个xib
+
+
+// 通过stroyboard启动，跟控制器的</p>
+        
     
-      <a href="/2013/01/05/github搭建博客/" title="github搭建个人博客" itemprop="url">github搭建个人博客</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Mr Song" target="_blank" itemprop="author">Mr Song</a>
-		
-  <p class="article-time">
-    <time datetime="2013-01-05T06:48:09.000Z" itemprop="datePublished"> 发表于 2013-01-05</time>
+    <time datetime="2013-02-04T00:05:50.000Z" itemprop="datePublished">2013-02-04</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2013/01/05/github搭建博客/" title="github搭建个人博客" itemprop="url">
+  
+    <h1 itemprop="name">github搭建个人博客</h1>
     
-  </p>
-</header>
-    <div class="article-content">
+     
+           <p itemprop="description" >github搭建个人博客
+以下操作全在 Mac OS上
+
+1、首先要配置环境
+用到的软件有
+Node.js
+Git
+
+
+下载地址
+Node.js https://nodejs.org/en/
+Git http://git-scm.com/download/
+
+
+安装没有什么难度,</p>
         
-        <h1 id="github搭建个人博客">github搭建个人博客</h1><ul>
-<li>以下操作全在 Mac OS上</li>
-</ul>
-<h2 id="1、首先要配置环境">1、首先要配置环境</h2><ul>
-<li>用到的软件有<ul>
-<li>Node.js</li>
-<li>Git</li>
-</ul>
-</li>
-<li>下载地址<ul>
-<li>Node.js <a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></li>
-<li>Git <a href="http://git-scm.com/download/" target="_blank" rel="external">http://git-scm.com/download/</a></li>
-</ul>
-</li>
-<li>安装没有什么难度,安装完毕，可在终端里看到各个软件的版本信息</li>
-<li><code>song$ git --version 
-   git version 2.3.8 (Apple Git-58)</code></li>
-<li><code>song$ node -v
-  v0.12.4</code></li>
-</ul>
-<h2 id="2、配置hexo">2、配置hexo</h2><ul>
-<li><p>创建、生成以及部署博客就靠这个了。</p>
-</li>
-<li><p>2.1、安装 <code>sudo npm install -g hexo</code></p>
-<ul>
-<li>这里坑很多，很可能因为缺少各种软件依赖而无法安装成功，一定要用sudo方式安装    - 如果安装失败，可以更换下软件源试试 <code>npm config set registry=&quot;http://registry.cnpmjs.org&quot;</code></li>
-</ul>
-</li>
-<li><p>2.2、如果安装成功输入<code>hexo -v</code>可得出如下结果</p>
-  <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">song$ hexo -v</span><br><span class="line">hexo: <span class="number">3.1</span><span class="number">.1</span></span><br><span class="line">os: Darwin <span class="number">14.5</span><span class="number">.0</span> darwin x64</span><br><span class="line">http_parser: <span class="number">2.3</span></span><br><span class="line">node: <span class="number">0.12</span><span class="number">.4</span></span><br><span class="line">v8: <span class="number">3.28</span><span class="number">.71</span><span class="number">.19</span></span><br><span class="line">uv: <span class="number">1.5</span><span class="number">.0</span></span><br><span class="line">zlib: <span class="number">1.2</span><span class="number">.8</span></span><br><span class="line">modules: <span class="number">14</span></span><br><span class="line">openssl: <span class="number">1.0</span><span class="number">.1</span>m</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="3、使用过程">3、使用过程</h2><ul>
-<li><p>3.1、创建一个保存本地文件的文件夹</p>
-<ul>
-<li><code>mkdir blog</code></li>
-</ul>
-</li>
-<li><p>3.2、然后进入文件夹，初始化hexo,生成一些基本配置文件</p>
-<ul>
-<li><p><code>hexo init</code></p>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">song$ hexo init</span><br><span class="line">INFO  Copying data <span class="keyword">to</span> ~/Desktop/test/blog</span><br><span class="line">INFO  You are almost done! Don't forget <span class="keyword">to</span> <span class="command">run</span> 'npm install' <span class="keyword">before</span> you start blogging <span class="keyword">with</span> Hexo!</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>3.3、安装依赖包，这个必须安装，而且必须使用sudo方式，不然又是一大堆错误</p>
-<ul>
-<li><code>sudo npm install</code> 然后会安装一大堆依赖包</li>
-</ul>
-</li>
-<li><p>3.4、创建完成后可以查看文件目录</p>
-<ul>
-<li><img src="../images/Snip20150926_5.png" alt=""></li>
-</ul>
-</li>
-<li><p>3.5、配置文件</p>
-<ul>
-<li><p>网站设置，配置主目录下的_config.yml文件,暂时只修改<code>Site</code>下面的配置，其他的选择默认。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"># Hexo Configuration</span><br><span class="line">## Docs: http://hexo.io/docs/configuration.html</span><br><span class="line">## Source: https://github.com/hexojs/hexo/</span><br><span class="line"></span><br><span class="line"># Site</span><br><span class="line">title: blog #博客名称</span><br><span class="line">subtitle:	# 子标题</span><br><span class="line">description: # 描述</span><br><span class="line">author: Mr Song # 作者</span><br><span class="line">language: zh-CN # 语言，中国就是zh-CN了</span><br><span class="line">timezone: # 时区，默认就好</span><br><span class="line"></span><br><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span><br><span class="line">url: http://yoursite.com</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"># Directory</span><br><span class="line">source_dir: source</span><br><span class="line">public_dir: public</span><br><span class="line">tag_dir: tags</span><br><span class="line">archive_dir: archives</span><br><span class="line">category_dir: categories</span><br><span class="line">code_dir: downloads/code</span><br><span class="line">i18n_dir: :lang</span><br><span class="line">skip_render:</span><br><span class="line"></span><br><span class="line"># Writing</span><br><span class="line">new_post_name: :title.md # File name of new posts</span><br><span class="line">default_layout: post</span><br><span class="line">titlecase: false # Transform title into titlecase</span><br><span class="line">external_link: true # Open external links in new tab</span><br><span class="line">filename_case: 0</span><br><span class="line">render_drafts: false</span><br><span class="line">post_asset_folder: false</span><br><span class="line">relative_link: false</span><br><span class="line">future: true</span><br><span class="line">highlight:</span><br><span class="line">  enable: true</span><br><span class="line">  line_number: true</span><br><span class="line">  auto_detect: true</span><br><span class="line">  tab_replace:</span><br><span class="line"></span><br><span class="line"># Category &amp; Tag</span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br><span class="line"></span><br><span class="line"># Date / Time format</span><br><span class="line">## Hexo uses Moment.js to parse and display date</span><br><span class="line">## You can customize the date format as defined in</span><br><span class="line">## http://momentjs.com/docs/#/displaying/format/</span><br><span class="line">date_format: YYYY-MM-DD</span><br><span class="line">time_format: HH:mm:ss</span><br><span class="line"></span><br><span class="line"># Pagination</span><br><span class="line">## Set per_page to 0 to disable pagination</span><br><span class="line">per_page: 10</span><br><span class="line">pagination_dir: page</span><br><span class="line"></span><br><span class="line"># Extensions</span><br><span class="line">## Plugins: http://hexo.io/plugins/</span><br><span class="line">## Themes: http://hexo.io/themes/</span><br><span class="line">theme: landscape</span><br><span class="line"></span><br><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type:</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>Hexo主题设置</p>
-<ul>
-<li>需要什么主题可以在这里进行 <a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">https://github.com/hexojs/hexo/wiki/Themes</a></li>
-<li>这个主题也不错，不用自己设置代码高亮了 <a href="http://wuchong.me/jacman/" target="_blank" rel="external">http://wuchong.me/jacman/</a></li>
-<li>比如说这个 <a href="https://github.com/moretwo/hexo-theme" target="_blank" rel="external">https://github.com/moretwo/hexo-theme</a></li>
-<li>进入主题目录后通过命令 <code>git clone https://github.com/moretwo/hexo-theme.git</code> 进行下载</li>
-<li><p>然后回到根目录更改主题<code>Extensions</code></p>
-<figure class="highlight vala"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor"># Extensions</span></span><br><span class="line"><span class="preprocessor">## Plugins: http://hexo.io/plugins/</span></span><br><span class="line"><span class="preprocessor">## Themes: http://hexo.io/themes/</span></span><br><span class="line">theme: aiki</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>3.6、生成静态网站</p>
-<ul>
-<li><p>使用命令 <code>hexo g(hexo generate)</code></p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">	song$ hexo g</span><br><span class="line">INFO  Files loaded <span class="keyword">in</span> <span class="number">574</span> ms</span><br><span class="line">INFO  Generated: asset/img/logo<span class="class">.png</span></span><br><span class="line">INFO  Generated: asset/img/favicon<span class="class">.png</span></span><br><span class="line">INFO  Generated: asset/css/style<span class="class">.css</span></span><br><span class="line">INFO  Generated: <span class="number">2015</span>/<span class="number">09</span>/<span class="number">26</span>/hello-world/index<span class="class">.html</span></span><br><span class="line">INFO  Generated: archives/index<span class="class">.html</span></span><br><span class="line">INFO  Generated: archives/<span class="number">2015</span>/index<span class="class">.html</span></span><br><span class="line">INFO  Generated: archives/<span class="number">2015</span>/<span class="number">09</span>/index<span class="class">.html</span></span><br><span class="line">INFO  Generated: index<span class="class">.html</span></span><br><span class="line">INFO  <span class="number">8</span> files generated <span class="keyword">in</span> <span class="number">332</span> ms</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>3.7、开启本地服务</p>
-<ul>
-<li><p><code>hexo s(hexo server)</code>打开浏览器进行网页预览</p>
-<pre><code>  song$ hexo s
-INFO  Hexo is running <span class="keyword">at</span> <span class="keyword">http</span>://<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">4000</span>/. Press Ctrl+C <span class="built_in">to</span> <span class="built_in">stop</span>.
-</code></pre></li>
-</ul>
-</li>
-<li><p>3.8、部署到github</p>
-<ul>
-<li><code>hexo d(hexo deploy)</code> 部署到github，这个需要提前在github完成相关配置，下面详说</li>
-</ul>
-</li>
-</ul>
-<h2 id="4、部署到github">4、部署到github</h2><h3 id="整体步骤">整体步骤</h3><ul>
-<li>1、首先注册一个『GitHub』帐号，已有的默认默认请忽略</li>
-<li>2、建立与你用户名对应的仓库，仓库名必须为『your_user_name.github.com』</li>
-<li>3、添加SSH公钥到『Account settings -&gt; SSH Keys -&gt; Add SSH Key』</li>
-</ul>
-<h3 id="生成SHH-Key">生成SHH-Key</h3><ul>
-<li>1、首先设置你的用户名密码：<ul>
-<li><code>git config --global user.email &quot;你的邮箱&quot;</code></li>
-<li><code>git config --global user.name &quot;你的用户名&quot;</code></li>
-</ul>
-</li>
-<li>2、然后生成秘钥<ul>
-<li><code>ssh-keygen -t rsa -C &quot;你的邮箱&quot;</code> </li>
-</ul>
-</li>
-<li>3、打开pub文件，赋值所有内容，然后在github中添加ssh-key</li>
-<li>4、测试是否成功<ul>
-<li><code>ssh -T git@github.com</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="最后回到第三步，直接部署就会上传到github">最后回到第三步，直接部署就会上传到github</h2><ul>
-<li>其他问题可以参考 <a href="!http://www.aips.me/hexo-independent-blog-new-ways.html">!http://www.aips.me/hexo-independent-blog-new-ways.html</a></li>
-</ul>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-	  	<span></span>
-		<a href="/2013/01/05/github搭建博客/#comments" class="ds-thread-count comments-count-link" data-thread-key="2013/01/05/github搭建博客/" data-count-type="comments">&nbsp;</a>
-	
-</div>
-
-</footer>
-
-
-    </article>
+    
+    <time datetime="2013-01-05T06:48:09.000Z" itemprop="datePublished">2013-01-05</time>
+  </a>
+</section>
 
 
 
@@ -250,7 +140,7 @@ INFO  Hexo is running <span class="keyword">at</span> <span class="keyword">http
 
 
 
-  <nav id="page-nav" class="clearfix">
+  <nav id="page-nav" class="clearfix unexpand">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
@@ -261,14 +151,10 @@ INFO  Hexo is running <span class="keyword">at</span> <span class="keyword">http
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
-  
-<div class="github-card">
-<p class="asidetitle">Github 名片</p>
-<div class="github-card" data-github="slq0378" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
 </div>
-  </div>
-
 
 
   
@@ -283,7 +169,7 @@ INFO  Hexo is running <span class="keyword">at</span> <span class="keyword">http
 			
 		
 			
-				<li><a href="/tags/swift/" title="swift">swift<sup>4</sup></a></li>
+				<li><a href="/tags/swift/" title="swift">swift<sup>5</sup></a></li>
 			
 		
 		</ul>
@@ -294,27 +180,12 @@ INFO  Hexo is running <span class="keyword">at</span> <span class="keyword">http
   <p class="asidetitle">友情链接</p>
     <ul>
         
-          <li>
-            
-            	<a href="http://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
-            
-          </li>
-        
     </ul>
 </div>
-
-  
-
 
   <div class="rsspart">
 	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
-</div>
-
 
 </aside>
 </div>
