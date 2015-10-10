@@ -105,11 +105,7 @@ song$ git --version
 					 
 						<li><a href="/">Home</a></li>
 					
-						<li><a href="/Categories">Categories</a></li>
-					
 						<li><a href="/Archives">Archives</a></li>
-					
-						<li><a href="/Tags">Tags</a></li>
 					
 						<li><a href="/About">About</a></li>
 					
@@ -194,7 +190,7 @@ song$ git --version
 <li><p>3.2、然后进入文件夹，初始化hexo,生成一些基本配置文件</p>
 <ul>
 <li><p><code>hexo init</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">song$ hexo init&#10;INFO  Copying data to ~/Desktop/test/blog&#10;INFO  You are almost done! Don&#39;t forget to run &#39;npm install&#39; before you start blogging with Hexo!</span><br></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">song$ hexo init</span><br><span class="line">INFO  Copying data <span class="keyword">to</span> ~/Desktop/test/blog</span><br><span class="line">INFO  You are almost done! Don't forget <span class="keyword">to</span> <span class="command">run</span> 'npm install' <span class="keyword">before</span> you start blogging <span class="keyword">with</span> Hexo!</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -224,14 +220,14 @@ song$ git --version
 <li>比如说这个 <a href="https://github.com/moretwo/hexo-theme" target="_blank" rel="external">https://github.com/moretwo/hexo-theme</a></li>
 <li>进入主题目录后通过命令 <code>git clone https://github.com/moretwo/hexo-theme.git</code> 进行下载</li>
 <li><p>然后回到根目录更改主题<code>Extensions</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Extensions&#10;## Plugins: http://hexo.io/plugins/&#10;## Themes: http://hexo.io/themes/&#10;theme: aiki</span><br></pre></td></tr></table></figure>
+<figure class="highlight vala"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor"># Extensions</span></span><br><span class="line"><span class="preprocessor">## Plugins: http://hexo.io/plugins/</span></span><br><span class="line"><span class="preprocessor">## Themes: http://hexo.io/themes/</span></span><br><span class="line">theme: aiki</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>3.6、生成静态网站</p>
 <ul>
 <li><p>使用命令 <code>hexo g(hexo generate)</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#9;song$ hexo g&#10;INFO  Files loaded in 574 ms&#10;INFO  Generated: asset/img/logo.png&#10;INFO  Generated: asset/img/favicon.png&#10;INFO  Generated: asset/css/style.css&#10;INFO  Generated: 2015/09/26/hello-world/index.html&#10;INFO  Generated: archives/index.html&#10;INFO  Generated: archives/2015/index.html&#10;INFO  Generated: archives/2015/09/index.html&#10;INFO  Generated: index.html&#10;INFO  8 files generated in 332 ms</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">	song$ hexo g</span><br><span class="line">INFO  Files loaded <span class="keyword">in</span> <span class="number">574</span> ms</span><br><span class="line">INFO  Generated: asset/img/logo<span class="class">.png</span></span><br><span class="line">INFO  Generated: asset/img/favicon<span class="class">.png</span></span><br><span class="line">INFO  Generated: asset/css/style<span class="class">.css</span></span><br><span class="line">INFO  Generated: <span class="number">2015</span>/<span class="number">09</span>/<span class="number">26</span>/hello-world/index<span class="class">.html</span></span><br><span class="line">INFO  Generated: archives/index<span class="class">.html</span></span><br><span class="line">INFO  Generated: archives/<span class="number">2015</span>/index<span class="class">.html</span></span><br><span class="line">INFO  Generated: archives/<span class="number">2015</span>/<span class="number">09</span>/index<span class="class">.html</span></span><br><span class="line">INFO  Generated: index<span class="class">.html</span></span><br><span class="line">INFO  <span class="number">8</span> files generated <span class="keyword">in</span> <span class="number">332</span> ms</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
