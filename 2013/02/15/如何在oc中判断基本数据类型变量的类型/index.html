@@ -4,35 +4,41 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>swift坑-tableView中注册cell | Bloging</title>
+    <title>如何在OC中判断基本数据类型变量的类型 | Bloging</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Mr Song">
     
 
     
-    <meta name="description" content="tableView.registerClass in swift is fatal error
-注册cell时会出问题，但是注册一个cell时应该和原类没关系吧，我特意新建了一个工程进行测试，没有问题。那很可能就是这个工程有问题。但是问题在哪呢？
-姑且认为在注册cell的上下文
-分析
-首先SLQHomeTableViewController继承自SLQBaseTableViewController">
+    <meta name="description" content="如何在OC中判断基本数据类型变量的类型
+可以在工程中添加C++库，然后引用这个方法。
+
+用C++的方法typeid
+
+
+#include &amp;lt;iostream&amp;gt;using namespace std;void test()&amp;#123;    cout &amp;lt;&amp;lt; typeid(int).name() &amp;lt;&amp;lt; endl    &amp;lt;&amp;lt; typeid(unsigned">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swift坑-tableView中注册cell">
-<meta property="og:url" content="http://yoursite.com/2015/10/02/swift坑-tableView中注册cell/index.html">
+<meta property="og:title" content="如何在OC中判断基本数据类型变量的类型">
+<meta property="og:url" content="http://yoursite.com/2013/02/15/如何在oc中判断基本数据类型变量的类型/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="tableView.registerClass in swift is fatal error
-注册cell时会出问题，但是注册一个cell时应该和原类没关系吧，我特意新建了一个工程进行测试，没有问题。那很可能就是这个工程有问题。但是问题在哪呢？
-姑且认为在注册cell的上下文
-分析
-首先SLQHomeTableViewController继承自SLQBaseTableViewController">
-<meta property="og:updated_time" content="2015-10-06T03:48:02.000Z">
+<meta property="og:description" content="如何在OC中判断基本数据类型变量的类型
+可以在工程中添加C++库，然后引用这个方法。
+
+用C++的方法typeid
+
+
+#include &amp;lt;iostream&amp;gt;using namespace std;void test()&amp;#123;    cout &amp;lt;&amp;lt; typeid(int).name() &amp;lt;&amp;lt; endl    &amp;lt;&amp;lt; typeid(unsigned">
+<meta property="og:updated_time" content="2015-10-21T14:10:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swift坑-tableView中注册cell">
-<meta name="twitter:description" content="tableView.registerClass in swift is fatal error
-注册cell时会出问题，但是注册一个cell时应该和原类没关系吧，我特意新建了一个工程进行测试，没有问题。那很可能就是这个工程有问题。但是问题在哪呢？
-姑且认为在注册cell的上下文
-分析
-首先SLQHomeTableViewController继承自SLQBaseTableViewController">
+<meta name="twitter:title" content="如何在OC中判断基本数据类型变量的类型">
+<meta name="twitter:description" content="如何在OC中判断基本数据类型变量的类型
+可以在工程中添加C++库，然后引用这个方法。
+
+用C++的方法typeid
+
+
+#include &amp;lt;iostream&amp;gt;using namespace std;void test()&amp;#123;    cout &amp;lt;&amp;lt; typeid(int).name() &amp;lt;&amp;lt; endl    &amp;lt;&amp;lt; typeid(unsigned">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -92,14 +98,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/10/02/swift坑-tableView中注册cell/" title="swift坑-tableView中注册cell" itemprop="url">swift坑-tableView中注册cell</a>
+      <a href="/2013/02/15/如何在oc中判断基本数据类型变量的类型/" title="如何在OC中判断基本数据类型变量的类型" itemprop="url">如何在OC中判断基本数据类型变量的类型</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Mr Song" target="_blank" itemprop="author">Mr Song</a>
 		
   <p class="article-time">
-    <time datetime="2015-10-02T04:26:05.000Z" itemprop="datePublished"> 发表于 2015-10-02</time>
+    <time datetime="2013-02-15T00:05:50.000Z" itemprop="datePublished"> 发表于 2013-02-15</time>
     
   </p>
 </header>
@@ -108,43 +114,17 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#tableView-registerClass_in_swift_is_fatal_error"><span class="toc-number">1.</span> <span class="toc-text">tableView.registerClass in swift is fatal error</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fatal_error:_array_cannot_be_bridged_from_Objective-C"><span class="toc-number">1.1.</span> <span class="toc-text">fatal error: array cannot be bridged from Objective-C</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何在OC中判断基本数据类型变量的类型"><span class="toc-number">1.</span> <span class="toc-text">如何在OC中判断基本数据类型变量的类型</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="tableView-registerClass_in_swift_is_fatal_error">tableView.registerClass in swift is fatal error</h1><ul>
-<li>注册cell时会出问题，但是注册一个cell时应该和原类没关系吧，我特意新建了一个工程进行测试，没有问题。那很可能就是这个工程有问题。但是问题在哪呢？</li>
-<li>姑且认为在注册cell的上下文</li>
-<li>分析<ul>
-<li>首先<code>SLQHomeTableViewController</code>继承自<code>SLQBaseTableViewController</code> ，<code>SLQBaseTableViewController</code> 继承自<code>UITableViewController</code></li>
-<li>其次在<code>SLQHomeTableViewController</code>的 <code>viewDidLoad</code>方法中进行cell的注册没有问题（问题就在这里）</li>
-<li>为什么位注册失败</li>
-</ul>
+		<h1 id="如何在OC中判断基本数据类型变量的类型">如何在OC中判断基本数据类型变量的类型</h1><ul>
+<li><p>可以在工程中添加C++库，然后引用这个方法。</p>
 </li>
-<li>结果1<ul>
-<li>直接将 <code>SLQHomeTableViewController</code> 的父类换成 <code>UITableViewController</code> 注册cell没有问题</li>
-<li>还是不行</li>
-</ul>
-</li>
-<li><p>结果2</p>
-<ul>
-<li>重新写了一遍，还是出问题</li>
-<li><p>问了下大牛，才知道原来是上一步中有一个判断没有return，导致tableView没有创建，所以注册会出问题。    - 主要那个if语句没有返回，本意是判断一下是否登录，如果没有登录就显示默认界面，这样的话UITableView就没有创建，注册当然会出问题。</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">    <span class="comment">// 1.如果没有登录, 就设置未登录界面的信息</span></span><br><span class="line">    <span class="keyword">if</span> !userLogin</span><br><span class="line">    &#123;</span><br><span class="line">        defaultVistorView?.setupVisitorInfo(<span class="literal">true</span>, imageName: <span class="string">"visitordiscover_feed_image_house"</span>, message: <span class="string">"关注一些人，回这里看看有什么惊喜"</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 2.初始化导航条</span></span><br><span class="line">    setupNav()</span><br><span class="line">    <span class="comment">// 3、注册cell</span></span><br><span class="line">    tableView.registerClass(<span class="type">StatusNormalTableViewCell</span>.<span class="keyword">self</span>, forCellReuseIdentifier: <span class="type">StatusTableViewCellIdentifier</span>.<span class="type">NormalCell</span>.rawValue)</span><br><span class="line">    tableView.registerClass(<span class="type">StatusForwardTableViewCell</span>.<span class="keyword">self</span>, forCellReuseIdentifier: <span class="type">StatusTableViewCellIdentifier</span>.<span class="type">ForwardCell</span>.rawValue)</span><br><span class="line">    tableView.separatorStyle = <span class="type">UITableViewCellSeparatorStyle</span>.<span class="type">None</span></span><br><span class="line">    <span class="comment">// 显示刷新控件</span></span><br><span class="line">    refreshControl = <span class="type">HomeRefreshControl</span>()</span><br><span class="line">    refreshControl?.addTarget(<span class="keyword">self</span>, action: <span class="string">"loadData"</span>, forControlEvents: <span class="type">UIControlEvents</span>.<span class="type">ValueChanged</span>)</span><br><span class="line">    <span class="comment">// 4、加载微博数据</span></span><br><span class="line">    loadData()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>用C++的方法typeid</p>
 </li>
 </ul>
-</li>
-<li><p>下面的stackflow上得问题</p>
-  <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="type">I</span> use <span class="type">Xcode7</span></span><br><span class="line"></span><br><span class="line">i register the cell <span class="keyword">in</span> viewDidLoad()</span><br><span class="line"></span><br><span class="line"> <span class="keyword">let</span> <span class="type">SLQHomeTableViewCellID</span> = <span class="string">"SLQHomeTableViewCellID"</span></span><br><span class="line"> <span class="keyword">self</span>.tableView.registerClass(<span class="type">SLQStatusCell</span>.<span class="keyword">self</span>, forCellReuseIdentifier: <span class="type">SLQHomeTableViewCellID</span>)</span><br><span class="line">then the dataSouce like below:</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - Table view data source</span></span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">    <span class="comment">// #warning Incomplete implementation, return the number of rows</span></span><br><span class="line">  <span class="keyword">return</span> statuses?.<span class="built_in">count</span> ?? <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> cell = tableView.dequeueReusableCellWithIdentifier(<span class="type">SLQHomeTableViewCellID</span>, forIndexPath: indexPath) <span class="keyword">as</span>! <span class="type">SLQStatusCell</span></span><br><span class="line">    <span class="keyword">let</span> status = statuses![indexPath.row]</span><br><span class="line">    cell.status = status</span><br><span class="line">    <span class="keyword">return</span> cell</span><br><span class="line">&#125;</span><br><span class="line">i also <span class="keyword">override</span> <span class="keyword">init</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">override</span> <span class="keyword">init</span>(style: <span class="type">UITableViewCellStyle</span>, reuseIdentifier: <span class="type">String</span>?) &#123;</span><br><span class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(style: style, reuseIdentifier: reuseIdentifier)</span><br><span class="line">    <span class="comment">// 初始化UI</span></span><br><span class="line">    setupUI()</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">but when i run <span class="keyword">in</span> simulator ,it's a fatal error <span class="keyword">in</span> register cell ,this line <span class="keyword">is</span> the error appeared</span><br><span class="line"></span><br><span class="line"> <span class="keyword">self</span>.tableView.registerClass(<span class="type">SLQStatusCell</span>.<span class="keyword">self</span>, forCellReuseIdentifier: <span class="type">SLQHomeTableViewCellID</span>)</span><br><span class="line"></span><br><span class="line">fatal error: unexpectedly found <span class="literal">nil</span> <span class="keyword">while</span> unwrapping an <span class="type">Optional</span> value</span><br><span class="line">i want to why,i run the program <span class="keyword">in</span> using <span class="type">OC</span> <span class="keyword">is</span> all <span class="keyword">right</span>.</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="fatal_error:_array_cannot_be_bridged_from_Objective-C">fatal error: array cannot be bridged from Objective-C</h2><ul>
-<li>将一个[UIImage]数组传递到一个[UIImage?]时爆出这个错误</li>
-<li>解决方法<ul>
-<li>显示指出数组的类型<br><code>let images: [UIImage?] = photoSelectorVC.pictureImages</code></li>
-</ul>
-</li>
-</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">int</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">unsigned</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">long</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">unsigned</span> <span class="keyword">long</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">char</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">unsigned</span> <span class="keyword">char</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">float</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">double</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="built_in">string</span>).name() &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -153,7 +133,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/swift/">swift</a>
+  <span></span> <a href="/tags/OC/">OC</a>
   </div>
 
 </div>
@@ -162,7 +142,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/10/02/swift坑-tableView中注册cell/" data-title="swift坑-tableView中注册cell | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2013/02/15/如何在oc中判断基本数据类型变量的类型/" data-title="如何在OC中判断基本数据类型变量的类型 | Bloging" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -176,18 +156,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/10/04/正则表达式/" title="正则表达式">
+ <a href="/2013/03/05/qq好友列表实现/" title="QQ好友列表实现">
   <strong>上一篇：</strong><br/>
   <span>
-  正则表达式</span>
+  QQ好友列表实现</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/09/26/swift新特性/"  title="Swift与众不同的地方">
+<a href="/2013/02/11/二维码的扫描和生成/"  title="二维码的扫描和生成">
  <strong>下一篇：</strong><br/> 
- <span>Swift与众不同的地方
+ <span>二维码的扫描和生成
 </span>
 </a>
 </div>
@@ -196,7 +176,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/10/02/swift坑-tableView中注册cell/" data-title="swift坑-tableView中注册cell" data-url="http://yoursite.com/2015/10/02/swift坑-tableView中注册cell/"></div>
+	<div class="ds-thread" data-thread-key="2013/02/15/如何在oc中判断基本数据类型变量的类型/" data-title="如何在OC中判断基本数据类型变量的类型" data-url="http://yoursite.com/2013/02/15/如何在oc中判断基本数据类型变量的类型/"></div>
 </section>
 
 
@@ -206,7 +186,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#tableView-registerClass_in_swift_is_fatal_error"><span class="toc-number">1.</span> <span class="toc-text">tableView.registerClass in swift is fatal error</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fatal_error:_array_cannot_be_bridged_from_Objective-C"><span class="toc-number">1.1.</span> <span class="toc-text">fatal error: array cannot be bridged from Objective-C</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何在OC中判断基本数据类型变量的类型"><span class="toc-number">1.</span> <span class="toc-text">如何在OC中判断基本数据类型变量的类型</span></a></li></ol>
  
   </div>
 
