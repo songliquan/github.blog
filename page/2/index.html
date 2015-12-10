@@ -78,21 +78,132 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2013/02/15/如何在oc中判断基本数据类型变量的类型/" title="如何在OC中判断基本数据类型变量的类型" itemprop="url">
+    <a href="/2013/04/01/Objective-C中的self和super/" title="Objective-C中的self和super" itemprop="url">
   
-    <h1 itemprop="name">如何在OC中判断基本数据类型变量的类型</h1>
+    <h1 itemprop="name">Objective-C中的self和super</h1>
     
      
-           <p itemprop="description" >如何在OC中判断基本数据类型变量的类型
-可以在工程中添加C++库，然后引用这个方法。
-
-用C++的方法typeid
-
-
-#include &amp;lt;iostream&amp;gt;using namespace std;void test()&amp;#123;    cout &amp;lt;&amp;lt; </p>
+           <p itemprop="description" >Objective-C中的self和super异同
+1.self是一个隐藏参数,super是编译器指示符
+2.self和super指向同一个消息接收者
+3.self调用是从当前类的方法列表中查找方法,如果没有就去父类查找,直到查找到NSObject类.super会直接从父类的方法</p>
         
     
-    <time datetime="2013-02-15T00:05:50.000Z" itemprop="datePublished">2013-02-15</time>
+    <time datetime="2013-04-01T09:33:09.000Z" itemprop="datePublished">2013-04-01</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2013/03/10/多线程编程/" title="多线程编程" itemprop="url">
+  
+    <h1 itemprop="name">多线程编程</h1>
+    
+     
+           <p itemprop="description" >IOS开发中多线程
+主线程
+一个iOS程序运行后，默认会开启1条线程，称为“主线程”或“UI线程”
+作用
+显示和刷新界面
+处理UI事件（点击、滚动、拖拽等）
+
+
+注意事项
+耗时操作不能放在主线程中没，比如资源记载，文件下载，等比较耗时间的任务，不然会卡死界面
+可以将耗时操作放到子</p>
+        
+    
+    <time datetime="2013-03-10T00:32:35.000Z" itemprop="datePublished">2013-03-10</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2013/03/08/网络编程/" title="网络编程" itemprop="url">
+  
+    <h1 itemprop="name">网络编程</h1>
+    
+     
+           <p itemprop="description" >网络基本概念
+客户端：client
+服务器：server
+请求:request
+响应:response
+过程
+客户端 -&amp;gt; 发送请求 -&amp;gt; 服务器(连接数据库)
+服务器 -&amp;gt; 发送响应 -&amp;gt; 客户端
+
+
+客户端(移动端)
+前段（前台）
+iOS,Androi</p>
+        
+    
+    <time datetime="2013-03-08T00:43:13.000Z" itemprop="datePublished">2013-03-08</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2013/03/05/qq好友列表实现/" title="QQ好友列表实现" itemprop="url">
+  
+    <h1 itemprop="name">QQ好友列表实现</h1>
+    
+     
+           <p itemprop="description" >0、QQ好友列表实现
+0、首先说说实现思路
+
+自定义UITableView，每一个分组都是一个UITableViewHeaderFooterView,然后自定义cell，这里分组的实现主要是自定义UITableViewHeaderFooterView，这个折叠效果主要靠这个hea</p>
+        
+    
+    <time datetime="2013-03-05T00:05:50.000Z" itemprop="datePublished">2013-03-05</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2013/02/11/自定义控件1/" title="自定义控件1" itemprop="url">
+  
+    <h1 itemprop="name">自定义控件1</h1>
+    
+     
+           <p itemprop="description" >自定义tabBar
+系统自带的tabBar不能满足需求
+自己定义UITabBar
+自定义一个类继承自UITabBar
+实现initWithFrame和layoutSubviews方法即可。
+
+
+
+
+//#import &quot;SLQTabBar.h&quot;@interface SLQTabB</p>
+        
+    
+    <time datetime="2013-02-11T09:43:15.000Z" itemprop="datePublished">2013-02-11</time>
   </a>
 </section>
 
@@ -129,6 +240,60 @@
         
     
     <time datetime="2013-02-11T00:44:56.000Z" itemprop="datePublished">2013-02-11</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2013/02/10/手势使用/" title="手势使用" itemprop="url">
+  
+    <h1 itemprop="name">手势使用</h1>
+    
+     
+           <p itemprop="description" >UIGestureRecognizer
+利用UIGestureRecognizer，能轻松识别用户在某个view上面做的一些常见手势 
+UIGestureRecognizer是一个抽象类，定义了所有手势的基本行为，使用它的子类才能处理具体的手势
+
+UITapGestureReco</p>
+        
+    
+    <time datetime="2013-02-10T09:49:23.000Z" itemprop="datePublished">2013-02-10</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2013/02/09/事件处理/" title="事件处理" itemprop="url">
+  
+    <h1 itemprop="name">事件处理</h1>
+    
+     
+           <p itemprop="description" >事件处理分类
+1、触摸事件
+2、加速器事件：重力感应，旋转等事件
+3、远程遥控事件：蓝牙线控，耳机线控等
+
+触摸事件
+响应者对象
+只有继承了UIResponder得对象才能接收并处理事件
+常见类有：UIApplication、UIViewController、UIView
+
+UI</p>
+        
+    
+    <time datetime="2013-02-09T10:20:17.000Z" itemprop="datePublished">2013-02-09</time>
   </a>
 </section>
 
@@ -186,43 +351,9 @@
 
 
 
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2013/01/05/github搭建博客/" title="github搭建个人博客" itemprop="url">
-  
-    <h1 itemprop="name">github搭建个人博客</h1>
-    
-     
-           <p itemprop="description" >github搭建个人博客
-以下操作全在 Mac OS上
-
-1、首先要配置环境
-用到的软件有
-Node.js
-Git
-
-
-下载地址
-Node.js https://nodejs.org/en/
-Git http://git-scm.com/download/
-
-
-安装没有什么难度,</p>
-        
-    
-    <time datetime="2013-01-05T06:48:09.000Z" itemprop="datePublished">2013-01-05</time>
-  </a>
-</section>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix unexpand">
-    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
   </nav>
 
 </div>
@@ -246,7 +377,7 @@ Git http://git-scm.com/download/
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/OC/" title="OC">OC<sup>8</sup></a></li>
+				<li><a href="/tags/OC/" title="OC">OC<sup>12</sup></a></li>
 			
 		
 			
