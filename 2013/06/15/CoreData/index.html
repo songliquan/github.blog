@@ -1,0 +1,587 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>CoreData | Bloging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Mr Song">
+    
+
+    
+    <meta name="description" content="CoreData
+CoreData是对sqlite的一次封装。
+
+使用过程
+首先新建一个 Data Model
+添加数据模型（相当于数据库）
+添加实体对象（相当于一张表） 
+添加实体对象类 
+
+
+
+//#import &quot;Employee.h&quot;NS_ASSUME_NONNULL_BEGIN@interface Employee (CoreDataProperties)@property (nulla">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CoreData">
+<meta property="og:url" content="http://yoursite.com/2013/06/15/CoreData/index.html">
+<meta property="og:site_name" content="Bloging">
+<meta property="og:description" content="CoreData
+CoreData是对sqlite的一次封装。
+
+使用过程
+首先新建一个 Data Model
+添加数据模型（相当于数据库）
+添加实体对象（相当于一张表） 
+添加实体对象类 
+
+
+
+//#import &quot;Employee.h&quot;NS_ASSUME_NONNULL_BEGIN@interface Employee (CoreDataProperties)@property (nulla">
+<meta property="og:image" content="http://yoursite.com/../images/Snip20130426_2.png">
+<meta property="og:updated_time" content="2015-12-19T04:45:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CoreData">
+<meta name="twitter:description" content="CoreData
+CoreData是对sqlite的一次封装。
+
+使用过程
+首先新建一个 Data Model
+添加数据模型（相当于数据库）
+添加实体对象（相当于一张表） 
+添加实体对象类 
+
+
+
+//#import &quot;Employee.h&quot;NS_ASSUME_NONNULL_BEGIN@interface Employee (CoreDataProperties)@property (nulla">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2013/06/15/CoreData/" title="CoreData" itemprop="url">CoreData</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Mr Song" target="_blank" itemprop="author">Mr Song</a>
+		
+  <p class="article-time">
+    <time datetime="2013-06-15T13:09:55.000Z" itemprop="datePublished"> 发表于 2013-06-15</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CoreData"><span class="toc-number">1.</span> <span class="toc-text">CoreData</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用过程"><span class="toc-number">1.1.</span> <span class="toc-text">使用过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表连接"><span class="toc-number">1.2.</span> <span class="toc-text">表连接</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="CoreData">CoreData</h1><ul>
+<li>CoreData是对sqlite的一次封装。</li>
+</ul>
+<h2 id="使用过程">使用过程</h2><ul>
+<li>首先新建一个 <code>Data Model</code><ul>
+<li>添加数据模型（相当于数据库）</li>
+<li>添加实体对象（相当于一张表）<br><img src="../images/Snip20130426_2.png" alt=""> </li>
+<li>添加实体对象类 </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">//#import "Employee.h"</span></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_BEGIN</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Employee</span> (<span class="title">CoreDataProperties</span>)</span></span><br><span class="line"><span class="keyword">@property</span> (nullable, <span class="keyword">nonatomic</span>, retain) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (nullable, <span class="keyword">nonatomic</span>, retain) <span class="built_in">NSNumber</span> *height;</span><br><span class="line"><span class="keyword">@property</span> (nullable, <span class="keyword">nonatomic</span>, retain) <span class="built_in">NSDate</span> *birthday;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"><span class="built_in">NS_ASSUME_NONNULL_END</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在viewController中控制</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1、初始化数据库操作对象</span></span><br><span class="line"> <span class="built_in">NSManagedObjectContext</span> *context = [[<span class="built_in">NSManagedObjectContext</span> alloc] init];</span><br><span class="line"> <span class="comment">// 2、指定model模型文件</span></span><br><span class="line"> <span class="built_in">NSManagedObjectModel</span> *model = [<span class="built_in">NSManagedObjectModel</span> mergedModelFromBundles:<span class="literal">nil</span>];</span><br><span class="line"> <span class="comment">// 3、持久化存储调度器，把数据保存到一个文件，而不是内存</span></span><br><span class="line"> <span class="built_in">NSPersistentStoreCoordinator</span> *store = [[<span class="built_in">NSPersistentStoreCoordinator</span> alloc] initWithManagedObjectModel:model];</span><br><span class="line"> <span class="comment">// 4、告诉Coredata数据库的名字和路径</span></span><br><span class="line"> <span class="built_in">NSString</span> *doc = [<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject];</span><br><span class="line"> <span class="built_in">NSString</span> *sqlitePath = [doc stringByAppendingPathComponent:<span class="string">@"company.sqlite"</span>];</span><br><span class="line"> [store addPersistentStoreWithType:<span class="built_in">NSSQLiteStoreType</span> configuration:<span class="literal">nil</span> URL:[<span class="built_in">NSURL</span> fileURLWithPath:sqlitePath] options:<span class="literal">nil</span> error:<span class="literal">nil</span>];</span><br><span class="line"> context<span class="variable">.persistentStoreCoordinator</span> = store;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>增删改查</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">IBAction</span>)addEmployee:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 创建</span></span><br><span class="line"><span class="comment">//    Employee *emp = [[Employee alloc] init];</span></span><br><span class="line">    Employee *emp = [<span class="built_in">NSEntityDescription</span> insertNewObjectForEntityForName:<span class="string">@"Employee"</span> inManagedObjectContext:_context];</span><br><span class="line">    emp<span class="variable">.name</span> = <span class="string">@"song"</span>;</span><br><span class="line">    emp<span class="variable">.height</span> = @<span class="number">1.8</span>;</span><br><span class="line">    emp<span class="variable">.birthday</span> = [<span class="built_in">NSDate</span> date];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储</span></span><br><span class="line">    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line">    [_context save:&amp;error];</span><br><span class="line">    <span class="keyword">if</span>(error)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,error);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)updataEmployee:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// FectchRequest 抓取请求对象</span></span><br><span class="line">    <span class="built_in">NSFetchRequest</span> *request = [<span class="built_in">NSFetchRequest</span> fetchRequestWithEntityName:<span class="string">@"Employee"</span>];</span><br><span class="line">    <span class="comment">// 设置过滤条件</span></span><br><span class="line">    <span class="built_in">NSPredicate</span> *predicate = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"name = %@"</span>,<span class="string">@"song"</span>];</span><br><span class="line">    request<span class="variable">.predicate</span> = predicate;</span><br><span class="line">    <span class="comment">// 执行请求</span></span><br><span class="line">    <span class="built_in">NSArray</span> *fetch = [_context executeFetchRequest:request error:<span class="literal">nil</span>];</span><br><span class="line">    <span class="keyword">for</span> (Employee *emp <span class="keyword">in</span> fetch) &#123;</span><br><span class="line">        emp<span class="variable">.height</span> = @<span class="number">1.9</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 存储</span></span><br><span class="line">    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line">    [_context save:&amp;error];</span><br><span class="line">    <span class="keyword">if</span>(error)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,error);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)deleteEmployee:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// FectchRequest 抓取请求对象</span></span><br><span class="line">    <span class="built_in">NSFetchRequest</span> *request = [<span class="built_in">NSFetchRequest</span> fetchRequestWithEntityName:<span class="string">@"Employee"</span>];</span><br><span class="line">    <span class="comment">// 设置过滤条件</span></span><br><span class="line">    <span class="built_in">NSPredicate</span> *predicate = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"name = %@"</span>,<span class="string">@"song"</span>];</span><br><span class="line">    request<span class="variable">.predicate</span> = predicate;</span><br><span class="line">    <span class="comment">// 执行请求</span></span><br><span class="line">    <span class="built_in">NSArray</span> *fetch = [_context executeFetchRequest:request error:<span class="literal">nil</span>];</span><br><span class="line">    <span class="keyword">for</span> (Employee *emp <span class="keyword">in</span> fetch) &#123;</span><br><span class="line">        [_context deleteObject:emp];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 存储</span></span><br><span class="line">    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line">    [_context save:&amp;error];</span><br><span class="line">    <span class="keyword">if</span>(error)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,error);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="表连接">表连接</h2><pre><code>{
+   <span class="comment">// 创建两个部门 ios android</span>
+    Department *iosDepart = [<span class="built_in">NSEntityDescription</span> insertNewObjectForEntityForName:<span class="string">@"Department"</span> inManagedObjectContext:_context];
+    iosDepart<span class="variable">.name</span> = <span class="string">@"ios"</span>;
+    iosDepart<span class="variable">.departNo</span> = <span class="string">@"0001"</span>;
+    iosDepart<span class="variable">.createDate</span> = [<span class="built_in">NSDate</span> date];
+
+    Department *andrDepart = [<span class="built_in">NSEntityDescription</span> insertNewObjectForEntityForName:<span class="string">@"Department"</span> inManagedObjectContext:_context];
+    andrDepart<span class="variable">.name</span> = <span class="string">@"android"</span>;
+    andrDepart<span class="variable">.departNo</span> = <span class="string">@"0002"</span>;
+    andrDepart<span class="variable">.createDate</span> = [<span class="built_in">NSDate</span> date];
+
+    <span class="comment">// 创建两个员工对象 zhangsan属于ios部门 lisi属于android部门</span>
+    Employee *zhangsan = [<span class="built_in">NSEntityDescription</span> insertNewObjectForEntityForName:<span class="string">@"Employee"</span> inManagedObjectContext:_context];
+    zhangsan<span class="variable">.name</span> = <span class="string">@"zhangsan"</span>;
+    zhangsan<span class="variable">.height</span> = @(<span class="number">1.90</span>);
+    zhangsan<span class="variable">.birthday</span> = [<span class="built_in">NSDate</span> date];
+    zhangsan<span class="variable">.depart</span> = iosDepart;
+
+
+    Employee *lisi = [<span class="built_in">NSEntityDescription</span> insertNewObjectForEntityForName:<span class="string">@"Employee"</span> inManagedObjectContext:_context];
+
+    lisi<span class="variable">.name</span> = <span class="string">@"lisi"</span>;
+    lisi<span class="variable">.height</span> = @<span class="number">2.0</span>;
+    lisi<span class="variable">.birthday</span> = [<span class="built_in">NSDate</span> date];
+    lisi<span class="variable">.depart</span> = andrDepart;
+
+    <span class="comment">// 存储</span>
+    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;
+    [_context save:&amp;error];
+    <span class="keyword">if</span>(error)
+    {
+        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,error);
+    }
+}
+- (<span class="keyword">void</span>)selectEmployee
+{
+    <span class="comment">// 读取ios部门的员工</span>
+
+    <span class="comment">// 1.FectchRequest 抓取请求对象</span>
+    <span class="built_in">NSFetchRequest</span> *request = [<span class="built_in">NSFetchRequest</span> fetchRequestWithEntityName:<span class="string">@"Employee"</span>];
+
+    <span class="comment">// 2.设置过滤条件</span>
+    <span class="built_in">NSPredicate</span> *pre = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"depart.name = %@"</span>,<span class="string">@"android"</span>];
+    request<span class="variable">.predicate</span> = pre;
+
+    <span class="comment">// 4.执行请求</span>
+    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;
+
+    <span class="built_in">NSArray</span> *emps = [_context executeFetchRequest:request error:&amp;error];
+    <span class="keyword">if</span> (error) {
+        <span class="built_in">NSLog</span>(<span class="string">@"error"</span>);
+    }
+
+    <span class="comment">//NSLog(@"%@",emps);</span>
+    <span class="comment">//遍历员工</span>
+    <span class="keyword">for</span> (Employee *emp <span class="keyword">in</span> emps) {
+        <span class="built_in">NSLog</span>(<span class="string">@"名字 %@ 部门 %@"</span>,emp<span class="variable">.name</span>,emp<span class="variable">.depart</span><span class="variable">.name</span>);
+    }
+}
+</code></pre>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/OC/">OC</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2013/06/15/CoreData/" data-title="CoreData | Bloging" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2013/10/05/js和oc相互调用/" title="JS和OC相互调用">
+  <strong>上一篇：</strong><br/>
+  <span>
+  JS和OC相互调用</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2013/04/10/UIButton内部子控件自定义布局-“UIEdgeInsets”/"  title="UIButton内部子控件自定义布局-“UIEdgeInsets”">
+ <strong>下一篇：</strong><br/> 
+ <span>UIButton内部子控件自定义布局-“UIEdgeInsets”
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2013/06/15/CoreData/" data-title="CoreData" data-url="http://yoursite.com/2013/06/15/CoreData/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CoreData"><span class="toc-number">1.</span> <span class="toc-text">CoreData</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用过程"><span class="toc-number">1.1.</span> <span class="toc-text">使用过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表连接"><span class="toc-number">1.2.</span> <span class="toc-text">表连接</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/OC/" title="OC">OC<sup>14</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift/" title="swift">swift<sup>4</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> This is my blog,believe it or not. <br/>
+			To be or not to be, this is the question.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:slq0378@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Song"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-68091434-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
