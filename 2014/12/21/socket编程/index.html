@@ -1,0 +1,746 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>socket编程 | Bloging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Mr Song">
+    
+
+    
+    <meta name="description" content="socket编程CocoaAsyncSocket
+开源库：https://github.com/robbiehanson/CocoaAsyncSocket
+CocoaAsyncSocket介绍
+TCP
+GCDAsyncSocket
+AsyncSocket 
+
+
+UDP
+GCDAsyncUdpSocket
+AsyncUdpSocket
+
+
+
+AsyncSocket使用大概过程
+1.建立连接
+- (i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="socket编程">
+<meta property="og:url" content="http://yoursite.com/2014/12/21/socket编程/index.html">
+<meta property="og:site_name" content="Bloging">
+<meta property="og:description" content="socket编程CocoaAsyncSocket
+开源库：https://github.com/robbiehanson/CocoaAsyncSocket
+CocoaAsyncSocket介绍
+TCP
+GCDAsyncSocket
+AsyncSocket 
+
+
+UDP
+GCDAsyncUdpSocket
+AsyncUdpSocket
+
+
+
+AsyncSocket使用大概过程
+1.建立连接
+- (i">
+<meta property="og:updated_time" content="2015-12-22T03:56:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="socket编程">
+<meta name="twitter:description" content="socket编程CocoaAsyncSocket
+开源库：https://github.com/robbiehanson/CocoaAsyncSocket
+CocoaAsyncSocket介绍
+TCP
+GCDAsyncSocket
+AsyncSocket 
+
+
+UDP
+GCDAsyncUdpSocket
+AsyncUdpSocket
+
+
+
+AsyncSocket使用大概过程
+1.建立连接
+- (i">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/12/21/socket编程/" title="socket编程" itemprop="url">socket编程</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Mr Song" target="_blank" itemprop="author">Mr Song</a>
+		
+  <p class="article-time">
+    <time datetime="2014-12-21T11:48:23.000Z" itemprop="datePublished"> 发表于 2014-12-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#socket编程"><span class="toc-number">1.</span> <span class="toc-text">socket编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CocoaAsyncSocket"><span class="toc-number">1.1.</span> <span class="toc-text">CocoaAsyncSocket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AsyncSocket使用"><span class="toc-number">1.2.</span> <span class="toc-text">AsyncSocket使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#大概过程"><span class="toc-number">1.2.1.</span> <span class="toc-text">大概过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端-服务端"><span class="toc-number">1.2.2.</span> <span class="toc-text">客户端-服务端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键代码"><span class="toc-number">1.3.</span> <span class="toc-text">关键代码</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="socket编程">socket编程</h1><h2 id="CocoaAsyncSocket">CocoaAsyncSocket</h2><ul>
+<li>开源库：<a href="https://github.com/robbiehanson/CocoaAsyncSocket" target="_blank" rel="external">https://github.com/robbiehanson/CocoaAsyncSocket</a></li>
+<li>CocoaAsyncSocket介绍</li>
+<li>TCP<ul>
+<li><code>GCDAsyncSocket</code></li>
+<li><code>AsyncSocket</code> </li>
+</ul>
+</li>
+<li>UDP<ul>
+<li><code>GCDAsyncUdpSocket</code></li>
+<li><code>AsyncUdpSocket</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="AsyncSocket使用">AsyncSocket使用</h2><h3 id="大概过程">大概过程</h3><ul>
+<li>1.建立连接</li>
+<li><code>- (int)connectServer:(NSString *)hostIP port:(int)hostPort</code></li>
+<li>2.连接成功后，会回调的函数</li>
+<li><code>- (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port</code></li>
+<li>3.发送数据</li>
+<li><code>- (void)writeData:(NSData *)data withTimeout:(NSTimeInterval)timeout tag:(long)tag;</code></li>
+<li>4.接受数据</li>
+<li><code>- (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag</code></li>
+<li>5.断开连接</li>
+<li><code>- (void)onSocket:(AsyncSocket *)sock willDisconnectWithError:(NSError *)err</code></li>
+<li><code>- (void)onSocketDidDisconnect:(AsyncSocket *)sock</code><h3 id="客户端-服务端">客户端-服务端</h3></li>
+<li>客户端呢，首先要由一个ip地址和端口，用这个来连接服务器。<ul>
+<li>直接初始化socket（指定代理）</li>
+<li>连接服务器</li>
+<li>接收或者发送数据 </li>
+<li>断开连接</li>
+</ul>
+</li>
+<li>服务端呢<ul>
+<li>初始化监听socket开始监听客户端连接，如果有客户端连接进来，就初始化连接socket，添加到socket数组</li>
+<li>然后开始收发数据（代理方法）</li>
+<li>关闭连接</li>
+</ul>
+</li>
+</ul>
+<h2 id="关键代码">关键代码</h2><ul>
+<li>客户端</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">#define SRV_CONNECTED 0</span></span><br><span class="line"><span class="preprocessor">#define SRV_CONNECT_SUC 1</span></span><br><span class="line"><span class="preprocessor">#define SRV_CONNECT_FAIL 2</span></span><br><span class="line"><span class="preprocessor">#define HOST_IP @<span class="title">"127.0.0.1"</span></span></span><br><span class="line"><span class="preprocessor">#define HOST_PORT 8008</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">"ViewController.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;AsyncSocket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> () &lt;<span class="title">AsyncSocketDelegate</span>&gt;</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UITextView</span> *textView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UITextField</span> *textField;</span><br><span class="line">- (<span class="keyword">IBAction</span>)connectButton:(<span class="keyword">id</span>)sender;</span><br><span class="line">- (<span class="keyword">IBAction</span>)sendButton:(<span class="built_in">UIButton</span> *)sender;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**内容*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *content;</span><br><span class="line"><span class="comment">/**客户端socket*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) AsyncSocket *clientSocket;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  连接到服务器</span><br><span class="line"> *</span><br><span class="line"> *  @param hostIP   服务器地址</span><br><span class="line"> *  @param hostPort 端口号</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">NSInteger</span> )connecToServer:(<span class="built_in">NSString</span> *)hostIP port:(<span class="built_in">NSInteger</span> )hostPort;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  显示数据</span><br><span class="line"> *</span><br><span class="line"> *  @param message 数据信息</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)showMessage:(<span class="built_in">NSString</span> *)message;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - View lifeCycle</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line"><span class="comment">//    [self connecToServer:HOST_IP port:HOST_PORT];</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)didReceiveMemoryWarning &#123;</span><br><span class="line">    [<span class="keyword">super</span> didReceiveMemoryWarning];</span><br><span class="line">    <span class="comment">// Dispose of any resources that can be recreated.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSInteger</span> )connecToServer:(<span class="built_in">NSString</span> *)hostIP port:(<span class="built_in">NSInteger</span>)hostPort</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.clientSocket</span> == <span class="literal">nil</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span><span class="variable">.clientSocket</span> = [[AsyncSocket alloc] initWithDelegate:<span class="keyword">self</span>];</span><br><span class="line">        <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line">        <span class="comment">// 连接服务器</span></span><br><span class="line">        <span class="keyword">if</span> (![<span class="keyword">self</span><span class="variable">.clientSocket</span> connectToHost:hostIP onPort:hostPort error:&amp;error]) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"Error %ld:%@"</span>, (<span class="keyword">long</span>)error<span class="variable">.code</span>, [error localizedDescription]);</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">UIAlertController</span> *vc = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:[<span class="string">@"Connection failed to host"</span> stringByAppendingString:hostIP] message:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%ld:%@"</span>,(<span class="keyword">long</span>)error<span class="variable">.code</span>,error<span class="variable">.localizedDescription</span>] preferredStyle:<span class="built_in">UIAlertControllerStyleAlert</span>];</span><br><span class="line">            [<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">YES</span> completion:^&#123;</span><br><span class="line">                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">1.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                    [<span class="keyword">self</span> dismissViewControllerAnimated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;];</span><br><span class="line">            <span class="keyword">return</span> SRV_CONNECT_FAIL;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"conected server successed"</span>);</span><br><span class="line">            <span class="keyword">return</span> SRV_CONNECT_SUC;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> SRV_CONNECTED;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)showMessage:(<span class="built_in">NSString</span> *)message</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIAlertController</span> *vc = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:<span class="string">@"Alert!"</span> message:message preferredStyle:<span class="built_in">UIAlertControllerStyleAlert</span>];</span><br><span class="line">    [<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">YES</span> completion:^&#123;</span><br><span class="line">        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">1.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            [<span class="keyword">self</span> dismissViewControllerAnimated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)connectButton:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> state = [<span class="keyword">self</span> connecToServer:HOST_IP port:HOST_PORT];</span><br><span class="line">    <span class="keyword">switch</span> (state) &#123;</span><br><span class="line">        <span class="keyword">case</span> SRV_CONNECT_FAIL:</span><br><span class="line">            [<span class="keyword">self</span> showMessage:<span class="string">@"server error"</span>];</span><br><span class="line">        <span class="keyword">case</span>  SRV_CONNECT_SUC:</span><br><span class="line">            [<span class="keyword">self</span> showMessage:<span class="string">@"connect success"</span>];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span>  SRV_CONNECTED:</span><br><span class="line">            [<span class="keyword">self</span> showMessage:<span class="string">@"connected already,don't do it again!"</span>];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)sendButton:(<span class="built_in">UIButton</span> *)sender &#123;</span><br><span class="line">    <span class="built_in">NSString</span> *sendStr = <span class="keyword">self</span><span class="variable">.textField</span><span class="variable">.text</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *content = [sendStr stringByAppendingString:<span class="string">@"\r\n"</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,content);</span><br><span class="line">    <span class="built_in">NSData</span> *data = [content dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    <span class="comment">// 发送数据到服务器</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.clientSocket</span> writeData:data withTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - asyncScoket delegate</span></span><br><span class="line"><span class="comment">// 连接服务器</span></span><br><span class="line">- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock didConnectToHost:(<span class="built_in">NSString</span> *)host port:(<span class="built_in">UInt16</span>)port</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.clientSocket</span> readDataWithTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将要断开连接</span></span><br><span class="line">- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock willDisconnectWithError:(<span class="built_in">NSError</span> *)err</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,err);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 已经断开连接</span></span><br><span class="line">- (<span class="keyword">void</span>)onSocketDidDisconnect:(AsyncSocket *)sock</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *msg = <span class="string">@"Sorry this connect is failure"</span>;</span><br><span class="line">    [<span class="keyword">self</span> showMessage:msg];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.clientSocket</span> = <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 接收数据</span></span><br><span class="line">- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock didReadData:(<span class="built_in">NSData</span> *)data withTag:(<span class="keyword">long</span>)tag</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *dataStr = [[<span class="built_in">NSString</span> alloc] initWithData:data encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.content</span> = dataStr;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"have received data :%@"</span>,dataStr);</span><br><span class="line">    <span class="built_in">NSString</span> *newStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"\n%@"</span>,dataStr];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.textView</span><span class="variable">.text</span> = newStr;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.clientSocket</span> readDataWithTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>服务端</li>
+</ul>
+<pre><code class="objc"><span class="preprocessor">#import <span class="title">"SocketView.h"</span></span>
+<span class="preprocessor">#import <span class="title">&lt;AsyncSocket.h&gt;</span></span>
+
+<span class="preprocessor">#define WELCOME_MSG  0</span>
+<span class="preprocessor">#define ECHO_MSG     1</span>
+<span class="preprocessor">#define FORMAT(format, ...) [NSString stringWithFormat:format, ##__VA_ARGS__]</span>
+
+<span class="class"><span class="keyword">@interface</span> <span class="title">SocketView</span> () &lt;<span class="title">AsyncSocketDelegate</span>&gt;</span>
+<span class="keyword">@property</span> (<span class="keyword">weak</span>) <span class="keyword">IBOutlet</span> <span class="built_in">NSButton</span> *stopBtn;
+
+- (<span class="keyword">IBAction</span>)stopButton:(<span class="keyword">id</span>)sender;
+<span class="keyword">@property</span> (<span class="keyword">weak</span>) <span class="keyword">IBOutlet</span> <span class="built_in">NSTextField</span> *logView;
+<span class="keyword">@property</span> (<span class="keyword">weak</span>) <span class="keyword">IBOutlet</span> <span class="built_in">NSTextField</span> *portLabel;
+
+<span class="comment">/**监听socket*/</span>
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) AsyncSocket *listenSocket;
+<span class="comment">/**socket连接数组*/</span>
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSMutableArray</span> *connectedSockets;
+<span class="comment">/**运行与否*/</span>
+<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> isRuning;
+
+<span class="keyword">@end</span>
+
+<span class="class"><span class="keyword">@implementation</span> <span class="title">SocketView</span></span>
+
+- (<span class="keyword">void</span>)awakeFromNib
+{
+    <span class="comment">// 初始化设置</span>
+    <span class="keyword">self</span><span class="variable">.listenSocket</span> = [[AsyncSocket alloc] initWithDelegate:<span class="keyword">self</span>];
+    [<span class="keyword">self</span><span class="variable">.listenSocket</span> setRunLoopModes:[<span class="built_in">NSArray</span> arrayWithObject:<span class="built_in">NSRunLoopCommonModes</span>]];
+    <span class="keyword">self</span><span class="variable">.connectedSockets</span> = [[<span class="built_in">NSMutableArray</span> alloc] init];
+    <span class="keyword">self</span><span class="variable">.isRuning</span> = <span class="literal">NO</span>;
+    [<span class="keyword">self</span><span class="variable">.stopBtn</span> setTitle:<span class="string">@"Start"</span>];
+}
+
+- (<span class="keyword">IBAction</span>)stopButton:(<span class="keyword">id</span>)sender {
+    <span class="keyword">if</span> (!<span class="keyword">self</span><span class="variable">.isRuning</span>) {
+        <span class="keyword">int</span> port = [<span class="keyword">self</span><span class="variable">.portLabel</span> intValue];
+        port = <span class="number">8008</span>;
+        [<span class="keyword">self</span><span class="variable">.portLabel</span> setStringValue:<span class="string">@"8008"</span>];
+        <span class="keyword">if</span>(port &lt; <span class="number">0</span> || port &gt; <span class="number">65535</span>)
+        {
+            port = <span class="number">0</span>; <span class="comment">// 会随即取端口</span>
+        }
+        <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;
+        <span class="comment">// 开始接受客户端连接</span>
+        <span class="keyword">if</span> (![<span class="keyword">self</span><span class="variable">.listenSocket</span> acceptOnPort:port error:&amp;error]) {
+            [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:FORMAT(<span class="string">@"Error starting server: %@"</span>, error)];
+            <span class="keyword">return</span>;
+        }
+        [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:FORMAT(<span class="string">@"Echo server started on port %hu"</span>, [<span class="keyword">self</span><span class="variable">.listenSocket</span> localPort])];
+
+        <span class="keyword">self</span><span class="variable">.isRuning</span> = <span class="literal">YES</span>;
+        [<span class="keyword">self</span><span class="variable">.portLabel</span> setEnabled:<span class="literal">NO</span>];
+        [<span class="keyword">self</span><span class="variable">.stopBtn</span> setTitle:<span class="string">@"Stop"</span>];
+    }
+    <span class="keyword">else</span>
+    {
+        <span class="comment">// 停止监听socket</span>
+        [<span class="keyword">self</span><span class="variable">.listenSocket</span> disconnect];
+
+        <span class="comment">// 断开所有客户端连接</span>
+        <span class="keyword">int</span> i;
+        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; [<span class="keyword">self</span><span class="variable">.connectedSockets</span> count]; i++)
+        {
+              [[<span class="keyword">self</span><span class="variable">.connectedSockets</span> objectAtIndex:i] disconnect];
+        }
+
+        [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:<span class="string">@"Stopped Echo server"</span>];
+        <span class="keyword">self</span><span class="variable">.isRuning</span> = <span class="literal">false</span>;
+
+        [<span class="keyword">self</span><span class="variable">.portLabel</span> setEnabled:<span class="literal">YES</span>];
+        [<span class="keyword">self</span><span class="variable">.stopBtn</span> setTitle:<span class="string">@"Start"</span>];
+    }
+}
+
+
+
+
+<span class="preprocessor">#pragma mark - asyncSocket Delegate</span>
+<span class="comment">/**
+ *  接受客户端连接
+ *
+ *  @param sock      监听socket
+ *  @param newSocket 新连接
+ */</span>
+- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket
+{
+    [<span class="keyword">self</span><span class="variable">.connectedSockets</span> addObject:newSocket];
+}
+
+<span class="comment">/**
+ *  已经与客户端建立连接
+ *
+ *  @param sock 连接1
+ *  @param host 客户端ip
+ *  @param port 连接端口
+ */</span>
+- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock didConnectToHost:(<span class="built_in">NSString</span> *)host port:(<span class="built_in">UInt16</span>)port
+{
+    [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:FORMAT(<span class="string">@"Accepted client %@:%hu"</span>, host, port)];
+
+    <span class="built_in">NSString</span> *welcomeMsg = <span class="string">@"恭喜您,已经通过scoket连接上服务器!"</span>;
+    <span class="built_in">NSLog</span>(<span class="string">@"welcomeMsg：%@"</span>,welcomeMsg);
+    <span class="built_in">NSData</span> *welcomeData = [welcomeMsg dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];
+    [sock writeData:welcomeData withTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];
+}
+
+<span class="comment">/**
+ *  发送数据到客户端
+ *
+ *  @param sock 连接
+ *  @param tag  标识
+ */</span>
+- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock didWriteDataWithTag:(<span class="keyword">long</span>)tag
+{
+    [sock readDataToData:[AsyncSocket CRLFData] withTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];
+}
+<span class="comment">/**
+ *  接收客户端数据
+ *
+ *  @param sock 连接1
+ *  @param data 数据
+ *  @param tag  标识
+ */</span>
+- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock didReadData:(<span class="built_in">NSData</span> *)data withTag:(<span class="keyword">long</span>)tag
+{
+    <span class="built_in">NSData</span> *readData = [data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, data<span class="variable">.length</span> -<span class="number">2</span>)];
+    <span class="built_in">NSString</span> *recvMessage = [[<span class="built_in">NSString</span> alloc] initWithData:readData encoding:<span class="built_in">NSUTF8StringEncoding</span>];
+    <span class="built_in">NSString</span> *recv = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"用户%zd:%@"</span>,[<span class="keyword">self</span><span class="variable">.connectedSockets</span> indexOfObject:sock],recvMessage];
+    <span class="keyword">if</span> (recvMessage) {
+        [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:recv];
+        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,recv);
+    }
+    <span class="keyword">else</span>
+    {
+        [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:<span class="string">@"Error converting received data into UTF-8 String"</span>];
+        <span class="built_in">NSLog</span>(<span class="string">@"Error converting received data into UTF-8 String"</span>);
+    }
+    <span class="built_in">NSString</span> *backStr = <span class="literal">nil</span>;
+    <span class="keyword">for</span> (AsyncSocket *subSock <span class="keyword">in</span> <span class="keyword">self</span><span class="variable">.connectedSockets</span>) {
+        <span class="keyword">if</span> ([subSock isEqual:sock]) {
+            backStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"我说: %@"</span>,recvMessage];
+        }
+        <span class="keyword">else</span>
+        {
+            backStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"ta说: %@"</span>,recvMessage];
+        }
+    }
+    <span class="comment">// 回发数据</span>
+    <span class="built_in">NSData</span>* backData = [backStr dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];
+    [sock writeData:backData withTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];
+}
+
+<span class="comment">/**
+ *  将要断开连接
+ *
+ *  @param sock 连接1
+ *  @param err  错误码
+ */</span>
+- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock willDisconnectWithError:(<span class="built_in">NSError</span> *)err
+{
+    [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:FORMAT(<span class="string">@"Client Disconnected: %@:%hu"</span>, [sock connectedHost], [sock connectedPort])];
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,FORMAT(<span class="string">@"Client Disconnected: %@:%hu"</span>, [sock connectedHost], [sock connectedPort]));
+}
+
+<span class="comment">/**
+ *  已经断开连接·
+ *
+ *  @param sock 连接1
+ */</span>
+- (<span class="keyword">void</span>)onSocketDidDisconnect:(AsyncSocket *)sock
+{
+    [<span class="keyword">self</span><span class="variable">.connectedSockets</span> removeObject:sock];
+}
+
+- (<span class="built_in">BOOL</span>)onSocketWillConnect:(AsyncSocket *)sock
+{
+    <span class="keyword">return</span> <span class="literal">YES</span>;
+}
+
+<span class="keyword">@end</span>
+</code></pre>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2014/12/21/socket编程/" data-title="socket编程 | Bloging" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/04/05/正则表达式/" title="正则表达式">
+  <strong>上一篇：</strong><br/>
+  <span>
+  正则表达式</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/10/10/DebugSymbol/"  title="DebugSymbol">
+ <strong>下一篇：</strong><br/> 
+ <span>DebugSymbol
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2014/12/21/socket编程/" data-title="socket编程" data-url="http://yoursite.com/2014/12/21/socket编程/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#socket编程"><span class="toc-number">1.</span> <span class="toc-text">socket编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CocoaAsyncSocket"><span class="toc-number">1.1.</span> <span class="toc-text">CocoaAsyncSocket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AsyncSocket使用"><span class="toc-number">1.2.</span> <span class="toc-text">AsyncSocket使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#大概过程"><span class="toc-number">1.2.1.</span> <span class="toc-text">大概过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端-服务端"><span class="toc-number">1.2.2.</span> <span class="toc-text">客户端-服务端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键代码"><span class="toc-number">1.3.</span> <span class="toc-text">关键代码</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/OC/" title="OC">OC<sup>14</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift/" title="swift">swift<sup>4</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> This is my blog,believe it or not. <br/>
+			To be or not to be, this is the question.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:slq0378@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
+		
+		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Song"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-68091434-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
