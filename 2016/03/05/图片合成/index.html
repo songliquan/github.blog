@@ -1,0 +1,538 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>图片合成 | Bloging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Mr Song">
+    
+
+    
+    <meta name="description" content="合成图片
+直接合成图片还是比较简单的，现在的难点是要把，通过文本输入的一些基本数据也合成到一张图片中，如果有多长图片就合成长图。
+现在的实现方法是，把所有的文本消息格式化，然后绘制到一个UILable中，然后自适应高度，然后把这个控件截取出来一张图片，和拍的照片合成一张图片。
+示例界面如下
+1、基本信息截图
+
+2、一张图片
+
+3、两张图片
+
+4、三张图片
+具体代码
+首先初始化界面
+
+/// 初始化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图片合成">
+<meta property="og:url" content="http://yoursite.com/2016/03/05/图片合成/index.html">
+<meta property="og:site_name" content="Bloging">
+<meta property="og:description" content="合成图片
+直接合成图片还是比较简单的，现在的难点是要把，通过文本输入的一些基本数据也合成到一张图片中，如果有多长图片就合成长图。
+现在的实现方法是，把所有的文本消息格式化，然后绘制到一个UILable中，然后自适应高度，然后把这个控件截取出来一张图片，和拍的照片合成一张图片。
+示例界面如下
+1、基本信息截图
+
+2、一张图片
+
+3、两张图片
+
+4、三张图片
+具体代码
+首先初始化界面
+
+/// 初始化">
+<meta property="og:image" content="http://yoursite.com/../images/IMG_0497.PNG">
+<meta property="og:image" content="http://yoursite.com/../images/IMG_0502.jpg">
+<meta property="og:image" content="http://yoursite.com/../images/IMG_0503.jpg">
+<meta property="og:image" content="http://yoursite.com/../images/IMG_0504.jpg">
+<meta property="og:image" content="http://yoursite.com/../images/IMG_0505.jpg">
+<meta property="og:updated_time" content="2016-03-06T07:45:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="图片合成">
+<meta name="twitter:description" content="合成图片
+直接合成图片还是比较简单的，现在的难点是要把，通过文本输入的一些基本数据也合成到一张图片中，如果有多长图片就合成长图。
+现在的实现方法是，把所有的文本消息格式化，然后绘制到一个UILable中，然后自适应高度，然后把这个控件截取出来一张图片，和拍的照片合成一张图片。
+示例界面如下
+1、基本信息截图
+
+2、一张图片
+
+3、两张图片
+
+4、三张图片
+具体代码
+首先初始化界面
+
+/// 初始化">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/03/05/图片合成/" title="图片合成" itemprop="url">图片合成</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Mr Song" target="_blank" itemprop="author">Mr Song</a>
+		
+  <p class="article-time">
+    <time datetime="2016-03-05T09:43:11.000Z" itemprop="datePublished"> 发表于 2016-03-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#合成图片"><span class="toc-number">1.</span> <span class="toc-text">合成图片</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例界面如下"><span class="toc-number">2.</span> <span class="toc-text">示例界面如下</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#具体代码"><span class="toc-number">3.</span> <span class="toc-text">具体代码</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="合成图片">合成图片</h1><ul>
+<li>直接合成图片还是比较简单的，现在的难点是要把，通过文本输入的一些基本数据也合成到一张图片中，如果有多长图片就合成长图。</li>
+<li>现在的实现方法是，把所有的文本消息格式化，然后绘制到一个UILable中，然后自适应高度，然后把这个控件截取出来一张图片，和拍的照片合成一张图片。</li>
+<li><img src="../images/IMG_0497.PNG" alt=""><h1 id="示例界面如下">示例界面如下</h1></li>
+<li>1、基本信息截图</li>
+<li><img src="../images/IMG_0502.jpg" alt=""></li>
+<li>2、一张图片</li>
+<li><img src="../images/IMG_0503.jpg" alt=""></li>
+<li>3、两张图片</li>
+<li><img src="../images/IMG_0504.jpg" alt=""></li>
+<li>4、三张图片</li>
+<li><img src="../images/IMG_0505.jpg" alt=""><h1 id="具体代码">具体代码</h1></li>
+<li>首先初始化界面</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 初始化子控件</span></span><br><span class="line">- (<span class="keyword">void</span>)setupViews &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    _nameField = [[<span class="built_in">UITextField</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">22</span>, ScreenWidth, <span class="number">44</span>)];</span><br><span class="line">    _nameField<span class="variable">.placeholder</span> = <span class="string">@"请输入姓名"</span>;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addSubview:_nameField];</span><br><span class="line">    </span><br><span class="line">    _ageField = [[<span class="built_in">UITextField</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="built_in">CGRectGetMaxY</span>(_nameField<span class="variable">.frame</span>), ScreenWidth, <span class="number">44</span>)];</span><br><span class="line">    _ageField<span class="variable">.placeholder</span> = <span class="string">@"请输入年龄"</span>;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addSubview:_ageField];</span><br><span class="line">    </span><br><span class="line">    _infoField = [[<span class="built_in">UITextField</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="built_in">CGRectGetMaxY</span>(_ageField<span class="variable">.frame</span>), ScreenWidth, <span class="number">44</span>)];</span><br><span class="line">    _infoField<span class="variable">.placeholder</span> = <span class="string">@"请输入简介"</span>;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addSubview:_infoField];</span><br><span class="line">    </span><br><span class="line">    _timeField = [[<span class="built_in">UITextField</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>,<span class="built_in">CGRectGetMaxY</span>(_infoField<span class="variable">.frame</span>),ScreenWidth, <span class="number">44</span>)];</span><br><span class="line">    _timeField<span class="variable">.text</span> = [<span class="keyword">self</span> getCurrentDate];</span><br><span class="line">    _timeField<span class="variable">.enabled</span> = <span class="literal">NO</span>;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addSubview:_timeField];</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    _collectionView = [[SLQCollectionView alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="built_in">CGRectGetMaxY</span>(_timeField<span class="variable">.frame</span>),ScreenWidth, <span class="number">100</span>)];</span><br><span class="line">    [_collectionView setTitle:<span class="string">@"相关照片"</span>];</span><br><span class="line">    __<span class="keyword">weak</span> <span class="keyword">typeof</span> (<span class="keyword">self</span>)weakSelf = <span class="keyword">self</span>;</span><br><span class="line">    _collectionView<span class="variable">.heightAndPhotosBlock</span> = ^(<span class="built_in">CGFloat</span> height,<span class="built_in">NSArray</span> *photos)&#123;</span><br><span class="line">        [weakSelf<span class="variable">.photoArr</span> removeAllObjects];</span><br><span class="line">        weakSelf<span class="variable">.photoArr</span> = [<span class="built_in">NSMutableArray</span> arrayWithArray:photos];</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addSubview:_collectionView];</span><br><span class="line">    </span><br><span class="line">    _mergePhoto = [[<span class="built_in">UIButton</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="built_in">CGRectGetMaxY</span>(_collectionView<span class="variable">.frame</span>), <span class="number">100</span>, <span class="number">44</span>)];</span><br><span class="line">    [_mergePhoto setTitle:<span class="string">@"发布"</span> forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    _mergePhoto<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    [_mergePhoto addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(postPhoto) forControlEvents:<span class="built_in">UIControlEventTouchUpInside</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addSubview:_mergePhoto];</span><br><span class="line">    </span><br><span class="line">    _mergePhoto<span class="variable">.center</span> = <span class="built_in">CGPointMake</span>(ScreenWidth/<span class="number">2</span>, _mergePhoto<span class="variable">.center</span><span class="variable">.y</span>);</span><br><span class="line">    </span><br><span class="line">    _contentLabel = [[<span class="built_in">UILabel</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, ScreenWidth, <span class="number">200</span>)];</span><br><span class="line">    _contentLabel<span class="variable">.hidden</span> = <span class="literal">YES</span>;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addSubview:_contentLabel];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>发布图片</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 发布图片</span></span><br><span class="line">- (<span class="keyword">void</span>)postPhoto &#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.postImage</span> = <span class="literal">nil</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *name = <span class="keyword">self</span><span class="variable">.nameField</span><span class="variable">.text</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *age = <span class="keyword">self</span><span class="variable">.ageField</span><span class="variable">.text</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *info = <span class="keyword">self</span><span class="variable">.infoField</span><span class="variable">.text</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *time = <span class="keyword">self</span><span class="variable">.timeField</span><span class="variable">.text</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *content = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"姓名：%@\n年龄：%@\n简介：%@\n时间：%@\n相关图片："</span>,name,age,info,time];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.contentLabel</span><span class="variable">.numberOfLines</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.contentLabel</span><span class="variable">.text</span> = content;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.contentLabel</span> sizeToFit];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.contentLabel</span><span class="variable">.hidden</span> = <span class="literal">NO</span>;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.contentLabel</span> setNeedsDisplay];</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.photoArr</span><span class="variable">.count</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = <span class="number">0</span> ; i &lt; <span class="keyword">self</span><span class="variable">.photoArr</span><span class="variable">.count</span>; i ++) &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">self</span><span class="variable">.postImage</span> = [<span class="keyword">self</span> mergeImages:<span class="keyword">self</span><span class="variable">.photoArr</span>[i]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>合成图片</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获得顶部图片</span></span><br><span class="line">- (<span class="built_in">UIImage</span> *)getImageFromView</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 已经合成过一次,就去上次的合成结果</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">self</span><span class="variable">.postImage</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span><span class="variable">.postImage</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span><span class="variable">.contentLabel</span><span class="variable">.frame</span><span class="variable">.size</span>, <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line">        <span class="comment">//获取图像</span></span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentLabel</span><span class="variable">.layer</span> renderInContext:<span class="built_in">UIGraphicsGetCurrentContext</span>()];</span><br><span class="line">        <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">        <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.contentLabel</span><span class="variable">.hidden</span> = <span class="literal">YES</span>;</span><br><span class="line">        <span class="comment">// 保存图片，需要转换成二进制数据</span></span><br><span class="line">        [<span class="keyword">self</span> saveImageToPhotos:image];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.contentLabel</span><span class="variable">.hidden</span> = <span class="literal">YES</span>;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.textImage</span> = image;</span><br><span class="line">        <span class="keyword">return</span> image;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获得待合成图片</span></span><br><span class="line">- (<span class="built_in">UIImage</span> *)mergeImages:(<span class="built_in">UIImage</span> *)mergeImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIImage</span> *newimage = mergeImage;</span><br><span class="line">    <span class="built_in">UIImage</span> *postImage = [<span class="keyword">self</span> getImageFromView];</span><br><span class="line">    <span class="comment">// 获取位图上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="built_in">CGSizeMake</span>(ScreenWidth, postImage<span class="variable">.size</span><span class="variable">.height</span> + ScreenHeight - <span class="keyword">self</span><span class="variable">.textImage</span><span class="variable">.size</span><span class="variable">.height</span>), <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line">    [newimage drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, postImage<span class="variable">.size</span><span class="variable">.height</span>, ScreenWidth, ScreenHeight - <span class="keyword">self</span><span class="variable">.textImage</span><span class="variable">.size</span><span class="variable">.height</span>)];</span><br><span class="line"></span><br><span class="line">    [postImage drawAtPoint:<span class="built_in">CGPointMake</span>(<span class="number">0</span>,<span class="number">0</span>)];</span><br><span class="line">    <span class="comment">// 获取位图</span></span><br><span class="line">    <span class="built_in">UIImage</span> *saveimage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    <span class="comment">// 关闭位图上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    <span class="comment">// 保存图片，需要转换成二进制数据</span></span><br><span class="line">    [<span class="keyword">self</span> saveImageToPhotos:saveimage];</span><br><span class="line">    <span class="keyword">return</span> saveimage;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)saveImageToPhotos:(<span class="built_in">UIImage</span>*)savedImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIImageWriteToSavedPhotosAlbum</span>(savedImage, <span class="keyword">self</span>, <span class="keyword">@selector</span>(image:didFinishSavingWithError:contextInfo:), <span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 指定回调方法</span></span><br><span class="line">- (<span class="keyword">void</span>)image: (<span class="built_in">UIImage</span> *) image didFinishSavingWithError: (<span class="built_in">NSError</span> *) error contextInfo: (<span class="keyword">void</span> *) contextInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *msg = <span class="literal">nil</span> ;</span><br><span class="line">    <span class="keyword">if</span>(error != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        msg = <span class="string">@"保存图片失败"</span> ;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        msg = <span class="string">@"保存图片成功"</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">UIAlertView</span> *alert = [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:<span class="string">@"保存图片结果提示"</span></span><br><span class="line">                                                    message:msg</span><br><span class="line">                                                   delegate:<span class="keyword">self</span></span><br><span class="line">                                          cancelButtonTitle:<span class="string">@"确定"</span></span><br><span class="line">                                          otherButtonTitles:<span class="literal">nil</span>];</span><br><span class="line">    [alert show];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>属性声明</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#define ScreenHeight [UIScreen mainScreen].bounds.size.height</span></span><br><span class="line"><span class="preprocessor">#define ScreenWidth [UIScreen mainScreen].bounds.size.width</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">"ViewController.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">"SLQCollectionView.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"><span class="comment">/// UILabel</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UILabel</span> *contentLabel;</span><br><span class="line"><span class="comment">/// UITextField</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UITextField</span> *nameField;</span><br><span class="line"><span class="comment">/// UITextField</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UITextField</span> *ageField;</span><br><span class="line"><span class="comment">/// UITextField</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UITextField</span> *infoField;</span><br><span class="line"><span class="comment">/// UITextField</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UITextField</span> *timeField;</span><br><span class="line"><span class="comment">/// SLQCollectionView</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) SLQCollectionView *collectionView;</span><br><span class="line"><span class="comment">/// SLQCollectionView</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIButton</span> *mergePhoto;</span><br><span class="line"><span class="comment">/// 图片数组</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSMutableArray</span> *photoArr;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 文字图片</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIImage</span> *textImage;</span><br><span class="line"><span class="comment">/// 将要保存的图片</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIImage</span> *postImage;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/OC/">OC</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/03/05/图片合成/" data-title="图片合成 | Bloging" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/10/02/swift坑-tableView中注册cell/"  title="swift坑-tableView中注册cell">
+ <strong>下一篇：</strong><br/> 
+ <span>swift坑-tableView中注册cell
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/03/05/图片合成/" data-title="图片合成" data-url="http://yoursite.com/2016/03/05/图片合成/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#合成图片"><span class="toc-number">1.</span> <span class="toc-text">合成图片</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例界面如下"><span class="toc-number">2.</span> <span class="toc-text">示例界面如下</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#具体代码"><span class="toc-number">3.</span> <span class="toc-text">具体代码</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/OC/" title="OC">OC<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift/" title="swift">swift<sup>4</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> This is my blog,believe it or not. <br/>
+			To be or not to be, this is the question.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:slq0378@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Song"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-68091434-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
