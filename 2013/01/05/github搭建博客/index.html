@@ -50,8 +50,9 @@ Git http://git-scm.com/download/
 song$ git --version 
    git version 2.">
 <meta property="og:image" content="http://yoursite.com/images/Snip20150926_5.png">
+<meta property="og:image" content="http://yoursite.com/images/image.jpg">
 <meta property="og:image" content="http://yoursite.com/example.jpg">
-<meta property="og:updated_time" content="2016-03-06T08:26:42.000Z">
+<meta property="og:updated_time" content="2016-03-06T08:28:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github搭建个人博客">
 <meta name="twitter:description" content="github搭建个人博客
@@ -146,7 +147,7 @@ song$ git --version
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#github搭建个人博客"><span class="toc-number">1.</span> <span class="toc-text">github搭建个人博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、首先要配置环境"><span class="toc-number">1.1.</span> <span class="toc-text">1、首先要配置环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、配置hexo"><span class="toc-number">1.2.</span> <span class="toc-text">2、配置hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、使用过程"><span class="toc-number">1.3.</span> <span class="toc-text">3、使用过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、部署到github"><span class="toc-number">1.4.</span> <span class="toc-text">4、部署到github</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#整体步骤"><span class="toc-number">1.4.1.</span> <span class="toc-text">整体步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成SHH-Key"><span class="toc-number">1.4.2.</span> <span class="toc-text">生成SHH-Key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后回到第三步，直接部署就会上传到github"><span class="toc-number">1.5.</span> <span class="toc-text">最后回到第三步，直接部署就会上传到github</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#github搭建个人博客"><span class="toc-number">1.</span> <span class="toc-text">github搭建个人博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、首先要配置环境"><span class="toc-number">1.1.</span> <span class="toc-text">1、首先要配置环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、配置hexo"><span class="toc-number">1.2.</span> <span class="toc-text">2、配置hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、使用过程"><span class="toc-number">1.3.</span> <span class="toc-text">3、使用过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图片上传问题"><span class="toc-number">2.</span> <span class="toc-text">图片上传问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#资源文件夹"><span class="toc-number">2.1.</span> <span class="toc-text">资源文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章资源文件夹"><span class="toc-number">2.2.</span> <span class="toc-text">文章资源文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_config-yml"><span class="toc-number">2.3.</span> <span class="toc-text">_config.yml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相对路径引用的标签插件"><span class="toc-number">2.4.</span> <span class="toc-text">相对路径引用的标签插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、部署到github"><span class="toc-number">2.5.</span> <span class="toc-text">4、部署到github</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#整体步骤"><span class="toc-number">2.5.1.</span> <span class="toc-text">整体步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成SHH-Key"><span class="toc-number">2.5.2.</span> <span class="toc-text">生成SHH-Key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后回到第三步，直接部署就会上传到github"><span class="toc-number">2.6.</span> <span class="toc-text">最后回到第三步，直接部署就会上传到github</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -236,17 +237,32 @@ song$ git --version
 <ul>
 <li><p>3.7、开启本地服务</p>
 <ul>
-<li><p><code>hexo s(hexo server)</code>打开浏览器进行网页预览</p>
-<figure class="highlight haml"><table><tr><td class="code"><pre><span class="line">		song$ hexo s</span><br><span class="line">	INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br><span class="line">	``` </span><br><span class="line"></span><br><span class="line">-<span class="ruby"> <span class="number">3.8</span>、部署到github</span><br><span class="line"></span>	-<span class="ruby"> <span class="string">`hexo d(hexo deploy)`</span> 部署到github，这个需要提前在github完成相关配置，下面详说</span><br><span class="line"></span></span><br><span class="line"># 图片上传问题</span><br><span class="line"></span><br><span class="line">## 资源文件夹</span><br><span class="line">-<span class="ruby"> 资源（<span class="constant">Asset</span>）代表 source 文件夹中除了文章以外的所有文件，例如图片、<span class="constant">CSS</span>、<span class="constant">JS</span> 文件等。比方说，如果你的<span class="constant">Hexo</span>项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。然后通过类似于 ![](<span class="regexp">/images/image</span>.jpg) 的方法访问它们。</span><br><span class="line"></span></span><br><span class="line">## 文章资源文件夹</span><br><span class="line">-<span class="ruby"> 对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，<span class="constant">Hexo</span>也提供了更组织化的方式来管理资源。这个稍微有些复杂但是管理资源非常方便的功能可以通过将 config.yml 文件中的 post_asset_folder 选项设为 <span class="keyword">true</span> 来打开。</span><br><span class="line"></span></span><br><span class="line">## _config.yml</span><br><span class="line">post_asset_folder: true</span><br><span class="line">-<span class="ruby"> 当资源文件管理功能打开后，<span class="constant">Hexo</span>将会在你每一次通过 hexo new [layout] &lt;title&gt; 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个 markdown 文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</span><br><span class="line"></span></span><br><span class="line">## 相对路径引用的标签插件</span><br><span class="line">-<span class="ruby"> 通过常规的 markdown 语法和相对路径来引用图片和其它资源可能会导致它们在存档页或者主页上显示不正确。在<span class="constant">Hexo</span> <span class="number">2</span>时代，社区创建了很多插件来解决这个问题。但是，随着<span class="constant">Hexo</span> <span class="number">3</span> 的发布，许多新的标签插件被加入到了核心代码中。这使得你可以更简单地在文章中引用你的资源。</span></span><br></pre></td></tr></table></figure>
-</li>
+<li><code>hexo s(hexo server)</code>打开浏览器进行网页预览<br>  <code>song$ hexo s
+INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</code></li>
 </ul>
 </li>
-</ul>
-
-
-
-<p>```</p>
+<li><p>3.8、部署到github</p>
 <ul>
+<li><code>hexo d(hexo deploy)</code> 部署到github，这个需要提前在github完成相关配置，下面详说</li>
+</ul>
+</li>
+</ul>
+<h1 id="图片上传问题">图片上传问题</h1><h2 id="资源文件夹">资源文件夹</h2><ul>
+<li>资源（Asset）代表 source 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。然后通过类似于 <img src="/images/image.jpg" alt=""> 的方法访问它们。</li>
+</ul>
+<h2 id="文章资源文件夹">文章资源文件夹</h2><ul>
+<li>对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。这个稍微有些复杂但是管理资源非常方便的功能可以通过将 config.yml 文件中的 post_asset_folder 选项设为 true 来打开。</li>
+</ul>
+<h2 id="_config-yml">_config.yml</h2><p>post_asset_folder: true</p>
+<ul>
+<li>当资源文件管理功能打开后，Hexo将会在你每一次通过 hexo new [layout] <title> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个 markdown 文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</title></li>
+</ul>
+<h2 id="相对路径引用的标签插件">相对路径引用的标签插件</h2><ul>
+<li><p>通过常规的 markdown 语法和相对路径来引用图片和其它资源可能会导致它们在存档页或者主页上显示不正确。在Hexo 2时代，社区创建了很多插件来解决这个问题。但是，随着Hexo 3 的发布，许多新的标签插件被加入到了核心代码中。这使得你可以更简单地在文章中引用你的资源。</p>
+<pre><code><span class="comment"></span>
+<span class="comment"></span>
+<span class="comment"></span>
+</code></pre></li>
 <li><p>比如说：当你打开文章资源文件夹功能后，你把一个 example.jpg 图片放在了你的资源文件夹中，如果通过使用相对路径的常规 markdown 语法 <img src="/example.jpg" alt=""> ，它将 不会 出现在首页上。（但是它会在文章中按你期待的方式工作）</p>
 </li>
 <li><p>正确的引用图片方式是使用下列的标签插件而不是 markdown ：</p>
@@ -328,7 +344,7 @@ song$ git --version
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#github搭建个人博客"><span class="toc-number">1.</span> <span class="toc-text">github搭建个人博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、首先要配置环境"><span class="toc-number">1.1.</span> <span class="toc-text">1、首先要配置环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、配置hexo"><span class="toc-number">1.2.</span> <span class="toc-text">2、配置hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、使用过程"><span class="toc-number">1.3.</span> <span class="toc-text">3、使用过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、部署到github"><span class="toc-number">1.4.</span> <span class="toc-text">4、部署到github</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#整体步骤"><span class="toc-number">1.4.1.</span> <span class="toc-text">整体步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成SHH-Key"><span class="toc-number">1.4.2.</span> <span class="toc-text">生成SHH-Key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后回到第三步，直接部署就会上传到github"><span class="toc-number">1.5.</span> <span class="toc-text">最后回到第三步，直接部署就会上传到github</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#github搭建个人博客"><span class="toc-number">1.</span> <span class="toc-text">github搭建个人博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、首先要配置环境"><span class="toc-number">1.1.</span> <span class="toc-text">1、首先要配置环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、配置hexo"><span class="toc-number">1.2.</span> <span class="toc-text">2、配置hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、使用过程"><span class="toc-number">1.3.</span> <span class="toc-text">3、使用过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图片上传问题"><span class="toc-number">2.</span> <span class="toc-text">图片上传问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#资源文件夹"><span class="toc-number">2.1.</span> <span class="toc-text">资源文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章资源文件夹"><span class="toc-number">2.2.</span> <span class="toc-text">文章资源文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#_config-yml"><span class="toc-number">2.3.</span> <span class="toc-text">_config.yml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相对路径引用的标签插件"><span class="toc-number">2.4.</span> <span class="toc-text">相对路径引用的标签插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、部署到github"><span class="toc-number">2.5.</span> <span class="toc-text">4、部署到github</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#整体步骤"><span class="toc-number">2.5.1.</span> <span class="toc-text">整体步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成SHH-Key"><span class="toc-number">2.5.2.</span> <span class="toc-text">生成SHH-Key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后回到第三步，直接部署就会上传到github"><span class="toc-number">2.6.</span> <span class="toc-text">最后回到第三步，直接部署就会上传到github</span></a></li></ol></li></ol>
  
   </div>
 
