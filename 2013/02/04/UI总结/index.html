@@ -29,13 +29,13 @@
 
 
 // 通过stroyboard启动，跟控制器的view并不会在程序启动完成的时候添加到窗口，属于懒加载范畴// 程序启动完成的时候调用- (BOOL)applicat">
-<meta property="og:image" content="http://yoursite.com/../images/手动添加pch文件到项目.gif">
-<meta property="og:image" content="http://yoursite.com/../images/view的生命周期.jpg">
-<meta property="og:image" content="http://yoursite.com/../images/屏幕快照 2015-06-30 15.14.26.png">
-<meta property="og:image" content="http://yoursite.com/../images/屏幕快照 2015-06-30 15.14.40.png">
-<meta property="og:image" content="http://yoursite.com/../images/九宫格分析.jpg">
-<meta property="og:image" content="http://yoursite.com/../images/窗口悬停.gif">
-<meta property="og:updated_time" content="2015-10-04T00:06:48.000Z">
+<meta property="og:image" content="http://yoursite.com/images/手动添加pch文件到项目.gif">
+<meta property="og:image" content="http://yoursite.com/images/view的生命周期.jpg">
+<meta property="og:image" content="http://yoursite.com/images/屏幕快照 2015-06-30 15.14.26.png">
+<meta property="og:image" content="http://yoursite.com/images/屏幕快照 2015-06-30 15.14.40.png">
+<meta property="og:image" content="http://yoursite.com/images/九宫格分析.jpg">
+<meta property="og:image" content="http://yoursite.com/images/窗口悬停.gif">
+<meta property="og:updated_time" content="2016-03-06T08:01:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UI总结">
 <meta name="twitter:description" content="UI总结1、程序启动后的开始动画
@@ -194,7 +194,7 @@
 </ul>
 <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)tabBar:(SLQTabBar *)tabBar didClickButton:(<span class="built_in">NSInteger</span>)index</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//    NSLog(@"%s--%d",__func__,index);</span></span><br><span class="line">    <span class="comment">// 切换控制器</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.selectedIndex</span> = index;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="7、手动添加pch文件都项目">7、手动添加pch文件都项目</h2><p>pch文件中包含的东西在项目中每个文件中都可以使用。</p>
-<p><img src="../images/手动添加pch文件到项目.gif" alt=""></p>
+<p><img src="/images/手动添加pch文件到项目.gif" alt=""></p>
 <h2 id="8、load和initialize">8、load和initialize</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 当程序一启动的时候就会调用</span></span><br><span class="line">+ (<span class="keyword">void</span>)load</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 当前类或者他的子类第一次使用的时候才会调用</span></span><br><span class="line">+ (<span class="keyword">void</span>)initialize</span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="9、_给任意弹出的窗口添加遮盖">9、 给任意弹出的窗口添加遮盖</h2><ul>
 <li><p>这个也比较常见，比如说弹出登陆界面时，程序其他部分都是灰色背景，且不能点击。</p>
@@ -230,17 +230,17 @@
 <li><p>View的生命周期</p>
 </li>
 </ul>
-<p><img src="../images/view的生命周期.jpg" alt=""></p>
+<p><img src="/images/view的生命周期.jpg" alt=""></p>
 <h2 id="11、UINavigationBar">11、UINavigationBar</h2><ul>
 <li>所生成的图片都是经过处理的view，为蓝色</li>
 </ul>
-<p><img src="../images/屏幕快照 2015-06-30 15.14.26.png" alt=""></p>
+<p><img src="/images/屏幕快照 2015-06-30 15.14.26.png" alt=""></p>
 <ul>
 <li>原始图片</li>
 </ul>
-<p><img src="../images/屏幕快照 2015-06-30 15.14.40.png" alt=""></p>
+<p><img src="/images/屏幕快照 2015-06-30 15.14.40.png" alt=""></p>
 <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 默认左右两遍的view都是蓝色的，所以要返回一个原始的图片</span></span><br><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImageimageNamed</span>:<span class="string">@"CS50_activity_image"</span>] ;</span><br><span class="line"><span class="comment">// 设置图片的渲染方式为原始图片</span></span><br><span class="line">image = [image imageWithRenderingMode:<span class="built_in">UIImageRenderingModeAlwaysOriginal</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span><span class="variable">.navigationItem</span><span class="variable">.leftBarButtonItem</span> = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithImage:image style:<span class="built_in">UIBarButtonItemStylePlain</span> target:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(activeBtnClick)];</span><br></pre></td></tr></table></figure>
-<h2 id="12、九宫格布局UICollectionViewController">12、九宫格布局<code>UICollectionViewController</code></h2><p><img src="../images/九宫格分析.jpg" alt=""></p>
+<h2 id="12、九宫格布局UICollectionViewController">12、九宫格布局<code>UICollectionViewController</code></h2><p><img src="/images/九宫格分析.jpg" alt=""></p>
 <ul>
 <li>创建控制器一定要指定默认的布局样式。</li>
 </ul>
@@ -342,7 +342,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="19、窗口悬停">19、窗口悬停</h2><p><img src="../images/窗口悬停.gif" alt=""></p>
+<h2 id="19、窗口悬停">19、窗口悬停</h2><p><img src="/images/窗口悬停.gif" alt=""></p>
 <h3 id="不使用自动布局,使用frame">不使用自动布局,使用frame</h3><ul>
 <li><p>添加几个子控件（UIScrollView -&gt;UIImageView，UIView）,直接设置frame确定尺寸</p>
 </li>

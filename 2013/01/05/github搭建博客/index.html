@@ -49,8 +49,9 @@ Git http://git-scm.com/download/
 安装没有什么难度,安装完毕，可在终端里看到各个软件的版本信息
 song$ git --version 
    git version 2.">
-<meta property="og:image" content="http://yoursite.com/../images/Snip20150926_5.png">
-<meta property="og:updated_time" content="2015-10-01T02:50:27.000Z">
+<meta property="og:image" content="http://yoursite.com/images/Snip20150926_5.png">
+<meta property="og:image" content="http://yoursite.com/example.jpg">
+<meta property="og:updated_time" content="2016-03-06T08:04:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github搭建个人博客">
 <meta name="twitter:description" content="github搭建个人博客
@@ -201,7 +202,7 @@ song$ git --version
 </li>
 <li><p>3.4、创建完成后可以查看文件目录</p>
 <ul>
-<li><img src="../images/Snip20150926_5.png" alt=""></li>
+<li><img src="/images/Snip20150926_5.png" alt=""></li>
 </ul>
 </li>
 <li><p>3.5、配置文件</p>
@@ -236,16 +237,24 @@ song$ git --version
 <li><p>3.7、开启本地服务</p>
 <ul>
 <li><p><code>hexo s(hexo server)</code>打开浏览器进行网页预览</p>
-<pre><code>  song$ hexo s
-INFO  Hexo is running <span class="keyword">at</span> <span class="keyword">http</span>://<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">4000</span>/. Press Ctrl+C <span class="built_in">to</span> <span class="built_in">stop</span>.
-</code></pre></li>
+<figure class="highlight haml"><table><tr><td class="code"><pre><span class="line">		song$ hexo s</span><br><span class="line">	INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</span><br><span class="line">	``` </span><br><span class="line"></span><br><span class="line">-<span class="ruby"> <span class="number">3.8</span>、部署到github</span><br><span class="line"></span>	-<span class="ruby"> <span class="string">`hexo d(hexo deploy)`</span> 部署到github，这个需要提前在github完成相关配置，下面详说</span><br><span class="line"></span># 图片上传问题</span><br><span class="line"></span><br><span class="line">## 资源文件夹</span><br><span class="line">-<span class="ruby"> 资源（<span class="constant">Asset</span>）代表 source 文件夹中除了文章以外的所有文件，例如图片、<span class="constant">CSS</span>、<span class="constant">JS</span> 文件等。比方说，如果你的<span class="constant">Hexo</span>项目中只有少量图片，那最简单的方法就是将它们放在 source/images 文件夹中。然后通过类似于 ![](<span class="regexp">/images/image</span>.jpg) 的方法访问它们。</span><br><span class="line"></span></span><br><span class="line">## 文章资源文件夹</span><br><span class="line">-<span class="ruby"> 对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，<span class="constant">Hexo</span>也提供了更组织化的方式来管理资源。这个稍微有些复杂但是管理资源非常方便的功能可以通过将 config.yml 文件中的 post_asset_folder 选项设为 <span class="keyword">true</span> 来打开。</span><br><span class="line"></span></span><br><span class="line">## _config.yml</span><br><span class="line">post_asset_folder: true</span><br><span class="line">-<span class="ruby"> 当资源文件管理功能打开后，<span class="constant">Hexo</span>将会在你每一次通过 hexo new [layout] &lt;title&gt; 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个 markdown 文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</span><br><span class="line"></span></span><br><span class="line">## 相对路径引用的标签插件</span><br><span class="line">-<span class="ruby"> 通过常规的 markdown 语法和相对路径来引用图片和其它资源可能会导致它们在存档页或者主页上显示不正确。在<span class="constant">Hexo</span> <span class="number">2</span>时代，社区创建了很多插件来解决这个问题。但是，随着<span class="constant">Hexo</span> <span class="number">3</span> 的发布，许多新的标签插件被加入到了核心代码中。这使得你可以更简单地在文章中引用你的资源。</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
-<li><p>3.8、部署到github</p>
+</ul>
+
+
+
+<p>```</p>
 <ul>
-<li><code>hexo d(hexo deploy)</code> 部署到github，这个需要提前在github完成相关配置，下面详说</li>
-</ul>
+<li><p>比如说：当你打开文章资源文件夹功能后，你把一个 example.jpg 图片放在了你的资源文件夹中，如果通过使用相对路径的常规 markdown 语法 <img src="/example.jpg" alt=""> ，它将 不会 出现在首页上。（但是它会在文章中按你期待的方式工作）</p>
 </li>
+<li><p>正确的引用图片方式是使用下列的标签插件而不是 markdown ：</p>
+</li>
+</ul>
+<p><code></code></p>
+<ul>
+<li>通过这种方式，图片将会同时出现在文章和主页以及归档页中。</li>
 </ul>
 <h2 id="4、部署到github">4、部署到github</h2><h3 id="整体步骤">整体步骤</h3><ul>
 <li>1、首先注册一个『GitHub』帐号，已有的默认默认请忽略</li>
