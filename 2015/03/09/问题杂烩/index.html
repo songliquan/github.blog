@@ -1,0 +1,531 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>问题杂烩 | Bloging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Mr Song">
+    
+
+    
+    <meta name="description" content="问题杂烩判断字符串是不是纯数字/// 判断字符串是不是纯数字- (BOOL)isPureNumandCharacters:(NSString *)string&amp;#123;    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];    if(string.lengt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="问题杂烩">
+<meta property="og:url" content="http://yoursite.com/2015/03/09/问题杂烩/index.html">
+<meta property="og:site_name" content="Bloging">
+<meta property="og:description" content="问题杂烩判断字符串是不是纯数字/// 判断字符串是不是纯数字- (BOOL)isPureNumandCharacters:(NSString *)string&amp;#123;    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];    if(string.lengt">
+<meta property="og:image" content="http://yoursite.com/images/屏蔽编译警告.png">
+<meta property="og:updated_time" content="2016-03-15T02:41:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="问题杂烩">
+<meta name="twitter:description" content="问题杂烩判断字符串是不是纯数字/// 判断字符串是不是纯数字- (BOOL)isPureNumandCharacters:(NSString *)string&amp;#123;    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];    if(string.lengt">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/03/09/问题杂烩/" title="问题杂烩" itemprop="url">问题杂烩</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Mr Song" target="_blank" itemprop="author">Mr Song</a>
+		
+  <p class="article-time">
+    <time datetime="2015-03-09T03:30:56.000Z" itemprop="datePublished"> 发表于 2015-03-09</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题杂烩"><span class="toc-number">1.</span> <span class="toc-text">问题杂烩</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#判断字符串是不是纯数字"><span class="toc-number">1.1.</span> <span class="toc-text">判断字符串是不是纯数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt_to_present_XX_on_XX_whose_view_is_not_in_the_window_hierarchy"><span class="toc-number">1.2.</span> <span class="toc-text">Attempt to present XX on XX whose view is not in the window hierarchy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指定颜色生成图片"><span class="toc-number">1.3.</span> <span class="toc-text">指定颜色生成图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取系统版本、型号等信息"><span class="toc-number">1.4.</span> <span class="toc-text">获取系统版本、型号等信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读写plist文件"><span class="toc-number">1.5.</span> <span class="toc-text">读写plist文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XCode快捷键"><span class="toc-number">1.6.</span> <span class="toc-text">XCode快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pragma使用"><span class="toc-number">1.7.</span> <span class="toc-text">pragma使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组织代码"><span class="toc-number">1.7.1.</span> <span class="toc-text">组织代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#屏蔽警告"><span class="toc-number">1.7.2.</span> <span class="toc-text">屏蔽警告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他方式"><span class="toc-number">1.7.3.</span> <span class="toc-text">其他方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片旋转问题"><span class="toc-number">1.8.</span> <span class="toc-text">图片旋转问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断用户短时间内发送消息太多"><span class="toc-number">1.9.</span> <span class="toc-text">判断用户短时间内发送消息太多</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#另外一种方式"><span class="toc-number">1.9.1.</span> <span class="toc-text">另外一种方式</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="问题杂烩">问题杂烩</h1><h2 id="判断字符串是不是纯数字">判断字符串是不是纯数字</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 判断字符串是不是纯数字</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)isPureNumandCharacters:(<span class="built_in">NSString</span> *)string</span><br><span class="line">&#123;</span><br><span class="line">    string = [string stringByTrimmingCharactersInSet:[<span class="built_in">NSCharacterSet</span> decimalDigitCharacterSet]];</span><br><span class="line">    <span class="keyword">if</span>(string<span class="variable">.length</span> &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Attempt_to_present_XX_on_XX_whose_view_is_not_in_the_window_hierarchy">Attempt to present XX on XX whose view is not in the window hierarchy</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">Attempt to present &lt;LoginVC: <span class="number">0x9358770</span>&gt; on &lt;ViewController: <span class="number">0x9529380</span>&gt; whose view is not <span class="keyword">in</span> the window hierarchy</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>也就是你在呈现一个LoginVC时，但ViewController的view并不在window上，可能是因为ViewController还没被显示出来。</p>
+</li>
+<li><p>所以不要在某个viewController的viewDidLoad或者viewWillAppear方法中去呈现其他的viewController，你如果想要的是ViewController显示之后马上呈现LoginVC的话，可以在viewDidAppear中写方法。</p>
+</li>
+</ul>
+<h2 id="指定颜色生成图片">指定颜色生成图片</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//指定颜色生成图片：</span></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)imageWithColor:(<span class="built_in">UIColor</span> *)color</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContext</span>(rect<span class="variable">.size</span>);</span><br><span class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGContextSetFillColorWithColor</span>(context, [color <span class="built_in">CGColor</span>]);</span><br><span class="line">    <span class="built_in">CGContextFillRect</span>(context, rect);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="获取系统版本、型号等信息">获取系统版本、型号等信息</h2><ul>
+<li>获取基本信息</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  IOS-获取Model（设备型号）、Version（设备版本号）、app（程序版本号）等  </span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"name: %@"</span>, [[<span class="built_in">UIDevice</span> currentDevice] name]);  </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"systemName: %@"</span>, [[<span class="built_in">UIDevice</span> currentDevice] systemName]);  </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"systemVersion: %@"</span>, [[<span class="built_in">UIDevice</span> currentDevice] systemVersion]);  </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"model: %@"</span>, [[<span class="built_in">UIDevice</span> currentDevice] model]);  </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"localizedModel: %@"</span>, [[<span class="built_in">UIDevice</span> currentDevice] localizedModel]);  </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">    <span class="built_in">NSDictionary</span> *infoDictionary = [[<span class="built_in">NSBundle</span> mainBundle] infoDictionary];  </span><br><span class="line">      </span><br><span class="line">    <span class="built_in">CFShow</span>((__bridge <span class="built_in">CFTypeRef</span>)(infoDictionary));  </span><br><span class="line">      </span><br><span class="line">    <span class="comment">// app名称  </span></span><br><span class="line">    <span class="built_in">NSString</span> *app_Name = [infoDictionary objectForKey:<span class="string">@"CFBundleDisplayName"</span>];  </span><br><span class="line">    <span class="comment">// app版本  </span></span><br><span class="line">    <span class="built_in">NSString</span> *app_Version = [infoDictionary objectForKey:<span class="string">@"CFBundleShortVersionString"</span>];  </span><br><span class="line">    <span class="comment">// app build版本  </span></span><br><span class="line">    <span class="built_in">NSString</span> *app_build = [infoDictionary objectForKey:<span class="string">@"CFBundleVersion”];</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取具体型号，如5s，6P等</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"sys/utsname.h"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获得设备型号</span></span><br><span class="line">+ (<span class="built_in">NSString</span> *)getCurrentDeviceModel</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">struct</span> utsname systemInfo;</span><br><span class="line">    uname(&amp;systemInfo);</span><br><span class="line">    <span class="built_in">NSString</span> *platform = [<span class="built_in">NSString</span> stringWithCString:systemInfo<span class="variable">.machine</span> encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone1,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 2G (A1203)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone1,2"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 3G (A1241/A1324)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone2,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 3GS (A1303/A1325)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone3,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 4 (A1332)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone3,2"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 4 (A1332)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone3,3"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 4 (A1349)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone4,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 4S (A1387/A1431)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone5,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 5 (A1428)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone5,2"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 5 (A1429/A1442)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone5,3"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 5c (A1456/A1532)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone5,4"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 5c (A1507/A1516/A1526/A1529)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone6,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 5s (A1453/A1533)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone6,2"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 5s (A1457/A1518/A1528/A1530)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone7,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 6 Plus (A1522/A1524)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone7,2"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 6 (A1549/A1586)"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPod1,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPod Touch 1G (A1213)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPod2,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPod Touch 2G (A1288)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPod3,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPod Touch 3G (A1318)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPod4,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPod Touch 4G (A1367)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPod5,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPod Touch 5G (A1421/A1509)"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad1,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 1G (A1219/A1337)"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 2 (A1395)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,2"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 2 (A1396)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,3"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 2 (A1397)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,4"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 2 (A1395+New Chip)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,5"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Mini 1G (A1432)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,6"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Mini 1G (A1454)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,7"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Mini 1G (A1455)"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad3,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 3 (A1416)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad3,2"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 3 (A1403)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad3,3"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 3 (A1430)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad3,4"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 4 (A1458)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad3,5"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 4 (A1459)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad3,6"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 4 (A1460)"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad4,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Air (A1474)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad4,2"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Air (A1475)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad4,3"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Air (A1476)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad4,4"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Mini 2G (A1489)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad4,5"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Mini 2G (A1490)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad4,6"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Mini 2G (A1491)"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"i386"</span>])      <span class="keyword">return</span> <span class="string">@"iPhone Simulator"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"x86_64"</span>])    <span class="keyword">return</span> <span class="string">@"iPhone Simulator"</span>;</span><br><span class="line">    <span class="keyword">return</span> platform;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="读写plist文件">读写plist文件</h2><ul>
+<li>问题，我有一个plist文件，表示56个民族的，但是里面保存的字典，我想转换成一个数组</li>
+<li>好的，那么就先遍历这个plist，然后将结果保存到一个数组中，这里出现的一个问题就是C语言字符串转换成NSString的问题，一开始使用<code>- (nullable id)initWithCString:(const char *)bytes</code>,一直出问题，转换后有问题。</li>
+<li>然后我就换了一个方法<code>- (nullable id)initWithCString:(const char *)bytes length:(NSUInteger)length</code> 这个方法转换后没有问题了。</li>
+<li>第一个plist是按照26个英文字母为key的字典。</li>
+<li>结果，按照数组保存。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 读取56个民族</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"nation.plist"</span> ofType:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSDictionary</span> *dict2 = [<span class="built_in">NSDictionary</span> dictionaryWithContentsOfFile:filePath];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拼接路径</span></span><br><span class="line"><span class="built_in">NSArray</span> *paths=<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>,<span class="built_in">NSUserDomainMask</span>,<span class="literal">YES</span>);</span><br><span class="line"><span class="built_in">NSString</span> *plistPath1 = [paths objectAtIndex:<span class="number">0</span>];</span><br><span class="line"><span class="built_in">NSString</span> *filename = [plistPath1 stringByAppendingPathComponent:<span class="string">@"nation2.plist"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSMutableArray</span> *mutab = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">26</span>; i ++) &#123;</span><br><span class="line">    <span class="keyword">char</span> x = <span class="number">65</span> + i;</span><br><span class="line">    <span class="built_in">NSString</span> *str=  [[<span class="built_in">NSString</span> alloc] initWithCString:&amp;x length:<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">NSArray</span> *arr = dict2[str];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> j = <span class="number">0</span>; j &lt; arr<span class="variable">.count</span>; j ++) &#123;</span><br><span class="line">        [mutab addObject:arr[j]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 保存成数组</span></span><br><span class="line">[mutab writeToFile:filename atomically:<span class="literal">NO</span>];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,mutab);</span><br></pre></td></tr></table></figure>
+<h2 id="XCode快捷键">XCode快捷键</h2><p>command + option +J 快速定位到当前打开的类所在位置目录结构<br>command + 1…..7  切换工程选项卡左边的那个<br>ESC 代码自动补全<br>command + shift +k  clean 工程<br>command + k 清空console 输出<br>command + f 搜索当前文件<br>command + shift + f 搜索整个工程<br>command + l 跳转到某一行<br>command + control + 左右方向键  前进或者后退已打开过的文件<br>command + control + 上下方向键 切换.h 和 .m文件<br>command + 0 隐藏/显示导航栏</p>
+<h2 id="pragma使用">pragma使用</h2><h3 id="组织代码">组织代码</h3><ul>
+<li>组织N个方法为一个section的依据是什么呢？这个就见仁见智了。一般来说：<ul>
+<li>将一个protocol的方法组织成一个section；</li>
+<li>将target-action类型方法组织成一个section；</li>
+<li>将notification相关方法组织成一个section；</li>
+<li>将需要override的父类方法组成成一个section；</li>
+</ul>
+</li>
+</ul>
+<h3 id="屏蔽警告">屏蔽警告</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#pragma clang diagnostic push</span></span><br><span class="line"><span class="preprocessor">#pragma clang diagnostic i![](屏蔽编译警告.png)gnored <span class="title">"-Wundeclared-selector"</span></span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span><span class="variable">.selectedViewController</span> respondsToSelector:<span class="keyword">@selector</span>(isReadyForEditing)]) &#123;</span><br><span class="line">        boolNumber = [<span class="keyword">self</span><span class="variable">.selectedViewController</span> performSelector:<span class="keyword">@selector</span>(isReadyForEditing)];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="preprocessor">#pragma clang diagnostic pop</span></span><br></pre></td></tr></table></figure>
+<h3 id="其他方式">其他方式</h3><ul>
+<li>某些时候如果我们的源码在编译过程中出现大量的编译警告时，看起来是挺不爽的；但又确实没办法解决警告问题的时候，我们可以使用下面的方法来屏蔽指定的某个文件的所有警告信息。<ul>
+<li>1、在Xcode中选中工程文件。</li>
+<li>2、在右边面板中选中“Build Phases”。</li>
+<li>3、展开“Compile Sources”</li>
+<li>4、在需要屏蔽警告的源文件一行中双击“Compiler F lags”。</li>
+<li><img src="/images/屏蔽编译警告.png" alt=""></li>
+<li>5、在弹出窗口中输入-w</li>
+</ul>
+</li>
+</ul>
+<h2 id="图片旋转问题">图片旋转问题</h2><ul>
+<li>ios 照片旋转问题</li>
+<li><a href="http://feihu.me/blog/2015/how-to-handle-image-orientation-on-iOS" target="_blank" rel="external">http://feihu.me/blog/2015/how-to-handle-image-orientation-on-iOS</a></li>
+<li>添加一个分类在上传之前进行处理即可</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">UIImage</span> *)fixOrientation &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// No-op if the orientation is already correct</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.imageOrientation</span> == <span class="built_in">UIImageOrientationUp</span>) <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// We need to calculate the proper transformation to make the image upright.</span></span><br><span class="line">    <span class="comment">// We do it in 2 steps: Rotate if Left/Right/Down, and then flip if Mirrored.</span></span><br><span class="line">    <span class="built_in">CGAffineTransform</span> transform = <span class="built_in">CGAffineTransformIdentity</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">self</span><span class="variable">.imageOrientation</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationDown</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationDownMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformRotate</span>(transform, M_PI);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeft</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeftMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="number">0</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformRotate</span>(transform, M_PI_2);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRight</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRightMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="number">0</span>, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformRotate</span>(transform, -M_PI_2);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationUp</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationUpMirrored</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">self</span><span class="variable">.imageOrientation</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationUpMirrored</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationDownMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="number">0</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformScale</span>(transform, -<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeftMirrored</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRightMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>, <span class="number">0</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformScale</span>(transform, -<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationUp</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationDown</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeft</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRight</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Now we draw the underlying CGImage into a new context, applying the transform</span></span><br><span class="line">    <span class="comment">// calculated above.</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> ctx = <span class="built_in">CGBitmapContextCreate</span>(<span class="literal">NULL</span>, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>,</span><br><span class="line">                                             <span class="built_in">CGImageGetBitsPerComponent</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>), <span class="number">0</span>,</span><br><span class="line">                                             <span class="built_in">CGImageGetColorSpace</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>),</span><br><span class="line">                                             <span class="built_in">CGImageGetBitmapInfo</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>));</span><br><span class="line">    <span class="built_in">CGContextConcatCTM</span>(ctx, transform);</span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">self</span><span class="variable">.imageOrientation</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeft</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeftMirrored</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRight</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRightMirrored</span>:</span><br><span class="line">            <span class="comment">// Grr...</span></span><br><span class="line">            <span class="built_in">CGContextDrawImage</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>,<span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>), <span class="keyword">self</span><span class="variable">.CGImage</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="built_in">CGContextDrawImage</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>,<span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>), <span class="keyword">self</span><span class="variable">.CGImage</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// And now we just create a new UIImage from the drawing context</span></span><br><span class="line">    <span class="built_in">CGImageRef</span> cgimg = <span class="built_in">CGBitmapContextCreateImage</span>(ctx);</span><br><span class="line">    <span class="built_in">UIImage</span> *img = [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:cgimg];</span><br><span class="line">    <span class="built_in">CGContextRelease</span>(ctx);</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(cgimg);</span><br><span class="line">    <span class="keyword">return</span> img;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="判断用户短时间内发送消息太多">判断用户短时间内发送消息太多</h2><ul>
+<li>看到这个问题时，我想到了定时器，首先定义一个变量<code>numberOfSend</code>保存发送次数，然后在第一次输入时开启定时器<code>timer1</code>，5s之内如果<code>numberOfSend</code>没有超过8条，就在5s后重置<code>numberOfSend</code>，如果5s内发送次数超过8条，就开启另一个定时器timer2，来延迟执行发送操作，在timer2中要先取消之前的<code>timer1</code>，然后就<code>return</code></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="built_in">NSInteger</span> _numberOfSendMessagesInFiveSecond;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)sendMessages</span><br><span class="line">&#123;</span><br><span class="line">    _numberOfSendMessagesInFiveSecond = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)sendText:(<span class="built_in">NSString</span> *)contentString</span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">// 喝杯茶休息一下吧！</span></span><br><span class="line">    _numberOfSendMessagesInFiveSecond ++ ;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="number">1</span> == _numberOfSendMessagesInFiveSecond)&#123;</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(sendMessages) withObject:<span class="literal">nil</span> afterDelay:<span class="number">5</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (_numberOfSendMessagesInFiveSecond &gt;= <span class="number">9</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        [chatInputView insertTextAfterCursor:contentString];</span><br><span class="line">        [<span class="keyword">self</span> presentSuccessTips:<span class="built_in">NSLocalizedString</span>(<span class="string">@"CHATPANEL_TAKE_A_CUP_OF_TEA"</span> ,<span class="string">@"喝杯茶休息一下吧！"</span>)];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(_numberOfSendMessagesInFiveSecond == <span class="number">9</span>) &#123;</span><br><span class="line">            [[<span class="keyword">self</span> class] cancelPreviousPerformRequestsWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(sendMessages) object:<span class="literal">nil</span>];</span><br><span class="line">            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">5.0</span>f * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                _numberOfSendMessagesInFiveSecond = <span class="number">0</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="另外一种方式">另外一种方式</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">P2PSendMsgFrequencyStrategy</span> ()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> _iMaxCount;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> _iMaxMillisecond; <span class="comment">//1秒</span></span><br><span class="line">    <span class="built_in">NSInteger</span> _iCount;</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> _lastSendTime;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">P2PSendMsgFrequencyStrategy</span></span></span><br><span class="line"></span><br><span class="line">- (instancetype)init</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        _iMaxCount = <span class="number">8</span>;</span><br><span class="line">        _iMaxMillisecond = <span class="number">1</span>*<span class="number">1000</span>; <span class="comment">//1秒</span></span><br><span class="line">        _iCount = <span class="number">0</span>;</span><br><span class="line">        _lastSendTime = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)sendMessageTooOften</span><br><span class="line">&#123;<span class="comment">//规则是：5秒内发送超过8条就不能发送，然后再过5秒才能发送。</span></span><br><span class="line">    <span class="built_in">NSTimeInterval</span> nowSendTime = [[<span class="built_in">NSDate</span> date]timeIntervalSince1970]*<span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> time = (nowSendTime - _lastSendTime);</span><br><span class="line">    <span class="keyword">if</span> ((time &gt; _iMaxMillisecond*<span class="number">5</span> &amp;&amp; _iCount &lt; _iMaxCount)</span><br><span class="line">        || (time &gt; _iMaxMillisecond*<span class="number">10</span> &amp;&amp; _iCount &gt;= _iMaxCount)</span><br><span class="line">        )</span><br><span class="line">    &#123;</span><br><span class="line">        _lastSendTime = [[<span class="built_in">NSDate</span> date]timeIntervalSince1970]*<span class="number">1000</span>;</span><br><span class="line">        _iCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        YJLog(<span class="string">@"sendMessage time:%lld"</span>, time);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (++_iCount &lt; _iMaxCount)</span><br><span class="line">        &#123;</span><br><span class="line">            YJLog(<span class="string">@"sendMessage count: %ld, time:%lld"</span>,  (<span class="keyword">long</span>)_iCount, time);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    YJLog(<span class="string">@"sendMessage Too Many: %ld, time:%lld"</span>,  (<span class="keyword">long</span>)_iCount, time);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/03/09/问题杂烩/" data-title="问题杂烩 | Bloging" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/04/05/正则表达式/" title="正则表达式">
+  <strong>上一篇：</strong><br/>
+  <span>
+  正则表达式</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/03/06/单元测试/"  title="单元测试">
+ <strong>下一篇：</strong><br/> 
+ <span>单元测试
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/03/09/问题杂烩/" data-title="问题杂烩" data-url="http://yoursite.com/2015/03/09/问题杂烩/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题杂烩"><span class="toc-number">1.</span> <span class="toc-text">问题杂烩</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#判断字符串是不是纯数字"><span class="toc-number">1.1.</span> <span class="toc-text">判断字符串是不是纯数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attempt_to_present_XX_on_XX_whose_view_is_not_in_the_window_hierarchy"><span class="toc-number">1.2.</span> <span class="toc-text">Attempt to present XX on XX whose view is not in the window hierarchy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指定颜色生成图片"><span class="toc-number">1.3.</span> <span class="toc-text">指定颜色生成图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取系统版本、型号等信息"><span class="toc-number">1.4.</span> <span class="toc-text">获取系统版本、型号等信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读写plist文件"><span class="toc-number">1.5.</span> <span class="toc-text">读写plist文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XCode快捷键"><span class="toc-number">1.6.</span> <span class="toc-text">XCode快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pragma使用"><span class="toc-number">1.7.</span> <span class="toc-text">pragma使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#组织代码"><span class="toc-number">1.7.1.</span> <span class="toc-text">组织代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#屏蔽警告"><span class="toc-number">1.7.2.</span> <span class="toc-text">屏蔽警告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他方式"><span class="toc-number">1.7.3.</span> <span class="toc-text">其他方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片旋转问题"><span class="toc-number">1.8.</span> <span class="toc-text">图片旋转问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断用户短时间内发送消息太多"><span class="toc-number">1.9.</span> <span class="toc-text">判断用户短时间内发送消息太多</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#另外一种方式"><span class="toc-number">1.9.1.</span> <span class="toc-text">另外一种方式</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/OC/" title="OC">OC<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift/" title="swift">swift<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> This is my blog,believe it or not. <br/>
+			To be or not to be, this is the question.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:slq0378@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Song"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-68091434-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
