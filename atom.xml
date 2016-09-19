@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://songliquan.github.io/"/>
   <updated>2016-09-19T04:32:38.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://songliquan.github.io/</id>
   
   <author>
     <name>Mr Song</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>UIImage分类总结</title>
-    <link href="http://yoursite.com/2016/09/10/UIImage%E5%88%86%E7%B1%BB%E6%80%BB%E7%BB%93/"/>
-    <id>http://yoursite.com/2016/09/10/UIImage分类总结/</id>
+    <link href="http://songliquan.github.io/2016/09/10/UIImage%E5%88%86%E7%B1%BB%E6%80%BB%E7%BB%93/"/>
+    <id>http://songliquan.github.io/2016/09/10/UIImage分类总结/</id>
     <published>2016-09-10T02:19:27.000Z</published>
     <updated>2016-09-19T04:32:38.000Z</updated>
     
@@ -108,14 +108,14 @@
     </summary>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://songliquan.github.io/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>URL加解密</title>
-    <link href="http://yoursite.com/2016/04/16/URL%E5%8A%A0%E8%A7%A3%E5%AF%86/"/>
-    <id>http://yoursite.com/2016/04/16/URL加解密/</id>
+    <link href="http://songliquan.github.io/2016/04/16/URL%E5%8A%A0%E8%A7%A3%E5%AF%86/"/>
+    <id>http://songliquan.github.io/2016/04/16/URL加解密/</id>
     <published>2016-04-16T07:40:01.000Z</published>
     <updated>2016-06-16T07:50:57.000Z</updated>
     
@@ -162,8 +162,8 @@
   
   <entry>
     <title>图片合成</title>
-    <link href="http://yoursite.com/2016/03/05/%E5%9B%BE%E7%89%87%E5%90%88%E6%88%90/"/>
-    <id>http://yoursite.com/2016/03/05/图片合成/</id>
+    <link href="http://songliquan.github.io/2016/03/05/%E5%9B%BE%E7%89%87%E5%90%88%E6%88%90/"/>
+    <id>http://songliquan.github.io/2016/03/05/图片合成/</id>
     <published>2016-03-05T09:43:11.000Z</published>
     <updated>2016-03-06T13:17:14.000Z</updated>
     
@@ -209,14 +209,14 @@
     </summary>
     
     
-      <category term="OC" scheme="http://yoursite.com/tags/OC/"/>
+      <category term="OC" scheme="http://songliquan.github.io/tags/OC/"/>
     
   </entry>
   
   <entry>
     <title>AVFoundation笔记01</title>
-    <link href="http://yoursite.com/2016/02/23/AVFoundation%E7%AC%94%E8%AE%B001/"/>
-    <id>http://yoursite.com/2016/02/23/AVFoundation笔记01/</id>
+    <link href="http://songliquan.github.io/2016/02/23/AVFoundation%E7%AC%94%E8%AE%B001/"/>
+    <id>http://songliquan.github.io/2016/02/23/AVFoundation笔记01/</id>
     <published>2016-02-23T06:45:09.000Z</published>
     <updated>2016-04-23T06:47:05.000Z</updated>
     
@@ -317,8 +317,8 @@
   
   <entry>
     <title>Swift坑-tableView中注册cell</title>
-    <link href="http://yoursite.com/2015/10/02/swift%E5%9D%91-tableView%E4%B8%AD%E6%B3%A8%E5%86%8Ccell/"/>
-    <id>http://yoursite.com/2015/10/02/swift坑-tableView中注册cell/</id>
+    <link href="http://songliquan.github.io/2015/10/02/swift%E5%9D%91-tableView%E4%B8%AD%E6%B3%A8%E5%86%8Ccell/"/>
+    <id>http://songliquan.github.io/2015/10/02/swift坑-tableView中注册cell/</id>
     <published>2015-10-02T04:26:05.000Z</published>
     <updated>2015-10-06T03:48:02.000Z</updated>
     
@@ -365,14 +365,14 @@
     </summary>
     
     
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
+      <category term="swift" scheme="http://songliquan.github.io/tags/swift/"/>
     
   </entry>
   
   <entry>
     <title>Swift与众不同的地方</title>
-    <link href="http://yoursite.com/2015/09/26/swift%E6%96%B0%E7%89%B9%E6%80%A7/"/>
-    <id>http://yoursite.com/2015/09/26/swift新特性/</id>
+    <link href="http://songliquan.github.io/2015/09/26/swift%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <id>http://songliquan.github.io/2015/09/26/swift新特性/</id>
     <published>2015-09-26T08:54:36.000Z</published>
     <updated>2015-10-01T10:24:44.000Z</updated>
     
@@ -736,14 +736,14 @@
     </summary>
     
     
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
+      <category term="swift" scheme="http://songliquan.github.io/tags/swift/"/>
     
   </entry>
   
   <entry>
     <title>表情键盘实现</title>
-    <link href="http://yoursite.com/2015/09/03/%E8%A1%A8%E6%83%85%E9%94%AE%E7%9B%98%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://yoursite.com/2015/09/03/表情键盘实现/</id>
+    <link href="http://songliquan.github.io/2015/09/03/%E8%A1%A8%E6%83%85%E9%94%AE%E7%9B%98%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://songliquan.github.io/2015/09/03/表情键盘实现/</id>
     <published>2015-09-03T02:25:18.000Z</published>
     <updated>2015-10-05T13:59:28.000Z</updated>
     
@@ -779,14 +779,14 @@
     </summary>
     
     
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
+      <category term="swift" scheme="http://songliquan.github.io/tags/swift/"/>
     
   </entry>
   
   <entry>
     <title>证书打包发布</title>
-    <link href="http://yoursite.com/2015/05/06/%E8%AF%81%E4%B9%A6%E6%89%93%E5%8C%85%E5%8F%91%E5%B8%83/"/>
-    <id>http://yoursite.com/2015/05/06/证书打包发布/</id>
+    <link href="http://songliquan.github.io/2015/05/06/%E8%AF%81%E4%B9%A6%E6%89%93%E5%8C%85%E5%8F%91%E5%B8%83/"/>
+    <id>http://songliquan.github.io/2015/05/06/证书打包发布/</id>
     <published>2015-05-06T08:55:44.000Z</published>
     <updated>2016-03-06T08:56:20.000Z</updated>
     
@@ -945,8 +945,8 @@
   
   <entry>
     <title>闪退问题解析</title>
-    <link href="http://yoursite.com/2015/04/06/%E9%97%AA%E9%80%80%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/"/>
-    <id>http://yoursite.com/2015/04/06/闪退问题解析/</id>
+    <link href="http://songliquan.github.io/2015/04/06/%E9%97%AA%E9%80%80%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/"/>
+    <id>http://songliquan.github.io/2015/04/06/闪退问题解析/</id>
     <published>2015-04-06T08:51:16.000Z</published>
     <updated>2016-03-06T08:54:51.000Z</updated>
     
@@ -985,14 +985,14 @@
     </summary>
     
     
-      <category term="OC" scheme="http://yoursite.com/tags/OC/"/>
+      <category term="OC" scheme="http://songliquan.github.io/tags/OC/"/>
     
   </entry>
   
   <entry>
     <title>正则表达式</title>
-    <link href="http://yoursite.com/2015/04/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>http://yoursite.com/2015/04/05/正则表达式/</id>
+    <link href="http://songliquan.github.io/2015/04/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://songliquan.github.io/2015/04/05/正则表达式/</id>
     <published>2015-04-05T02:25:18.000Z</published>
     <updated>2015-12-10T10:38:05.000Z</updated>
     
@@ -1101,14 +1101,14 @@
     </summary>
     
     
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
+      <category term="swift" scheme="http://songliquan.github.io/tags/swift/"/>
     
   </entry>
   
   <entry>
     <title>问题杂烩</title>
-    <link href="http://yoursite.com/2015/03/09/%E9%97%AE%E9%A2%98%E6%9D%82%E7%83%A9/"/>
-    <id>http://yoursite.com/2015/03/09/问题杂烩/</id>
+    <link href="http://songliquan.github.io/2015/03/09/%E9%97%AE%E9%A2%98%E6%9D%82%E7%83%A9/"/>
+    <id>http://songliquan.github.io/2015/03/09/问题杂烩/</id>
     <published>2015-03-09T03:30:56.000Z</published>
     <updated>2016-03-15T02:41:12.000Z</updated>
     
@@ -1183,8 +1183,8 @@
   
   <entry>
     <title>单元测试</title>
-    <link href="http://yoursite.com/2015/03/06/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
-    <id>http://yoursite.com/2015/03/06/单元测试/</id>
+    <link href="http://songliquan.github.io/2015/03/06/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    <id>http://songliquan.github.io/2015/03/06/单元测试/</id>
     <published>2015-03-06T08:48:35.000Z</published>
     <updated>2016-03-06T08:50:04.000Z</updated>
     
@@ -1218,14 +1218,14 @@
     </summary>
     
     
-      <category term="OC" scheme="http://yoursite.com/tags/OC/"/>
+      <category term="OC" scheme="http://songliquan.github.io/tags/OC/"/>
     
   </entry>
   
   <entry>
     <title>Socket编程</title>
-    <link href="http://yoursite.com/2014/12/21/socket%E7%BC%96%E7%A8%8B/"/>
-    <id>http://yoursite.com/2014/12/21/socket编程/</id>
+    <link href="http://songliquan.github.io/2014/12/21/socket%E7%BC%96%E7%A8%8B/"/>
+    <id>http://songliquan.github.io/2014/12/21/socket编程/</id>
     <published>2014-12-21T11:48:23.000Z</published>
     <updated>2015-12-22T03:56:24.000Z</updated>
     
@@ -1473,8 +1473,8 @@
   
   <entry>
     <title>DebugSymbol</title>
-    <link href="http://yoursite.com/2014/10/10/DebugSymbol/"/>
-    <id>http://yoursite.com/2014/10/10/DebugSymbol/</id>
+    <link href="http://songliquan.github.io/2014/10/10/DebugSymbol/"/>
+    <id>http://songliquan.github.io/2014/10/10/DebugSymbol/</id>
     <published>2014-10-10T10:50:31.000Z</published>
     <updated>2015-12-10T10:52:10.000Z</updated>
     
@@ -1520,8 +1520,8 @@
   
   <entry>
     <title>Argument</title>
-    <link href="http://yoursite.com/2014/05/10/Xcode%E5%9D%91-Invalid%20argument/"/>
-    <id>http://yoursite.com/2014/05/10/Xcode坑-Invalid argument/</id>
+    <link href="http://songliquan.github.io/2014/05/10/Xcode%E5%9D%91-Invalid%20argument/"/>
+    <id>http://songliquan.github.io/2014/05/10/Xcode坑-Invalid argument/</id>
     <published>2014-05-10T09:39:47.000Z</published>
     <updated>2015-12-10T10:14:49.000Z</updated>
     
@@ -1545,14 +1545,14 @@
     </summary>
     
     
-      <category term="OC" scheme="http://yoursite.com/tags/OC/"/>
+      <category term="OC" scheme="http://songliquan.github.io/tags/OC/"/>
     
   </entry>
   
   <entry>
     <title>图片缩放手势实现</title>
-    <link href="http://yoursite.com/2014/03/15/%E5%9B%BE%E7%89%87%E7%BC%A9%E6%94%BE%E6%89%8B%E5%8A%BF%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://yoursite.com/2014/03/15/图片缩放手势实现/</id>
+    <link href="http://songliquan.github.io/2014/03/15/%E5%9B%BE%E7%89%87%E7%BC%A9%E6%94%BE%E6%89%8B%E5%8A%BF%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://songliquan.github.io/2014/03/15/图片缩放手势实现/</id>
     <published>2014-03-15T01:33:51.000Z</published>
     <updated>2016-03-15T02:40:35.000Z</updated>
     
@@ -1577,14 +1577,14 @@
     </summary>
     
     
-      <category term="OC" scheme="http://yoursite.com/tags/OC/"/>
+      <category term="OC" scheme="http://songliquan.github.io/tags/OC/"/>
     
   </entry>
   
   <entry>
     <title>抓取崩溃信息</title>
-    <link href="http://yoursite.com/2014/03/06/%E6%8A%93%E5%8F%96%E5%B4%A9%E6%BA%83%E4%BF%A1%E6%81%AF/"/>
-    <id>http://yoursite.com/2014/03/06/抓取崩溃信息/</id>
+    <link href="http://songliquan.github.io/2014/03/06/%E6%8A%93%E5%8F%96%E5%B4%A9%E6%BA%83%E4%BF%A1%E6%81%AF/"/>
+    <id>http://songliquan.github.io/2014/03/06/抓取崩溃信息/</id>
     <published>2014-03-06T08:57:27.000Z</published>
     <updated>2016-03-06T08:58:38.000Z</updated>
     
@@ -1615,14 +1615,14 @@
     </summary>
     
     
-      <category term="oc" scheme="http://yoursite.com/tags/oc/"/>
+      <category term="oc" scheme="http://songliquan.github.io/tags/oc/"/>
     
   </entry>
   
   <entry>
     <title>如何在OC中判断基本数据类型变量的类型</title>
-    <link href="http://yoursite.com/2014/02/15/%E5%A6%82%E4%BD%95%E5%9C%A8oc%E4%B8%AD%E5%88%A4%E6%96%AD%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E7%9A%84%E7%B1%BB%E5%9E%8B/"/>
-    <id>http://yoursite.com/2014/02/15/如何在oc中判断基本数据类型变量的类型/</id>
+    <link href="http://songliquan.github.io/2014/02/15/%E5%A6%82%E4%BD%95%E5%9C%A8oc%E4%B8%AD%E5%88%A4%E6%96%AD%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E7%9A%84%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://songliquan.github.io/2014/02/15/如何在oc中判断基本数据类型变量的类型/</id>
     <published>2014-02-15T00:05:50.000Z</published>
     <updated>2015-12-10T10:14:41.000Z</updated>
     
@@ -1648,14 +1648,14 @@
     </summary>
     
     
-      <category term="OC" scheme="http://yoursite.com/tags/OC/"/>
+      <category term="OC" scheme="http://songliquan.github.io/tags/OC/"/>
     
   </entry>
   
   <entry>
     <title>运行时-关联</title>
-    <link href="http://yoursite.com/2013/11/10/%E8%BF%90%E8%A1%8C%E6%97%B6-%E5%85%B3%E8%81%94/"/>
-    <id>http://yoursite.com/2013/11/10/运行时-关联/</id>
+    <link href="http://songliquan.github.io/2013/11/10/%E8%BF%90%E8%A1%8C%E6%97%B6-%E5%85%B3%E8%81%94/"/>
+    <id>http://songliquan.github.io/2013/11/10/运行时-关联/</id>
     <published>2013-11-10T09:45:08.000Z</published>
     <updated>2015-12-10T09:48:08.000Z</updated>
     
@@ -1690,14 +1690,14 @@
     </summary>
     
     
-      <category term="OC" scheme="http://yoursite.com/tags/OC/"/>
+      <category term="OC" scheme="http://songliquan.github.io/tags/OC/"/>
     
   </entry>
   
   <entry>
     <title>JS和OC相互调用</title>
-    <link href="http://yoursite.com/2013/10/05/js%E5%92%8Coc%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/"/>
-    <id>http://yoursite.com/2013/10/05/js和oc相互调用/</id>
+    <link href="http://songliquan.github.io/2013/10/05/js%E5%92%8Coc%E7%9B%B8%E4%BA%92%E8%B0%83%E7%94%A8/"/>
+    <id>http://songliquan.github.io/2013/10/05/js和oc相互调用/</id>
     <published>2013-10-05T00:05:50.000Z</published>
     <updated>2015-12-19T08:11:31.000Z</updated>
     
@@ -1740,7 +1740,7 @@
     </summary>
     
     
-      <category term="OC" scheme="http://yoursite.com/tags/OC/"/>
+      <category term="OC" scheme="http://songliquan.github.io/tags/OC/"/>
     
   </entry>
   
