@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>swift坑-tableView中注册cell | Bloging</title>
+    <title>Swift坑-tableView中注册cell | Bloging</title>
     <meta name="google-site-verification" content="PvTUEr8LZywTInLlqUkqshyJLpIqOn6oreUiZvWKB2Q" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
@@ -19,7 +19,7 @@
 分析
 首先SLQHomeTableViewController继承自SLQBaseTableViewController">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swift坑-tableView中注册cell">
+<meta property="og:title" content="Swift坑-tableView中注册cell">
 <meta property="og:url" content="http://yoursite.com/2015/10/02/swift坑-tableView中注册cell/index.html">
 <meta property="og:site_name" content="Bloging">
 <meta property="og:description" content="tableView.registerClass in swift is fatal error
@@ -29,7 +29,7 @@
 首先SLQHomeTableViewController继承自SLQBaseTableViewController">
 <meta property="og:updated_time" content="2015-10-06T03:48:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swift坑-tableView中注册cell">
+<meta name="twitter:title" content="Swift坑-tableView中注册cell">
 <meta name="twitter:description" content="tableView.registerClass in swift is fatal error
 注册cell时会出问题，但是注册一个cell时应该和原类没关系吧，我特意新建了一个工程进行测试，没有问题。那很可能就是这个工程有问题。但是问题在哪呢？
 姑且认为在注册cell的上下文
@@ -72,14 +72,11 @@
 					
 						<li><a href="/archives">Archives</a></li>
 					
-						<li><a href="/about">About</a></li>
-					
 					<li>
  					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:yoursite.com">
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -94,7 +91,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/10/02/swift坑-tableView中注册cell/" title="swift坑-tableView中注册cell" itemprop="url">swift坑-tableView中注册cell</a>
+      <a href="/2015/10/02/swift坑-tableView中注册cell/" title="Swift坑-tableView中注册cell" itemprop="url">Swift坑-tableView中注册cell</a>
   </h1>
   <p class="article-author">By
        
@@ -164,7 +161,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/10/02/swift坑-tableView中注册cell/" data-title="swift坑-tableView中注册cell | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2015/10/02/swift坑-tableView中注册cell/" data-title="Swift坑-tableView中注册cell | Bloging" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -198,7 +195,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/10/02/swift坑-tableView中注册cell/" data-title="swift坑-tableView中注册cell" data-url="http://yoursite.com/2015/10/02/swift坑-tableView中注册cell/"></div>
+	<div class="ds-thread" data-thread-key="2015/10/02/swift坑-tableView中注册cell/" data-title="Swift坑-tableView中注册cell" data-url="http://yoursite.com/2015/10/02/swift坑-tableView中注册cell/"></div>
 </section>
 
 
@@ -216,10 +213,14 @@
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="slq0378" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
+  </div>
+
 
 
   
@@ -253,11 +254,13 @@
   <p class="asidetitle">友情链接</p>
     <ul>
         
+          <li>
+            
+            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            
+          </li>
+        
     </ul>
-</div>
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -495,11 +498,6 @@ ga('send', 'pageview');
 </script>
 
 
-
-<script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
-</script>
 
 
 

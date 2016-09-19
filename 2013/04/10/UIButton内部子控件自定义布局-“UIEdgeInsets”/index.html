@@ -87,14 +87,11 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
 					
 						<li><a href="/archives">Archives</a></li>
 					
-						<li><a href="/about">About</a></li>
-					
 					<li>
  					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:yoursite.com">
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
 					</form>
 					
 					</li>
@@ -252,10 +249,14 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="slq0378" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
+  </div>
+
 
 
   
@@ -289,11 +290,13 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
   <p class="asidetitle">友情链接</p>
     <ul>
         
+          <li>
+            
+            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            
+          </li>
+        
     </ul>
-</div>
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
@@ -531,11 +534,6 @@ ga('send', 'pageview');
 </script>
 
 
-
-<script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
-</script>
 
 
 
