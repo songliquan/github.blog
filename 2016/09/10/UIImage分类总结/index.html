@@ -1,0 +1,577 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>UIImage分类总结 | Bloging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Mr Song">
+    
+
+    
+    <meta name="description" content="UIImage 分类总结@(iOS)[UIImage]
+[TOC]
+修正图片方向
+这个使用很常见，特别是在上传图片时，一定要记得修正方向，不然安卓h或者服务端下载下来方向就不对了。
+当然这个分类方法是已经有大神写出来了。
+image = [image fixOrientation];
+
+/** *  修正图片方向 * *  @return 修改后的图片 */- (UIImage *)fixOrie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIImage分类总结">
+<meta property="og:url" content="http://yoursite.com/2016/09/10/UIImage分类总结/index.html">
+<meta property="og:site_name" content="Bloging">
+<meta property="og:description" content="UIImage 分类总结@(iOS)[UIImage]
+[TOC]
+修正图片方向
+这个使用很常见，特别是在上传图片时，一定要记得修正方向，不然安卓h或者服务端下载下来方向就不对了。
+当然这个分类方法是已经有大神写出来了。
+image = [image fixOrientation];
+
+/** *  修正图片方向 * *  @return 修改后的图片 */- (UIImage *)fixOrie">
+<meta property="og:image" content="http://yoursite.com/images/Snip20160905_1.png">
+<meta property="og:image" content="http://yoursite.com/images/Snip20160905_2.png">
+<meta property="og:image" content="http://yoursite.com/images/Snip20160905_4.png">
+<meta property="og:image" content="http://yoursite.com/images/Snip20160905_5.png">
+<meta property="og:image" content="http://yoursite.com/images/Snip20160905_6.png">
+<meta property="og:image" content="http://yoursite.com/images/Snip20160905_7.png">
+<meta property="og:image" content="http://yoursite.com/images/Snip20160907_10.png">
+<meta property="og:image" content="http://yoursite.com/images/Snip20160907_11.png">
+<meta property="og:image" content="http://yoursite.com/images/动画演示.gif">
+<meta property="og:updated_time" content="2016-09-19T04:32:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UIImage分类总结">
+<meta name="twitter:description" content="UIImage 分类总结@(iOS)[UIImage]
+[TOC]
+修正图片方向
+这个使用很常见，特别是在上传图片时，一定要记得修正方向，不然安卓h或者服务端下载下来方向就不对了。
+当然这个分类方法是已经有大神写出来了。
+image = [image fixOrientation];
+
+/** *  修正图片方向 * *  @return 修改后的图片 */- (UIImage *)fixOrie">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/09/10/UIImage分类总结/" title="UIImage分类总结" itemprop="url">UIImage分类总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Mr Song" target="_blank" itemprop="author">Mr Song</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-10T02:19:27.000Z" itemprop="datePublished"> 发表于 2016-09-10</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UIImage_分类总结"><span class="toc-number">1.</span> <span class="toc-text">UIImage 分类总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#修正图片方向"><span class="toc-number">1.1.</span> <span class="toc-text">修正图片方向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指定颜色生成图片"><span class="toc-number">1.2.</span> <span class="toc-text">指定颜色生成图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片模糊"><span class="toc-number">1.3.</span> <span class="toc-text">图片模糊</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换#FFFFFF格式颜色"><span class="toc-number">1.4.</span> <span class="toc-text">转换#FFFFFF格式颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#透明边框效果图片"><span class="toc-number">1.5.</span> <span class="toc-text">透明边框效果图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIImage缩放"><span class="toc-number">1.6.</span> <span class="toc-text">UIImage缩放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圆形图片"><span class="toc-number">1.7.</span> <span class="toc-text">圆形图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#截屏\截图"><span class="toc-number">1.8.</span> <span class="toc-text">截屏\截图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#水印"><span class="toc-number">1.9.</span> <span class="toc-text">水印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GIF动画"><span class="toc-number">1.10.</span> <span class="toc-text">GIF动画</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#由CIImage生成UIImage"><span class="toc-number">1.11.</span> <span class="toc-text">由CIImage生成UIImage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换成黑白图片"><span class="toc-number">1.12.</span> <span class="toc-text">转换成黑白图片</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="UIImage_分类总结">UIImage 分类总结</h1><p>@(iOS)[UIImage]</p>
+<p>[TOC]</p>
+<h2 id="修正图片方向">修正图片方向</h2><ul>
+<li>这个使用很常见，特别是在上传图片时，一定要记得修正方向，不然安卓h或者服务端下载下来方向就不对了。</li>
+<li>当然这个分类方法是已经有大神写出来了。</li>
+<li><code>image = [image fixOrientation];</code></li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  修正图片方向</span><br><span class="line"> *</span><br><span class="line"> *  @return 修改后的图片</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">UIImage</span> *)fixOrientation &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// No-op if the orientation is already correct</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.imageOrientation</span> == <span class="built_in">UIImageOrientationUp</span>) <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// We need to calculate the proper transformation to make the image upright.</span></span><br><span class="line">    <span class="comment">// We do it in 2 steps: Rotate if Left/Right/Down, and then flip if Mirrored.</span></span><br><span class="line">    <span class="built_in">CGAffineTransform</span> transform = <span class="built_in">CGAffineTransformIdentity</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">self</span><span class="variable">.imageOrientation</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationDown</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationDownMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformRotate</span>(transform, M_PI);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeft</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeftMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="number">0</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformRotate</span>(transform, M_PI_2);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRight</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRightMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="number">0</span>, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformRotate</span>(transform, -M_PI_2);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationUp</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationUpMirrored</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">self</span><span class="variable">.imageOrientation</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationUpMirrored</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationDownMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="number">0</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformScale</span>(transform, -<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeftMirrored</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRightMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>, <span class="number">0</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformScale</span>(transform, -<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationUp</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationDown</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeft</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRight</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Now we draw the underlying CGImage into a new context, applying the transform</span></span><br><span class="line">    <span class="comment">// calculated above.</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> ctx = <span class="built_in">CGBitmapContextCreate</span>(<span class="literal">NULL</span>, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>,</span><br><span class="line">                                             <span class="built_in">CGImageGetBitsPerComponent</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>), <span class="number">0</span>,</span><br><span class="line">                                             <span class="built_in">CGImageGetColorSpace</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>),</span><br><span class="line">                                             <span class="built_in">CGImageGetBitmapInfo</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>));</span><br><span class="line">    <span class="built_in">CGContextConcatCTM</span>(ctx, transform);</span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">self</span><span class="variable">.imageOrientation</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeft</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeftMirrored</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRight</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRightMirrored</span>:</span><br><span class="line">            <span class="comment">// Grr...</span></span><br><span class="line">            <span class="built_in">CGContextDrawImage</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>,<span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>), <span class="keyword">self</span><span class="variable">.CGImage</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="built_in">CGContextDrawImage</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>,<span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>), <span class="keyword">self</span><span class="variable">.CGImage</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// And now we just create a new UIImage from the drawing context</span></span><br><span class="line">    <span class="built_in">CGImageRef</span> cgimg = <span class="built_in">CGBitmapContextCreateImage</span>(ctx);</span><br><span class="line">    <span class="built_in">UIImage</span> *img = [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:cgimg];</span><br><span class="line">    <span class="built_in">CGContextRelease</span>(ctx);</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(cgimg);</span><br><span class="line">    <span class="keyword">return</span> img;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="http://www.cocoachina.com/ios/20150605/12021.html" target="_blank" rel="external">具体解析，参考这篇文字</a></p>
+</blockquote>
+<h2 id="指定颜色生成图片">指定颜色生成图片</h2><ul>
+<li>由颜色<code>UIColor</code>直接生成对应的图片，当然要指定尺寸。</li>
+<li><code>image = [UIImage imageWithColor:[UIColor colorWithRed:30 green:190 blue:100 alpha:0.1] andSize:CGSizeMake(100, 100)];</code></li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  返回指定颜色生成的图片</span><br><span class="line"> *</span><br><span class="line"> *  @param color 颜色</span><br><span class="line"> *  @param size  尺寸</span><br><span class="line"> *</span><br><span class="line"> *  @return</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)imageWithColor:(<span class="built_in">UIColor</span> *)color andSize:(<span class="built_in">CGSize</span>)size</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, size<span class="variable">.width</span>, size<span class="variable">.height</span>);</span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(rect<span class="variable">.size</span>, <span class="literal">NO</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    <span class="built_in">CGContextSetFillColorWithColor</span>(context, color<span class="variable">.CGColor</span>);</span><br><span class="line">    <span class="built_in">CGContextFillRect</span>(context, rect);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIImage</span> *img = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> img;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  获取指定尺寸（50*50）的图片</span><br><span class="line"> *</span><br><span class="line"> *  @param color 图片颜色</span><br><span class="line"> *  @param name  文本,居中显示</span><br><span class="line"> *</span><br><span class="line"> *  @return</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)imageWithColor:(<span class="built_in">UIColor</span> *)color text:(<span class="built_in">NSString</span> *)name</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(rect<span class="variable">.size</span>, <span class="literal">NO</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    <span class="built_in">CGContextSetFillColorWithColor</span>(context, color<span class="variable">.CGColor</span>);</span><br><span class="line">    <span class="built_in">CGContextFillRect</span>(context, rect);</span><br><span class="line">    [name drawAtPoint:<span class="built_in">CGPointMake</span>(<span class="number">10</span>, <span class="number">15</span>) withAttributes:@&#123;<span class="built_in">NSFontAttributeName</span> : [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>]&#125;];</span><br><span class="line">    <span class="built_in">UIImage</span> *img = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> img;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="图片模糊">图片模糊</h2><ul>
+<li>生成带有模糊效果的图片，可以直接又UIImage生成，或者直接生成纯色的模糊图片。还有边框</li>
+<li>图片模糊<blockquote>
+<p><img src="/images/Snip20160905_1.png" alt="Alt text"><br> <img src="/images/Snip20160905_2.png" alt="Alt text"></p>
+</blockquote>
+</li>
+<li>纯色图片模糊<blockquote>
+<p><img src="/images/Snip20160905_4.png" alt="Alt text">    <img src="/images/Snip20160905_5.png" alt="Alt text"></p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 对图片进行模糊处理</span></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)gaussianBlurImage:(<span class="built_in">UIImage</span> *)image andInputRadius:(<span class="built_in">CGFloat</span>)radius</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (!image) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CIContext</span> *context = [<span class="built_in">CIContext</span> contextWithOptions:<span class="literal">nil</span>];</span><br><span class="line">    <span class="built_in">CIImage</span> *inputImage = [<span class="built_in">CIImage</span> imageWith<span class="built_in">CGImage</span>:image<span class="variable">.CGImage</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CIFilter</span> *filter = [<span class="built_in">CIFilter</span> filterWithName:<span class="string">@"CIGaussianBlur"</span>];</span><br><span class="line">    [filter setValue:inputImage forKey:k<span class="built_in">CIInputImageKey</span>];</span><br><span class="line">    [filter setValue:[<span class="built_in">NSNumber</span> numberWithFloat:radius] forKey:<span class="string">@"inputRadius"</span>];</span><br><span class="line">    <span class="built_in">CIImage</span> *result = [filter valueForKey:k<span class="built_in">CIOutputImageKey</span>];</span><br><span class="line">    <span class="built_in">CGImageRef</span> cgImage = [context create<span class="built_in">CGImage</span>:result fromRect:[inputImage extent]];</span><br><span class="line">    <span class="built_in">UIImage</span> *resultImage = [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:cgImage];</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(cgImage);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> resultImage;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 由颜色生成模糊图片</span></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)gaussianBlurImageWithColor:(<span class="built_in">UIColor</span> *)color andSize:(<span class="built_in">CGSize</span>)size andInputRadius:(<span class="built_in">CGFloat</span>)radius</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageWithColor:color andSize:size];</span><br><span class="line">    <span class="keyword">if</span> (image) &#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">UIImage</span> gaussianBlurImage:image andInputRadius:radius];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="转换#FFFFFF格式颜色">转换<code>#FFFFFF</code>格式颜色</h2><ul>
+<li>直接生成<code>UIColor</code>类型的颜色，可以指定透明通道</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  转换#FFFFFF格式颜色</span><br><span class="line"> *</span><br><span class="line"> *  @param string 颜色字符串</span><br><span class="line"> *</span><br><span class="line"> *  @return</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">UIColor</span> *)RGBColor:(<span class="built_in">NSString</span> *)string &#123;</span><br><span class="line">    <span class="keyword">if</span> ([string rangeOfString:<span class="string">@"#"</span>]<span class="variable">.location</span> != <span class="built_in">NSNotFound</span>) &#123;</span><br><span class="line">        string = [string stringByReplacingOccurrencesOfString:<span class="string">@"#"</span> withString:<span class="string">@""</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 十六进制字符串转成整形。</span></span><br><span class="line">    <span class="keyword">long</span> colorLong = strtoul([string cStringUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>], <span class="number">0</span>, <span class="number">16</span>);</span><br><span class="line">    <span class="comment">// 通过位与方法获取三色值</span></span><br><span class="line">    <span class="keyword">int</span> R = (colorLong &amp; <span class="number">0xFF0000</span> )&gt;&gt;<span class="number">16</span>;</span><br><span class="line">    <span class="keyword">int</span> G = (colorLong &amp; <span class="number">0x00FF00</span> )&gt;&gt;<span class="number">8</span>;</span><br><span class="line">    <span class="keyword">int</span> B = colorLong &amp; <span class="number">0x0000FF</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//string转color</span></span><br><span class="line">    <span class="built_in">UIColor</span> *wordColor = [<span class="built_in">UIColor</span> colorWithRed:R/<span class="number">255.0</span> green:G/<span class="number">255.0</span> blue:B/<span class="number">255.0</span> alpha:<span class="number">1.0</span>];</span><br><span class="line">    <span class="keyword">return</span> wordColor;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  转换#FFFFFF格式颜色</span><br><span class="line"> *</span><br><span class="line"> *  @param string 颜色只付出</span><br><span class="line"> *  @param alpha  指定透明</span><br><span class="line"> *</span><br><span class="line"> *  @return 颜色</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">UIColor</span> *)RGBColor:(<span class="built_in">NSString</span> *)string alpha:(<span class="built_in">CGFloat</span> )alpha&#123;</span><br><span class="line">    <span class="keyword">if</span> ([string rangeOfString:<span class="string">@"#"</span>]<span class="variable">.location</span> != <span class="built_in">NSNotFound</span>) &#123;</span><br><span class="line">        string = [string stringByReplacingOccurrencesOfString:<span class="string">@"#"</span> withString:<span class="string">@""</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 十六进制字符串转成整形。</span></span><br><span class="line">    <span class="keyword">long</span> colorLong = strtoul([string cStringUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>], <span class="number">0</span>, <span class="number">16</span>);</span><br><span class="line">    <span class="comment">// 通过位与方法获取三色值</span></span><br><span class="line">    <span class="keyword">int</span> R = (colorLong &amp; <span class="number">0xFF0000</span> )&gt;&gt;<span class="number">16</span>;</span><br><span class="line">    <span class="keyword">int</span> G = (colorLong &amp; <span class="number">0x00FF00</span> )&gt;&gt;<span class="number">8</span>;</span><br><span class="line">    <span class="keyword">int</span> B = colorLong &amp; <span class="number">0x0000FF</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//string转color</span></span><br><span class="line">    <span class="built_in">UIColor</span> *wordColor = [<span class="built_in">UIColor</span> colorWithRed:R/<span class="number">255.0</span> green:G/<span class="number">255.0</span> blue:B/<span class="number">255.0</span> alpha:alpha];</span><br><span class="line">    <span class="keyword">return</span> wordColor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="透明边框效果图片">透明边框效果图片</h2><ul>
+<li>给图片添加透明通道，实现透明边框效果<blockquote>
+<p><img src="/images/Snip20160905_6.png" alt="Alt text">    <img src="/images/Snip20160905_7.png" alt="Alt text"></p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 透明效果图片</span></span><br><span class="line"><span class="comment">/// 如果含有透明通道就返回TRUE</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)hasAlpha &#123;</span><br><span class="line">    <span class="comment">// 获取图片的Alpha信息</span></span><br><span class="line">    <span class="built_in">CGImageAlphaInfo</span> alpha = <span class="built_in">CGImageGetAlphaInfo</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>);</span><br><span class="line">    <span class="comment">// 只要满足一下一种就含有透明通道</span></span><br><span class="line">    <span class="keyword">return</span> (alpha == k<span class="built_in">CGImageAlphaFirst</span> ||</span><br><span class="line">            alpha == k<span class="built_in">CGImageAlphaLast</span> ||</span><br><span class="line">            alpha == k<span class="built_in">CGImageAlphaPremultipliedFirst</span> ||</span><br><span class="line">            alpha == k<span class="built_in">CGImageAlphaPremultipliedLast</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 如果不存在透明通道就添加透明通道并返回结果</span></span><br><span class="line">- (<span class="built_in">UIImage</span> *)imageWithAlpha &#123;</span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> hasAlpha]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>; <span class="comment">// 已有，直接返回</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> scale = MAX(<span class="keyword">self</span><span class="variable">.scale</span>, <span class="number">1.0</span>f);</span><br><span class="line">    <span class="built_in">CGImageRef</span> imageRef = <span class="keyword">self</span><span class="variable">.CGImage</span>;</span><br><span class="line">    size_t width = <span class="built_in">CGImageGetWidth</span>(imageRef)*scale;</span><br><span class="line">    size_t height = <span class="built_in">CGImageGetHeight</span>(imageRef)*scale;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建位图上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> offscreenContext =</span><br><span class="line">    <span class="built_in">CGBitmapContextCreate</span>(<span class="literal">NULL</span>, <span class="comment">// 渲染内存，为NULL表示由Quartz自动分配</span></span><br><span class="line">                          width,<span class="comment">//</span></span><br><span class="line">                          height,</span><br><span class="line">                          <span class="number">8</span>,<span class="comment">// bitsPerComponent 每个像素组件的位数</span></span><br><span class="line">                          <span class="number">0</span>,<span class="comment">// 位图每行的字节数，0表示自动</span></span><br><span class="line">                          <span class="built_in">CGImageGetColorSpace</span>(imageRef),<span class="comment">// 颜色空间</span></span><br><span class="line">                          k<span class="built_in">CGBitmapByteOrderDefault</span> | k<span class="built_in">CGImageAlphaPremultipliedFirst</span>);<span class="comment">// 位图信息，这里添加透明通道</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 绘制图片</span></span><br><span class="line">    <span class="built_in">CGContextDrawImage</span>(offscreenContext, <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, width, height), imageRef);</span><br><span class="line">    <span class="built_in">CGImageRef</span> imageRefWithAlpha = <span class="built_in">CGBitmapContextCreateImage</span>(offscreenContext);</span><br><span class="line">    <span class="built_in">UIImage</span> *imageWithAlpha = [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:imageRefWithAlpha scale:<span class="keyword">self</span><span class="variable">.scale</span> orientation:<span class="built_in">UIImageOrientationUp</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 清理内存</span></span><br><span class="line">    <span class="built_in">CGContextRelease</span>(offscreenContext);</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(imageRefWithAlpha);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> imageWithAlpha;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 给图片增加透明边框，将图片进行缩放</span></span><br><span class="line">- (<span class="built_in">UIImage</span> *)transparentBorderImage:(<span class="built_in">NSUInteger</span>)borderSize &#123;</span><br><span class="line">    <span class="comment">// 如果没有透明通道，那就增加一个</span></span><br><span class="line">    <span class="built_in">UIImage</span> *image = [<span class="keyword">self</span> imageWithAlpha];</span><br><span class="line">    <span class="built_in">CGFloat</span> scale = MAX(<span class="keyword">self</span><span class="variable">.scale</span>, <span class="number">1.0</span>f);</span><br><span class="line">    <span class="built_in">NSUInteger</span> scaledBorderSize = borderSize * scale;</span><br><span class="line">    <span class="comment">// 新图片大小</span></span><br><span class="line">    <span class="built_in">CGRect</span> newRect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, image<span class="variable">.size</span><span class="variable">.width</span> * scale + scaledBorderSize * <span class="number">2</span>, image<span class="variable">.size</span><span class="variable">.height</span> * scale + scaledBorderSize * <span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建位图</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> bitmap = <span class="built_in">CGBitmapContextCreate</span>(<span class="literal">NULL</span>,</span><br><span class="line">                                                newRect<span class="variable">.size</span><span class="variable">.width</span>,</span><br><span class="line">                                                newRect<span class="variable">.size</span><span class="variable">.height</span>,</span><br><span class="line">                                                <span class="built_in">CGImageGetBitsPerComponent</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>),</span><br><span class="line">                                                <span class="number">0</span>,</span><br><span class="line">                                                <span class="built_in">CGImageGetColorSpace</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>),</span><br><span class="line">                                                <span class="built_in">CGImageGetBitmapInfo</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 绘制位图，预留一个空白的外边框</span></span><br><span class="line">    <span class="built_in">CGRect</span> imageLocation = <span class="built_in">CGRectMake</span>(scaledBorderSize, scaledBorderSize, image<span class="variable">.size</span><span class="variable">.width</span>*scale, image<span class="variable">.size</span><span class="variable">.height</span>*scale);</span><br><span class="line">    <span class="built_in">CGContextDrawImage</span>(bitmap, imageLocation, <span class="keyword">self</span><span class="variable">.CGImage</span>);</span><br><span class="line">    <span class="built_in">CGImageRef</span> borderImageRef = <span class="built_in">CGBitmapContextCreateImage</span>(bitmap);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建图片掩码，边框透明，然后和原图合并</span></span><br><span class="line">    <span class="built_in">CGImageRef</span> maskImageRef = [<span class="keyword">self</span> newBorderMask:scaledBorderSize size:newRect<span class="variable">.size</span>];</span><br><span class="line">    <span class="built_in">CGImageRef</span> transparentBorderImageRef = <span class="built_in">CGImageCreateWithMask</span>(borderImageRef, maskImageRef);</span><br><span class="line">    <span class="built_in">UIImage</span> *transparentBorderImage = [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:transparentBorderImageRef scale:<span class="keyword">self</span><span class="variable">.scale</span> orientation:<span class="built_in">UIImageOrientationUp</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Clean up</span></span><br><span class="line">    <span class="built_in">CGContextRelease</span>(bitmap);</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(borderImageRef);</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(maskImageRef);</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(transparentBorderImageRef);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> transparentBorderImage;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> *  创建透明边框</span><br><span class="line"> *</span><br><span class="line"> *  @param borderSize 边框宽度</span><br><span class="line"> *  @param size       尺寸</span><br><span class="line"> *</span><br><span class="line"> *  @return</span><br><span class="line"> */</span><br><span class="line">- (<span class="built_in">CGImageRef</span>)newBorderMask:(<span class="built_in">NSUInteger</span>)borderSize size:(<span class="built_in">CGSize</span>)size &#123;</span><br><span class="line">    <span class="comment">// 颜色空间-灰度</span></span><br><span class="line">    <span class="built_in">CGColorSpaceRef</span> colorSpace = <span class="built_in">CGColorSpaceCreateDeviceGray</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 图像上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> maskContext = <span class="built_in">CGBitmapContextCreate</span>(<span class="literal">NULL</span>,</span><br><span class="line">                                                     size<span class="variable">.width</span>,</span><br><span class="line">                                                     size<span class="variable">.height</span>,</span><br><span class="line">                                                     <span class="number">8</span>, <span class="comment">// 8-bit grayscale</span></span><br><span class="line">                                                     <span class="number">0</span>,</span><br><span class="line">                                                     colorSpace,</span><br><span class="line">                                                     k<span class="built_in">CGBitmapByteOrderDefault</span> | k<span class="built_in">CGImageAlphaNone</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 透明</span></span><br><span class="line">    <span class="built_in">CGContextSetFillColorWithColor</span>(maskContext, [<span class="built_in">UIColor</span> blackColor]<span class="variable">.CGColor</span>);</span><br><span class="line">    <span class="built_in">CGContextFillRect</span>(maskContext, <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, size<span class="variable">.width</span>, size<span class="variable">.height</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 中心不透明</span></span><br><span class="line">    <span class="built_in">CGContextSetFillColorWithColor</span>(maskContext, [<span class="built_in">UIColor</span> whiteColor]<span class="variable">.CGColor</span>);</span><br><span class="line">    <span class="built_in">CGContextFillRect</span>(maskContext, <span class="built_in">CGRectMake</span>(borderSize, borderSize, size<span class="variable">.width</span> - borderSize * <span class="number">2</span>, size<span class="variable">.height</span> - borderSize * <span class="number">2</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 获取图片掩码</span></span><br><span class="line">    <span class="built_in">CGImageRef</span> maskImageRef = <span class="built_in">CGBitmapContextCreateImage</span>(maskContext);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 清理</span></span><br><span class="line">    <span class="built_in">CGContextRelease</span>(maskContext);</span><br><span class="line">    <span class="built_in">CGColorSpaceRelease</span>(colorSpace);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> maskImageRef;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="UIImage缩放">UIImage缩放</h2><ul>
+<li>UIImage等比例缩放、UIImage自定长宽缩放</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"1"</span>];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromCGSize</span>(image<span class="variable">.size</span>));<span class="comment">// &#123;1920, 1080&#125;</span></span><br><span class="line">image = [<span class="built_in">UIImage</span> reSizeImage:image toSize:<span class="built_in">CGSizeMake</span>(<span class="number">100</span>, <span class="number">100</span>)];</span><br><span class="line"><span class="comment">// image = [UIImage scaleImage:image toScale:0.5];//&#123;960, 540&#125;</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromCGSize</span>(image<span class="variable">.size</span>));<span class="comment">//&#123;100, 100&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//UIImage等比例缩放</span></span><br><span class="line">+(<span class="built_in">UIImage</span> *)scaleImage:(<span class="built_in">UIImage</span> *)image toScale:(<span class="built_in">CGFloat</span>)scaleSize</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContext</span>(<span class="built_in">CGSizeMake</span>(image<span class="variable">.size</span><span class="variable">.width</span> * scaleSize, image<span class="variable">.size</span><span class="variable">.height</span> * scaleSize));</span><br><span class="line">    [image drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, image<span class="variable">.size</span><span class="variable">.width</span> * scaleSize, image<span class="variable">.size</span><span class="variable">.height</span> * scaleSize)];</span><br><span class="line">    <span class="built_in">UIImage</span> *scaledImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> scaledImage;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//UIImage自定长宽缩放</span></span><br><span class="line">+(<span class="built_in">UIImage</span> *)reSizeImage:(<span class="built_in">UIImage</span> *)image toSize:(<span class="built_in">CGSize</span>)reSize</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContext</span>(<span class="built_in">CGSizeMake</span>(reSize<span class="variable">.width</span>, reSize<span class="variable">.height</span>));</span><br><span class="line">    [image drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, reSize<span class="variable">.width</span>, reSize<span class="variable">.height</span>)];</span><br><span class="line">    <span class="built_in">UIImage</span> *reSizeImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> reSizeImage;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="圆形图片">圆形图片</h2><ul>
+<li>圆形图片经常用的，直接写一个分类，方便</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - Cut</span></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  图片剪切为圆形</span><br><span class="line"> *</span><br><span class="line"> *  @param originalImage 原始图片</span><br><span class="line"> *</span><br><span class="line"> *  @return 剪切后的圆形图片</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">UIImage</span> *)roundImage&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取size</span></span><br><span class="line">    <span class="built_in">CGSize</span> size = [<span class="keyword">self</span> sizeFromImage:<span class="keyword">self</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGRect</span> rect = (<span class="built_in">CGRect</span>)&#123;<span class="built_in">CGPointZero</span>,size&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//新建一个图片图形上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(size, <span class="literal">NO</span>, <span class="number">0.0</span>f);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//绘制圆形路径</span></span><br><span class="line">    <span class="built_in">CGContextAddEllipseInRect</span>(ctx, rect);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//剪裁上下文</span></span><br><span class="line">    <span class="built_in">CGContextClip</span>(ctx);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//绘制图片</span></span><br><span class="line">    [<span class="keyword">self</span> drawInRect:rect];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//取出图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *roundImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//结束上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> roundImage;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">CGSize</span>)sizeFromImage:(<span class="built_in">UIImage</span> *)image&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGSize</span> size = image<span class="variable">.size</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> wh =MIN(size<span class="variable">.width</span>, size<span class="variable">.height</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">CGSizeMake</span>(wh, wh);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="截屏\截图">截屏\截图</h2><ul>
+<li>屏幕截图</li>
+<li>从指定的view截图</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> *  直接截屏</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)cutScreen&#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> cutFromView:[<span class="built_in">UIApplication</span> sharedApplication]<span class="variable">.keyWindow</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  从给定UIView中截图：UIView转UIImage</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)cutFromView:(<span class="built_in">UIView</span> *)view&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//开启图形上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(view<span class="variable">.frame</span><span class="variable">.size</span>, <span class="literal">NO</span>, <span class="number">0.0</span>f);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//在新建的图形上下文中渲染view的layer</span></span><br><span class="line">    [view<span class="variable">.layer</span> renderInContext:context];</span><br><span class="line">    </span><br><span class="line">    [[<span class="built_in">UIColor</span> clearColor] setFill];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//关闭图形上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> image;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  从给定UIImage和指定Frame截图：</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">UIImage</span> *)cutWithFrame:(<span class="built_in">CGRect</span>)frame&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//创建CGImage</span></span><br><span class="line">    <span class="built_in">CGImageRef</span> cgimage = <span class="built_in">CGImageCreateWithImageInRect</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>, frame);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//创建image</span></span><br><span class="line">    <span class="built_in">UIImage</span> *newImage=[<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:cgimage];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//释放CGImage</span></span><br><span class="line">    <span class="built_in">CGImageRelease</span>(cgimage);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> newImage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="水印">水印</h2><ul>
+<li>图片水印，将图片绘制到一张图片任意位置</li>
+<li>文字水印，将文字绘制到一张图片任意位置<blockquote>
+<p><img src="/images/Snip20160907_10.png" alt="Alt text">   <img src="/images/Snip20160907_11.png" alt="Alt text"></p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  图片水印</span></span><br><span class="line">image = [image <span class="string">waterWithWaterImage:</span>[UIImage <span class="string">imageNamed:</span>@<span class="string">"2"</span>] <span class="string">direction:</span>ImageWaterDirectCenter <span class="string">waterSize:</span>CGSizeMake(<span class="number">100</span>, <span class="number">100</span>) <span class="string">marginXY:</span>CGPointMake(<span class="number">0</span>, <span class="number">0</span>)];</span><br><span class="line"><span class="comment">// 文字水印</span></span><br><span class="line">image =  [image <span class="string">waterWithText:</span>@<span class="string">"哈哈哈"</span> <span class="string">direction:</span>ImageWaterDirectCenter <span class="string">fontColor:</span>[UIColor blackColor] <span class="string">fontPoint:</span><span class="number">60</span> <span class="string">marginXY:</span>CGPointMake(<span class="number">0</span>, <span class="number">0</span>)];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line"> *  水印方向</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//左上</span></span><br><span class="line">    ImageWaterDirectTopLeft=<span class="number">0</span>,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//右上</span></span><br><span class="line">    ImageWaterDirectTopRight,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//左下</span></span><br><span class="line">    ImageWaterDirectBottomLeft,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//右下</span></span><br><span class="line">    ImageWaterDirectBottomRight,</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//正中</span></span><br><span class="line">    ImageWaterDirectCenter</span><br><span class="line">    </span><br><span class="line">&#125;ImageWaterDirect;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - 水印</span></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  文字水印</span><br><span class="line"> *</span><br><span class="line"> *  @param text      文字</span><br><span class="line"> *  @param direction 文字方向</span><br><span class="line"> *  @param fontColor 文字颜色</span><br><span class="line"> *  @param fontPoint 字体</span><br><span class="line"> *  @param marginXY   对齐点</span><br><span class="line"> *</span><br><span class="line"> *  @return</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">UIImage</span> *)waterWithText:(<span class="built_in">NSString</span> *)text</span><br><span class="line">                 direction:(ImageWaterDirect)direction</span><br><span class="line">                 fontColor:(<span class="built_in">UIColor</span> *)fontColor</span><br><span class="line">                 fontPoint:(<span class="built_in">CGFloat</span>)fontPoint</span><br><span class="line">                  marginXY:(<span class="built_in">CGPoint</span>)marginXY&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGSize</span> size = <span class="keyword">self</span><span class="variable">.size</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGRect</span> rect = (<span class="built_in">CGRect</span>)&#123;<span class="built_in">CGPointZero</span>,size&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//新建图片图形上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(size, <span class="literal">NO</span>, <span class="number">0.0</span>f);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//绘制图片</span></span><br><span class="line">    [<span class="keyword">self</span> drawInRect:rect];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//绘制文本</span></span><br><span class="line">    <span class="built_in">NSDictionary</span> *attr =@&#123;<span class="built_in">NSFontAttributeName</span> : [<span class="built_in">UIFont</span> systemFontOfSize:fontPoint],<span class="built_in">NSForegroundColorAttributeName</span>:fontColor&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGRect</span> strRect = [<span class="keyword">self</span> calWidth:text attr:attr direction:direction rect:rect marginXY:marginXY];</span><br><span class="line">    </span><br><span class="line">    [text drawInRect:strRect withAttributes:attr];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *newImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//结束图片图形上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> newImage;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  绘制图片水印</span><br><span class="line"> *</span><br><span class="line"> *  @param waterImage 图片水印</span><br><span class="line"> *  @param direction  方向</span><br><span class="line"> *  @param waterSize  水印大小</span><br><span class="line"> *  @param marginXY   对齐点</span><br><span class="line"> *</span><br><span class="line"> *  @return</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">UIImage</span> *)waterWithWaterImage:(<span class="built_in">UIImage</span> *)waterImage</span><br><span class="line">                       direction:(ImageWaterDirect)direction</span><br><span class="line">                       waterSize:(<span class="built_in">CGSize</span>)waterSize</span><br><span class="line">                        marginXY:(<span class="built_in">CGPoint</span>)marginXY&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGSize</span> size = <span class="keyword">self</span><span class="variable">.size</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGRect</span> rect = (<span class="built_in">CGRect</span>)&#123;<span class="built_in">CGPointZero</span>,size&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//新建图片图形上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(size, <span class="literal">NO</span>, <span class="number">0.0</span>f);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//绘制图片</span></span><br><span class="line">    [<span class="keyword">self</span> drawInRect:rect];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//计算水印的rect</span></span><br><span class="line">    <span class="built_in">CGSize</span> waterImageSize = <span class="built_in">CGSizeEqualToSize</span>(waterSize, <span class="built_in">CGSizeZero</span>)?waterImage<span class="variable">.size</span>:waterSize;</span><br><span class="line">    <span class="built_in">CGRect</span> calRect = [<span class="keyword">self</span> rectWithRect:rect size:waterImageSize direction:direction marginXY:marginXY];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//绘制水印图片</span></span><br><span class="line">    [waterImage drawInRect:calRect];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *newImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//结束图片图形上下文</span></span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> newImage;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  文字水印位置</span><br><span class="line"> *</span><br><span class="line"> *  @param str       字符串</span><br><span class="line"> *  @param attr      字符串属性</span><br><span class="line"> *  @param direction 方向</span><br><span class="line"> *  @param rect      图片Rect</span><br><span class="line"> *  @param marginXY  对齐点</span><br><span class="line"> *</span><br><span class="line"> *  @return</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">CGRect</span>)calWidth:(<span class="built_in">NSString</span> *)str</span><br><span class="line">              attr:(<span class="built_in">NSDictionary</span> *)attr</span><br><span class="line">         direction:(ImageWaterDirect)direction</span><br><span class="line">              rect:(<span class="built_in">CGRect</span>)rect</span><br><span class="line">          marginXY:(<span class="built_in">CGPoint</span>)marginXY&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGSize</span> size =  [str sizeWithAttributes:attr];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGRect</span> calRect = [<span class="keyword">self</span> rectWithRect:rect size:size direction:direction marginXY:marginXY];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> calRect;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  计算水印位置</span><br><span class="line"> *</span><br><span class="line"> *  @param rect      图片rect</span><br><span class="line"> *  @param size      size</span><br><span class="line"> *  @param direction 文字方向</span><br><span class="line"> *  @param marginXY   对齐点</span><br><span class="line"> *</span><br><span class="line"> *  @return</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">CGRect</span>)rectWithRect:(<span class="built_in">CGRect</span>)rect</span><br><span class="line">                  size:(<span class="built_in">CGSize</span>)size</span><br><span class="line">             direction:(ImageWaterDirect)direction</span><br><span class="line">              marginXY:(<span class="built_in">CGPoint</span>)marginXY&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGPoint</span> point = <span class="built_in">CGPointZero</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//右上</span></span><br><span class="line">    <span class="keyword">if</span>(ImageWaterDirectTopRight == direction) point = <span class="built_in">CGPointMake</span>(rect<span class="variable">.size</span><span class="variable">.width</span> - size<span class="variable">.width</span>, <span class="number">0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//左下</span></span><br><span class="line">    <span class="keyword">if</span>(ImageWaterDirectBottomLeft == direction) point = <span class="built_in">CGPointMake</span>(<span class="number">0</span>, rect<span class="variable">.size</span><span class="variable">.height</span> - size<span class="variable">.height</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//右下</span></span><br><span class="line">    <span class="keyword">if</span>(ImageWaterDirectBottomRight == direction) point = <span class="built_in">CGPointMake</span>(rect<span class="variable">.size</span><span class="variable">.width</span> - size<span class="variable">.width</span>, rect<span class="variable">.size</span><span class="variable">.height</span> - size<span class="variable">.height</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//正中</span></span><br><span class="line">    <span class="keyword">if</span>(ImageWaterDirectCenter == direction) point = <span class="built_in">CGPointMake</span>((rect<span class="variable">.size</span><span class="variable">.width</span> - size<span class="variable">.width</span>)*<span class="number">.5</span>f, (rect<span class="variable">.size</span><span class="variable">.height</span> - size<span class="variable">.height</span>)*<span class="number">.5</span>f);</span><br><span class="line">    </span><br><span class="line">    point<span class="variable">.x</span>+=marginXY<span class="variable">.x</span>;</span><br><span class="line">    point<span class="variable">.y</span>+=marginXY<span class="variable">.y</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGRect</span> calRect = (<span class="built_in">CGRect</span>)&#123;point,size&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> calRect;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="GIF动画">GIF动画</h2><ul>
+<li>播放gif格式的动画<br><img src="/images/动画演示.gif" alt="Alt text"></li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - Gif</span></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  播放动画</span><br><span class="line"> *</span><br><span class="line"> *  @param data 源文件（图片源）</span><br><span class="line"> *</span><br><span class="line"> *  @return</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)animatedGIFWithData:(<span class="built_in">NSData</span> *)data &#123;</span><br><span class="line">    <span class="keyword">if</span> (!data) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 加载所有图片</span></span><br><span class="line">    <span class="built_in">CGImageSourceRef</span> source = <span class="built_in">CGImageSourceCreateWithData</span>((__bridge <span class="built_in">CFDataRef</span>)data, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="comment">// 图片数量</span></span><br><span class="line">    size_t count = <span class="built_in">CGImageSourceGetCount</span>(source);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIImage</span> *animatedImage;</span><br><span class="line">    <span class="comment">// 只有一张，直接加载</span></span><br><span class="line">    <span class="keyword">if</span> (count &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        animatedImage = [[<span class="built_in">UIImage</span> alloc] initWithData:data];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 多张图片，循环播放</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">NSMutableArray</span> *images = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSTimeInterval</span> duration = <span class="number">0.0</span>f;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (size_t i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">CGImageRef</span> image = <span class="built_in">CGImageSourceCreateImageAtIndex</span>(source, i, <span class="literal">NULL</span>);</span><br><span class="line">            <span class="comment">// 图片播放时间累加</span></span><br><span class="line">            duration += [<span class="keyword">self</span> frameDurationAtIndex:i source:source];</span><br><span class="line">            </span><br><span class="line">            [images addObject:[<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:image</span><br><span class="line">                                                  scale:[<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.scale</span></span><br><span class="line">                                            orientation:<span class="built_in">UIImageOrientationUp</span>]];</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">CGImageRelease</span>(image);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (!duration) &#123;</span><br><span class="line">            duration = (<span class="number">1.0</span>f / <span class="number">10.0</span>f) * count;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 加载动画图片，指定动画播放时间</span></span><br><span class="line">        animatedImage = [<span class="built_in">UIImage</span> animatedImageWithImages:images duration:duration];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CFRelease</span>(source);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> animatedImage;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  计算动画中每一张图片的播放时间</span><br><span class="line"> *</span><br><span class="line"> *  @param index  图片索引</span><br><span class="line"> *  @param source 图片组</span><br><span class="line"> *</span><br><span class="line"> *  @return  播放时间</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="keyword">float</span>)frameDurationAtIndex:(<span class="built_in">NSUInteger</span>)index source:(<span class="built_in">CGImageSourceRef</span>)source &#123;</span><br><span class="line">    <span class="keyword">float</span> frameDuration = <span class="number">0.1</span>f;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 字典转换</span></span><br><span class="line">    <span class="built_in">CFDictionaryRef</span> cfFrameProperties = <span class="built_in">CGImageSourceCopyPropertiesAtIndex</span>(source, index, <span class="literal">nil</span>);</span><br><span class="line">    <span class="built_in">NSDictionary</span> *frameProperties = (__bridge <span class="built_in">NSDictionary</span> *)cfFrameProperties;</span><br><span class="line">    <span class="built_in">NSDictionary</span> *gifProperties = frameProperties[(<span class="built_in">NSString</span> *)k<span class="built_in">CGImagePropertyGIFDictionary</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果有延迟时间</span></span><br><span class="line">    <span class="built_in">NSNumber</span> *delayTimeUnclampedProp = gifProperties[(<span class="built_in">NSString</span> *)k<span class="built_in">CGImagePropertyGIFUnclampedDelayTime</span>];</span><br><span class="line">    <span class="keyword">if</span> (delayTimeUnclampedProp) &#123;</span><br><span class="line">        frameDuration = [delayTimeUnclampedProp floatValue];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 否则就获取播放下一张图片需要等待的时间</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSNumber</span> *delayTimeProp = gifProperties[(<span class="built_in">NSString</span> *)k<span class="built_in">CGImagePropertyGIFDelayTime</span>];</span><br><span class="line">        <span class="keyword">if</span> (delayTimeProp) &#123;</span><br><span class="line">            frameDuration = [delayTimeProp floatValue];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置最小值</span></span><br><span class="line">    <span class="keyword">if</span> (frameDuration &lt; <span class="number">0.011</span>f) &#123;</span><br><span class="line">        frameDuration = <span class="number">0.100</span>f;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CFRelease</span>(cfFrameProperties);</span><br><span class="line">    <span class="keyword">return</span> frameDuration;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  播放gif动画</span><br><span class="line"> *</span><br><span class="line"> *  @param name 文件名</span><br><span class="line"> *</span><br><span class="line"> *  @return</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)animatedGIFNamed:(<span class="built_in">NSString</span> *)name &#123;</span><br><span class="line">    <span class="built_in">CGFloat</span> scale = [<span class="built_in">UIScreen</span> mainScreen]<span class="variable">.scale</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 视网膜屏，可能要加载高清图</span></span><br><span class="line">    <span class="keyword">if</span> (scale &gt; <span class="number">1.0</span>f) &#123;</span><br><span class="line">        <span class="comment">// 文件名1</span></span><br><span class="line">        <span class="built_in">NSString</span> *retinaPath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:[name stringByAppendingString:<span class="string">@"@2x"</span>] ofType:<span class="string">@"gif"</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfFile:retinaPath];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (data) &#123;</span><br><span class="line">            <span class="keyword">return</span> [<span class="built_in">UIImage</span> animatedGIFWithData:data];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 文件名2</span></span><br><span class="line">        <span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:name ofType:<span class="string">@"gif"</span>];</span><br><span class="line">        </span><br><span class="line">        data = [<span class="built_in">NSData</span> dataWithContentsOfFile:path];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (data) &#123;</span><br><span class="line">            <span class="keyword">return</span> [<span class="built_in">UIImage</span> animatedGIFWithData:data];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">UIImage</span> imageNamed:name];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 普通屏幕</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:name ofType:<span class="string">@"gif"</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfFile:path];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (data) &#123;</span><br><span class="line">            <span class="keyword">return</span> [<span class="built_in">UIImage</span> animatedGIFWithData:data];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">UIImage</span> imageNamed:name];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  缩放动画</span><br><span class="line"> *</span><br><span class="line"> *  @param size 大小</span><br><span class="line"> *</span><br><span class="line"> *  @return  </span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">UIImage</span> *)animatedImageByScalingAndCroppingToSize:(<span class="built_in">CGSize</span>)size &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">CGSizeEqualToSize</span>(<span class="keyword">self</span><span class="variable">.size</span>, size) || <span class="built_in">CGSizeEqualToSize</span>(size, <span class="built_in">CGSizeZero</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGSize</span> scaledSize = size;</span><br><span class="line">    <span class="built_in">CGPoint</span> thumbnailPoint = <span class="built_in">CGPointZero</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> widthFactor = size<span class="variable">.width</span> / <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> heightFactor = size<span class="variable">.height</span> / <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> scaleFactor = (widthFactor &gt; heightFactor) ? widthFactor : heightFactor;</span><br><span class="line">    scaledSize<span class="variable">.width</span> = <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span> * scaleFactor;</span><br><span class="line">    scaledSize<span class="variable">.height</span> = <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span> * scaleFactor;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (widthFactor &gt; heightFactor) &#123;</span><br><span class="line">        thumbnailPoint<span class="variable">.y</span> = (size<span class="variable">.height</span> - scaledSize<span class="variable">.height</span>) * <span class="number">0.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (widthFactor &lt; heightFactor) &#123;</span><br><span class="line">        thumbnailPoint<span class="variable">.x</span> = (size<span class="variable">.width</span> - scaledSize<span class="variable">.width</span>) * <span class="number">0.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSMutableArray</span> *scaledImages = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 重绘制图片</span></span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(size, <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">UIImage</span> *image <span class="keyword">in</span> <span class="keyword">self</span><span class="variable">.images</span>) &#123;</span><br><span class="line">        [image drawInRect:<span class="built_in">CGRectMake</span>(thumbnailPoint<span class="variable">.x</span>, thumbnailPoint<span class="variable">.y</span>, scaledSize<span class="variable">.width</span>, scaledSize<span class="variable">.height</span>)];</span><br><span class="line">        <span class="built_in">UIImage</span> *newImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">        </span><br><span class="line">        [scaledImages addObject:newImage];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">UIImage</span> animatedImageWithImages:scaledImages duration:<span class="keyword">self</span><span class="variable">.duration</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="由CIImage生成UIImage">由CIImage生成UIImage</h2><ul>
+<li>用到<code>CIImage</code>时可能需要转换，直接生成指定尺寸的<code>UIInage</code></li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  根据CIImage生成指定大小的UIImage</span><br><span class="line"> *</span><br><span class="line"> *  @param image CIImage</span><br><span class="line"> *  @param size  图片宽度</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">UIImage</span> *)createNonInterpolated<span class="built_in">UIImageFormCIImage</span>:(<span class="built_in">CIImage</span> *)image withSize:(<span class="built_in">CGFloat</span>) size</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGRect</span> extent = <span class="built_in">CGRectIntegral</span>(image<span class="variable">.extent</span>);</span><br><span class="line">    <span class="built_in">CGFloat</span> scale = MIN(size/<span class="built_in">CGRectGetWidth</span>(extent), size/<span class="built_in">CGRectGetHeight</span>(extent));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1.创建bitmap;</span></span><br><span class="line">    size_t width = <span class="built_in">CGRectGetWidth</span>(extent) * scale;</span><br><span class="line">    size_t height = <span class="built_in">CGRectGetHeight</span>(extent) * scale;</span><br><span class="line">    <span class="built_in">CGColorSpaceRef</span> cs = <span class="built_in">CGColorSpaceCreateDeviceGray</span>();</span><br><span class="line">    <span class="built_in">CGContextRef</span> bitmapRef = <span class="built_in">CGBitmapContextCreate</span>(<span class="literal">nil</span>, width, height, <span class="number">8</span>, <span class="number">0</span>, cs, (<span class="built_in">CGBitmapInfo</span>)k<span class="built_in">CGImageAlphaNone</span>);</span><br><span class="line">    <span class="built_in">CIContext</span> *context = [<span class="built_in">CIContext</span> contextWithOptions:<span class="literal">nil</span>];</span><br><span class="line">    <span class="built_in">CGImageRef</span> bitmapImage = [context create<span class="built_in">CGImage</span>:image fromRect:extent];</span><br><span class="line">    <span class="built_in">CGContextSetInterpolationQuality</span>(bitmapRef, k<span class="built_in">CGInterpolationNone</span>);</span><br><span class="line">    <span class="built_in">CGContextScaleCTM</span>(bitmapRef, scale, scale);</span><br><span class="line">    <span class="built_in">CGContextDrawImage</span>(bitmapRef, extent, bitmapImage);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.保存bitmap到图片</span></span><br><span class="line">    <span class="built_in">CGImageRef</span> scaledImage = <span class="built_in">CGBitmapContextCreateImage</span>(bitmapRef);</span><br><span class="line">    <span class="built_in">UIImage</span> *resultImage = [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:scaledImage];</span><br><span class="line">    <span class="built_in">CGContextRelease</span>(bitmapRef);</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(bitmapImage);</span><br><span class="line">    <span class="built_in">CGColorSpaceRelease</span>(cs);</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(scaledImage);</span><br><span class="line">    <span class="keyword">return</span> resultImage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="转换成黑白图片">转换成黑白图片</h2><ul>
+<li>将给定图片转换成黑白图片</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  转成黑白图像</span><br><span class="line"> *</span><br><span class="line"> *  @param sourceImage 原图</span><br><span class="line"> *</span><br><span class="line"> *  @return 黑白图像</span><br><span class="line"> */</span></span><br><span class="line">+ (<span class="built_in">UIImage</span>*)covertToGrayImageFromImage:(<span class="built_in">UIImage</span>*)sourceImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> width = sourceImage<span class="variable">.size</span><span class="variable">.width</span>;</span><br><span class="line">    <span class="keyword">int</span> height = sourceImage<span class="variable">.size</span><span class="variable">.height</span>;</span><br><span class="line">    <span class="comment">// 指定颜色空间</span></span><br><span class="line">    <span class="built_in">CGColorSpaceRef</span> colorSpace = <span class="built_in">CGColorSpaceCreateDeviceGray</span>();</span><br><span class="line">    <span class="comment">// 创建图形上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">CGBitmapContextCreate</span> (<span class="literal">nil</span>,width,height,<span class="number">8</span>,<span class="number">0</span>,colorSpace,k<span class="built_in">CGImageAlphaNone</span>);</span><br><span class="line">    <span class="built_in">CGColorSpaceRelease</span>(colorSpace);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (context == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 绘制图片</span></span><br><span class="line">    <span class="built_in">CGContextDrawImage</span>(context,<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, width, height), sourceImage<span class="variable">.CGImage</span>);</span><br><span class="line">    <span class="built_in">CGImageRef</span> contextRef = <span class="built_in">CGBitmapContextCreateImage</span>(context);</span><br><span class="line">    <span class="comment">// 得到图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *grayImage = [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:contextRef];</span><br><span class="line">    <span class="built_in">CGContextRelease</span>(context);</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(contextRef);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> grayImage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS/">iOS</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/09/10/UIImage分类总结/" data-title="UIImage分类总结 | Bloging" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/04/16/URL加解密/"  title="URL加解密">
+ <strong>下一篇：</strong><br/> 
+ <span>URL加解密
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/09/10/UIImage分类总结/" data-title="UIImage分类总结" data-url="http://yoursite.com/2016/09/10/UIImage分类总结/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UIImage_分类总结"><span class="toc-number">1.</span> <span class="toc-text">UIImage 分类总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#修正图片方向"><span class="toc-number">1.1.</span> <span class="toc-text">修正图片方向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指定颜色生成图片"><span class="toc-number">1.2.</span> <span class="toc-text">指定颜色生成图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#图片模糊"><span class="toc-number">1.3.</span> <span class="toc-text">图片模糊</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换#FFFFFF格式颜色"><span class="toc-number">1.4.</span> <span class="toc-text">转换#FFFFFF格式颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#透明边框效果图片"><span class="toc-number">1.5.</span> <span class="toc-text">透明边框效果图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIImage缩放"><span class="toc-number">1.6.</span> <span class="toc-text">UIImage缩放</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圆形图片"><span class="toc-number">1.7.</span> <span class="toc-text">圆形图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#截屏\截图"><span class="toc-number">1.8.</span> <span class="toc-text">截屏\截图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#水印"><span class="toc-number">1.9.</span> <span class="toc-text">水印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GIF动画"><span class="toc-number">1.10.</span> <span class="toc-text">GIF动画</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#由CIImage生成UIImage"><span class="toc-number">1.11.</span> <span class="toc-text">由CIImage生成UIImage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换成黑白图片"><span class="toc-number">1.12.</span> <span class="toc-text">转换成黑白图片</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/OC/" title="OC">OC<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift/" title="swift">swift<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> This is my blog,believe it or not. <br/>
+			To be or not to be, this is the question.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:slq0378@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Song"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-68091434-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fe6d1f421bbc9962127a50488f9ed37d1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
