@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>iOS重构项目之路 | Bloging</title>
+    <title>Mac上Git服务器搭建 | Bloging</title>
     <meta name="google-site-verification" content="PvTUEr8LZywTInLlqUkqshyJLpIqOn6oreUiZvWKB2Q" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
@@ -13,47 +13,44 @@
     
 
     
-    <meta name="description" content="iOS重构项目之路@(iOS)
-[TOC]
-1、整理目录
-按照功能模块对整个工程的目录进行分类，比如
+    <meta name="description" content="Mac上Git服务器搭建@(编程)[Git, Mac]
 
+参考文章不想用svn啦，但是又不能用GitHub，只好在我自己电脑上部署一个git服务器了。网上搜索了一大堆文章，但是最后发现一个比较快速的方式，那就是使用Gogs。这个是个开源的快速搭建git一站式服务。
 
-2、整理资源文件
-删除多余的图片文件，资源文件
-图片资源尽量添加到Assets.xcassets中
-删除项目中未引用的图片的话，可以全部搜索图片名，只要通过[UIImage imageNamed:@&amp;quot;outline&amp;quot;] 或 [UIImage imageWithContent">
+安装方式
+可以参考官方文档，中文的，很方便 
+使用文档
+关键几点是
+1、安装git
+2、安装Homebrew  Homebrew官网">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS重构项目之路">
-<meta property="og:url" content="http://songliquan.github.io/2016/12/05/iOS重构项目之路/index.html">
+<meta property="og:title" content="Mac上Git服务器搭建">
+<meta property="og:url" content="http://songliquan.github.io/2017/03/08/Mac上Git服务器搭建/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="iOS重构项目之路@(iOS)
-[TOC]
-1、整理目录
-按照功能模块对整个工程的目录进行分类，比如
+<meta property="og:description" content="Mac上Git服务器搭建@(编程)[Git, Mac]
 
+参考文章不想用svn啦，但是又不能用GitHub，只好在我自己电脑上部署一个git服务器了。网上搜索了一大堆文章，但是最后发现一个比较快速的方式，那就是使用Gogs。这个是个开源的快速搭建git一站式服务。
 
-2、整理资源文件
-删除多余的图片文件，资源文件
-图片资源尽量添加到Assets.xcassets中
-删除项目中未引用的图片的话，可以全部搜索图片名，只要通过[UIImage imageNamed:@&amp;quot;outline&amp;quot;] 或 [UIImage imageWithContent">
-<meta property="og:image" content="http://songliquan.github.io/images/屏幕快照 2016-12-05 上午8.39.22.png">
-<meta property="og:image" content="http://songliquan.github.io/images/屏幕快照 2016-12-05 上午8.42.32.png">
-<meta property="og:image" content="http://songliquan.github.io/images/屏幕快照 2016-12-05 上午8.45.37.png">
-<meta property="og:image" content="http://songliquan.github.io/images/copy items if needed.gif">
-<meta property="og:updated_time" content="2017-03-27T06:17:45.000Z">
+安装方式
+可以参考官方文档，中文的，很方便 
+使用文档
+关键几点是
+1、安装git
+2、安装Homebrew  Homebrew官网">
+<meta property="og:image" content="http://songliquan.github.io/images/屏幕快照 2017-03-08 下午4.21.15.png">
+<meta property="og:updated_time" content="2017-03-27T06:51:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS重构项目之路">
-<meta name="twitter:description" content="iOS重构项目之路@(iOS)
-[TOC]
-1、整理目录
-按照功能模块对整个工程的目录进行分类，比如
+<meta name="twitter:title" content="Mac上Git服务器搭建">
+<meta name="twitter:description" content="Mac上Git服务器搭建@(编程)[Git, Mac]
 
+参考文章不想用svn啦，但是又不能用GitHub，只好在我自己电脑上部署一个git服务器了。网上搜索了一大堆文章，但是最后发现一个比较快速的方式，那就是使用Gogs。这个是个开源的快速搭建git一站式服务。
 
-2、整理资源文件
-删除多余的图片文件，资源文件
-图片资源尽量添加到Assets.xcassets中
-删除项目中未引用的图片的话，可以全部搜索图片名，只要通过[UIImage imageNamed:@&amp;quot;outline&amp;quot;] 或 [UIImage imageWithContent">
+安装方式
+可以参考官方文档，中文的，很方便 
+使用文档
+关键几点是
+1、安装git
+2、安装Homebrew  Homebrew官网">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -113,14 +110,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/12/05/iOS重构项目之路/" title="iOS重构项目之路" itemprop="url">iOS重构项目之路</a>
+      <a href="/2017/03/08/Mac上Git服务器搭建/" title="Mac上Git服务器搭建" itemprop="url">Mac上Git服务器搭建</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Mr Song" target="_blank" itemprop="author">Mr Song</a>
 		
   <p class="article-time">
-    <time datetime="2016-12-05T08:11:02.000Z" itemprop="datePublished"> 发表于 2016-12-05</time>
+    <time datetime="2017-03-08T02:25:18.000Z" itemprop="datePublished"> 发表于 2017-03-08</time>
     
   </p>
 </header>
@@ -129,62 +126,51 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS重构项目之路"><span class="toc-number">1.</span> <span class="toc-text">iOS重构项目之路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、整理目录"><span class="toc-number">1.1.</span> <span class="toc-text">1、整理目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、整理资源文件"><span class="toc-number">1.2.</span> <span class="toc-text">2、整理资源文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、分离功能模块"><span class="toc-number">1.3.</span> <span class="toc-text">3、分离功能模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、整理源文件"><span class="toc-number">1.4.</span> <span class="toc-text">4、整理源文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、升级各种框架"><span class="toc-number">1.5.</span> <span class="toc-text">5、升级各种框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、安全分析"><span class="toc-number">1.6.</span> <span class="toc-text">6、安全分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、提取URL管理公共类"><span class="toc-number">1.7.</span> <span class="toc-text">7、提取URL管理公共类</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mac上Git服务器搭建"><span class="toc-number">1.</span> <span class="toc-text">Mac上Git服务器搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装方式"><span class="toc-number">1.1.</span> <span class="toc-text">安装方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">1.2.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="iOS重构项目之路">iOS重构项目之路</h1><p>@(iOS)</p>
-<p>[TOC]</p>
-<h2 id="1、整理目录">1、整理目录</h2><ul>
-<li>按照功能模块对整个工程的目录进行分类，比如</li>
-<li><img src="/images/屏幕快照 2016-12-05 上午8.39.22.png" alt="Alt text"></li>
-</ul>
-<h2 id="2、整理资源文件">2、整理资源文件</h2><ul>
-<li>删除多余的图片文件，资源文件</li>
-<li>图片资源尽量添加到<code>Assets.xcassets</code>中</li>
-<li>删除项目中未引用的图片的话，可以全部搜索图片名，只要通过<code>[UIImage imageNamed:@&quot;outline&quot;]</code> 或 <code>[UIImage imageWithContentsOfFile:@&quot;&quot;]</code> 或 <code>xib</code>中引用的图片都可以搜索到。</li>
-<li><img src="/images/屏幕快照 2016-12-05 上午8.42.32.png" alt="Alt text"></li>
-<li>有一点要注意，那就是如果是加载的动图的话，搜索注意一下<code>walk1.png</code><br><code>walk2.png</code> <code>walk3.png</code>这种的要搜索<code>walk</code>。</li>
-<li>对所有图片文件进行压缩</li>
-<li>通过第三方工具对所有图片进行一次压缩 ，我这里用的工具是 <code>Squash</code></li>
-<li>删除无用的类，或者重复的类</li>
-<li>这个也可以全部搜索，如果项目中使用了这个类，肯定可以搜索出来</li>
-<li><img src="/images/屏幕快照 2016-12-05 上午8.45.37.png" alt="Alt text"></li>
-</ul>
-<h2 id="3、分离功能模块">3、分离功能模块</h2><ul>
-<li>因为有多个项目使用相同的功能，所有使用<strong>软连接</strong>的方式对功能模块进行引用</li>
-<li>在<code>SVN</code>建立一个目录单独存放分离出来单独功能，多个项目通过软连接的方式都可以引用这个文件夹</li>
-<li><img src="/images/copy items if needed.gif" alt="Alt text"></li>
-<li>其他工程通过软连接进行引用，通过拖拽方式进行添加，不勾选<code>copy items if needed</code></li>
-<li>模块中用到的一些公共方法要保证项目中都存在</li>
-</ul>
+		<h1 id="Mac上Git服务器搭建">Mac上Git服务器搭建</h1><p>@(编程)[Git, Mac]</p>
 <blockquote>
-<p>注意<br>勾选<code>copy items if needed</code> 会将源文件copy到项目中<br>不勾选<code>copy items if needed</code> 的话只是建立软连接</p>
+<p><a href="http://www.jianshu.com/p/ce72011d1f77?utm_campaign=hugo&amp;utm_medium=reader_share&amp;utm_content=note" target="_blank" rel="external">参考文章</a><br>不想用svn啦，但是又不能用GitHub，只好在我自己电脑上部署一个git服务器了。网上搜索了一大堆文章，但是最后发现一个比较快速的方式，那就是使用<a href="https://gogs.io/" target="_blank" rel="external">Gogs</a>。这个是个开源的快速搭建git一站式服务。</p>
 </blockquote>
-<h2 id="4、整理源文件">4、整理源文件</h2><ul>
-<li>这里就需要逐个查看源文件了，看过后进行分析整理，这个也是最耗时的，要对整个项目逻辑都理解清楚才能进行抽取或者继承。</li>
-<li>该封装的封装，比如说工具类，公共类</li>
-<li>该用继承的就用继承，继承大法好啊，可以省去很多代码</li>
-<li>通过宏去控制逻辑，比如各种功能开关</li>
-<li>最后一步才是终极目标，对整个项目进行分析解耦，让逻辑更加清晰</li>
+<h2 id="安装方式">安装方式</h2><ul>
+<li>可以参考官方文档，中文的，很方便 </li>
+<li><a href="https://gogs.io/docs/installation" target="_blank" rel="external">使用文档</a></li>
+<li>关键几点是</li>
+<li>1、安装<code>git</code></li>
+<li>2、安装<code>Homebrew</code>  <a href="https://brew.sh/" target="_blank" rel="external">Homebrew官网</a></li>
+<li>3、选择<a href="https://gogs.io/docs/installation/install_from_binary.html" target="_blank" rel="external">二进制安装</a></li>
+<li>4、下载安装包![Alt text]</li>
+<li><p>5、解压文件到指定目录，以后运行就在这个目录下<br><img src="/images/屏幕快照 2017-03-08 下午4.21.15.png" alt="Alt text"></p>
+</li>
+<li><p>6、直接运行就可以进入web界面进行管理了，但是那个终端窗口不能关闭</p>
+</li>
+<li>7、然后就是简单的<a href="https://gogs.io/docs/installation/configuration_and_run" target="_blank" rel="external">仓库配置</a></li>
 </ul>
-<h2 id="5、升级各种框架">5、升级各种框架</h2><ul>
-<li>项目中的框架很多都是旧的，没有使用Cocoapod进行管理，所以只能一个一个替换，期间尝试替换成Cocoapod，奈何网络不行并且问题颇多，最后不得不放弃使用Cocoapod。其实Cocoapod真的挺好的。</li>
+<h2 id="注意事项">注意事项</h2><ul>
+<li>还有一点需要注意，就是官方说的<code>custom/conf/app.ini</code>配置文件，这里可以修改服务器的一些配置，比如这一段</li>
 </ul>
-<h2 id="6、安全分析">6、安全分析</h2><ul>
-<li>通过解压ipa包，发现里面有很多源文件，可以直接看到内容，有些东西用的plist，或者txt文本，这些东西直接包含在ipa包里，非常之不安全，全部改为使用源文件<code>.h</code>或<code>.m</code> ，或者直接预制到加密数据库中。</li>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="title">[server]</span></span><br><span class="line"><span class="setting">DOMAIN       = <span class="value"><span class="number">192.168</span>.<span class="number">88.154</span></span></span></span><br><span class="line"><span class="setting">HTTP_PORT    = <span class="value"><span class="number">3000</span></span></span></span><br><span class="line"><span class="setting">ROOT_URL     = <span class="value">http://<span class="number">192.168</span>.<span class="number">88.154</span>:<span class="number">3000</span>/</span></span></span><br><span class="line"><span class="setting">DISABLE_SSH  = <span class="value"><span class="keyword">false</span></span></span></span><br><span class="line"><span class="setting">SSH_PORT     = <span class="value"><span class="number">22</span></span></span></span><br><span class="line"><span class="setting">OFFLINE_MODE = <span class="value"><span class="keyword">false</span></span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>DOMAIN</code> 这个默认是<code>localhost</code></li>
+<li><code>ROOT_URL</code>这个默认是 <code>http://localhost:3000/</code></li>
+<li>这两个需要改成本地ip地址，最好把ip地址固定。<br>然后在局域网内，同事就可以用了。</li>
 </ul>
-<h2 id="7、提取URL管理公共类">7、提取URL管理公共类</h2><ul>
-<li>将所有的URL地址的拼接放到一个单粒类中管理，方便维护。</li>
+<ul>
+<li>以后每次需要使用的时候，只需找到下</li>
+<li>好了，这只是简单应用，至于什么钩子之类的暂时还用不到，就先不研究了。</li>
 </ul>
-<blockquote>
-<p>目前就这么多了，有不足之处欢迎大家指教啊</p>
-</blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Git/">Git</a>
+  </div>
 
 </div>
 
@@ -192,7 +178,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2016/12/05/iOS重构项目之路/" data-title="iOS重构项目之路 | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2017/03/08/Mac上Git服务器搭建/" data-title="Mac上Git服务器搭建 | Bloging" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -205,19 +191,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/12/26/链式编程总结/" title="链式编程总结">
-  <strong>上一篇：</strong><br/>
-  <span>
-  链式编程总结</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/10/29/第三方静态库冲突产生的duplicatesymbol/"  title="第三方静态库冲突产生的Duplicatesymbol">
+<a href="/2016/12/26/链式编程总结/"  title="链式编程总结">
  <strong>下一篇：</strong><br/> 
- <span>第三方静态库冲突产生的Duplicatesymbol
+ <span>链式编程总结
 </span>
 </a>
 </div>
@@ -226,7 +204,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/12/05/iOS重构项目之路/" data-title="iOS重构项目之路" data-url="http://songliquan.github.io/2016/12/05/iOS重构项目之路/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/08/Mac上Git服务器搭建/" data-title="Mac上Git服务器搭建" data-url="http://songliquan.github.io/2017/03/08/Mac上Git服务器搭建/"></div>
 </section>
 
 
@@ -236,7 +214,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS重构项目之路"><span class="toc-number">1.</span> <span class="toc-text">iOS重构项目之路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、整理目录"><span class="toc-number">1.1.</span> <span class="toc-text">1、整理目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、整理资源文件"><span class="toc-number">1.2.</span> <span class="toc-text">2、整理资源文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、分离功能模块"><span class="toc-number">1.3.</span> <span class="toc-text">3、分离功能模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、整理源文件"><span class="toc-number">1.4.</span> <span class="toc-text">4、整理源文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、升级各种框架"><span class="toc-number">1.5.</span> <span class="toc-text">5、升级各种框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、安全分析"><span class="toc-number">1.6.</span> <span class="toc-text">6、安全分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、提取URL管理公共类"><span class="toc-number">1.7.</span> <span class="toc-text">7、提取URL管理公共类</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mac上Git服务器搭建"><span class="toc-number">1.</span> <span class="toc-text">Mac上Git服务器搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装方式"><span class="toc-number">1.1.</span> <span class="toc-text">安装方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">1.2.</span> <span class="toc-text">注意事项</span></a></li></ol></li></ol>
  
   </div>
 
@@ -281,6 +259,8 @@
 				<li><a href="/tags/CocoaPods/" title="CocoaPods">CocoaPods<sup>1</sup></a></li>
 			
 		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 		</ul>

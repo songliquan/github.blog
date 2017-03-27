@@ -80,18 +80,20 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
-    <a href="/2017/03/27/iOS中如何使用HTML进行打印/" title="iOS中如何使用HTML进行打印" itemprop="url">
+    <a href="/2017/03/08/Mac上Git服务器搭建/" title="Mac上Git服务器搭建" itemprop="url">
   
-    <h1 itemprop="name">iOS中如何使用HTML进行打印</h1>
+    <h1 itemprop="name">Mac上Git服务器搭建</h1>
     
      
-           <p itemprop="description" >iOS中如何使用HTML进行打印@(iOS)[HTML]
-[TOC]
+           <p itemprop="description" >Mac上Git服务器搭建@(编程)[Git, Mac]
 
-新需求，要把app中的信息打印出来，通过AirPrint方式打印，一脸懵逼。听说图片可以打印，但是要把信息绘制成指定格式的图片好坑，灵活性太低。听说用textKit可以实现，但是textKit图文混排是个大坑</p>
+参考文章不想用svn啦，但是又不能用GitHub，只好在我自己电脑上部署一个git服务器了。网上搜索了一大堆文章，但是最后发现一个比较快速的方式，那就是使用Gogs。这个是个开源的快速搭建git一站式服务。
+
+安装方式
+可</p>
         
     
-    <time datetime="2017-03-27T06:11:36.000Z" itemprop="datePublished">2017-03-27</time>
+    <time datetime="2017-03-08T02:25:18.000Z" itemprop="datePublished">2017-03-08</time>
   </a>
 </section>
 
@@ -118,60 +120,6 @@
         
     
     <time datetime="2016-12-26T01:11:15.000Z" itemprop="datePublished">2016-12-26</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/12/05/iOS重构项目之路/" title="iOS重构项目之路" itemprop="url">
-  
-    <h1 itemprop="name">iOS重构项目之路</h1>
-    
-     
-           <p itemprop="description" >iOS重构项目之路@(iOS)
-[TOC]
-1、整理目录
-按照功能模块对整个工程的目录进行分类，比如
-
-
-2、整理资源文件
-删除多余的图片文件，资源文件
-图片资源尽量添加到Assets.xcassets中
-删除项目中未引用的图片的话，可以全部搜索图片名，只要通过[UIImage </p>
-        
-    
-    <time datetime="2016-12-05T08:11:02.000Z" itemprop="datePublished">2016-12-05</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/10/29/第三方静态库冲突产生的duplicatesymbol/" title="第三方静态库冲突产生的Duplicatesymbol" itemprop="url">
-  
-    <h1 itemprop="name">第三方静态库冲突产生的Duplicatesymbol</h1>
-    
-     
-           <p itemprop="description" >第三方静态库冲突产生的duplicate symbol[TOC]
-@(iOS)[Xcode, Mac]
-错误描述
-项目中引用了很多第三方库，有时就会出现一些冲突，比如下面
-
-duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/</p>
-        
-    
-    <time datetime="2016-10-29T03:09:19.000Z" itemprop="datePublished">2016-10-29</time>
   </a>
 </section>
 
@@ -336,6 +284,58 @@ CoreAnim</p>
 
 
 
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/26/swift新特性/" title="Swift与众不同的地方" itemprop="url">
+  
+    <h1 itemprop="name">Swift与众不同的地方</h1>
+    
+     
+           <p itemprop="description" >Swift 与众不同的地方switch（元组）
+特点
+
+其他语言中的switch语句只能比较离散的整形数据（字符可以转换成整数）
+但是swift中可以比较整数、浮点数、字符、字符串、和元组数据类型，而且它可以是离散的也可以使连续的范围
+而且在swift中case语句不需要显示的添</p>
+        
+    
+    <time datetime="2015-09-26T08:54:36.000Z" itemprop="datePublished">2015-09-26</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/03/表情键盘实现/" title="表情键盘实现" itemprop="url">
+  
+    <h1 itemprop="name">表情键盘实现</h1>
+    
+     
+           <p itemprop="description" >表情键盘实现
+直接自定义文本输入框的inputView属性，直接改成自己想要的UIView即可。
+表情保存在本地，从沙盒中读取
+
+emoji表情显示
+emoji对应十六进制,如果要显示的话，需要转换一下
+
+// emoji对应十六进制func emojiToShow(code: </p>
+        
+    
+    <time datetime="2015-09-03T02:25:18.000Z" itemprop="datePublished">2015-09-03</time>
+  </a>
+</section>
+
+
+
+
+
+
 
   <nav id="page-nav" class="clearfix unexpand">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
@@ -385,6 +385,8 @@ CoreAnim</p>
 				<li><a href="/tags/CocoaPods/" title="CocoaPods">CocoaPods<sup>1</sup></a></li>
 			
 		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 		</ul>
