@@ -1,0 +1,574 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>iOS重构项目之路 | Bloging</title>
+    <meta name="google-site-verification" content="PvTUEr8LZywTInLlqUkqshyJLpIqOn6oreUiZvWKB2Q" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Mr Song">
+    
+
+    
+    <meta name="description" content="iOS重构项目之路1、整理目录
+按照功能模块对整个工程的目录进行分类，比如
+
+
+2、整理资源文件
+删除多余的图片文件，资源文件
+图片资源尽量添加到Assets.xcassets中
+删除项目中未引用的图片的话，可以全部搜索图片名，只要通过[UIImage imageNamed:@&amp;quot;outline&amp;quot;] 或 [UIImage imageWithContentsOfFile:@&amp;quo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS重构项目之路">
+<meta property="og:url" content="http://songliquan.github.io/2016/12/05/iOS重构项目之路/index.html">
+<meta property="og:site_name" content="Bloging">
+<meta property="og:description" content="iOS重构项目之路1、整理目录
+按照功能模块对整个工程的目录进行分类，比如
+
+
+2、整理资源文件
+删除多余的图片文件，资源文件
+图片资源尽量添加到Assets.xcassets中
+删除项目中未引用的图片的话，可以全部搜索图片名，只要通过[UIImage imageNamed:@&amp;quot;outline&amp;quot;] 或 [UIImage imageWithContentsOfFile:@&amp;quo">
+<meta property="og:image" content="http://songliquan.github.io/images/屏幕快照 2016-12-05 上午8.39.22.png">
+<meta property="og:image" content="http://songliquan.github.io/images/屏幕快照 2016-12-05 上午8.42.32.png">
+<meta property="og:image" content="http://songliquan.github.io/images/屏幕快照 2016-12-05 上午8.45.37.png">
+<meta property="og:image" content="http://songliquan.github.io/images/copy items if needed.gif">
+<meta property="og:updated_time" content="2017-03-27T07:13:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS重构项目之路">
+<meta name="twitter:description" content="iOS重构项目之路1、整理目录
+按照功能模块对整个工程的目录进行分类，比如
+
+
+2、整理资源文件
+删除多余的图片文件，资源文件
+图片资源尽量添加到Assets.xcassets中
+删除项目中未引用的图片的话，可以全部搜索图片名，只要通过[UIImage imageNamed:@&amp;quot;outline&amp;quot;] 或 [UIImage imageWithContentsOfFile:@&amp;quo">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/atom.xml">Rss</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
+					</form>
+					
+					</li>
+					
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/05/iOS重构项目之路/" title="iOS重构项目之路" itemprop="url">iOS重构项目之路</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Mr Song" target="_blank" itemprop="author">Mr Song</a>
+		
+  <p class="article-time">
+    <time datetime="2016-12-05T08:11:02.000Z" itemprop="datePublished"> 发表于 2016-12-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS重构项目之路"><span class="toc-number">1.</span> <span class="toc-text">iOS重构项目之路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、整理目录"><span class="toc-number">1.1.</span> <span class="toc-text">1、整理目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、整理资源文件"><span class="toc-number">1.2.</span> <span class="toc-text">2、整理资源文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、分离功能模块"><span class="toc-number">1.3.</span> <span class="toc-text">3、分离功能模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、整理源文件"><span class="toc-number">1.4.</span> <span class="toc-text">4、整理源文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、升级各种框架"><span class="toc-number">1.5.</span> <span class="toc-text">5、升级各种框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、安全分析"><span class="toc-number">1.6.</span> <span class="toc-text">6、安全分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、提取URL管理公共类"><span class="toc-number">1.7.</span> <span class="toc-text">7、提取URL管理公共类</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="iOS重构项目之路">iOS重构项目之路</h1><h2 id="1、整理目录">1、整理目录</h2><ul>
+<li>按照功能模块对整个工程的目录进行分类，比如</li>
+<li><img src="/images/屏幕快照 2016-12-05 上午8.39.22.png" alt="Alt text"></li>
+</ul>
+<h2 id="2、整理资源文件">2、整理资源文件</h2><ul>
+<li>删除多余的图片文件，资源文件</li>
+<li>图片资源尽量添加到<code>Assets.xcassets</code>中</li>
+<li>删除项目中未引用的图片的话，可以全部搜索图片名，只要通过<code>[UIImage imageNamed:@&quot;outline&quot;]</code> 或 <code>[UIImage imageWithContentsOfFile:@&quot;&quot;]</code> 或 <code>xib</code>中引用的图片都可以搜索到。</li>
+<li><img src="/images/屏幕快照 2016-12-05 上午8.42.32.png" alt="Alt text"></li>
+<li>有一点要注意，那就是如果是加载的动图的话，搜索注意一下<code>walk1.png</code><br><code>walk2.png</code> <code>walk3.png</code>这种的要搜索<code>walk</code>。</li>
+<li>对所有图片文件进行压缩</li>
+<li>通过第三方工具对所有图片进行一次压缩 ，我这里用的工具是 <code>Squash</code></li>
+<li>删除无用的类，或者重复的类</li>
+<li>这个也可以全部搜索，如果项目中使用了这个类，肯定可以搜索出来</li>
+<li><img src="/images/屏幕快照 2016-12-05 上午8.45.37.png" alt="Alt text"></li>
+</ul>
+<h2 id="3、分离功能模块">3、分离功能模块</h2><ul>
+<li>因为有多个项目使用相同的功能，所有使用<strong>软连接</strong>的方式对功能模块进行引用</li>
+<li>在<code>SVN</code>建立一个目录单独存放分离出来单独功能，多个项目通过软连接的方式都可以引用这个文件夹</li>
+<li><img src="/images/copy items if needed.gif" alt="Alt text"></li>
+<li>其他工程通过软连接进行引用，通过拖拽方式进行添加，不勾选<code>copy items if needed</code></li>
+<li>模块中用到的一些公共方法要保证项目中都存在</li>
+</ul>
+<blockquote>
+<p>注意<br>勾选<code>copy items if needed</code> 会将源文件copy到项目中<br>不勾选<code>copy items if needed</code> 的话只是建立软连接</p>
+</blockquote>
+<h2 id="4、整理源文件">4、整理源文件</h2><ul>
+<li>这里就需要逐个查看源文件了，看过后进行分析整理，这个也是最耗时的，要对整个项目逻辑都理解清楚才能进行抽取或者继承。</li>
+<li>该封装的封装，比如说工具类，公共类</li>
+<li>该用继承的就用继承，继承大法好啊，可以省去很多代码</li>
+<li>通过宏去控制逻辑，比如各种功能开关</li>
+<li>最后一步才是终极目标，对整个项目进行分析解耦，让逻辑更加清晰</li>
+</ul>
+<h2 id="5、升级各种框架">5、升级各种框架</h2><ul>
+<li>项目中的框架很多都是旧的，没有使用Cocoapod进行管理，所以只能一个一个替换，期间尝试替换成Cocoapod，奈何网络不行并且问题颇多，最后不得不放弃使用Cocoapod。其实Cocoapod真的挺好的。</li>
+</ul>
+<h2 id="6、安全分析">6、安全分析</h2><ul>
+<li>通过解压ipa包，发现里面有很多源文件，可以直接看到内容，有些东西用的plist，或者txt文本，这些东西直接包含在ipa包里，非常之不安全，全部改为使用源文件<code>.h</code>或<code>.m</code> ，或者直接预制到加密数据库中。</li>
+</ul>
+<h2 id="7、提取URL管理公共类">7、提取URL管理公共类</h2><ul>
+<li>将所有的URL地址的拼接放到一个单粒类中管理，方便维护。</li>
+</ul>
+<blockquote>
+<p>目前就这么多了，有不足之处欢迎大家指教啊</p>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/iOS/">iOS</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://songliquan.github.io/2016/12/05/iOS重构项目之路/" data-title="iOS重构项目之路 | Bloging" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/12/26/链式编程总结/" title="链式编程总结">
+  <strong>上一篇：</strong><br/>
+  <span>
+  链式编程总结</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/10/29/第三方静态库冲突产生的duplicatesymbol/"  title="第三方静态库冲突产生的Duplicatesymbol">
+ <strong>下一篇：</strong><br/> 
+ <span>第三方静态库冲突产生的Duplicatesymbol
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/12/05/iOS重构项目之路/" data-title="iOS重构项目之路" data-url="http://songliquan.github.io/2016/12/05/iOS重构项目之路/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS重构项目之路"><span class="toc-number">1.</span> <span class="toc-text">iOS重构项目之路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、整理目录"><span class="toc-number">1.1.</span> <span class="toc-text">1、整理目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、整理资源文件"><span class="toc-number">1.2.</span> <span class="toc-text">2、整理资源文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、分离功能模块"><span class="toc-number">1.3.</span> <span class="toc-text">3、分离功能模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、整理源文件"><span class="toc-number">1.4.</span> <span class="toc-text">4、整理源文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、升级各种框架"><span class="toc-number">1.5.</span> <span class="toc-text">5、升级各种框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、安全分析"><span class="toc-number">1.6.</span> <span class="toc-text">6、安全分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、提取URL管理公共类"><span class="toc-number">1.7.</span> <span class="toc-text">7、提取URL管理公共类</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="slq0378" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/OC/" title="OC">OC<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift/" title="swift">swift<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CocoaPods/" title="CocoaPods">CocoaPods<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-UIImage/" title="iOS,UIImage">iOS,UIImage<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> This is my blog,believe it or not. <br/>
+			To be or not to be, this is the question.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:slq0378@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Song"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-68091434-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

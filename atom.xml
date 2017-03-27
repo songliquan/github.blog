@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://songliquan.github.io/"/>
-  <updated>2017-03-27T06:51:24.000Z</updated>
+  <updated>2017-03-27T07:14:00.000Z</updated>
   <id>http://songliquan.github.io/</id>
   
   <author>
@@ -14,6 +14,95 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS中如何使用HTML进行打印</title>
+    <link href="http://songliquan.github.io/2017/03/27/iOS%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8HTML%E8%BF%9B%E8%A1%8C%E6%89%93%E5%8D%B0/"/>
+    <id>http://songliquan.github.io/2017/03/27/iOS中如何使用HTML进行打印/</id>
+    <published>2017-03-27T06:11:36.000Z</published>
+    <updated>2017-03-27T07:14:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="iOS中如何使用HTML进行打印">iOS中如何使用HTML进行打印</h1><blockquote>
+<p>新需求，要把app中的信息打印出来，通过AirPrint方式打印，一脸懵逼。<br>听说图片可以打印，但是要把信息绘制成指定格式的图片好坑，灵活性太低。<br>听说用textKit可以实现，但是textKit图文混排是个大坑，还是想想其他方法。<br>又听说PDF可以直接打印，这个也需要手动绘制出来，其实和图片相差不多。<br>最终我选择使用html，html也可以直接打印，主要是这个排版比较容易。</p>
+</blockquote>
+<h2 id="iOS中用于打印的类">iOS中用于打印的类</h2><ul>
+<li>打印过程</li>
+<li><img src="/images/Html打印过程.gif" alt="Alt text"></li>
+<li>苹果有专门的类来处理打印相关的信息。这个类就是<code>UIPrintPageRenderer</code>,可以设置页眉页脚边距纸张大小等等。</li>
+<li><a href="https://developer.apple.com/reference/uikit/uiprintpagerenderer?language=objc" target="_blank" rel="external">参考官方文档</a></li>
+</ul>
+<h2 id="重写UIPrintPageRenderer">重写<code>UIPrintPageRenderer</code></h2><ul>
+<li>里面有个关键类就是我们重写的<code>UIPrintPageRenderer</code></li>
+<li>因为需要显示页眉和页脚，所以要自定义<code>SLQPrintPageRenderer</code></li>
+</ul>
+<ul>
+<li>初始化打印器，指定纸张大小，以及页眉页脚高度和内边距</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (instancetype)init &#123;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line"><span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span><span class="variable">.A4PageWidth</span>, <span class="keyword">self</span><span class="variable">.A4PageHeight</span>);</span><br><span class="line"><span class="comment">// 纸张大小</span></span><br><span class="line">[<span class="keyword">self</span> setValue:[<span class="built_in">NSValue</span> valueWith<span class="built_in">CGRect</span>:rect] forKey:<span class="string">@"paperRect"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印区域，如果需要间距就这样CGRectInset(pageFrame, 10.0, 10.0))</span></span><br><span class="line"><span class="comment">//        [self setValue:[NSValue valueWithCGRect:rect] forKey:@"printableRect"];</span></span><br><span class="line">[<span class="keyword">self</span> setValue:[<span class="built_in">NSValue</span> valueWith<span class="built_in">CGRect</span>:<span class="built_in">CGRectInset</span>(rect, <span class="number">10</span>, <span class="number">10</span>)] forKey:<span class="string">@"printableRect"</span>];</span><br><span class="line"><span class="comment">// 页眉页脚</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.headerHeight</span> = <span class="number">50.0</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.footerHeight</span> = <span class="number">50.0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重写页数,</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">Override numberOfPages so we can compute the values for our UIPrintFormatter based on the paper used for the print job. When this is called, self.paperRect and self.printableRect reflect the paper size and imageable area of the destination paper.</span><br><span class="line">重写改方法，计算页数</span><br><span class="line">*/</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)numberOfPages</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// We only have one formatter so obtain it so we can set its paramters.</span></span><br><span class="line"><span class="built_in">UIPrintFormatter</span> *myFormatter = (<span class="built_in">UIPrintFormatter</span> *)[<span class="keyword">self</span><span class="variable">.printFormatters</span> objectAtIndex:<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">Compute insets so that margins are 1/2 inch from edge of sheet, or at the edge of the imageable area if it is larger than that. The EdgeInset function takes a margin for the edge being calculated.</span><br><span class="line">*/</span></span><br><span class="line"><span class="built_in">CGFloat</span> leftInset = EdgeInset(<span class="keyword">self</span><span class="variable">.printableRect</span><span class="variable">.origin</span><span class="variable">.x</span>);</span><br><span class="line"><span class="built_in">CGFloat</span> rightInset = EdgeInset(<span class="keyword">self</span><span class="variable">.paperRect</span><span class="variable">.size</span><span class="variable">.width</span> - <span class="built_in">CGRectGetMaxX</span>(<span class="keyword">self</span><span class="variable">.printableRect</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Top inset is only used if we want a different inset for the first page and we don't.</span></span><br><span class="line"><span class="comment">// The bottom inset is never used by a viewFormatter.</span></span><br><span class="line">myFormatter<span class="variable">.contentInsets</span> = <span class="built_in">UIEdgeInsetsMake</span>(<span class="number">0</span>, leftInset, <span class="number">0</span>, rightInset);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Now compute what we want for the header size and footer size.</span></span><br><span class="line"><span class="comment">// These determine the size and placement of the content height.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// First compute the title height.</span></span><br><span class="line"><span class="built_in">UIFont</span> *font = [<span class="built_in">UIFont</span> fontWithName:<span class="string">@"Helvetica"</span> size:HEADER_FOOTER_TEXT_HEIGHT];</span><br><span class="line"><span class="comment">// We'll use the same title height for the header and footer.</span></span><br><span class="line"><span class="comment">// This is the minimum height the footer can be.</span></span><br><span class="line"><span class="built_in">CGFloat</span> titleHeight = [<span class="string">@"询问笔录"</span> sizeWithFont:font]<span class="variable">.height</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">We want to calculate these heights so that the content top and bottom edges are a minimum distance from the edge of the sheet and are inset at least MIN_HEADER_FOOTER_DISTANCE_FROM_CONTENT from the header and footer.</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">self</span><span class="variable">.headerHeight</span> = HeaderFooterHeight(<span class="built_in">CGRectGetMinY</span>(<span class="keyword">self</span><span class="variable">.printableRect</span>), titleHeight);</span><br><span class="line"><span class="keyword">self</span><span class="variable">.footerHeight</span> = HeaderFooterHeight(<span class="keyword">self</span><span class="variable">.paperRect</span><span class="variable">.size</span><span class="variable">.height</span> - <span class="built_in">CGRectGetMaxY</span>(<span class="keyword">self</span><span class="variable">.printableRect</span>), titleHeight);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Just to be sure, never allow the content to go past our minimum margins for the content area.</span></span><br><span class="line">myFormatter<span class="variable">.maximumContentWidth</span> = <span class="keyword">self</span><span class="variable">.paperRect</span><span class="variable">.size</span><span class="variable">.width</span> - <span class="number">2</span>*MIN_MARGIN;</span><br><span class="line">myFormatter<span class="variable">.maximumContentHeight</span> = <span class="keyword">self</span><span class="variable">.paperRect</span><span class="variable">.size</span><span class="variable">.height</span> - <span class="number">2</span>*MIN_MARGIN;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">Let the superclass calculate the total number of pages. Since this UIPrintPageRenderer only uses a UIPrintFormatter, the superclass knows the number of pages based on the formatter metrics and the paper/printable rects.</span><br><span class="line"></span><br><span class="line">Note that since this code only uses a single print formatter we could just as easily use myFormatter.pageCount to obtain the total number of pages. But it would be more complex than that if we had multiple printformatters for our job so we're using a more general approach here for illustration and it is correct for 1 or more formatters.</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">return</span> [<span class="keyword">super</span> numberOfPages];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>准备绘制,绘制前会调用这个方法</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line">Our pages don't have any intrinsic notion of page number; our footer will number the pages so that users know the order. So for us, we will always render the first page printed as page 1, even if the range is n-m. So we track which page in the range is the first index as well as the total length of our range.</span><br><span class="line">*/</span></span><br><span class="line">- (<span class="keyword">void</span>)prepareForDrawingPages:(<span class="built_in">NSRange</span>)range</span><br><span class="line">&#123;</span><br><span class="line">pageRange = range;</span><br><span class="line">[<span class="keyword">super</span> prepareForDrawingPages:range];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>绘制页眉页脚</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 绘制页眉</span></span><br><span class="line">- (<span class="keyword">void</span>)drawHeaderForPageAtIndex:(<span class="built_in">NSInteger</span>)pageIndex inRect:(<span class="built_in">CGRect</span>)headerRect &#123;</span><br><span class="line"><span class="comment">// Specify the header text.</span></span><br><span class="line"><span class="built_in">NSString</span> *headerText = <span class="string">@"第1次"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Set the desired font.</span></span><br><span class="line"><span class="built_in">UIFont</span> *font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</span><br><span class="line"><span class="comment">// Specify some text attributes we want to apply to the header text.</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *textAttributes = @&#123;<span class="built_in">NSFontAttributeName</span>:font,<span class="built_in">NSForegroundColorAttributeName</span>:[<span class="built_in">UIColor</span> blackColor],<span class="built_in">NSKernAttributeName</span>:@<span class="number">7.5</span>&#125;;</span><br><span class="line"><span class="comment">// Calculate the text size.</span></span><br><span class="line"><span class="built_in">CGSize</span> textSize = [<span class="keyword">self</span> getTextSize:headerText font:font att:textAttributes];</span><br><span class="line"><span class="comment">// Determine the offset to the right side.</span></span><br><span class="line"><span class="built_in">CGFloat</span> offsetX = <span class="number">20.0</span>;</span><br><span class="line"><span class="comment">// Specify the point that the text drawing should start from.</span></span><br><span class="line"><span class="built_in">CGFloat</span> pointX = headerRect<span class="variable">.size</span><span class="variable">.width</span> - textSize<span class="variable">.width</span> - offsetX;</span><br><span class="line"><span class="built_in">CGFloat</span> pointY = headerRect<span class="variable">.size</span><span class="variable">.height</span>/<span class="number">2</span> - textSize<span class="variable">.height</span>/<span class="number">2</span>;</span><br><span class="line"><span class="comment">// Draw the header text.</span></span><br><span class="line">[headerText drawAtPoint:<span class="built_in">CGPointMake</span>(pointX, pointY) withAttributes:textAttributes];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 绘制页脚</span></span><br><span class="line">- (<span class="keyword">void</span>)drawFooterForPageAtIndex:(<span class="built_in">NSInteger</span>)pageIndex inRect:(<span class="built_in">CGRect</span>)footerRect &#123;</span><br><span class="line"><span class="built_in">NSString</span> *footerText = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"第%lu页共%lu页"</span>,</span><br><span class="line">pageIndex+<span class="number">1</span> - pageRange<span class="variable">.location</span>, (<span class="keyword">unsigned</span> <span class="keyword">long</span>)pageRange<span class="variable">.length</span>];</span><br><span class="line"><span class="built_in">NSDictionary</span> *textAttributes = @&#123;<span class="built_in">NSFontAttributeName</span>:[<span class="built_in">UIFont</span> systemFontOfSize: <span class="number">15</span>] ,<span class="built_in">NSForegroundColorAttributeName</span>:[<span class="built_in">UIColor</span> blackColor],<span class="built_in">NSKernAttributeName</span>:@<span class="number">7.5</span>&#125;;</span><br><span class="line"><span class="built_in">CGSize</span> textSize = [<span class="keyword">self</span> getTextSize:footerText font:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>] att:textAttributes];</span><br><span class="line"></span><br><span class="line"><span class="comment">//    CGFloat centerX = footerRect.size.width/2 - textSize.width/2;</span></span><br><span class="line"><span class="comment">//    CGFloat centerY = footerRect.origin.y + self.footerHeight/2 - textSize.height/2;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Specify the point that the text drawing should start from.</span></span><br><span class="line"><span class="built_in">CGFloat</span> pointX = footerRect<span class="variable">.size</span><span class="variable">.width</span> - textSize<span class="variable">.width</span>;</span><br><span class="line"><span class="built_in">CGFloat</span> pointY = footerRect<span class="variable">.origin</span><span class="variable">.y</span> + <span class="keyword">self</span><span class="variable">.footerHeight</span>/<span class="number">2</span>;</span><br><span class="line">[footerText drawAtPoint:<span class="built_in">CGPointMake</span>(pointX, pointY) withAttributes:textAttributes];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Draw a horizontal line.</span></span><br><span class="line"><span class="built_in">CGFloat</span> lineOffsetX = <span class="number">20.0</span>;</span><br><span class="line"><span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line"><span class="built_in">CGContextSetRGBStrokeColor</span>(context, <span class="number">205.0</span>/<span class="number">255.0</span>, <span class="number">205.0</span>/<span class="number">255.0</span>, <span class="number">205.0</span>/<span class="number">255</span>, <span class="number">1.0</span>);</span><br><span class="line"><span class="built_in">CGContextMoveToPoint</span>(context, lineOffsetX, footerRect<span class="variable">.origin</span><span class="variable">.y</span>);</span><br><span class="line"><span class="built_in">CGContextAddLineToPoint</span>(context, footerRect<span class="variable">.size</span><span class="variable">.width</span> - lineOffsetX, footerRect<span class="variable">.origin</span><span class="variable">.y</span>);</span><br><span class="line"><span class="built_in">CGContextStrokePath</span>(context);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 计算字符串尺寸</span></span><br><span class="line">- (<span class="built_in">CGSize</span> )getTextSize:(<span class="built_in">NSString</span> *)text font:(<span class="built_in">UIFont</span> *)font att:(<span class="built_in">NSDictionary</span> *)att &#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">UILabel</span> *testLabel = [[<span class="built_in">UILabel</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span><span class="variable">.paperRect</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.footerHeight</span>)];</span><br><span class="line"><span class="keyword">if</span> (att) &#123;</span><br><span class="line"></span><br><span class="line">testLabel<span class="variable">.attributedText</span> = [[<span class="built_in">NSAttributedString</span> alloc] initWithString:text attributes:att];</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">testLabel<span class="variable">.text</span> = text;</span><br><span class="line">testLabel<span class="variable">.font</span> = font;</span><br><span class="line">&#125;</span><br><span class="line">[testLabel sizeToFit];</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> testLabel<span class="variable">.frame</span><span class="variable">.size</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>其他方法</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line">Compute an edge inset to produce the minimum margin based on the imageable area margin of the edge.</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="built_in">CGFloat</span> EdgeInset(<span class="built_in">CGFloat</span> imageableAreaMargin)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">/*</span><br><span class="line">Because the offsets specified to a print formatter are relative to printRect and we want our edges to be at least MIN_MARGIN from the edge of the sheet of paper, here we compute the necessary offset to achieve our margin. If the imageable area margin is larger than our MIN_MARGIN, we return an offset of zero which means that the imageable area margin will be used.</span><br><span class="line">*/</span></span><br><span class="line"><span class="built_in">CGFloat</span> val = MIN_MARGIN - imageableAreaMargin;</span><br><span class="line"><span class="keyword">return</span> val &gt; <span class="number">0</span> ? val : <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">Compute a height for the header or footer, based on the margin for the edge in question and the height of the text being drawn.</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">CGFloat</span> HeaderFooterHeight(<span class="built_in">CGFloat</span> imageableAreaMargin, <span class="built_in">CGFloat</span> textHeight)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">/*</span><br><span class="line">Make the header and footer height provide for a minimum margin of MIN_MARGIN. We want the content to appear at least MIN_HEADER_FOOTER_DISTANCE_FROM_CONTENT from the header/footer text. If that requires a margin &gt; MIN_MARGIN then we'll use that. Remember, the header/footer height returned needs to be relative to the edge of the imageable area.</span><br><span class="line">*/</span></span><br><span class="line"><span class="built_in">CGFloat</span> headerFooterHeight = imageableAreaMargin + textHeight +</span><br><span class="line">MIN_HEADER_FOOTER_DISTANCE_FROM_CONTENT + HEADER_FOOTER_MARGIN_PADDING;</span><br><span class="line"><span class="keyword">if</span>(headerFooterHeight &lt; MIN_MARGIN)</span><br><span class="line">headerFooterHeight = MIN_MARGIN - imageableAreaMargin;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">headerFooterHeight -= imageableAreaMargin;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> headerFooterHeight;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="发送邮件">发送邮件</h2><ul>
+<li><p>包含头文件<code>#import &lt;MessageUI/MessageUI.h&gt;</code></p>
+</li>
+<li><p>发送邮件</p>
+</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 设置邮件基本信息</span></span><br><span class="line"><span class="comment">// 设置邮件基本信息</span></span><br><span class="line">-(<span class="keyword">void</span>)displayComposerSheet</span><br><span class="line">&#123;</span><br><span class="line">MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];</span><br><span class="line">picker<span class="variable">.mailComposeDelegate</span> = <span class="keyword">self</span>;</span><br><span class="line"><span class="comment">//设置主题</span></span><br><span class="line">[picker setSubject:<span class="string">@"HTMLDemo"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置收件人</span></span><br><span class="line"><span class="built_in">NSArray</span> *toRecipients = [<span class="built_in">NSArray</span> arrayWithObjects:<span class="string">@"xxxx@163.com"</span>,<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">[picker setToRecipients:toRecipients];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置附件为pdf</span></span><br><span class="line"><span class="built_in">NSData</span> *myData = [<span class="built_in">NSData</span> dataWithContentsOfFile:<span class="keyword">self</span><span class="variable">.pdfFileName</span>];</span><br><span class="line"><span class="keyword">if</span> (myData) &#123;</span><br><span class="line">[picker addAttachmentData:myData mimeType:<span class="string">@"application/pdf"</span> fileName:<span class="string">@"HTMLDemo"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置邮件发送内容</span></span><br><span class="line"><span class="built_in">NSString</span> *emailBody = <span class="string">@"哈哈尽快哈就合法进口分哈萨克黄齑淡饭"</span>;</span><br><span class="line">[picker setMessageBody:emailBody isHTML:<span class="literal">NO</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//邮件发送的模态窗口</span></span><br><span class="line">[<span class="keyword">self</span> presentViewController:picker animated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>回调信息</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - MFMailComposeViewControllerDelegate</span></span><br><span class="line">-(<span class="keyword">void</span>)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(<span class="built_in">NSError</span> *)error</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">switch</span> (result)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">case</span> MFMailComposeResultCancelled: <span class="comment">//取消</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"MFMailComposeResultCancelled-取消"</span>);</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> MFMailComposeResultSaved: <span class="comment">// 保存</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"MFMailComposeResultSaved-保存邮件"</span>);</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> MFMailComposeResultSent: <span class="comment">// 发送</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"MFMailComposeResultSent-发送邮件"</span>);</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> MFMailComposeResultFailed: <span class="comment">// 尝试保存或发送邮件失败</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"MFMailComposeResultFailed: %@..."</span>,[error localizedDescription]);</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭邮件发送视图</span></span><br><span class="line">[<span class="keyword">self</span> dismissViewControllerAnimated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="数据传递过程">数据传递过程</h2><ul>
+<li>录入数据-&gt;传递数据到html模板-&gt;生成html-&gt;打印</li>
+</ul>
+<h3 id="1、录入数据">1、录入数据</h3><ul>
+<li>这个demo，暂时写死吧，如果需要的话，直接保存为模型，传递模型就行啦。</li>
+</ul>
+<h3 id="2、传递数据">2、传递数据</h3><ul>
+<li>将模型传递过来后，要对模型数据进行处理，这里直接使用简单粗暴的方式<code>stringByReplacingOccurrencesOfString: withString:</code> ，读取html后直接替换</li>
+</ul>
+<h3 id="3、生成html">3、生成html</h3><ul>
+<li>生成完毕后加载webView直接预览</li>
+</ul>
+<h3 id="4、打印html">4、打印html</h3><ul>
+<li>直接调用<code>printWebPage</code>方法进行打印</li>
+</ul>
+<h2 id="打印html">打印html</h2><ul>
+<li>打印html</li>
+<li>想要绘制页眉页脚，以及其他信息，可以重写一些方法。</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 打印html</span></span><br><span class="line"><span class="comment">// 打印html</span></span><br><span class="line">- (<span class="keyword">void</span>)printWebPage</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">UIPrintInteractionController</span> *controller = [<span class="built_in">UIPrintInteractionController</span> sharedPrintController];</span><br><span class="line"><span class="keyword">if</span>(!controller)&#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"Couldn't get shared UIPrintInteractionController!"</span>);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">UIPrintInteractionCompletionHandler</span> completionHandler =</span><br><span class="line">^(<span class="built_in">UIPrintInteractionController</span> *printController, <span class="built_in">BOOL</span> completed, <span class="built_in">NSError</span> *error) &#123;</span><br><span class="line"><span class="keyword">if</span>(!completed &amp;&amp; error)&#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"FAILED! due to error in domain %@ with error code %ld"</span>, error<span class="variable">.domain</span>, (<span class="keyword">long</span>)error<span class="variable">.code</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置打印机的一些默认信息</span></span><br><span class="line"><span class="built_in">UIPrintInfo</span> *printInfo = [<span class="built_in">UIPrintInfo</span> printInfo];</span><br><span class="line"><span class="comment">// 输出类型</span></span><br><span class="line">printInfo<span class="variable">.outputType</span> = <span class="built_in">UIPrintInfoOutputGeneral</span>;</span><br><span class="line"><span class="comment">// 打印队列名称</span></span><br><span class="line">printInfo<span class="variable">.jobName</span> = <span class="string">@"HtmlDemo"</span>;</span><br><span class="line"><span class="comment">// 是否单双面打印</span></span><br><span class="line">printInfo<span class="variable">.duplex</span> = <span class="built_in">UIPrintInfoDuplexLongEdge</span>;</span><br><span class="line"><span class="comment">// 设置默认打印信息</span></span><br><span class="line">controller<span class="variable">.printInfo</span> = printInfo;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 显示页码范围</span></span><br><span class="line">controller<span class="variable">.showsPageRange</span> = <span class="literal">YES</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 预览设置</span></span><br><span class="line">SLQPrintPageRenderer *myRenderer = [[SLQPrintPageRenderer alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">// To draw the content of each page, a UIViewPrintFormatter is used.</span></span><br><span class="line"><span class="comment">// 生成html格式</span></span><br><span class="line"><span class="built_in">UIViewPrintFormatter</span> *viewFormatter = [<span class="keyword">self</span><span class="variable">.webView</span> viewPrintFormatter];</span><br><span class="line">[myRenderer addPrintFormatter:viewFormatter startingAtPageAtIndex:<span class="number">0</span>];</span><br><span class="line"><span class="comment">// 渲染html</span></span><br><span class="line">controller<span class="variable">.printPageRenderer</span> = myRenderer;</span><br><span class="line"></span><br><span class="line">[controller presentAnimated:<span class="literal">YES</span> completionHandler:completionHandler];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://github.com/slq0378/HtmlDemo.git" target="_blank" rel="external">Demo地址</a></p>
+<p><a href="http://www.appcoda.com/pdf-generation-ios/" target="_blank" rel="external">参考文章</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;iOS中如何使用HTML进行打印&quot;&gt;iOS中如何使用HTML进行打印&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;新需求，要把app中的信息打印出来，通过AirPrint方式打印，一脸懵逼。&lt;br&gt;听说图片可以打印，但是要把信息绘制成指定格式的图片好坑，灵活性太低。&lt;
+    
+    </summary>
+    
+    
+      <category term="HTML" scheme="http://songliquan.github.io/tags/HTML/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac上Git服务器搭建</title>
@@ -134,6 +223,138 @@
   </entry>
   
   <entry>
+    <title>iOS重构项目之路</title>
+    <link href="http://songliquan.github.io/2016/12/05/iOS%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE%E4%B9%8B%E8%B7%AF/"/>
+    <id>http://songliquan.github.io/2016/12/05/iOS重构项目之路/</id>
+    <published>2016-12-05T08:11:02.000Z</published>
+    <updated>2017-03-27T07:13:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="iOS重构项目之路">iOS重构项目之路</h1><h2 id="1、整理目录">1、整理目录</h2><ul>
+<li>按照功能模块对整个工程的目录进行分类，比如</li>
+<li><img src="/images/屏幕快照 2016-12-05 上午8.39.22.png" alt="Alt text"></li>
+</ul>
+<h2 id="2、整理资源文件">2、整理资源文件</h2><ul>
+<li>删除多余的图片文件，资源文件</li>
+<li>图片资源尽量添加到<code>Assets.xcassets</code>中</li>
+<li>删除项目中未引用的图片的话，可以全部搜索图片名，只要通过<code>[UIImage imageNamed:@&quot;outline&quot;]</code> 或 <code>[UIImage imageWithContentsOfFile:@&quot;&quot;]</code> 或 <code>xib</code>中引用的图片都可以搜索到。</li>
+<li><img src="/images/屏幕快照 2016-12-05 上午8.42.32.png" alt="Alt text"></li>
+<li>有一点要注意，那就是如果是加载的动图的话，搜索注意一下<code>walk1.png</code><br><code>walk2.png</code> <code>walk3.png</code>这种的要搜索<code>walk</code>。</li>
+<li>对所有图片文件进行压缩</li>
+<li>通过第三方工具对所有图片进行一次压缩 ，我这里用的工具是 <code>Squash</code></li>
+<li>删除无用的类，或者重复的类</li>
+<li>这个也可以全部搜索，如果项目中使用了这个类，肯定可以搜索出来</li>
+<li><img src="/images/屏幕快照 2016-12-05 上午8.45.37.png" alt="Alt text"></li>
+</ul>
+<h2 id="3、分离功能模块">3、分离功能模块</h2><ul>
+<li>因为有多个项目使用相同的功能，所有使用<strong>软连接</strong>的方式对功能模块进行引用</li>
+<li>在<code>SVN</code>建立一个目录单独存放分离出来单独功能，多个项目通过软连接的方式都可以引用这个文件夹</li>
+<li><img src="/images/copy items if needed.gif" alt="Alt text"></li>
+<li>其他工程通过软连接进行引用，通过拖拽方式进行添加，不勾选<code>copy items if needed</code></li>
+<li>模块中用到的一些公共方法要保证项目中都存在</li>
+</ul>
+<blockquote>
+<p>注意<br>勾选<code>copy items if needed</code> 会将源文件copy到项目中<br>不勾选<code>copy items if needed</code> 的话只是建立软连接</p>
+</blockquote>
+<h2 id="4、整理源文件">4、整理源文件</h2><ul>
+<li>这里就需要逐个查看源文件了，看过后进行分析整理，这个也是最耗时的，要对整个项目逻辑都理解清楚才能进行抽取或者继承。</li>
+<li>该封装的封装，比如说工具类，公共类</li>
+<li>该用继承的就用继承，继承大法好啊，可以省去很多代码</li>
+<li>通过宏去控制逻辑，比如各种功能开关</li>
+<li>最后一步才是终极目标，对整个项目进行分析解耦，让逻辑更加清晰</li>
+</ul>
+<h2 id="5、升级各种框架">5、升级各种框架</h2><ul>
+<li>项目中的框架很多都是旧的，没有使用Cocoapod进行管理，所以只能一个一个替换，期间尝试替换成Cocoapod，奈何网络不行并且问题颇多，最后不得不放弃使用Cocoapod。其实Cocoapod真的挺好的。</li>
+</ul>
+<h2 id="6、安全分析">6、安全分析</h2><ul>
+<li>通过解压ipa包，发现里面有很多源文件，可以直接看到内容，有些东西用的plist，或者txt文本，这些东西直接包含在ipa包里，非常之不安全，全部改为使用源文件<code>.h</code>或<code>.m</code> ，或者直接预制到加密数据库中。</li>
+</ul>
+<h2 id="7、提取URL管理公共类">7、提取URL管理公共类</h2><ul>
+<li>将所有的URL地址的拼接放到一个单粒类中管理，方便维护。</li>
+</ul>
+<blockquote>
+<p>目前就这么多了，有不足之处欢迎大家指教啊</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;iOS重构项目之路&quot;&gt;iOS重构项目之路&lt;/h1&gt;&lt;h2 id=&quot;1、整理目录&quot;&gt;1、整理目录&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;按照功能模块对整个工程的目录进行分类，比如&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;/images/屏幕快照 2016-12-05 上午8.39
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://songliquan.github.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第三方静态库冲突产生的Duplicatesymbol</title>
+    <link href="http://songliquan.github.io/2016/10/29/%E7%AC%AC%E4%B8%89%E6%96%B9%E9%9D%99%E6%80%81%E5%BA%93%E5%86%B2%E7%AA%81%E4%BA%A7%E7%94%9F%E7%9A%84duplicatesymbol/"/>
+    <id>http://songliquan.github.io/2016/10/29/第三方静态库冲突产生的duplicatesymbol/</id>
+    <published>2016-10-29T03:09:19.000Z</published>
+    <updated>2017-03-27T07:13:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第三方静态库冲突产生的duplicate_symbol">第三方静态库冲突产生的duplicate symbol</h1><h2 id="错误描述">错误描述</h2><ul>
+<li>项目中引用了很多第三方库，有时就会出现一些冲突，比如下面</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">duplicate symbol _OBJC_IVAR_$_RXMLDocHolder<span class="class">.doc_</span> <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">duplicate symbol _OBJC_IVAR_$_RXMLElement<span class="class">.node_</span> <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">duplicate symbol _OBJC_IVAR_$_RXMLElement._xmlDoc <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">duplicate symbol _OBJC_CLASS_$_RXMLDocHolder <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">duplicate symbol _OBJC_METACLASS_$_RXMLDocHolder <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">duplicate symbol _OBJC_CLASS_$_RXMLElement <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">duplicate symbol _OBJC_METACLASS_$_RXMLElement <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">ld: <span class="number">7</span> duplicate symbols <span class="keyword">for</span> architecture arm64</span><br><span class="line">clang: error: linker command failed with exit <span class="tag">code</span> <span class="number">1</span> (use -v to see invocation)</span><br></pre></td></tr></table></figure>
+<h2 id="问题分析">问题分析</h2><ul>
+<li>初步判断<code>libWintoneCardOCR.a</code>和<code>libWintonePlateIDPro.a</code>两个静态库在<code>RXMLElement.o</code>输出文件中有命名冲突</li>
+<li>而且是<code>duplicate symbols for architecture arm64</code> ，把其中一个的<code>RXMLElement.o</code>移除就行。</li>
+</ul>
+<h2 id="解决方式">解决方式</h2><ul>
+<li>mac OS 下使用命令行工具 <code>lipo</code>来的对静态库进行处理。</li>
+</ul>
+<h3 id="一、设置_other_linker_flags">一、设置 <code>other linker flags</code></h3><ul>
+<li><code>Bulding Setting</code>里设置的<code>other linker flags</code>添加的有<code>-Objc</code>，而<code>-Objc</code>得作用就是将加载的静态库中的分类一并加载到程序的可执行文件，如果不添加这个参数，很有可能会出现<code>selector not recognized</code>问题，主要是找不到分类定义的方法。</li>
+<li><code>-Objc</code>添加后就会出现多个静态库定义同样的方法、全局变量等，然后就会出现上面的问题<code>duplicate symbol</code>。</li>
+</ul>
+<blockquote>
+<p><code>other linker flags</code>解析</p>
+<ul>
+<li><code>－ObjC</code>：加了这个参数后，链接器就会把静态库中所有的Objective-C类和分类都加载到最后的可执行文件中</li>
+<li><code>－all_load</code>：会让链接器把所有找到的目标文件都加载到可执行文件中，但是千万不要随便使用这个参数！假如你使用了不止一个静态库文件，然后又使用了这个参数，那么你很有可能会遇到ld: duplicate symbol错误，因为不同的库文件里面可能会有相同的目标文件，所以建议在遇到-ObjC失效的情况下使用-force_load参数。</li>
+<li><code>-force_load</code>：所做的事情跟-all_load其实是一样的，但是-force_load需要指定要进行全部加载的库文件的路径，这样的话，你就只是完全加载了一个库文件，不影响其余库文件的按需加载</li>
+</ul>
+</blockquote>
+<ul>
+<li>这种方式，如果项目中第三方库很多，比较难管理</li>
+</ul>
+<h3 id="二、修改静态库">二、修改静态库</h3><ul>
+<li>1、找到静态库文件 <strong>libWintonePlateIDPro.a</strong> 源文件，新建一个文件夹专门处理</li>
+<li>2、查看包信息 <code>lipo -info libWintonePlateIDPro.a</code></li>
+<li>3、创建临时文件夹，用于存放armv7平台解压后的.o文件：<code>mkdir armv7</code></li>
+<li>4、查看库中所包含的文件列表：<code>ar -t armv7/libWintonePlateIDPro.a</code></li>
+<li>5、解压出.o后缀文件：<code>cd armv7 &amp;&amp; ar xv libWintonePlateIDPro-armv7.a</code></li>
+<li>6、找到冲突的包（RXMLElement.o），删除掉 <code>rm RXMLElement.o</code></li>
+<li>7、重新打包成 .a：<code>cd .. &amp;&amp; ar rcs libWintonePlateIDPro-armv7.a armv7/*.o</code>，可以使用[4]命令查看是否成功</li>
+<li>8、将其他几个平台(armv7s, arm64,i386)包逐一做上述[1-7]操作</li>
+<li><p>9、重新合并为libWintonePlateIDPro的.a文件：<code>lipo -create libWintonePlateIDPro-armv7.a libWintonePlateIDPro-armv7s.a -output libWintonePlateIDPro-new.a</code></p>
+</li>
+<li><p>这种方式可以从根本上解决问题</p>
+</li>
+</ul>
+<blockquote>
+<p><a href="http://www.cnblogs.com/rayshen/p/5160218.html" target="_blank" rel="external">参考1</a><br><a href="http://blog.csdn.net/djl4104804/article/details/43099061" target="_blank" rel="external">参考2</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第三方静态库冲突产生的duplicate_symbol&quot;&gt;第三方静态库冲突产生的duplicate symbol&lt;/h1&gt;&lt;h2 id=&quot;错误描述&quot;&gt;错误描述&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;项目中引用了很多第三方库，有时就会出现一些冲突，比如下面&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="Xcode" scheme="http://songliquan.github.io/tags/Xcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>多个target使用Cocoapod</title>
     <link href="http://songliquan.github.io/2016/10/28/%E5%A4%9A%E4%B8%AAtarget%E4%BD%BF%E7%94%A8Cocoapod/"/>
     <id>http://songliquan.github.io/2016/10/28/多个target使用Cocoapod/</id>
@@ -180,7 +401,7 @@
     <link href="http://songliquan.github.io/2016/09/10/UIImage%E5%88%86%E7%B1%BB%E6%80%BB%E7%BB%93/"/>
     <id>http://songliquan.github.io/2016/09/10/UIImage分类总结/</id>
     <published>2016-09-10T02:19:27.000Z</published>
-    <updated>2016-09-19T04:32:38.000Z</updated>
+    <updated>2017-03-27T07:14:20.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="UIImage_分类总结">UIImage 分类总结</h1><p>@(iOS)[UIImage]</p>
 <p>[TOC]</p>
@@ -268,7 +489,7 @@
     </summary>
     
     
-      <category term="iOS" scheme="http://songliquan.github.io/tags/iOS/"/>
+      <category term="iOS,UIImage" scheme="http://songliquan.github.io/tags/iOS-UIImage/"/>
     
   </entry>
   
@@ -1675,107 +1896,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Argument</title>
-    <link href="http://songliquan.github.io/2014/05/10/Xcode%E5%9D%91-Invalid%20argument/"/>
-    <id>http://songliquan.github.io/2014/05/10/Xcode坑-Invalid argument/</id>
-    <published>2014-05-10T09:39:47.000Z</published>
-    <updated>2015-12-10T10:14:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Xcode坑之一Invalid_argument">Xcode坑之一Invalid argument</h2><ul>
-<li><p>正在搞代码，运行程序时突然发现程序不能再次运行了，一运行就提示<code>Invalid argument</code><br><img src="http://images2015.cnblogs.com/blog/523606/201509/523606-20150909200538450-2078482538.png" alt=""></p>
-</li>
-<li><p>然后翻墙各种查啊，试了好多方法都不行，重启，重置，我用git回退了几个版本都不行。要疯了</p>
-</li>
-<li><p>最后终于找到问题所在了，原来是工程中的Bundle ID 不知道什么时候变为空了，重新设置一个就ok了。</p>
-</li>
-<li><p>真是坑啊，花了几个小时就这个结果。</p>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Xcode坑之一Invalid_argument&quot;&gt;Xcode坑之一Invalid argument&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;正在搞代码，运行程序时突然发现程序不能再次运行了，一运行就提示&lt;code&gt;Invalid argument&lt;/code&gt;&lt;br&gt;&lt;
-    
-    </summary>
-    
-    
-      <category term="OC" scheme="http://songliquan.github.io/tags/OC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>图片缩放手势实现</title>
-    <link href="http://songliquan.github.io/2014/03/15/%E5%9B%BE%E7%89%87%E7%BC%A9%E6%94%BE%E6%89%8B%E5%8A%BF%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://songliquan.github.io/2014/03/15/图片缩放手势实现/</id>
-    <published>2014-03-15T01:33:51.000Z</published>
-    <updated>2016-03-15T02:40:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="图片缩放">图片缩放</h1><ul>
-<li>使用各种手势实现图片的缩放预览，移动等</li>
-<li>主要是使用手势来实现，包括<code>UIRotationGestureRecognizer</code>、<code>UITapGestureRecognizer</code>、<code>UIPinchGestureRecognizer</code>、<code>UIPanGestureRecognizer</code>。</li>
-</ul>
-<h1 id="实现步骤">实现步骤</h1><ul>
-<li>定义一个view ，然后将UIImageView对象添加到里面，给UIImageView添加各种手势。</li>
-<li>效果图如下:</li>
-<li><img src="/images/图片缩放.gif" alt=""> </li>
-</ul>
-<h1 id="代码">代码</h1><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#define ScreenWidth [UIScreen mainScreen].bounds.size.width</span></span><br><span class="line"><span class="preprocessor">#define ScreenHeight [UIScreen mainScreen].bounds.size.height</span></span><br><span class="line"><span class="preprocessor">#import <span class="title">"ViewController.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**保存图片原来的大小*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">CGRect</span> oldFrame;</span><br><span class="line"><span class="comment">/**确定图片放大最大的程度*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">CGRect</span> largeFrame;</span><br><span class="line"><span class="comment">/**图片原始属性*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">CGAffineTransform</span> oldTransform;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *RootView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIImageView</span> *imageView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 加载图片</span></span><br><span class="line">    [_imageView setMultipleTouchEnabled:<span class="literal">YES</span>];</span><br><span class="line">    [_imageView setUserInteractionEnabled:<span class="literal">YES</span>];</span><br><span class="line">    [_imageView setImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"1"</span>]];</span><br><span class="line">   </span><br><span class="line">    _oldFrame = <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.frame</span>;</span><br><span class="line">    _oldTransform = <span class="keyword">self</span><span class="variable">.imageView</span><span class="variable">.transform</span>;</span><br><span class="line">    _largeFrame = <span class="built_in">CGRectMake</span>(<span class="number">0</span> - ScreenWidth, <span class="number">0</span> - ScreenHeight, <span class="number">3</span> * _oldFrame<span class="variable">.size</span><span class="variable">.width</span>, <span class="number">3</span> * _oldFrame<span class="variable">.size</span><span class="variable">.height</span>);</span><br><span class="line">    <span class="comment">/// 添加手势</span></span><br><span class="line">    [<span class="keyword">self</span> addGestureRecognizerToView:<span class="keyword">self</span><span class="variable">.imageView</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加所有的手势</span></span><br><span class="line">- (<span class="keyword">void</span>) addGestureRecognizerToView:(<span class="built_in">UIView</span> *)view</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 旋转手势</span></span><br><span class="line">    <span class="built_in">UIRotationGestureRecognizer</span> *rotationGestureRecognizer = [[<span class="built_in">UIRotationGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(rotateView:)];</span><br><span class="line">    [view addGestureRecognizer:rotationGestureRecognizer];</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 点击手势</span></span><br><span class="line">    <span class="built_in">UITapGestureRecognizer</span> *tap = [[<span class="built_in">UITapGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(doubleClick:)];</span><br><span class="line">    [view addGestureRecognizer:tap];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 缩放手势</span></span><br><span class="line">    <span class="built_in">UIPinchGestureRecognizer</span> *pinchGestureRecognizer = [[<span class="built_in">UIPinchGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(pinchView:)];</span><br><span class="line">    [view addGestureRecognizer:pinchGestureRecognizer];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 移动手势</span></span><br><span class="line">    <span class="built_in">UIPanGestureRecognizer</span> *panGestureRecognizer = [[<span class="built_in">UIPanGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(panView:)];</span><br><span class="line">    [view addGestureRecognizer:panGestureRecognizer];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理旋转手势</span></span><br><span class="line">- (<span class="keyword">void</span>) rotateView:(<span class="built_in">UIRotationGestureRecognizer</span> *)rotationGestureRecognizer</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIView</span> *view = rotationGestureRecognizer<span class="variable">.view</span>;</span><br><span class="line">    view<span class="variable">.transform</span> = <span class="built_in">CGAffineTransformRotate</span>(view<span class="variable">.transform</span>, rotationGestureRecognizer<span class="variable">.rotation</span>);</span><br><span class="line">    [rotationGestureRecognizer setRotation:<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span> (rotationGestureRecognizer<span class="variable">.state</span> == <span class="built_in">UIGestureRecognizerStateBegan</span> || rotationGestureRecognizer<span class="variable">.state</span> == <span class="built_in">UIGestureRecognizerStateChanged</span>) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理缩放手势</span></span><br><span class="line">- (<span class="keyword">void</span>) pinchView:(<span class="built_in">UIPinchGestureRecognizer</span> *)pinchGestureRecognizer</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIView</span> *view = pinchGestureRecognizer<span class="variable">.view</span>;</span><br><span class="line">    <span class="keyword">if</span> (pinchGestureRecognizer<span class="variable">.state</span> == <span class="built_in">UIGestureRecognizerStateBegan</span> || pinchGestureRecognizer<span class="variable">.state</span> == <span class="built_in">UIGestureRecognizerStateChanged</span>) &#123;</span><br><span class="line">        view<span class="variable">.transform</span> = <span class="built_in">CGAffineTransformScale</span>(view<span class="variable">.transform</span>, pinchGestureRecognizer<span class="variable">.scale</span>, pinchGestureRecognizer<span class="variable">.scale</span>);</span><br><span class="line">        <span class="comment">/// 控制一下缩放的大小</span></span><br><span class="line">        <span class="keyword">if</span> (_imageView<span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span> &lt; _oldFrame<span class="variable">.size</span><span class="variable">.width</span>) &#123;  </span><br><span class="line">            _imageView<span class="variable">.frame</span> = _oldFrame;  </span><br><span class="line">            <span class="comment">//让图片无法缩得比原图小  </span></span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">if</span> (_imageView<span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.width</span> &gt; <span class="number">3</span> * _oldFrame<span class="variable">.size</span><span class="variable">.width</span>) &#123;  </span><br><span class="line">            _imageView<span class="variable">.frame</span> = _largeFrame;  </span><br><span class="line">        &#125;  </span><br><span class="line">        pinchGestureRecognizer<span class="variable">.scale</span> = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理拖拉手势</span></span><br><span class="line">- (<span class="keyword">void</span>) panView:(<span class="built_in">UIPanGestureRecognizer</span> *)panGestureRecognizer</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIView</span> *view = panGestureRecognizer<span class="variable">.view</span>;</span><br><span class="line">    <span class="keyword">if</span> (panGestureRecognizer<span class="variable">.state</span> == <span class="built_in">UIGestureRecognizerStateBegan</span> || panGestureRecognizer<span class="variable">.state</span> == <span class="built_in">UIGestureRecognizerStateChanged</span>) &#123;</span><br><span class="line">        <span class="built_in">CGPoint</span> translation = [panGestureRecognizer translationInView:view<span class="variable">.superview</span>];</span><br><span class="line">        [view setCenter:(<span class="built_in">CGPoint</span>)&#123;view<span class="variable">.center</span><span class="variable">.x</span> + translation<span class="variable">.x</span>, view<span class="variable">.center</span><span class="variable">.y</span> + translation<span class="variable">.y</span>&#125;];</span><br><span class="line">        [panGestureRecognizer setTranslation:<span class="built_in">CGPointZero</span> inView:view<span class="variable">.superview</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 点击手势,恢复原始状态</span></span><br><span class="line">- (<span class="keyword">void</span>)doubleClick:(<span class="built_in">UITapGestureRecognizer</span> *)tapGestureRecognizer &#123;</span><br><span class="line">    <span class="built_in">UIView</span> *view = tapGestureRecognizer<span class="variable">.view</span>;</span><br><span class="line">    <span class="keyword">if</span> (tapGestureRecognizer<span class="variable">.state</span> == <span class="built_in">UIGestureRecognizerStateEnded</span>) &#123;</span><br><span class="line">        view<span class="variable">.transform</span> = _oldTransform;</span><br><span class="line">        view<span class="variable">.frame</span> = _oldFrame;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;图片缩放&quot;&gt;图片缩放&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;使用各种手势实现图片的缩放预览，移动等&lt;/li&gt;
-&lt;li&gt;主要是使用手势来实现，包括&lt;code&gt;UIRotationGestureRecognizer&lt;/code&gt;、&lt;code&gt;UITapGestureRecogni
-    
-    </summary>
-    
-    
-      <category term="OC" scheme="http://songliquan.github.io/tags/OC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>抓取崩溃信息</title>
-    <link href="http://songliquan.github.io/2014/03/06/%E6%8A%93%E5%8F%96%E5%B4%A9%E6%BA%83%E4%BF%A1%E6%81%AF/"/>
-    <id>http://songliquan.github.io/2014/03/06/抓取崩溃信息/</id>
-    <published>2014-03-06T08:57:27.000Z</published>
-    <updated>2016-03-06T08:58:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="抓取崩溃信息">抓取崩溃信息</h1><ul>
-<li><p>如果不能用第三方的，只能自己抓取，上传到自己的服务器</p>
-</li>
-<li><p>在appDelegate里做初始化</p>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">    <span class="comment">// 加入crash handler</span></span><br><span class="line">    <span class="built_in">NSSetUncaughtExceptionHandler</span>(&amp;uncaughtExceptionHandler);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 模拟错误信息</span></span><br><span class="line"><span class="comment">//    NSArray *array = [NSArray arrayWithObject:@"0"];</span></span><br><span class="line"><span class="comment">//    NSLog(@"%@", [array objectAtIndex:1]);</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 实现NSUncaughtExceptionHandler方法</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">void</span> uncaughtExceptionHandler(<span class="built_in">NSException</span> *exception)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 调用堆栈</span></span><br><span class="line">    <span class="built_in">NSArray</span> *arr = [exception callStackSymbols];</span><br><span class="line">    <span class="comment">// 错误reason</span></span><br><span class="line">    <span class="built_in">NSString</span> *reason = [exception reason];</span><br><span class="line">    <span class="comment">// exception name</span></span><br><span class="line">    <span class="built_in">NSString</span> *name = [exception name];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 根据自己的需求将crash信息记录下来，下次启动的时候传给服务器。</span></span><br><span class="line">    <span class="comment">// 尽量不要在此处将crash信息上传，因为App将要退出，不保证能够将信息上传至服务器</span></span><br><span class="line">    </span><br><span class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:<span class="string">@"YES"</span> forKey:<span class="string">@"isException"</span>];</span><br><span class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:arr forKey:<span class="string">@"callStackSymbols"</span>];</span><br><span class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:reason forKey:<span class="string">@"reason"</span>];</span><br><span class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:name forKey:<span class="string">@"name"</span>];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>然后在合适的时间把这个信息上传到服务器，上传成功后改<code>isException</code> 为<code>YES</code></li>
-</ul>
-<h2 id="Exception_codes">Exception codes</h2><figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="number">0x8badf00d</span>错误码：Watchdog超时，意为“ate bad food”。</span><br><span class="line"><span class="number">0xdeadfa11</span>错误码：用户强制退出，意为“dead fall”。</span><br><span class="line"><span class="number">0xbaaaaaad</span>错误码：用户按住Home键和音量键，获取当前内存状态，不代表崩溃。</span><br><span class="line"><span class="number">0xbad22222</span>错误码：VoIP应用（因为太频繁？）被iOS干掉。</span><br><span class="line"><span class="number">0xc00010ff</span>错误码：因为太烫了被干掉，意为“cool off”。</span><br><span class="line"><span class="number">0xdead10cc</span>错误码：因为在后台时仍然占据系统资源（比如通讯录）被干掉，意为“dead <span class="keyword">lock</span>”。</span><br></pre></td></tr></table></figure>
-<h2 id="Exception_types">Exception types</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">查看我们的crash分析报告邮件，会发现最经常遇到的错误类型是SEGV（Segmentation Violation，段违例），表明内存操作不当，比如访问一个没有权限的内存地址。</span><br><span class="line">当我们收到SIGSEGV信号时，可以往以下几个方面考虑：</span><br><span class="line">访问无效内存地址，比如访问Zombie对象；</span><br><span class="line">尝试往只读区域写数据；</span><br><span class="line">解引用空指针；</span><br><span class="line">使用未初始化的指针；</span><br><span class="line">栈溢出；</span><br><span class="line">此外，还有其它常见信号：</span><br><span class="line">SIGABRT：收到Abort信号，可能自身调用<span class="function"><span class="title">abort</span><span class="params">()</span></span>或者收到外部发送过来的信号；</span><br><span class="line">SIGBUS：总线错误。与SIGSEGV不同的是，SIGSEGV访问的是无效地址（比如虚存映射不到物理内存），而SIGBUS访问的是有效地址，但总线访问异常（比如地址对齐问题）；</span><br><span class="line">SIGILL：尝试执行非法的指令，可能不被识别或者没有权限；</span><br><span class="line">SIGFPE：Floating Point Error，数学计算相关问题（可能不限于浮点计算），比如除零操作；</span><br><span class="line">SIGPIPE：管道另一端没有进程接手数据；</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;抓取崩溃信息&quot;&gt;抓取崩溃信息&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;如果不能用第三方的，只能自己抓取，上传到自己的服务器&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在appDelegate里做初始化&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highligh
-    
-    </summary>
-    
-    
-      <category term="oc" scheme="http://songliquan.github.io/tags/oc/"/>
     
   </entry>
   

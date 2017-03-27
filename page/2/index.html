@@ -80,6 +80,81 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2015/10/02/swift坑-tableView中注册cell/" title="Swift坑-tableView中注册cell" itemprop="url">
+  
+    <h1 itemprop="name">Swift坑-tableView中注册cell</h1>
+    
+     
+           <p itemprop="description" >tableView.registerClass in swift is fatal error
+注册cell时会出问题，但是注册一个cell时应该和原类没关系吧，我特意新建了一个工程进行测试，没有问题。那很可能就是这个工程有问题。但是问题在哪呢？
+姑且认为在注册cell的上下文
+</p>
+        
+    
+    <time datetime="2015-10-02T04:26:05.000Z" itemprop="datePublished">2015-10-02</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/26/swift新特性/" title="Swift与众不同的地方" itemprop="url">
+  
+    <h1 itemprop="name">Swift与众不同的地方</h1>
+    
+     
+           <p itemprop="description" >Swift 与众不同的地方switch（元组）
+特点
+
+其他语言中的switch语句只能比较离散的整形数据（字符可以转换成整数）
+但是swift中可以比较整数、浮点数、字符、字符串、和元组数据类型，而且它可以是离散的也可以使连续的范围
+而且在swift中case语句不需要显示的添</p>
+        
+    
+    <time datetime="2015-09-26T08:54:36.000Z" itemprop="datePublished">2015-09-26</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/03/表情键盘实现/" title="表情键盘实现" itemprop="url">
+  
+    <h1 itemprop="name">表情键盘实现</h1>
+    
+     
+           <p itemprop="description" >表情键盘实现
+直接自定义文本输入框的inputView属性，直接改成自己想要的UIView即可。
+表情保存在本地，从沙盒中读取
+
+emoji表情显示
+emoji对应十六进制,如果要显示的话，需要转换一下
+
+// emoji对应十六进制func emojiToShow(code: </p>
+        
+    
+    <time datetime="2015-09-03T02:25:18.000Z" itemprop="datePublished">2015-09-03</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2015/05/06/证书打包发布/" title="证书打包发布" itemprop="url">
   
     <h1 itemprop="name">证书打包发布</h1>
@@ -250,81 +325,6 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyad</p>
 
 
 
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2014/05/10/Xcode坑-Invalid argument/" title="Argument" itemprop="url">
-  
-    <h1 itemprop="name">Argument</h1>
-    
-     
-           <p itemprop="description" >Xcode坑之一Invalid argument
-正在搞代码，运行程序时突然发现程序不能再次运行了，一运行就提示Invalid argument
-
-然后翻墙各种查啊，试了好多方法都不行，重启，重置，我用git回退了几个版本都不行。要疯了
-
-最后终于找到问题所在了，原来是工程中的B</p>
-        
-    
-    <time datetime="2014-05-10T09:39:47.000Z" itemprop="datePublished">2014-05-10</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2014/03/15/图片缩放手势实现/" title="图片缩放手势实现" itemprop="url">
-  
-    <h1 itemprop="name">图片缩放手势实现</h1>
-    
-     
-           <p itemprop="description" >图片缩放
-使用各种手势实现图片的缩放预览，移动等
-主要是使用手势来实现，包括UIRotationGestureRecognizer、UITapGestureRecognizer、UIPinchGestureRecognizer、UIPanGestureRecognizer。
-
-实</p>
-        
-    
-    <time datetime="2014-03-15T01:33:51.000Z" itemprop="datePublished">2014-03-15</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2014/03/06/抓取崩溃信息/" title="抓取崩溃信息" itemprop="url">
-  
-    <h1 itemprop="name">抓取崩溃信息</h1>
-    
-     
-           <p itemprop="description" >抓取崩溃信息
-如果不能用第三方的，只能自己抓取，上传到自己的服务器
-
-在appDelegate里做初始化
-
-
-    // 加入crash handler    NSSetUncaughtExceptionHandler(&amp;amp;uncaughtExceptionHandler</p>
-        
-    
-    <time datetime="2014-03-06T08:57:27.000Z" itemprop="datePublished">2014-03-06</time>
-  </a>
-</section>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix unexpand">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
@@ -376,6 +376,18 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyad</p>
 		
 			
 				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-UIImage/" title="iOS,UIImage">iOS,UIImage<sup>1</sup></a></li>
 			
 		
 		</ul>
