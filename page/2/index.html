@@ -80,6 +80,132 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2015/09/26/swift新特性/" title="Swift与众不同的地方" itemprop="url">
+  
+    <h1 itemprop="name">Swift与众不同的地方</h1>
+    
+     
+           <p itemprop="description" >Swift 与众不同的地方switch（元组）
+特点
+
+其他语言中的switch语句只能比较离散的整形数据（字符可以转换成整数）
+但是swift中可以比较整数、浮点数、字符、字符串、和元组数据类型，而且它可以是离散的也可以使连续的范围
+而且在swift中case语句不需要显示的添</p>
+        
+    
+    <time datetime="2015-09-26T08:54:36.000Z" itemprop="datePublished">2015-09-26</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/09/03/表情键盘实现/" title="表情键盘实现" itemprop="url">
+  
+    <h1 itemprop="name">表情键盘实现</h1>
+    
+     
+           <p itemprop="description" >表情键盘实现
+直接自定义文本输入框的inputView属性，直接改成自己想要的UIView即可。
+表情保存在本地，从沙盒中读取
+
+emoji表情显示
+emoji对应十六进制,如果要显示的话，需要转换一下
+
+// emoji对应十六进制func emojiToShow(code: </p>
+        
+    
+    <time datetime="2015-09-03T02:25:18.000Z" itemprop="datePublished">2015-09-03</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/05/06/证书打包发布/" title="证书打包发布" itemprop="url">
+  
+    <h1 itemprop="name">证书打包发布</h1>
+    
+     
+           <p itemprop="description" >证书打包发布一.App ID（bundle identifier）
+App ID即Product ID，用于标识一个或者一组App。
+App ID应该和Xcode中的Bundle Identifier是一致（Explicit）的或匹配（Wildcard）的。
+App ID字符串通</p>
+        
+    
+    <time datetime="2015-05-06T08:55:44.000Z" itemprop="datePublished">2015-05-06</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/04/06/闪退问题解析/" title="闪退问题解析" itemprop="url">
+  
+    <h1 itemprop="name">闪退问题解析</h1>
+    
+     
+           <p itemprop="description" >闪退bug修复
+http://www.educity.cn/wenda/418906.html
+
+SIGABRT 一般是过度release 或者 发送 unrecogized selector导致。
+
+EXC_BAD_ACCESS 是访问已被释放的内存导致。　Applicatio</p>
+        
+    
+    <time datetime="2015-04-06T08:51:16.000Z" itemprop="datePublished">2015-04-06</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2015/04/05/正则表达式/" title="正则表达式" itemprop="url">
+  
+    <h1 itemprop="name">正则表达式</h1>
+    
+     
+           <p itemprop="description" >正则表达式
+正则表达式是对字符串操作的一种逻辑公式，用事先定义好的一些特定字符、及这些特定字符的组合，组成一个”规则字符串”，这个”规则字符串”用来表达对字符串的一种过滤逻辑。
+
+正则表达式的用处:
+
+判断给定的字符串是否符合某一种规则(专门用于操作字符串)
+电话号码，电子邮箱，</p>
+        
+    
+    <time datetime="2015-04-05T02:25:18.000Z" itemprop="datePublished">2015-04-05</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2015/03/09/问题杂烩/" title="问题杂烩" itemprop="url">
   
     <h1 itemprop="name">问题杂烩</h1>
@@ -201,130 +327,6 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyad</p>
 
 
 
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2014/03/15/图片缩放手势实现/" title="图片缩放手势实现" itemprop="url">
-  
-    <h1 itemprop="name">图片缩放手势实现</h1>
-    
-     
-           <p itemprop="description" >图片缩放
-使用各种手势实现图片的缩放预览，移动等
-主要是使用手势来实现，包括UIRotationGestureRecognizer、UITapGestureRecognizer、UIPinchGestureRecognizer、UIPanGestureRecognizer。
-
-实</p>
-        
-    
-    <time datetime="2014-03-15T01:33:51.000Z" itemprop="datePublished">2014-03-15</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2014/03/06/抓取崩溃信息/" title="抓取崩溃信息" itemprop="url">
-  
-    <h1 itemprop="name">抓取崩溃信息</h1>
-    
-     
-           <p itemprop="description" >抓取崩溃信息
-如果不能用第三方的，只能自己抓取，上传到自己的服务器
-
-在appDelegate里做初始化
-
-
-    // 加入crash handler    NSSetUncaughtExceptionHandler(&amp;amp;uncaughtExceptionHandler</p>
-        
-    
-    <time datetime="2014-03-06T08:57:27.000Z" itemprop="datePublished">2014-03-06</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2014/02/15/如何在oc中判断基本数据类型变量的类型/" title="如何在OC中判断基本数据类型变量的类型" itemprop="url">
-  
-    <h1 itemprop="name">如何在OC中判断基本数据类型变量的类型</h1>
-    
-     
-           <p itemprop="description" >如何在OC中判断基本数据类型变量的类型
-可以在工程中添加C++库，然后引用这个方法。
-
-用C++的方法typeid
-
-
-#include &amp;lt;iostream&amp;gt;using namespace std;void test()&amp;#123;    cout &amp;lt;&amp;lt; </p>
-        
-    
-    <time datetime="2014-02-15T00:05:50.000Z" itemprop="datePublished">2014-02-15</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2013/11/10/运行时-关联/" title="运行时-关联" itemprop="url">
-  
-    <h1 itemprop="name">运行时-关联</h1>
-    
-     
-           <p itemprop="description" >关联
-关联是指把两个对象相互关联起来，使得其中的一个对象作为另外一个对象的一部分。
-关联特性只有在Mac OS X V10.6以及以后的版本上才是可用的。
-关联是基于关键字的，因此，我们可以为任何对象增加任意多的关联，每个都使用不同的关键字即可。
-关联是可以保证被关联的对象在关联</p>
-        
-    
-    <time datetime="2013-11-10T09:45:08.000Z" itemprop="datePublished">2013-11-10</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2013/10/05/js和oc相互调用/" title="JS和OC相互调用" itemprop="url">
-  
-    <h1 itemprop="name">JS和OC相互调用</h1>
-    
-     
-           <p itemprop="description" >JS和OC相互调用OC调用JS
-通过OC调用HTML，主要通过webView执行stringByEvaluatingJavaScriptFromString:
-也可以 返回自己想要的值，这样就把JS中的数据出传递到OC中了
-
-#import &quot;ViewController.h&quot;@</p>
-        
-    
-    <time datetime="2013-10-05T00:05:50.000Z" itemprop="datePublished">2013-10-05</time>
-  </a>
-</section>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix unexpand">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
@@ -363,11 +365,17 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyad</p>
 			
 		
 			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>1</sup></a></li>
+				<li><a href="/tags/CocoaPods/" title="CocoaPods">CocoaPods<sup>1</sup></a></li>
+			
+		
 			
 		
 		</ul>
@@ -431,7 +439,7 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyad</p>
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		
