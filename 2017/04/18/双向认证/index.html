@@ -1,0 +1,487 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>HTTPS双向认证 | Bloging</title>
+    <meta name="google-site-verification" content="PvTUEr8LZywTInLlqUkqshyJLpIqOn6oreUiZvWKB2Q" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Mr Song">
+    
+
+    
+    <meta name="description" content="iOS HTTPS 双向认证@(iOS)[网络,HTTPS]
+
+搞了半天，记录一下，坑很多。双向认证，就是在访问网络的时候进行证书认证，首先本地需要一个服务器证书，一个客户端证书。客户端发送请求，服务器返回服务器证书和本地服务器证书比对，然后客户端发送客户端证书到服务器。如果全部匹配就返回加密算法，然后可以访问网络，否则就不能访问。
+
+流程
+1.需要服务端提供认证证书.crt文件，然后自己导出成.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTPS双向认证">
+<meta property="og:url" content="http://songliquan.github.io/2017/04/18/双向认证/index.html">
+<meta property="og:site_name" content="Bloging">
+<meta property="og:description" content="iOS HTTPS 双向认证@(iOS)[网络,HTTPS]
+
+搞了半天，记录一下，坑很多。双向认证，就是在访问网络的时候进行证书认证，首先本地需要一个服务器证书，一个客户端证书。客户端发送请求，服务器返回服务器证书和本地服务器证书比对，然后客户端发送客户端证书到服务器。如果全部匹配就返回加密算法，然后可以访问网络，否则就不能访问。
+
+流程
+1.需要服务端提供认证证书.crt文件，然后自己导出成.">
+<meta property="og:updated_time" content="2017-09-19T07:07:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTPS双向认证">
+<meta name="twitter:description" content="iOS HTTPS 双向认证@(iOS)[网络,HTTPS]
+
+搞了半天，记录一下，坑很多。双向认证，就是在访问网络的时候进行证书认证，首先本地需要一个服务器证书，一个客户端证书。客户端发送请求，服务器返回服务器证书和本地服务器证书比对，然后客户端发送客户端证书到服务器。如果全部匹配就返回加密算法，然后可以访问网络，否则就不能访问。
+
+流程
+1.需要服务端提供认证证书.crt文件，然后自己导出成.">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Bloging" title="Bloging"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Bloging">Bloging</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/atom.xml">Rss</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" autocomplete="off" name="q" maxlength="20" placeholder="搜索" />
+					</form>
+					
+					</li>
+					
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="ios" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/18/双向认证/" title="HTTPS双向认证" itemprop="url">HTTPS双向认证</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Mr Song" target="_blank" itemprop="author">Mr Song</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-18T07:04:38.000Z" itemprop="datePublished"> 发表于 2017-04-18</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS_HTTPS_双向认证"><span class="toc-number">1.</span> <span class="toc-text">iOS HTTPS 双向认证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#流程"><span class="toc-number">1.1.</span> <span class="toc-text">流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证书"><span class="toc-number">1.2.</span> <span class="toc-text">证书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络"><span class="toc-number">1.3.</span> <span class="toc-text">网络</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="iOS_HTTPS_双向认证">iOS HTTPS 双向认证</h1><p>@(iOS)[网络,HTTPS]</p>
+<blockquote>
+<p>搞了半天，记录一下，坑很多。<br>双向认证，就是在访问网络的时候进行证书认证，首先本地需要一个服务器证书，一个客户端证书。客户端发送请求，服务器返回服务器证书和本地服务器证书比对，然后客户端发送客户端证书到服务器。如果全部匹配就返回加密算法，然后可以访问网络，否则就不能访问。</p>
+</blockquote>
+<h2 id="流程">流程</h2><ul>
+<li>1.需要服务端提供认证证书.crt文件，然后自己导出成.cer文件</li>
+<li>2.将导出的cer证书加入到项目中，注意勾选相应的target不然可能获取证书路径为nil</li>
+<li>3.通过cer证书生成证书校验的安全策略</li>
+<li>4.在AFNetworking的网络请求中设置安全策略：[_manager setSecurityPolicy:[CertificatehttpsTools customSecurityPolicy]];</li>
+<li>5.通过抓包工具Charles检验请求和返回的内容是否加密</li>
+</ul>
+<h2 id="证书">证书</h2><ul>
+<li>需要server.cer 和client.p12两个文件，用的自签名证书，所以要配置项目info.plist,增加下面几个属性</li>
+<li>注意域名和服务器配置有关</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">key</span>&gt;</span>NSAppTransportSecurity<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">dict</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">key</span>&gt;</span>NSExceptionDomains<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">dict</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">key</span>&gt;</span>xxxx.com<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">dict</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">key</span>&gt;</span>NSExceptionAllowsInsecureHTTPLoads<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">true</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">key</span>&gt;</span>NSExceptionMinimumTLSVersion<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">string</span>&gt;</span>TLSv1.0<span class="tag">&lt;/<span class="title">string</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">key</span>&gt;</span>NSExceptionRequiresForwardSecrecy<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">false</span>/&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">key</span>&gt;</span>NSIncludesSubdomains<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">true</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">dict</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">dict</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">dict</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="网络">网络</h2><ul>
+<li>AFN3.0</li>
+<li>然后就是设置AFN的安全参数 <code>AFSecurityPolicy</code></li>
+<li>在初始化网络工具类是指定这个参数</li>
+<li>需要注意这个baseUrl问题，指定类似这种就行 <code>https://192.168.0.22&quot;</code> ,不然就会报错 <code>&#39;Invalid Security Policy&#39;, reason: &#39;A security policy configured with AFSSLPinningModeCertificate can only be applied on a manager with a secure base URL (i.e. https)&#39;</code></li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">- (<span class="typename">void</span>)setupAFNetwork&#123;</span><br><span class="line">    AFHTTPSessionManager *manager = [[AFHTTPSessionManager manager] <span class="string">initWithBaseURL:</span>[NSURL <span class="string">URLWithString:</span>BaseURL]];</span><br><span class="line">    manager.securityPolicy = [self <span class="string">getCustomHttpsPolicy:</span>manager];</span><br><span class="line">    manager.securityPolicy.allowInvalidCertificates = YES;</span><br><span class="line">    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes <span class="string">setByAddingObject:</span>@<span class="string">"text/html"</span>];</span><br><span class="line">    </span><br><span class="line">    self.httpSessionManager = manager;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置安全参数</span></span><br><span class="line">-(AFSecurityPolicy*) getCustomHttpsPolicy:(AFHTTPSessionManager*)manager&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//https 公钥证书配置</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *certFilePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"serverapple"</span> ofType:<span class="string">@"cer"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSData</span> *certData = [<span class="built_in">NSData</span> dataWithContentsOfFile:certFilePath];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSSet</span> *certSet = [<span class="built_in">NSSet</span> setWithObject:certData];</span><br><span class="line">    </span><br><span class="line">    AFSecurityPolicy *policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate withPinnedCertificates:certSet];</span><br><span class="line">    </span><br><span class="line">    policy<span class="variable">.allowInvalidCertificates</span> = <span class="literal">YES</span>;</span><br><span class="line">    </span><br><span class="line">    policy<span class="variable">.validatesDomainName</span> = <span class="literal">NO</span>;<span class="comment">//是否校验证书上域名与请求域名一致</span></span><br><span class="line">   </span><br><span class="line">    <span class="comment">//https回调 客户端验证</span></span><br><span class="line">    </span><br><span class="line">    [manager setSessionDidBecomeInvalidBlock:^(<span class="built_in">NSURLSession</span> * _Nonnull session, <span class="built_in">NSError</span> * _Nonnull error) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"setSessionDidBecomeInvalidBlock"</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    __<span class="keyword">weak</span> <span class="keyword">typeof</span>(manager)weakManger = manager;</span><br><span class="line">    </span><br><span class="line">    __<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>)weakSelf = <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//客户端请求验证 重写 setSessionDidReceiveAuthenticationChallengeBlock 方法</span></span><br><span class="line">    </span><br><span class="line">    [manager setSessionDidReceiveAuthenticationChallengeBlock:^<span class="built_in">NSURLSessionAuthChallengeDisposition</span>(<span class="built_in">NSURLSession</span>*session, <span class="built_in">NSURLAuthenticationChallenge</span> *challenge, <span class="built_in">NSURLCredential</span> *__autoreleasing*_credential) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSURLSessionAuthChallengeDisposition</span> disposition = <span class="built_in">NSURLSessionAuthChallengePerformDefaultHandling</span>;</span><br><span class="line">        </span><br><span class="line">        __autoreleasing <span class="built_in">NSURLCredential</span> *credential =<span class="literal">nil</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>([challenge<span class="variable">.protectionSpace</span><span class="variable">.authenticationMethod</span> isEqualToString:<span class="built_in">NSURLAuthenticationMethodServerTrust</span>]) &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>([weakManger<span class="variable">.securityPolicy</span> evaluateServerTrust:challenge<span class="variable">.protectionSpace</span><span class="variable">.serverTrust</span> forDomain:challenge<span class="variable">.protectionSpace</span><span class="variable">.host</span>]) &#123;</span><br><span class="line">                </span><br><span class="line">                credential = [<span class="built_in">NSURLCredential</span> credentialForTrust:challenge<span class="variable">.protectionSpace</span><span class="variable">.serverTrust</span>];</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>(credential) &#123;</span><br><span class="line">                    </span><br><span class="line">                    disposition =<span class="built_in">NSURLSessionAuthChallengeUseCredential</span>;</span><br><span class="line">                    </span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    </span><br><span class="line">                    disposition =<span class="built_in">NSURLSessionAuthChallengePerformDefaultHandling</span>;</span><br><span class="line">                    </span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                </span><br><span class="line">                disposition = <span class="built_in">NSURLSessionAuthChallengeCancelAuthenticationChallenge</span>;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// client authentication</span></span><br><span class="line">            </span><br><span class="line">            SecIdentityRef identity = <span class="literal">NULL</span>;</span><br><span class="line">            </span><br><span class="line">            SecTrustRef trust = <span class="literal">NULL</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">NSString</span> *p12 = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"clientapple"</span>ofType:<span class="string">@"p12"</span>];</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">NSFileManager</span> *fileManager =[<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(![fileManager fileExistsAtPath:p12])</span><br><span class="line">                </span><br><span class="line">            &#123;</span><br><span class="line">                </span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"client.p12:not exist"</span>);</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                </span><br><span class="line">            &#123;</span><br><span class="line">                </span><br><span class="line">                <span class="built_in">NSData</span> *PKCS12Data = [<span class="built_in">NSData</span> dataWithContentsOfFile:p12];</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> ([[weakSelf class]extractIdentity:&amp;identity andTrust:&amp;trust fromPKCS12Data:PKCS12Data])</span><br><span class="line">                    </span><br><span class="line">                &#123;</span><br><span class="line">                    </span><br><span class="line">                    SecCertificateRef certificate = <span class="literal">NULL</span>;</span><br><span class="line">                    </span><br><span class="line">                    SecIdentityCopyCertificate(identity, &amp;certificate);</span><br><span class="line">                    </span><br><span class="line">                    <span class="keyword">const</span> <span class="keyword">void</span>*certs[] = &#123;certificate&#125;;</span><br><span class="line">                    </span><br><span class="line">                    <span class="built_in">CFArrayRef</span> certArray =<span class="built_in">CFArrayCreate</span>(k<span class="built_in">CFAllocatorDefault</span>, certs,<span class="number">1</span>,<span class="literal">NULL</span>);</span><br><span class="line">                    </span><br><span class="line">                    credential =[<span class="built_in">NSURLCredential</span> credentialWithIdentity:identity certificates:(__bridge  <span class="built_in">NSArray</span>*)certArray persistence:<span class="built_in">NSURLCredentialPersistencePermanent</span>];</span><br><span class="line">                    </span><br><span class="line">                    disposition =<span class="built_in">NSURLSessionAuthChallengeUseCredential</span>;</span><br><span class="line">                    </span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        *_credential = credential;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> disposition;</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> policy;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">BOOL</span>)extractIdentity:(SecIdentityRef*)outIdentity andTrust:(SecTrustRef *)outTrust fromPKCS12Data:(<span class="built_in">NSData</span> *)inPKCS12Data &#123;</span><br><span class="line">    </span><br><span class="line">    OSStatus securityError = errSecSuccess;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//client certificate password</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSDictionary</span>*optionsDictionary = [<span class="built_in">NSDictionary</span> dictionaryWithObject:<span class="string">@"123456"</span></span><br><span class="line">                                      </span><br><span class="line">                                                                 forKey:(__bridge <span class="keyword">id</span>)kSecImportExportPassphrase];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CFArrayRef</span> items = <span class="built_in">CFArrayCreate</span>(<span class="literal">NULL</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="literal">NULL</span>);</span><br><span class="line">    </span><br><span class="line">    securityError = SecPKCS12Import((__bridge <span class="built_in">CFDataRef</span>)inPKCS12Data,(__bridge <span class="built_in">CFDictionaryRef</span>)optionsDictionary,&amp;items);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(securityError == <span class="number">0</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">CFDictionaryRef</span> myIdentityAndTrust =<span class="built_in">CFArrayGetValueAtIndex</span>(items,<span class="number">0</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">void</span>*tempIdentity =<span class="literal">NULL</span>;</span><br><span class="line">        </span><br><span class="line">        tempIdentity= <span class="built_in">CFDictionaryGetValue</span> (myIdentityAndTrust,kSecImportItemIdentity);</span><br><span class="line">        </span><br><span class="line">        *outIdentity = (SecIdentityRef)tempIdentity;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">void</span>*tempTrust =<span class="literal">NULL</span>;</span><br><span class="line">        </span><br><span class="line">        tempTrust = <span class="built_in">CFDictionaryGetValue</span>(myIdentityAndTrust,kSecImportItemTrust);</span><br><span class="line">        </span><br><span class="line">        *outTrust = (SecTrustRef)tempTrust;</span><br><span class="line">        </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Failedwith error code %d"</span>,(<span class="keyword">int</span>)securityError);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="http://www.jianshu.com/p/72bf60b5f94d" target="_blank" rel="external">参考文章</a></p>
+<p><a href="http://oncenote.com/2014/10/21/Security-1-HTTPS/" target="_blank" rel="external">参考文章</a></p>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/ios/">ios</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://songliquan.github.io/2017/04/18/双向认证/" data-title="HTTPS双向认证 | Bloging" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/03/27/iOS中如何使用HTML进行打印/"  title="iOS中如何使用HTML进行打印">
+ <strong>下一篇：</strong><br/> 
+ <span>iOS中如何使用HTML进行打印
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/04/18/双向认证/" data-title="HTTPS双向认证" data-url="http://songliquan.github.io/2017/04/18/双向认证/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="slq0378" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/OC/" title="OC">OC<sup>18</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/swift/" title="swift">swift<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CocoaPods/" title="CocoaPods">CocoaPods<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML/" title="HTML">HTML<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iOS-UIImage/" title="iOS,UIImage">iOS,UIImage<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> This is my blog,believe it or not. <br/>
+			To be or not to be, this is the question.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
+		
+		
+		
+		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:slq0378@163.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Song"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-68091434-1', 'auto');  
+ga('send', 'pageview');
+</script>
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>
