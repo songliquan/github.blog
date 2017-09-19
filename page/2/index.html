@@ -80,6 +80,127 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2016/10/29/第三方静态库冲突产生的duplicatesymbol/" title="第三方静态库冲突产生的Duplicatesymbol" itemprop="url">
+  
+    <h1 itemprop="name">第三方静态库冲突产生的Duplicatesymbol</h1>
+    
+     
+           <p itemprop="description" >第三方静态库冲突产生的duplicate symbol错误描述
+项目中引用了很多第三方库，有时就会出现一些冲突，比如下面
+
+duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintone</p>
+        
+    
+    <time datetime="2016-10-29T03:09:19.000Z" itemprop="datePublished">2016-10-29</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/10/28/多个target使用Cocoapod/" title="多个target使用Cocoapod" itemprop="url">
+  
+    <h1 itemprop="name">多个target使用Cocoapod</h1>
+    
+     
+           <p itemprop="description" >&lt;!--# 多个target使用Cocoapod--&gt;
+@(iOS)[CocoaPods]
+
+默认是放到主target
+
+- platform :ios, &#39;7.0&#39;# 多个target使用1pod &#39;FlatUIKit&#39;end
+
+多个target的话，简单一点可以一个一个指定，</p>
+        
+    
+    <time datetime="2016-10-28T06:03:54.000Z" itemprop="datePublished">2016-10-28</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/09/10/UIImage分类总结/" title="UIImage分类总结" itemprop="url">
+  
+    <h1 itemprop="name">UIImage分类总结</h1>
+    
+     
+           <p itemprop="description" >UIImage 分类总结@(iOS)[UIImage]
+[TOC]
+修正图片方向
+这个使用很常见，特别是在上传图片时，一定要记得修正方向，不然安卓h或者服务端下载下来方向就不对了。
+当然这个分类方法是已经有大神写出来了。
+image = [image fixOrientation</p>
+        
+    
+    <time datetime="2016-09-10T02:19:27.000Z" itemprop="datePublished">2016-09-10</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/04/16/URL加解密/" title="URL加解密" itemprop="url">
+  
+    <h1 itemprop="name">URL加解密</h1>
+    
+     
+           <p itemprop="description" >URL加解密背景介绍
+iOS 下URL加解密，项目使用AFNetworking 
+虽然是使用HTTPS，但是从安全方面考虑，在很多情况下还是需要对url的参数进行加密的。
+接口如 https://192.160.0.123:92/frame/webInteface.do?(met</p>
+        
+    
+    <time datetime="2016-04-16T07:40:01.000Z" itemprop="datePublished">2016-04-16</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2016/03/05/图片合成/" title="图片合成" itemprop="url">
+  
+    <h1 itemprop="name">图片合成</h1>
+    
+     
+           <p itemprop="description" >合成图片
+直接合成图片还是比较简单的，现在的难点是要把，通过文本输入的一些基本数据也合成到一张图片中，如果有多长图片就合成长图。
+现在的实现方法是，把所有的文本消息格式化，然后绘制到一个UILable中，然后自适应高度，然后把这个控件截取出来一张图片，和拍的照片合成一张图片。
+示</p>
+        
+    
+    <time datetime="2016-03-05T09:43:11.000Z" itemprop="datePublished">2016-03-05</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2016/02/23/AVFoundation笔记01/" title="AVFoundation笔记01" itemprop="url">
   
     <h1 itemprop="name">AVFoundation笔记01</h1>
@@ -210,133 +331,6 @@ App ID字符串通</p>
 
 
 
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/04/06/闪退问题解析/" title="闪退问题解析" itemprop="url">
-  
-    <h1 itemprop="name">闪退问题解析</h1>
-    
-     
-           <p itemprop="description" >闪退bug修复
-http://www.educity.cn/wenda/418906.html
-
-SIGABRT 一般是过度release 或者 发送 unrecogized selector导致。
-
-EXC_BAD_ACCESS 是访问已被释放的内存导致。　Applicatio</p>
-        
-    
-    <time datetime="2015-04-06T08:51:16.000Z" itemprop="datePublished">2015-04-06</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/04/05/正则表达式/" title="正则表达式" itemprop="url">
-  
-    <h1 itemprop="name">正则表达式</h1>
-    
-     
-           <p itemprop="description" >正则表达式
-正则表达式是对字符串操作的一种逻辑公式，用事先定义好的一些特定字符、及这些特定字符的组合，组成一个”规则字符串”，这个”规则字符串”用来表达对字符串的一种过滤逻辑。
-
-正则表达式的用处:
-
-判断给定的字符串是否符合某一种规则(专门用于操作字符串)
-电话号码，电子邮箱，</p>
-        
-    
-    <time datetime="2015-04-05T02:25:18.000Z" itemprop="datePublished">2015-04-05</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/03/09/问题杂烩/" title="问题杂烩" itemprop="url">
-  
-    <h1 itemprop="name">问题杂烩</h1>
-    
-     
-           <p itemprop="description" >问题杂烩判断字符串是不是纯数字/// 判断字符串是不是纯数字- (BOOL)isPureNumandCharacters:(NSString *)string&amp;#123;    string = [string stringByTrimmingCharactersInSet:[N</p>
-        
-    
-    <time datetime="2015-03-09T03:30:56.000Z" itemprop="datePublished">2015-03-09</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/03/06/单元测试/" title="单元测试" itemprop="url">
-  
-    <h1 itemprop="name">单元测试</h1>
-    
-     
-           <p itemprop="description" >单元测试
-什么时候用到单元测试：
-1、写完代码以后：想要验证一下自己写的代码是否有问题。
-2、写代码之前：就是写代码之前所有的功能分模块的设计好，测试通过了再写。（我反正是没用过）。
-3、修复某个bug后：一般修复完某个bug，为了确保修复是成功的，会写测试。
-
-
-以test开头</p>
-        
-    
-    <time datetime="2015-03-06T08:48:35.000Z" itemprop="datePublished">2015-03-06</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2014/12/21/socket编程/" title="Socket编程" itemprop="url">
-  
-    <h1 itemprop="name">Socket编程</h1>
-    
-     
-           <p itemprop="description" >socket编程CocoaAsyncSocket
-开源库：https://github.com/robbiehanson/CocoaAsyncSocket
-CocoaAsyncSocket介绍
-TCP
-GCDAsyncSocket
-AsyncSocket 
-
-
-UDP
-GCDAs</p>
-        
-    
-    <time datetime="2014-12-21T11:48:23.000Z" itemprop="datePublished">2014-12-21</time>
-  </a>
-</section>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix unexpand">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
@@ -375,7 +369,7 @@ GCDAs</p>
 			
 		
 			
-				<li><a href="/tags/iOS/" title="iOS">iOS<sup>2</sup></a></li>
+				<li><a href="/tags/iOS/" title="iOS">iOS<sup>3</sup></a></li>
 			
 		
 			

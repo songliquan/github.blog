@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://songliquan.github.io/"/>
-  <updated>2017-09-19T07:07:24.000Z</updated>
+  <updated>2017-09-19T07:27:36.000Z</updated>
   <id>http://songliquan.github.io/</id>
   
   <author>
@@ -14,6 +14,200 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>XcodeSourceControl使用</title>
+    <link href="http://songliquan.github.io/2017/09/19/XcodeSourceControl%E4%BD%BF%E7%94%A8/"/>
+    <id>http://songliquan.github.io/2017/09/19/XcodeSourceControl使用/</id>
+    <published>2017-09-19T07:23:55.000Z</published>
+    <updated>2017-09-19T07:27:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Xcode_Source_Control_使用">Xcode Source Control 使用</h2><ul>
+<li>从其他地方复制过来的项目，多了几个source，想删除掉，但是发现xcode没有直接方法删除。</li>
+<li><p><img src="http://upload-images.jianshu.io/upload_images/760578-ac425b62b73d1bff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+</li>
+<li><p>通过其他方式试一下吧，以前也遇到过这种情况，当时没有想到解决方法。现在有时间研究一下。</p>
+</li>
+<li><p>既然是项目配置那么应该可以在 NanhaiPoliceM.xcodeproj 中找到相关的配置信息的。</p>
+</li>
+</ul>
+<h2 id="按照以下步骤">按照以下步骤</h2><h3 id="1、打开配置文件">1、打开配置文件</h3><ul>
+<li><img src="http://upload-images.jianshu.io/upload_images/760578-4388d9f41b3dc8d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ul>
+<h3 id="2、打开project-xcworkspace">2、打开project.xcworkspace</h3><ul>
+<li><img src="http://upload-images.jianshu.io/upload_images/760578-0dbd18aeb8be05a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ul>
+<h3 id="3、寻找相关文件">3、寻找相关文件</h3><ul>
+<li>最后发现在 xcshareddata-&gt;NanhaiPoliceM.xcscmblueprint中有相关配置</li>
+<li><img src="http://upload-images.jianshu.io/upload_images/760578-fec54940b9a7b09b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ul>
+<h3 id="4、找到相关的文件，删除多余的代码">4、找到相关的文件，删除多余的代码</h3><ul>
+<li>可以按照文件名定位，需要提前备份一下这个文件，如果删除有误也好处理。</li>
+<li><img src="http://upload-images.jianshu.io/upload_images/760578-fec54940b9a7b09b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ul>
+<p>5、最后一切正常，多余的source不见了</p>
+<ul>
+<li><img src="http://upload-images.jianshu.io/upload_images/760578-1c54cdc9a9f7344d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Xcode_Source_Control_使用&quot;&gt;Xcode Source Control 使用&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;从其他地方复制过来的项目，多了几个source，想删除掉，但是发现xcode没有直接方法删除。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;img src=&quot;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>印象笔记已经关闭了DeveloperToken</title>
+    <link href="http://songliquan.github.io/2017/09/19/%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0%E5%B7%B2%E7%BB%8F%E5%85%B3%E9%97%AD%E4%BA%86DeveloperToken/"/>
+    <id>http://songliquan.github.io/2017/09/19/印象笔记已经关闭了DeveloperToken/</id>
+    <published>2017-09-19T07:22:14.000Z</published>
+    <updated>2017-09-19T07:23:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><p>我的sublime突然就不能用了，原来官方关闭这个东西了，好坑，有没有替代方法呢？印象笔记本身不支持Markdown，以前用第三方，那现在这个授权也没了，咋搞？</p>
+</li>
+<li><p>印象笔记或者Evernote点击申请token链接，提示：Update: the creation of developer tokens is temporarily disabled.<br>我问了下技术支持，说Developer Token即将关闭，以下是原文：</p>
+</li>
+<li><p>印象笔记目前没有单独针对笔记metadata的权限设置。</p>
+</li>
+<li>通过OAuth方式无法读取用户的全部笔记，只能创建新笔记或者读取应用笔记本（即用户在授权时指定的笔记本）中的笔记。</li>
+<li><p>Developer Token因安全问题将停止支持，因此目前也不建议使用。</p>
+</li>
+<li><p>印象笔记用户支持团队</p>
+</li>
+</ul>
+<ul>
+<li>好吧，这个印象笔记让人又爱又恨啊</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;我的sublime突然就不能用了，原来官方关闭这个东西了，好坑，有没有替代方法呢？印象笔记本身不支持Markdown，以前用第三方，那现在这个授权也没了，咋搞？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;印象笔记或者Evernote点击申请token链接，提示：U
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于京东自营</title>
+    <link href="http://songliquan.github.io/2017/07/21/%E5%85%B3%E4%BA%8E%E4%BA%AC%E4%B8%9C%E8%87%AA%E8%90%A5/"/>
+    <id>http://songliquan.github.io/2017/07/21/关于京东自营/</id>
+    <published>2017-07-21T07:19:26.000Z</published>
+    <updated>2017-09-19T07:21:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="何为京东自营">何为京东自营</h2><ul>
+<li>京东自营，就是京东负责保修期内出问题进行维修或者更换，但是过了保修期，只能找厂家了。</li>
+</ul>
+<h2 id="皮包公司？">皮包公司？</h2><ul>
+<li><p>但是为什么要成立皮包公司呢？唯一的解释就是为了规避风险，这样最好，你买了东西，过几年有问题找不到公司负责了，京东只是第三方平台，不用负责任，下面的A,B,C公司才需要负责，但是它早注销跑路了。这是坑。</p>
+</li>
+<li><p><img src="http://upload-images.jianshu.io/upload_images/760578-0dacb5bec077f84c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+</li>
+<li><p>先用A公司买东西，过几年注销掉，再用B公司卖东西，过几年注销掉，再继续下去……</p>
+</li>
+</ul>
+<h2 id="京东为什么这么搞？">京东为什么这么搞？</h2><p>﻿- 因为全世界都这么搞，所以京东自营也这么搞。</p>
+<ul>
+<li><p>比如房地产公司每开发一个项目都会成立一个公司，项目完成后注销公司。影视圈拍电影也这样玩，先成立公司拍一部电影，然后注销。</p>
+</li>
+<li><p>所有商场和网店都只是提供平台。自营和天猫官方旗舰店一个意思… 只是确保货源和售后都是官方的…不是说京东和天猫自己的货…</p>
+</li>
+<li><p>这应该成为了一种商业模式，为了规避风险就这么玩，反正又不犯法。</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;何为京东自营&quot;&gt;何为京东自营&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;京东自营，就是京东负责保修期内出问题进行维修或者更换，但是过了保修期，只能找厂家了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;皮包公司？&quot;&gt;皮包公司？&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;但是为什么要成立皮包公司呢
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Cell高度自适应</title>
+    <link href="http://songliquan.github.io/2017/06/06/Cell%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94/"/>
+    <id>http://songliquan.github.io/2017/06/06/Cell高度自适应/</id>
+    <published>2017-06-06T02:10:19.000Z</published>
+    <updated>2017-09-19T07:19:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#Cell高度自适应<br>@(iOS)[UITableView]</p>
+<blockquote>
+<p>这是找到的最简单一种自适应方法了，代码量不多</p>
+</blockquote>
+<ul>
+<li>1、首先要在set模型时候将高度计算出来，更新cell布局</li>
+<li>2、然后再tableView代理方法中拿到这个cell去更新高度,主要是这个方法</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setCheckModel:(M<span class="built_in">MKeyPlacesVisitAgainCheckAreaModel</span> *)checkModel &#123;</span><br><span class="line">    _checkModel = checkModel;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.titleLable</span><span class="variable">.text</span> = checkModel<span class="variable">.name</span>;</span><br><span class="line">    <span class="built_in">CGSize</span> size = [<span class="keyword">self</span> sizeString:checkModel<span class="variable">.name</span> WithFont:[<span class="built_in">UIFont</span> systemFontOfSize:FontSize] constrainedToSize:<span class="built_in">CGSizeMake</span>(ScreenWidth, MAXFLOAT)];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.titleLable</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, ScreenWidth, size<span class="variable">.height</span> &gt;= <span class="number">40</span> ?:<span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.yesLable</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, _titleLable<span class="variable">.SLQBottom</span>, <span class="number">20</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.yesBtn</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(_yesLable<span class="variable">.SLQRight</span> , _titleLable<span class="variable">.SLQBottom</span>, <span class="number">40</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.noLable</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(_yesBtn<span class="variable">.SLQRight</span> , _titleLable<span class="variable">.SLQBottom</span>, <span class="number">20</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.noBtn</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(_noLable<span class="variable">.SLQRight</span>, _titleLable<span class="variable">.SLQBottom</span>, <span class="number">40</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.SLQHeight</span>  = <span class="keyword">self</span><span class="variable">.noBtn</span><span class="variable">.SLQBottom</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">    <span class="built_in">UITableViewCell</span> *cell = [<span class="keyword">self</span> tableView:tableView cellForRowAtIndexPath:indexPath];</span><br><span class="line">    <span class="keyword">return</span> cell<span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#Cell高度自适应&lt;br&gt;@(iOS)[UITableView]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是找到的最简单一种自适应方法了，代码量不多&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;1、首先要在set模型时候将高度计算出来，更新cell布局&lt;/li
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://songliquan.github.io/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>监听用户截屏</title>
+    <link href="http://songliquan.github.io/2017/06/01/%E7%9B%91%E5%90%AC%E7%94%A8%E6%88%B7%E6%88%AA%E5%B1%8F/"/>
+    <id>http://songliquan.github.io/2017/06/01/监听用户截屏/</id>
+    <published>2017-06-01T10:17:06.000Z</published>
+    <updated>2017-09-19T07:17:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="监听用户截屏">监听用户截屏</h1><p>@()</p>
+<blockquote>
+<p>这些小技巧必须要记下来，以备不时之需。</p>
+</blockquote>
+<ul>
+<li>iOS8之前可以用 <code>ALAssetsLibrary</code></li>
+<li><p>iOS8 以后可以用 <code>PHAsset</code></p>
+</li>
+<li><p>监听通知 UIApplicationUserDidTakeScreenshotNotification</p>
+</li>
+</ul>
+<h2 id="-_iOS8之前可以用_ALAssetsLibrary">- iOS8之前可以用 <code>ALAssetsLibrary</code></h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - 获取最新截图</span></span><br><span class="line"><span class="comment">/*</span><br><span class="line"> #import &lt;AssetsLibrary/AssetsLibrary.h&gt;</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)latestAsset:(<span class="keyword">void</span> (^)(<span class="built_in">UIImage</span> * _Nullable, <span class="built_in">NSError</span> *_Nullable))block &#123;</span><br><span class="line">    <span class="keyword">if</span> (SystemVersion &lt; <span class="number">8.0</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span> enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, <span class="built_in">BOOL</span> *stop) &#123;</span><br><span class="line">            <span class="keyword">if</span> (group) &#123;</span><br><span class="line">                [group setAssetsFilter:[ALAssetsFilter allPhotos]];</span><br><span class="line">                [group enumerateAssetsWithOptions:<span class="built_in">NSEnumerationReverse</span><span class="comment">/*遍历方式,逆序*/</span> usingBlock:^(ALAsset *result, <span class="built_in">NSUInteger</span> index, <span class="built_in">BOOL</span> *stop) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (result) &#123;</span><br><span class="line">                        ALAssetRepresentation *repr = [result defaultRepresentation];</span><br><span class="line">                        <span class="built_in">UIImage</span> *img = [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:[repr fullResolutionImage]];</span><br><span class="line">                        *stop = <span class="literal">YES</span>;</span><br><span class="line">                        <span class="keyword">if</span> (block) &#123;</span><br><span class="line">                            block(img,<span class="literal">nil</span>);</span><br><span class="line">                        &#125;</span><br><span class="line">                        *stop = <span class="literal">YES</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    </span><br><span class="line">                &#125;];</span><br><span class="line">                *stop = <span class="literal">YES</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; failureBlock:^(<span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">            <span class="keyword">if</span> (error) &#123;</span><br><span class="line">                <span class="keyword">if</span> (block) &#123;</span><br><span class="line">                    block(<span class="literal">nil</span>,error);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="iOS8_以后可以用_PHAsset">iOS8 以后可以用 <code>PHAsset</code></h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line">#import &lt;Photos/PHAsset.h&gt;</span><br><span class="line">#import &lt;Photos/PHImageManager.h&gt;</span><br><span class="line">#import &lt;Photos/PHFetchOptions.h&gt;</span><br><span class="line"> */</span></span><br><span class="line"> <span class="comment">/// 获取最新截图</span></span><br><span class="line">- (<span class="keyword">void</span>)latestPhoto:(<span class="keyword">void</span> (^_Nullable)(<span class="built_in">UIImage</span> * _Nullable))block  &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (SystemVersion &gt;= <span class="number">8.0</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        PHFetchOptions *fetchOptions = [[PHFetchOptions alloc] init];</span><br><span class="line">        fetchOptions<span class="variable">.sortDescriptors</span> = @[[<span class="built_in">NSSortDescriptor</span> sortDescriptorWithKey:<span class="string">@"creationDate"</span> ascending:<span class="literal">NO</span>]];</span><br><span class="line">        </span><br><span class="line">        PHImageRequestOptions * requestOptions = [[PHImageRequestOptions alloc] init];</span><br><span class="line">        requestOptions<span class="variable">.synchronous</span> = <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        PHFetchResult&lt;PHAsset*&gt; * fetchResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:fetchOptions];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (fetchResult<span class="variable">.count</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            PHAsset *asset = [fetchResult objectAtIndex:<span class="number">0</span>];</span><br><span class="line">            PHImageManager * manager = [PHImageManager defaultManager];</span><br><span class="line">            <span class="built_in">CGSize</span> targetSize = <span class="built_in">CGSizeMake</span>(asset<span class="variable">.pixelWidth</span>, asset<span class="variable">.pixelHeight</span>);</span><br><span class="line">            [manager requestImageForAsset:asset</span><br><span class="line">                               targetSize:targetSize</span><br><span class="line">                              contentMode:PHImageContentModeAspectFit</span><br><span class="line">                                  options:requestOptions</span><br><span class="line">                            resultHandler:^(<span class="built_in">UIImage</span> * _Nullable result, <span class="built_in">NSDictionary</span> * _Nullable info) &#123;</span><br><span class="line">                                </span><br><span class="line">                                <span class="keyword">if</span> (result) &#123;</span><br><span class="line">                                    <span class="keyword">if</span>(block) &#123;</span><br><span class="line">                                        block(result);</span><br><span class="line">                                    &#125;</span><br><span class="line">                                &#125;</span><br><span class="line">                                </span><br><span class="line">                            &#125;];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;监听用户截屏&quot;&gt;监听用户截屏&lt;/h1&gt;&lt;p&gt;@()&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这些小技巧必须要记下来，以备不时之需。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;iOS8之前可以用 &lt;code&gt;ALAssetsLibrary&lt;/code&gt;&lt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>HTTPS双向认证</title>
@@ -1368,534 +1562,6 @@
     
       &lt;h1 id=&quot;证书打包发布&quot;&gt;证书打包发布&lt;/h1&gt;&lt;h2 id=&quot;一-App_ID（bundle_identifier）&quot;&gt;一.App ID（bundle identifier）&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;App ID即Product ID，用于标识一个或者一组App。&lt;/l
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>闪退问题解析</title>
-    <link href="http://songliquan.github.io/2015/04/06/%E9%97%AA%E9%80%80%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/"/>
-    <id>http://songliquan.github.io/2015/04/06/闪退问题解析/</id>
-    <published>2015-04-06T08:51:16.000Z</published>
-    <updated>2016-03-06T08:54:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="闪退bug修复">闪退bug修复</h1><ul>
-<li><p><a href="http://www.educity.cn/wenda/418906.html" target="_blank" rel="external">http://www.educity.cn/wenda/418906.html</a></p>
-</li>
-<li><p>SIGABRT 一般是过度release 或者 发送 unrecogized selector导致。</p>
-</li>
-<li>EXC_BAD_ACCESS 是访问已被释放的内存导致。<br>　Application received signal SIGSEGV<br>　Application received signal SIGBUS<br>　Application received signal SIGABRT</li>
-<li>IGSEGV和SIGBUS一般是因为访问已被释放的内存或者调用不存在的方法导致的</li>
-<li><a href="http://blog.csdn.net/xyxjn/article/details/43310061" target="_blank" rel="external">http://blog.csdn.net/xyxjn/article/details/43310061</a></li>
-</ul>
-<h2 id="解析">解析</h2><ul>
-<li><code>SIGABRT</code>是处于程序控制状态下的crash，SIGABRT引起的crash是因为系统发现了应用程序正在做一些系统不希望它去做的事情(Exception)。</li>
-<li><code>EXC_BAD_ACCESS</code>意味着你的程序在内存管理方面有bug。与<code>SIGABRT</code>不同，发生EXC_BAD_ACCESS错误时，在控制台里你不会得到一个错误的信息，但是你可以通过一些设置得到这些错误信息并进一步定位内存错误发生的位置。</li>
-<li><code>EXC_BAD_ACCESS</code>意味着你的程序在内存管理方面有bug。与<code>SIGABRT</code>不同，发生<code>EXC_BAD_ACCESS</code>错误时，在控制台里你不会得到一个错误的信息，但是你可以通过一些设置得到这些错误信息并进一步定位内存错误发生的位置。</li>
-</ul>
-<h2 id="错误">错误</h2><ul>
-<li><code>Error: CUICatalog: Invalid asset name supplied: (null), or invalid scale factor : 2.000000</code></li>
-<li><a href="http://stackoverflow.com/questions/22011106/error-cuicatalog-invalid-asset-name-supplied-null-or-invalid-scale-factor" target="_blank" rel="external">http://stackoverflow.com/questions/22011106/error-cuicatalog-invalid-asset-name-supplied-null-or-invalid-scale-factor</a></li>
-<li>处理方式<ul>
-<li>This one appears when someone is trying to put nil eventually in <code>[UIImage imageNamed:]</code></li>
-<li>Add symbolic breakpoint for <code>[UIImage imageNamed:]</code><br><img src="/images/error001.png" alt="">  </li>
-<li>Add $arg3 == nil condition (on Simulator) or $r0 == nil condition on iPhone device</li>
-<li>Run your application and see where is the problem persist</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;闪退bug修复&quot;&gt;闪退bug修复&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.educity.cn/wenda/418906.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.educity
-    
-    </summary>
-    
-    
-      <category term="OC" scheme="http://songliquan.github.io/tags/OC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正则表达式</title>
-    <link href="http://songliquan.github.io/2015/04/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>http://songliquan.github.io/2015/04/05/正则表达式/</id>
-    <published>2015-04-05T02:25:18.000Z</published>
-    <updated>2015-12-10T10:38:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="正则表达式">正则表达式</h1><ul>
-<li>正则表达式是对字符串操作的一种逻辑公式，用事先定义好的一些特定字符、及这些特定字符的组合，组成一个”规则字符串”，这个”规则字符串”用来表达对字符串的一种过滤逻辑。</li>
-</ul>
-<h2 id="正则表达式的用处:">正则表达式的用处:</h2><ul>
-<li><ol>
-<li>判断给定的字符串是否符合某一种规则(专门用于操作字符串)<ul>
-<li>电话号码，电子邮箱，URL…</li>
-<li>可以直接百度别人写好的正则</li>
-<li>别人真的写好了，而且测试过了，我们可以直接用</li>
-<li>要写出没有漏洞正则判断，需要大量的测试，通常最终结果非常负责</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><ol>
-<li>过滤筛选字符串，网络爬虫</li>
-</ol>
-</li>
-<li><ol>
-<li>替换文字，QQ聊天，图文混排</li>
-</ol>
-</li>
-</ul>
-<h2 id="语法规则">语法规则</h2><ul>
-<li>1&gt;    集合</li>
-</ul>
-<figure class="highlight scheme"><table><tr><td class="code"><pre><span class="line"><span class="list">[<span class="keyword">xyz</span>]		字符集合<span class="list">(<span class="keyword">x/y或z</span>)</span></span><br><span class="line"><span class="list">[<span class="keyword">a-z</span>]		字符范围</span><br><span class="line"><span class="list">[<span class="keyword">a-zA-Z</span>]</span><br><span class="line"><span class="list">[<span class="keyword">^xyz</span>]		负值字符集合 <span class="list">(<span class="keyword">任何字符</span>, 除了xyz)</span></span><br><span class="line"><span class="list">[<span class="keyword">^a-z</span>]		负值字符范围</span><br><span class="line"><span class="list">[<span class="keyword">a-d</span>]<span class="list">[<span class="keyword">m-p</span>]  并集<span class="list">(<span class="keyword">a到d</span> 或 m到p)</span></span></span></span></span></span></span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>2&gt;    常用元字符</li>
-</ul>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">.			匹配除换行符以外的任意字符</span><br><span class="line"><span class="command">\w</span>			匹配字母或数字或下划线或汉字 <span class="special">[</span>a-zA-Z_0-9<span class="special">]</span></span><br><span class="line"><span class="command">\s</span>			匹配任意的空白符（空格、TAB<span class="command">\t</span>、回车<span class="command">\r</span> <span class="command">\n</span>）</span><br><span class="line"><span class="command">\d</span>			匹配数字 <span class="special">[</span>0-9<span class="special">]</span></span><br><span class="line">^			匹配字符串的开始</span><br><span class="line"><span class="formula">$			匹配字符串的结束</span><br><span class="line"><span class="command">\b</span>			匹配单词的开始或结束</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>2&gt;    常用反义符</li>
-</ul>
-<figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line"><span class="string">\W</span>          匹配任意不是字母，数字，下划线，汉字的字符[^<span class="string">\w]</span></span><br><span class="line"><span class="string">\S</span>			匹配任意不是空白符的字符 [^<span class="string">\s]</span></span><br><span class="line"><span class="string">\D</span>			匹配任意非数字的字符[^<span class="number">0</span>-<span class="number">9</span>]</span><br><span class="line"><span class="string">\B</span>			匹配不是单词开头或结束的位置</span><br><span class="line">[^x]		匹配除了x以外的任意字符</span><br><span class="line">[^aeiou]	匹配除了aeiou这几个字母以外的任意字符</span><br></pre></td></tr></table></figure>
-<ul>
-<li>4&gt;    常用限定符</li>
-</ul>
-<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="comment">*			重复零次或更多次</span></span><br><span class="line">+			重复一次或更多次</span><br><span class="line">?			重复零次或一次</span><br><span class="line">&#123;<span class="keyword">n</span>&#125;			重复<span class="keyword">n</span>次</span><br><span class="line">&#123;<span class="keyword">n</span>,&#125;		重复<span class="keyword">n</span>次或更多次</span><br><span class="line">&#123;<span class="keyword">n</span>,<span class="keyword">m</span>&#125;		重复<span class="keyword">n</span>到<span class="keyword">m</span>次,</span><br></pre></td></tr></table></figure>
-<ul>
-<li>5&gt;    贪婪和懒惰</li>
-</ul>
-<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="comment">*?			重复任意次，但尽可能少重复</span></span><br><span class="line"><span class="comment">*+			重复1次或更多次，但尽可能少重复</span></span><br><span class="line">??			重复0次或1次，但尽可能少重复</span><br><span class="line">&#123;<span class="keyword">n</span>,<span class="keyword">m</span>&#125;?      重复<span class="keyword">n</span>到<span class="keyword">m</span>次，但尽可能少重复</span><br><span class="line">&#123;<span class="keyword">n</span>,&#125;?		重复<span class="keyword">n</span>次以上，但尽可能少重复</span><br></pre></td></tr></table></figure>
-<h2 id="使用过程">使用过程</h2><ul>
-<li>1、创建规则</li>
-<li>2、创建正则表达式对象</li>
-<li>3、开始匹配</li>
-</ul>
-<h2 id="代码示例">代码示例</h2><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">private <span class="func"><span class="keyword">func</span> <span class="title">check</span><span class="params">(str: String)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 使用正则表达式一定要加try语句</span></span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="comment">// - 1、创建规则</span></span><br><span class="line">        <span class="keyword">let</span> pattern = <span class="string">"[1-9][0-9]&#123;4,14&#125;"</span></span><br><span class="line">        <span class="comment">// - 2、创建正则表达式对象</span></span><br><span class="line">        <span class="keyword">let</span> regex = try <span class="type">NSRegularExpression</span>(pattern: pattern, options: <span class="type">NSRegularExpressionOptions</span>.<span class="type">CaseInsensitive</span>)</span><br><span class="line">        <span class="comment">// - 3、开始匹配</span></span><br><span class="line">        <span class="keyword">let</span> res = regex.matchesInString(str, options: <span class="type">NSMatchingOptions</span>(rawValue: <span class="number">0</span>), range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, str.characters.<span class="built_in">count</span>))</span><br><span class="line">        <span class="comment">// 输出结果</span></span><br><span class="line">        <span class="keyword">for</span> checkingRes <span class="keyword">in</span> res &#123;</span><br><span class="line">            <span class="built_in">print</span>((str <span class="keyword">as</span> <span class="type">NSString</span>).substringWithRange(checkingRes.range))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    catch &#123;</span><br><span class="line">        <span class="built_in">print</span>(error)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>其他几个常用方法</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 匹配字符串中所有的符合规则的字符串, 返回匹配到的NSTextCheckingResult数组</span></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">matchesInString</span><span class="params">(string: String, options: NSMatchingOptions, range: NSRange)</span></span> -&gt; [<span class="type">NSTextCheckingResult</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按照规则匹配字符串, 返回匹配到的个数</span></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">numberOfMatchesInString</span><span class="params">(string: String, options: NSMatchingOptions, range: NSRange)</span></span> -&gt; <span class="type">Int</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 按照规则匹配字符串, 返回第一个匹配到的字符串的NSTextCheckingResult</span></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">firstMatchInString</span><span class="params">(string: String, options: NSMatchingOptions, range: NSRange)</span></span> -&gt; <span class="type">NSTextCheckingResult</span>?</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按照规则匹配字符串, 返回第一个匹配到的字符串的范围</span></span><br><span class="line">public <span class="func"><span class="keyword">func</span> <span class="title">rangeOfFirstMatchInString</span><span class="params">(string: String, options: NSMatchingOptions, range: NSRange)</span></span> -&gt; <span class="type">NSRange</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用子类来匹配日期、地址、和URL">使用子类来匹配日期、地址、和URL</h2><ul>
-<li>看官网文档解释，可以知道这个<code>NSDataDetector</code>主要用来匹配日期、地址、和URL。在使用时指定要匹配的类型</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">NSDataDetector</span> : <span class="title">NSRegularExpression</span> </span>&#123;</span><br><span class="line">    <span class="comment">// all instance variables are private</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* NSDataDetector is a specialized subclass of NSRegularExpression.  Instead of finding matches to regular expression patterns, it matches items identified by Data Detectors, such as dates, addresses, and URLs.  The checkingTypes argument should contain one or more of the types NSTextCheckingTypeDate, NSTextCheckingTypeAddress, NSTextCheckingTypeLink, NSTextCheckingTypePhoneNumber, and NSTextCheckingTypeTransitInformation.  The NSTextCheckingResult instances returned will be of the appropriate types from that list.</span><br><span class="line">    */</span></span><br><span class="line">    </span><br><span class="line">    public <span class="keyword">init</span>(types checkingTypes: <span class="type">NSTextCheckingTypes</span>) throws</span><br><span class="line">    </span><br><span class="line">    public <span class="keyword">var</span> checkingTypes: <span class="type">NSTextCheckingTypes</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个是类型选择</span></span><br><span class="line">    public <span class="keyword">static</span> <span class="keyword">var</span> <span class="type">Date</span>: <span class="type">NSTextCheckingType</span> &#123; <span class="keyword">get</span> &#125; <span class="comment">// date/time detection</span></span><br><span class="line">    public <span class="keyword">static</span> <span class="keyword">var</span> <span class="type">Address</span>: <span class="type">NSTextCheckingType</span> &#123; <span class="keyword">get</span> &#125; <span class="comment">// address detection</span></span><br><span class="line">    public <span class="keyword">static</span> <span class="keyword">var</span> <span class="type">Link</span>: <span class="type">NSTextCheckingType</span> &#123; <span class="keyword">get</span> &#125; <span class="comment">// link detection</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>NSDataDetector</code> 获取URL示例</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">匹配字符串中的URLS</span><br><span class="line">- parameter str: 要匹配的字符串</span><br><span class="line">*/</span></span><br><span class="line">private <span class="func"><span class="keyword">func</span> <span class="title">getUrl</span><span class="params">(str:String)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 创建一个正则表达式对象</span></span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> dataDetector = try <span class="type">NSDataDetector</span>(types: <span class="type">NSTextCheckingTypes</span>(<span class="type">NSTextCheckingType</span>.<span class="type">Link</span>.rawValue))</span><br><span class="line">        <span class="comment">// 匹配字符串，返回结果集</span></span><br><span class="line">        <span class="keyword">let</span> res = dataDetector.matchesInString(str, options: <span class="type">NSMatchingOptions</span>(rawValue: <span class="number">0</span>), range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, str.characters.<span class="built_in">count</span>))</span><br><span class="line">        <span class="comment">// 取出结果</span></span><br><span class="line">        <span class="keyword">for</span> checkingRes <span class="keyword">in</span> res &#123;</span><br><span class="line">            <span class="built_in">print</span>((str <span class="keyword">as</span> <span class="type">NSString</span>).substringWithRange(checkingRes.range))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    catch &#123;</span><br><span class="line">        <span class="built_in">print</span>(error)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>“.*?” 可以满足一些基本的匹配要求</li>
-<li>如果想同时匹配多个规则 ，可以通过 “|” 将多个规则连接起来</li>
-<li>将字符串中文字替换为表情</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">显示字符中的表情</span><br><span class="line">- parameter str: 匹配字符串</span><br><span class="line">*/</span></span><br><span class="line">private <span class="func"><span class="keyword">func</span> <span class="title">getEmoji</span><span class="params">(str:String)</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> strM = <span class="type">NSMutableAttributedString</span>(string: str)</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> pattern = <span class="string">"\\[.*?\\]"</span></span><br><span class="line">        <span class="keyword">let</span> regex = try <span class="type">NSRegularExpression</span>(pattern: pattern, options: <span class="type">NSRegularExpressionOptions</span>.<span class="type">CaseInsensitive</span>)</span><br><span class="line">        <span class="keyword">let</span> res = regex.matchesInString(str, options: <span class="type">NSMatchingOptions</span>(rawValue: <span class="number">0</span>), range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, str.characters.<span class="built_in">count</span>))</span><br><span class="line">        <span class="keyword">var</span> <span class="built_in">count</span> = res.<span class="built_in">count</span></span><br><span class="line">        <span class="comment">// 反向取出文字表情</span></span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">count</span> &gt; <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> checkingRes = res[--<span class="built_in">count</span>]</span><br><span class="line">            <span class="keyword">let</span> tempStr = (str <span class="keyword">as</span> <span class="type">NSString</span>).substringWithRange(checkingRes.range)</span><br><span class="line">            <span class="comment">// 转换字符串到表情</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> emoticon  = <span class="type">EmoticonPackage</span>.emoticonWithStr(tempStr) &#123;</span><br><span class="line">                <span class="built_in">print</span>(emoticon.chs)</span><br><span class="line">                <span class="keyword">let</span> attrStr = <span class="type">EmoticonTextAttachment</span>.imageText(emoticon, font: <span class="number">18</span>)</span><br><span class="line">                strM.replaceCharactersInRange(checkingRes.range, withAttributedString: attrStr)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">print</span>(strM)</span><br><span class="line">        <span class="comment">// 替换字符串,显示到label</span></span><br><span class="line">        emoticonLabel.attributedText = strM</span><br><span class="line">    &#125;</span><br><span class="line">    catch &#123;</span><br><span class="line">        <span class="built_in">print</span>(error)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="TextKit_给URL高亮显示"><code>TextKit</code> 给URL高亮显示</h2><ul>
-<li>主要用到三个类</li>
-<li><code>NSTextStorage</code></li>
-<li><code>NSLayoutManager</code></li>
-<li><code>NSTextContainer</code></li>
-</ul>
-<h3 id="自定义UILabel来实现url高亮">自定义UILabel来实现url高亮</h3><ul>
-<li>1、定义要用到的属性</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line">  只要textStorage中的内容发生变化, 就可以通知layoutManager重新布局</span><br><span class="line">  layoutManager重新布局需要知道绘制到什么地方, 所以layoutManager就会文textContainer绘制的区域</span><br><span class="line">  */</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 准们用于存储内容的</span></span><br><span class="line">  <span class="comment">// textStorage 中有 layoutManager</span></span><br><span class="line">  private lazy <span class="keyword">var</span> textStorage = <span class="type">NSTextStorage</span>()</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 专门用于管理布局</span></span><br><span class="line">  <span class="comment">// layoutManager 中有 textContainer</span></span><br><span class="line">  private lazy <span class="keyword">var</span> layoutManager = <span class="type">NSLayoutManager</span>()</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 专门用于指定绘制的区域</span></span><br><span class="line">  private lazy <span class="keyword">var</span> textContainer = <span class="type">NSTextContainer</span>()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">override</span> <span class="keyword">init</span>(frame: <span class="type">CGRect</span>) &#123;</span><br><span class="line">      <span class="keyword">super</span>.<span class="keyword">init</span>(frame: frame)</span><br><span class="line">      setupSystem()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  required <span class="keyword">init</span>?(coder aDecoder: <span class="type">NSCoder</span>) &#123;</span><br><span class="line">      <span class="keyword">super</span>.<span class="keyword">init</span>(coder: aDecoder)</span><br><span class="line">      setupSystem()</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  private <span class="func"><span class="keyword">func</span> <span class="title">setupSystem</span><span class="params">()</span></span></span><br><span class="line">  &#123;</span><br><span class="line">      <span class="comment">// 1.将layoutManager添加到textStorage</span></span><br><span class="line">      textStorage.addLayoutManager(layoutManager)</span><br><span class="line">      <span class="comment">// 2.将textContainer添加到layoutManager</span></span><br><span class="line">      layoutManager.addTextContainer(textContainer)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">layoutSubviews</span><span class="params">()</span></span> &#123;</span><br><span class="line"> 		 <span class="keyword">super</span>.layoutSubviews()</span><br><span class="line">  	 <span class="comment">// 3.指定区域</span></span><br><span class="line"> 		 textContainer.size = bounds.size</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>2、重写label的text属性</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">override</span> <span class="keyword">var</span> text: <span class="type">String</span>?</span><br><span class="line">    &#123;</span><br><span class="line">    <span class="keyword">didSet</span>&#123;</span><br><span class="line">        <span class="comment">// 1.修改textStorage存储的内容</span></span><br><span class="line">        textStorage.setAttributedString(<span class="type">NSAttributedString</span>(string: text!))</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 2.设置textStorage的属性</span></span><br><span class="line">        textStorage.addAttribute(<span class="type">NSFontAttributeName</span>, value: <span class="type">UIFont</span>.systemFontOfSize(<span class="number">20</span>), range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, text!.characters.<span class="built_in">count</span>))</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 3.处理URL</span></span><br><span class="line">        <span class="keyword">self</span>.<span class="type">URLRegex</span>()</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 2.通知layoutManager重新布局</span></span><br><span class="line">        setNeedsDisplay()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>3、匹配字符串</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">    <span class="func"><span class="keyword">func</span> <span class="title">URLRegex</span><span class="params">()</span></span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 1.创建一个正则表达式对象</span></span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> dataDetector = try <span class="type">NSDataDetector</span>(types: <span class="type">NSTextCheckingTypes</span>(<span class="type">NSTextCheckingType</span>.<span class="type">Link</span>.rawValue))</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">let</span> res =  dataDetector.matchesInString(textStorage.string, options: <span class="type">NSMatchingOptions</span>(rawValue: <span class="number">0</span>), range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, textStorage.string.characters.<span class="built_in">count</span>))</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 4取出结果</span></span><br><span class="line">            <span class="keyword">for</span> checkingRes <span class="keyword">in</span> res</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">let</span> str = (textStorage.string <span class="keyword">as</span> <span class="type">NSString</span>).substringWithRange(checkingRes.range)</span><br><span class="line">                <span class="keyword">let</span> tempStr = <span class="type">NSMutableAttributedString</span>(string: str)</span><br><span class="line">                </span><br><span class="line"><span class="comment">//                tempStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: NSMakeRange(0, str.characters.count))</span></span><br><span class="line">                tempStr.addAttributes([<span class="type">NSFontAttributeName</span>: <span class="type">UIFont</span>.systemFontOfSize(<span class="number">20</span>), <span class="type">NSForegroundColorAttributeName</span>: <span class="type">UIColor</span>.redColor()], range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, str.characters.<span class="built_in">count</span>))</span><br><span class="line">                </span><br><span class="line">                textStorage.replaceCharactersInRange(checkingRes.range, withAttributedString: tempStr)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;catch</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">print</span>(error)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>4、重绘文字</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如果是UILabel调用setNeedsDisplay方法, 系统会促发drawTextInRect</span></span><br><span class="line"><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">drawTextInRect</span><span class="params">(rect: CGRect)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 重绘</span></span><br><span class="line">    <span class="comment">// 字形 : 理解为一个小的UIView</span></span><br><span class="line">    <span class="comment">/*</span><br><span class="line">    第一个参数: 指定绘制的范围</span><br><span class="line">    第二个参数: 指定从什么位置开始绘制</span><br><span class="line">    */</span></span><br><span class="line">    layoutManager.drawGlyphsForGlyphRange(<span class="type">NSMakeRange</span>(<span class="number">0</span>, text!.characters.<span class="built_in">count</span>), atPoint: <span class="type">CGPointZero</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="获取label中URL的点击">获取label中URL的点击</h3><ul>
-<li>如果要获取URL的点击，那么必须获取点击的范围</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span> &#123;</span><br><span class="line">     <span class="comment">// 1、获取手指点击的位置</span></span><br><span class="line">     <span class="keyword">let</span> touch = (touches <span class="keyword">as</span> <span class="type">NSSet</span>).anyObject()!</span><br><span class="line">     <span class="keyword">let</span> point = touch.locationInView(touch.view)</span><br><span class="line">     <span class="built_in">print</span>(point)</span><br><span class="line">     <span class="comment">// 2、获取URL区域</span></span><br><span class="line">     <span class="comment">// 注意: 没有办法直接设置UITextRange的范围</span></span><br><span class="line">     <span class="keyword">let</span> range = <span class="type">NSMakeRange</span>(<span class="number">10</span>, <span class="number">20</span>)</span><br><span class="line">     <span class="comment">// 只要设置selectedRange, 那么就相当于设置了selectedTextRange</span></span><br><span class="line">     selectedRange = range</span><br><span class="line">     </span><br><span class="line">     <span class="comment">// 给定指定的range, 返回range对应的字符串的rect</span></span><br><span class="line">     <span class="comment">// 返回数组的原因是因为文字可能换行</span></span><br><span class="line">     <span class="keyword">let</span> array = selectionRectsForRange(selectedTextRange!)</span><br><span class="line">     </span><br><span class="line">     <span class="keyword">for</span> selectionRect <span class="keyword">in</span> array &#123;</span><br><span class="line">         <span class="keyword">if</span> <span class="type">CGRectContainsPoint</span>(selectionRect.rect, point) &#123;</span><br><span class="line">             <span class="built_in">print</span>(<span class="string">"点击了URL"</span>)</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;正则表达式&quot;&gt;正则表达式&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;正则表达式是对字符串操作的一种逻辑公式，用事先定义好的一些特定字符、及这些特定字符的组合，组成一个”规则字符串”，这个”规则字符串”用来表达对字符串的一种过滤逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;正则表达
-    
-    </summary>
-    
-    
-      <category term="swift" scheme="http://songliquan.github.io/tags/swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>问题杂烩</title>
-    <link href="http://songliquan.github.io/2015/03/09/%E9%97%AE%E9%A2%98%E6%9D%82%E7%83%A9/"/>
-    <id>http://songliquan.github.io/2015/03/09/问题杂烩/</id>
-    <published>2015-03-09T03:30:56.000Z</published>
-    <updated>2016-03-15T02:41:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="问题杂烩">问题杂烩</h1><h2 id="判断字符串是不是纯数字">判断字符串是不是纯数字</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/// 判断字符串是不是纯数字</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)isPureNumandCharacters:(<span class="built_in">NSString</span> *)string</span><br><span class="line">&#123;</span><br><span class="line">    string = [string stringByTrimmingCharactersInSet:[<span class="built_in">NSCharacterSet</span> decimalDigitCharacterSet]];</span><br><span class="line">    <span class="keyword">if</span>(string<span class="variable">.length</span> &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Attempt_to_present_XX_on_XX_whose_view_is_not_in_the_window_hierarchy">Attempt to present XX on XX whose view is not in the window hierarchy</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">Attempt to present &lt;LoginVC: <span class="number">0x9358770</span>&gt; on &lt;ViewController: <span class="number">0x9529380</span>&gt; whose view is not <span class="keyword">in</span> the window hierarchy</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>也就是你在呈现一个LoginVC时，但ViewController的view并不在window上，可能是因为ViewController还没被显示出来。</p>
-</li>
-<li><p>所以不要在某个viewController的viewDidLoad或者viewWillAppear方法中去呈现其他的viewController，你如果想要的是ViewController显示之后马上呈现LoginVC的话，可以在viewDidAppear中写方法。</p>
-</li>
-</ul>
-<h2 id="指定颜色生成图片">指定颜色生成图片</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//指定颜色生成图片：</span></span><br><span class="line">+ (<span class="built_in">UIImage</span> *)imageWithColor:(<span class="built_in">UIColor</span> *)color</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContext</span>(rect<span class="variable">.size</span>);</span><br><span class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGContextSetFillColorWithColor</span>(context, [color <span class="built_in">CGColor</span>]);</span><br><span class="line">    <span class="built_in">CGContextFillRect</span>(context, rect);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="获取系统版本、型号等信息">获取系统版本、型号等信息</h2><ul>
-<li>获取基本信息</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  IOS-获取Model（设备型号）、Version（设备版本号）、app（程序版本号）等  </span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"name: %@"</span>, [[<span class="built_in">UIDevice</span> currentDevice] name]);  </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"systemName: %@"</span>, [[<span class="built_in">UIDevice</span> currentDevice] systemName]);  </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"systemVersion: %@"</span>, [[<span class="built_in">UIDevice</span> currentDevice] systemVersion]);  </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"model: %@"</span>, [[<span class="built_in">UIDevice</span> currentDevice] model]);  </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"localizedModel: %@"</span>, [[<span class="built_in">UIDevice</span> currentDevice] localizedModel]);  </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">    <span class="built_in">NSDictionary</span> *infoDictionary = [[<span class="built_in">NSBundle</span> mainBundle] infoDictionary];  </span><br><span class="line">      </span><br><span class="line">    <span class="built_in">CFShow</span>((__bridge <span class="built_in">CFTypeRef</span>)(infoDictionary));  </span><br><span class="line">      </span><br><span class="line">    <span class="comment">// app名称  </span></span><br><span class="line">    <span class="built_in">NSString</span> *app_Name = [infoDictionary objectForKey:<span class="string">@"CFBundleDisplayName"</span>];  </span><br><span class="line">    <span class="comment">// app版本  </span></span><br><span class="line">    <span class="built_in">NSString</span> *app_Version = [infoDictionary objectForKey:<span class="string">@"CFBundleShortVersionString"</span>];  </span><br><span class="line">    <span class="comment">// app build版本  </span></span><br><span class="line">    <span class="built_in">NSString</span> *app_build = [infoDictionary objectForKey:<span class="string">@"CFBundleVersion”];</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>获取具体型号，如5s，6P等</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"sys/utsname.h"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获得设备型号</span></span><br><span class="line">+ (<span class="built_in">NSString</span> *)getCurrentDeviceModel</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">struct</span> utsname systemInfo;</span><br><span class="line">    uname(&amp;systemInfo);</span><br><span class="line">    <span class="built_in">NSString</span> *platform = [<span class="built_in">NSString</span> stringWithCString:systemInfo<span class="variable">.machine</span> encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone1,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 2G (A1203)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone1,2"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 3G (A1241/A1324)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone2,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 3GS (A1303/A1325)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone3,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 4 (A1332)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone3,2"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 4 (A1332)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone3,3"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 4 (A1349)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone4,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 4S (A1387/A1431)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone5,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 5 (A1428)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone5,2"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 5 (A1429/A1442)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone5,3"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 5c (A1456/A1532)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone5,4"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 5c (A1507/A1516/A1526/A1529)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone6,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 5s (A1453/A1533)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone6,2"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 5s (A1457/A1518/A1528/A1530)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone7,1"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 6 Plus (A1522/A1524)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPhone7,2"</span>]) <span class="keyword">return</span> <span class="string">@"iPhone 6 (A1549/A1586)"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPod1,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPod Touch 1G (A1213)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPod2,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPod Touch 2G (A1288)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPod3,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPod Touch 3G (A1318)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPod4,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPod Touch 4G (A1367)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPod5,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPod Touch 5G (A1421/A1509)"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad1,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 1G (A1219/A1337)"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 2 (A1395)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,2"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 2 (A1396)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,3"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 2 (A1397)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,4"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 2 (A1395+New Chip)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,5"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Mini 1G (A1432)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,6"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Mini 1G (A1454)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad2,7"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Mini 1G (A1455)"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad3,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 3 (A1416)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad3,2"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 3 (A1403)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad3,3"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 3 (A1430)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad3,4"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 4 (A1458)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad3,5"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 4 (A1459)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad3,6"</span>])   <span class="keyword">return</span> <span class="string">@"iPad 4 (A1460)"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad4,1"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Air (A1474)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad4,2"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Air (A1475)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad4,3"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Air (A1476)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad4,4"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Mini 2G (A1489)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad4,5"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Mini 2G (A1490)"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"iPad4,6"</span>])   <span class="keyword">return</span> <span class="string">@"iPad Mini 2G (A1491)"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"i386"</span>])      <span class="keyword">return</span> <span class="string">@"iPhone Simulator"</span>;</span><br><span class="line">    <span class="keyword">if</span> ([platform isEqualToString:<span class="string">@"x86_64"</span>])    <span class="keyword">return</span> <span class="string">@"iPhone Simulator"</span>;</span><br><span class="line">    <span class="keyword">return</span> platform;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="读写plist文件">读写plist文件</h2><ul>
-<li>问题，我有一个plist文件，表示56个民族的，但是里面保存的字典，我想转换成一个数组</li>
-<li>好的，那么就先遍历这个plist，然后将结果保存到一个数组中，这里出现的一个问题就是C语言字符串转换成NSString的问题，一开始使用<code>- (nullable id)initWithCString:(const char *)bytes</code>,一直出问题，转换后有问题。</li>
-<li>然后我就换了一个方法<code>- (nullable id)initWithCString:(const char *)bytes length:(NSUInteger)length</code> 这个方法转换后没有问题了。</li>
-<li>第一个plist是按照26个英文字母为key的字典。</li>
-<li>结果，按照数组保存。</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 读取56个民族</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"nation.plist"</span> ofType:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSDictionary</span> *dict2 = [<span class="built_in">NSDictionary</span> dictionaryWithContentsOfFile:filePath];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拼接路径</span></span><br><span class="line"><span class="built_in">NSArray</span> *paths=<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>,<span class="built_in">NSUserDomainMask</span>,<span class="literal">YES</span>);</span><br><span class="line"><span class="built_in">NSString</span> *plistPath1 = [paths objectAtIndex:<span class="number">0</span>];</span><br><span class="line"><span class="built_in">NSString</span> *filename = [plistPath1 stringByAppendingPathComponent:<span class="string">@"nation2.plist"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSMutableArray</span> *mutab = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="number">26</span>; i ++) &#123;</span><br><span class="line">    <span class="keyword">char</span> x = <span class="number">65</span> + i;</span><br><span class="line">    <span class="built_in">NSString</span> *str=  [[<span class="built_in">NSString</span> alloc] initWithCString:&amp;x length:<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">NSArray</span> *arr = dict2[str];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> j = <span class="number">0</span>; j &lt; arr<span class="variable">.count</span>; j ++) &#123;</span><br><span class="line">        [mutab addObject:arr[j]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 保存成数组</span></span><br><span class="line">[mutab writeToFile:filename atomically:<span class="literal">NO</span>];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,mutab);</span><br></pre></td></tr></table></figure>
-<h2 id="XCode快捷键">XCode快捷键</h2><p>command + option +J 快速定位到当前打开的类所在位置目录结构<br>command + 1…..7  切换工程选项卡左边的那个<br>ESC 代码自动补全<br>command + shift +k  clean 工程<br>command + k 清空console 输出<br>command + f 搜索当前文件<br>command + shift + f 搜索整个工程<br>command + l 跳转到某一行<br>command + control + 左右方向键  前进或者后退已打开过的文件<br>command + control + 上下方向键 切换.h 和 .m文件<br>command + 0 隐藏/显示导航栏</p>
-<h2 id="pragma使用">pragma使用</h2><h3 id="组织代码">组织代码</h3><ul>
-<li>组织N个方法为一个section的依据是什么呢？这个就见仁见智了。一般来说：<ul>
-<li>将一个protocol的方法组织成一个section；</li>
-<li>将target-action类型方法组织成一个section；</li>
-<li>将notification相关方法组织成一个section；</li>
-<li>将需要override的父类方法组成成一个section；</li>
-</ul>
-</li>
-</ul>
-<h3 id="屏蔽警告">屏蔽警告</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#pragma clang diagnostic push</span></span><br><span class="line"><span class="preprocessor">#pragma clang diagnostic i![](屏蔽编译警告.png)gnored <span class="title">"-Wundeclared-selector"</span></span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span><span class="variable">.selectedViewController</span> respondsToSelector:<span class="keyword">@selector</span>(isReadyForEditing)]) &#123;</span><br><span class="line">        boolNumber = [<span class="keyword">self</span><span class="variable">.selectedViewController</span> performSelector:<span class="keyword">@selector</span>(isReadyForEditing)];</span><br><span class="line">    &#125;</span><br><span class="line"><span class="preprocessor">#pragma clang diagnostic pop</span></span><br></pre></td></tr></table></figure>
-<h3 id="其他方式">其他方式</h3><ul>
-<li>某些时候如果我们的源码在编译过程中出现大量的编译警告时，看起来是挺不爽的；但又确实没办法解决警告问题的时候，我们可以使用下面的方法来屏蔽指定的某个文件的所有警告信息。<ul>
-<li>1、在Xcode中选中工程文件。</li>
-<li>2、在右边面板中选中“Build Phases”。</li>
-<li>3、展开“Compile Sources”</li>
-<li>4、在需要屏蔽警告的源文件一行中双击“Compiler F lags”。</li>
-<li><img src="/images/屏蔽编译警告.png" alt=""></li>
-<li>5、在弹出窗口中输入-w</li>
-</ul>
-</li>
-</ul>
-<h2 id="图片旋转问题">图片旋转问题</h2><ul>
-<li>ios 照片旋转问题</li>
-<li><a href="http://feihu.me/blog/2015/how-to-handle-image-orientation-on-iOS" target="_blank" rel="external">http://feihu.me/blog/2015/how-to-handle-image-orientation-on-iOS</a></li>
-<li>添加一个分类在上传之前进行处理即可</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="built_in">UIImage</span> *)fixOrientation &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// No-op if the orientation is already correct</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.imageOrientation</span> == <span class="built_in">UIImageOrientationUp</span>) <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// We need to calculate the proper transformation to make the image upright.</span></span><br><span class="line">    <span class="comment">// We do it in 2 steps: Rotate if Left/Right/Down, and then flip if Mirrored.</span></span><br><span class="line">    <span class="built_in">CGAffineTransform</span> transform = <span class="built_in">CGAffineTransformIdentity</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">self</span><span class="variable">.imageOrientation</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationDown</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationDownMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformRotate</span>(transform, M_PI);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeft</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeftMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="number">0</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformRotate</span>(transform, M_PI_2);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRight</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRightMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="number">0</span>, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformRotate</span>(transform, -M_PI_2);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationUp</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationUpMirrored</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">self</span><span class="variable">.imageOrientation</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationUpMirrored</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationDownMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="number">0</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformScale</span>(transform, -<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeftMirrored</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRightMirrored</span>:</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformTranslate</span>(transform, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>, <span class="number">0</span>);</span><br><span class="line">            transform = <span class="built_in">CGAffineTransformScale</span>(transform, -<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationUp</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationDown</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeft</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRight</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Now we draw the underlying CGImage into a new context, applying the transform</span></span><br><span class="line">    <span class="comment">// calculated above.</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> ctx = <span class="built_in">CGBitmapContextCreate</span>(<span class="literal">NULL</span>, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>, <span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>,</span><br><span class="line">                                             <span class="built_in">CGImageGetBitsPerComponent</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>), <span class="number">0</span>,</span><br><span class="line">                                             <span class="built_in">CGImageGetColorSpace</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>),</span><br><span class="line">                                             <span class="built_in">CGImageGetBitmapInfo</span>(<span class="keyword">self</span><span class="variable">.CGImage</span>));</span><br><span class="line">    <span class="built_in">CGContextConcatCTM</span>(ctx, transform);</span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">self</span><span class="variable">.imageOrientation</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeft</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationLeftMirrored</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRight</span>:</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">UIImageOrientationRightMirrored</span>:</span><br><span class="line">            <span class="comment">// Grr...</span></span><br><span class="line">            <span class="built_in">CGContextDrawImage</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>,<span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>), <span class="keyword">self</span><span class="variable">.CGImage</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="built_in">CGContextDrawImage</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="keyword">self</span><span class="variable">.size</span><span class="variable">.width</span>,<span class="keyword">self</span><span class="variable">.size</span><span class="variable">.height</span>), <span class="keyword">self</span><span class="variable">.CGImage</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// And now we just create a new UIImage from the drawing context</span></span><br><span class="line">    <span class="built_in">CGImageRef</span> cgimg = <span class="built_in">CGBitmapContextCreateImage</span>(ctx);</span><br><span class="line">    <span class="built_in">UIImage</span> *img = [<span class="built_in">UIImage</span> imageWith<span class="built_in">CGImage</span>:cgimg];</span><br><span class="line">    <span class="built_in">CGContextRelease</span>(ctx);</span><br><span class="line">    <span class="built_in">CGImageRelease</span>(cgimg);</span><br><span class="line">    <span class="keyword">return</span> img;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="判断用户短时间内发送消息太多">判断用户短时间内发送消息太多</h2><ul>
-<li>看到这个问题时，我想到了定时器，首先定义一个变量<code>numberOfSend</code>保存发送次数，然后在第一次输入时开启定时器<code>timer1</code>，5s之内如果<code>numberOfSend</code>没有超过8条，就在5s后重置<code>numberOfSend</code>，如果5s内发送次数超过8条，就开启另一个定时器timer2，来延迟执行发送操作，在timer2中要先取消之前的<code>timer1</code>，然后就<code>return</code></li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="built_in">NSInteger</span> _numberOfSendMessagesInFiveSecond;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)sendMessages</span><br><span class="line">&#123;</span><br><span class="line">    _numberOfSendMessagesInFiveSecond = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)sendText:(<span class="built_in">NSString</span> *)contentString</span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">// 喝杯茶休息一下吧！</span></span><br><span class="line">    _numberOfSendMessagesInFiveSecond ++ ;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="number">1</span> == _numberOfSendMessagesInFiveSecond)&#123;</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(sendMessages) withObject:<span class="literal">nil</span> afterDelay:<span class="number">5</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (_numberOfSendMessagesInFiveSecond &gt;= <span class="number">9</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        [chatInputView insertTextAfterCursor:contentString];</span><br><span class="line">        [<span class="keyword">self</span> presentSuccessTips:<span class="built_in">NSLocalizedString</span>(<span class="string">@"CHATPANEL_TAKE_A_CUP_OF_TEA"</span> ,<span class="string">@"喝杯茶休息一下吧！"</span>)];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(_numberOfSendMessagesInFiveSecond == <span class="number">9</span>) &#123;</span><br><span class="line">            [[<span class="keyword">self</span> class] cancelPreviousPerformRequestsWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(sendMessages) object:<span class="literal">nil</span>];</span><br><span class="line">            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">5.0</span>f * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                _numberOfSendMessagesInFiveSecond = <span class="number">0</span>;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="另外一种方式">另外一种方式</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">P2PSendMsgFrequencyStrategy</span> ()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> _iMaxCount;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> _iMaxMillisecond; <span class="comment">//1秒</span></span><br><span class="line">    <span class="built_in">NSInteger</span> _iCount;</span><br><span class="line">    <span class="built_in">NSTimeInterval</span> _lastSendTime;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">P2PSendMsgFrequencyStrategy</span></span></span><br><span class="line"></span><br><span class="line">- (instancetype)init</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        _iMaxCount = <span class="number">8</span>;</span><br><span class="line">        _iMaxMillisecond = <span class="number">1</span>*<span class="number">1000</span>; <span class="comment">//1秒</span></span><br><span class="line">        _iCount = <span class="number">0</span>;</span><br><span class="line">        _lastSendTime = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)sendMessageTooOften</span><br><span class="line">&#123;<span class="comment">//规则是：5秒内发送超过8条就不能发送，然后再过5秒才能发送。</span></span><br><span class="line">    <span class="built_in">NSTimeInterval</span> nowSendTime = [[<span class="built_in">NSDate</span> date]timeIntervalSince1970]*<span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> time = (nowSendTime - _lastSendTime);</span><br><span class="line">    <span class="keyword">if</span> ((time &gt; _iMaxMillisecond*<span class="number">5</span> &amp;&amp; _iCount &lt; _iMaxCount)</span><br><span class="line">        || (time &gt; _iMaxMillisecond*<span class="number">10</span> &amp;&amp; _iCount &gt;= _iMaxCount)</span><br><span class="line">        )</span><br><span class="line">    &#123;</span><br><span class="line">        _lastSendTime = [[<span class="built_in">NSDate</span> date]timeIntervalSince1970]*<span class="number">1000</span>;</span><br><span class="line">        _iCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        YJLog(<span class="string">@"sendMessage time:%lld"</span>, time);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (++_iCount &lt; _iMaxCount)</span><br><span class="line">        &#123;</span><br><span class="line">            YJLog(<span class="string">@"sendMessage count: %ld, time:%lld"</span>,  (<span class="keyword">long</span>)_iCount, time);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    YJLog(<span class="string">@"sendMessage Too Many: %ld, time:%lld"</span>,  (<span class="keyword">long</span>)_iCount, time);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;问题杂烩&quot;&gt;问题杂烩&lt;/h1&gt;&lt;h2 id=&quot;判断字符串是不是纯数字&quot;&gt;判断字符串是不是纯数字&lt;/h2&gt;&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;lin
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>单元测试</title>
-    <link href="http://songliquan.github.io/2015/03/06/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
-    <id>http://songliquan.github.io/2015/03/06/单元测试/</id>
-    <published>2015-03-06T08:48:35.000Z</published>
-    <updated>2016-03-06T08:50:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="单元测试">单元测试</h1><ul>
-<li>什么时候用到单元测试：<ul>
-<li>1、写完代码以后：想要验证一下自己写的代码是否有问题。</li>
-<li>2、写代码之前：就是写代码之前所有的功能分模块的设计好，测试通过了再写。（我反正是没用过）。</li>
-<li>3、修复某个bug后：一般修复完某个bug，为了确保修复是成功的，会写测试。</li>
-</ul>
-</li>
-<li>以test开头的方法，在方法内部进行测试</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setUp &#123;</span><br><span class="line">[<span class="keyword">super</span> setUp];</span><br><span class="line"><span class="comment">// Put setup code here. This method is called before the invocation of each test method in the class.</span></span><br><span class="line"><span class="comment">//初始化的代码，在测试方法调用之前调用</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)tearDown &#123;</span><br><span class="line"><span class="comment">// Put teardown code here. This method is called after the invocation of each test method in the class.</span></span><br><span class="line"><span class="comment">// 释放测试用例的资源代码，这个方法会每个测试用例执行后调用</span></span><br><span class="line">[<span class="keyword">super</span> tearDown];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)testExample &#123;</span><br><span class="line"><span class="comment">// This is an example of a functional test case.</span></span><br><span class="line"><span class="comment">// Use XCTAssert and related functions to verify your tests produce the correct results.</span></span><br><span class="line"><span class="comment">// 测试用例的例子，注意测试用例一定要test开头</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)testPerformanceExample &#123;</span><br><span class="line"><span class="comment">// This is an example of a performance test case.</span></span><br><span class="line"><span class="comment">// 测试性能例子</span></span><br><span class="line">[<span class="keyword">self</span> measureBlock:^&#123;</span><br><span class="line">    <span class="comment">// Put the code you want to measure the time of here.</span></span><br><span class="line"><span class="comment">// 需要测试性能的代码</span></span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>测试某个方法的性能</li>
-</ul>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)testPerformanceExample &#123;</span><br><span class="line">    <span class="comment">// This is an example of a performance test case.</span></span><br><span class="line">    [<span class="keyword">self</span> measureBlock:^&#123;</span><br><span class="line">        <span class="comment">// Put the code you want to measure the time of here.</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">NSInteger</span> i = <span class="number">0</span> ; i &lt; <span class="number">10000</span>;i ++) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"1111"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>常用断言</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">XCTFail(format…) 生成一个失败的测试； </span><br><span class="line">XCTAssertNil(a1, format...)为空判断，a1为空时通过，反之不通过；</span><br><span class="line">XCTAssertNotNil(a1, format…)不为空判断，a1不为空时通过，反之不通过；</span><br><span class="line">XCTAssert(expression, format...)当expression求值为<span class="literal">TRUE</span>时通过；</span><br><span class="line">XCTAssertTrue(expression, format...)当expression求值为<span class="literal">TRUE</span>时通过；</span><br><span class="line">XCTAssertFalse(expression, format...)当expression求值为False时通过；</span><br><span class="line">XCTAssertEqualObjects(a1, a2, format...)判断相等，[a1 isEqual:a2]值为<span class="literal">TRUE</span>时通过，其中一个不为空时，不通过；</span><br><span class="line">XCTAssertNotEqualObjects(a1, a2, format...)判断不等，[a1 isEqual:a2]值为False时通过；</span><br><span class="line">XCTAssertEqual(a1, a2, format...)判断相等（当a1和a2是 C语言标量、结构体或联合体时使用, 判断的是变量的地址，如果地址相同则返回<span class="literal">TRUE</span>，否则返回<span class="literal">NO</span>）；</span><br><span class="line">XCTAssertNotEqual(a1, a2, format...)判断不等（当a1和a2是 C语言标量、结构体或联合体时使用）；</span><br><span class="line">XCTAssertEqualWithAccuracy(a1, a2, accuracy, format...)判断相等，（<span class="keyword">double</span>或<span class="keyword">float</span>类型）提供一个误差范围，当在误差范围（+/-accuracy）以内相等时通过测试；</span><br><span class="line">XCTAssertNotEqualWithAccuracy(a1, a2, accuracy, format...) 判断不等，（<span class="keyword">double</span>或<span class="keyword">float</span>类型）提供一个误差范围，当在误差范围以内不等时通过测试；</span><br><span class="line">XCTAssertThrows(expression, format...)异常测试，当expression发生异常时通过；反之不通过；（很变态） XCTAssertThrowsSpecific(expression, specificException, format...) 异常测试，当expression发生specificException异常时通过；反之发生其他异常或不发生异常均不通过；</span><br><span class="line">XCTAssertThrowsSpecificNamed(expression, specificException, exception_name, format...)异常测试，当expression发生具体异常、具体异常名称的异常时通过测试，反之不通过；</span><br><span class="line">XCTAssertNoThrow(expression, format…)异常测试，当expression没有发生异常时通过测试；</span><br><span class="line">XCTAssertNoThrowSpecific(expression, specificException, format...)异常测试，当expression没有发生具体异常、具体异常名称的异常时通过测试，反之不通过；</span><br><span class="line">XCTAssertNoThrowSpecificNamed(expression, specificException, exception_name, format...)异常测试，当expression没有发生具体异常、具体异常名称的异常时通过测试，反之不通过</span><br></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;单元测试&quot;&gt;单元测试&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;什么时候用到单元测试：&lt;ul&gt;
-&lt;li&gt;1、写完代码以后：想要验证一下自己写的代码是否有问题。&lt;/li&gt;
-&lt;li&gt;2、写代码之前：就是写代码之前所有的功能分模块的设计好，测试通过了再写。（我反正是没用过）。&lt;/li&gt;
-    
-    </summary>
-    
-    
-      <category term="OC" scheme="http://songliquan.github.io/tags/OC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Socket编程</title>
-    <link href="http://songliquan.github.io/2014/12/21/socket%E7%BC%96%E7%A8%8B/"/>
-    <id>http://songliquan.github.io/2014/12/21/socket编程/</id>
-    <published>2014-12-21T11:48:23.000Z</published>
-    <updated>2015-12-22T03:56:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="socket编程">socket编程</h1><h2 id="CocoaAsyncSocket">CocoaAsyncSocket</h2><ul>
-<li>开源库：<a href="https://github.com/robbiehanson/CocoaAsyncSocket" target="_blank" rel="external">https://github.com/robbiehanson/CocoaAsyncSocket</a></li>
-<li>CocoaAsyncSocket介绍</li>
-<li>TCP<ul>
-<li><code>GCDAsyncSocket</code></li>
-<li><code>AsyncSocket</code> </li>
-</ul>
-</li>
-<li>UDP<ul>
-<li><code>GCDAsyncUdpSocket</code></li>
-<li><code>AsyncUdpSocket</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="AsyncSocket使用">AsyncSocket使用</h2><h3 id="大概过程">大概过程</h3><ul>
-<li>1.建立连接</li>
-<li><code>- (int)connectServer:(NSString *)hostIP port:(int)hostPort</code></li>
-<li>2.连接成功后，会回调的函数</li>
-<li><code>- (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port</code></li>
-<li>3.发送数据</li>
-<li><code>- (void)writeData:(NSData *)data withTimeout:(NSTimeInterval)timeout tag:(long)tag;</code></li>
-<li>4.接受数据</li>
-<li><code>- (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag</code></li>
-<li>5.断开连接</li>
-<li><code>- (void)onSocket:(AsyncSocket *)sock willDisconnectWithError:(NSError *)err</code></li>
-<li><code>- (void)onSocketDidDisconnect:(AsyncSocket *)sock</code><h3 id="客户端-服务端">客户端-服务端</h3></li>
-<li>客户端呢，首先要由一个ip地址和端口，用这个来连接服务器。<ul>
-<li>直接初始化socket（指定代理）</li>
-<li>连接服务器</li>
-<li>接收或者发送数据 </li>
-<li>断开连接</li>
-</ul>
-</li>
-<li>服务端呢<ul>
-<li>初始化监听socket开始监听客户端连接，如果有客户端连接进来，就初始化连接socket，添加到socket数组</li>
-<li>然后开始收发数据（代理方法）</li>
-<li>关闭连接</li>
-</ul>
-</li>
-</ul>
-<h2 id="关键代码">关键代码</h2><ul>
-<li>客户端</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">#define SRV_CONNECTED 0</span></span><br><span class="line"><span class="preprocessor">#define SRV_CONNECT_SUC 1</span></span><br><span class="line"><span class="preprocessor">#define SRV_CONNECT_FAIL 2</span></span><br><span class="line"><span class="preprocessor">#define HOST_IP @<span class="title">"127.0.0.1"</span></span></span><br><span class="line"><span class="preprocessor">#define HOST_PORT 8008</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">"ViewController.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;AsyncSocket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> () &lt;<span class="title">AsyncSocketDelegate</span>&gt;</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UITextView</span> *textView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UITextField</span> *textField;</span><br><span class="line">- (<span class="keyword">IBAction</span>)connectButton:(<span class="keyword">id</span>)sender;</span><br><span class="line">- (<span class="keyword">IBAction</span>)sendButton:(<span class="built_in">UIButton</span> *)sender;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**内容*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *content;</span><br><span class="line"><span class="comment">/**客户端socket*/</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) AsyncSocket *clientSocket;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  连接到服务器</span><br><span class="line"> *</span><br><span class="line"> *  @param hostIP   服务器地址</span><br><span class="line"> *  @param hostPort 端口号</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">NSInteger</span> )connecToServer:(<span class="built_in">NSString</span> *)hostIP port:(<span class="built_in">NSInteger</span> )hostPort;</span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  显示数据</span><br><span class="line"> *</span><br><span class="line"> *  @param message 数据信息</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="keyword">void</span>)showMessage:(<span class="built_in">NSString</span> *)message;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - View lifeCycle</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line"><span class="comment">//    [self connecToServer:HOST_IP port:HOST_PORT];</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)didReceiveMemoryWarning &#123;</span><br><span class="line">    [<span class="keyword">super</span> didReceiveMemoryWarning];</span><br><span class="line">    <span class="comment">// Dispose of any resources that can be recreated.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSInteger</span> )connecToServer:(<span class="built_in">NSString</span> *)hostIP port:(<span class="built_in">NSInteger</span>)hostPort</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span><span class="variable">.clientSocket</span> == <span class="literal">nil</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span><span class="variable">.clientSocket</span> = [[AsyncSocket alloc] initWithDelegate:<span class="keyword">self</span>];</span><br><span class="line">        <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line">        <span class="comment">// 连接服务器</span></span><br><span class="line">        <span class="keyword">if</span> (![<span class="keyword">self</span><span class="variable">.clientSocket</span> connectToHost:hostIP onPort:hostPort error:&amp;error]) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"Error %ld:%@"</span>, (<span class="keyword">long</span>)error<span class="variable">.code</span>, [error localizedDescription]);</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">UIAlertController</span> *vc = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:[<span class="string">@"Connection failed to host"</span> stringByAppendingString:hostIP] message:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%ld:%@"</span>,(<span class="keyword">long</span>)error<span class="variable">.code</span>,error<span class="variable">.localizedDescription</span>] preferredStyle:<span class="built_in">UIAlertControllerStyleAlert</span>];</span><br><span class="line">            [<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">YES</span> completion:^&#123;</span><br><span class="line">                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">1.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                    [<span class="keyword">self</span> dismissViewControllerAnimated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;];</span><br><span class="line">            <span class="keyword">return</span> SRV_CONNECT_FAIL;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"conected server successed"</span>);</span><br><span class="line">            <span class="keyword">return</span> SRV_CONNECT_SUC;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> SRV_CONNECTED;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)showMessage:(<span class="built_in">NSString</span> *)message</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIAlertController</span> *vc = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:<span class="string">@"Alert!"</span> message:message preferredStyle:<span class="built_in">UIAlertControllerStyleAlert</span>];</span><br><span class="line">    [<span class="keyword">self</span> presentViewController:vc animated:<span class="literal">YES</span> completion:^&#123;</span><br><span class="line">        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">1.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            [<span class="keyword">self</span> dismissViewControllerAnimated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)connectButton:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> state = [<span class="keyword">self</span> connecToServer:HOST_IP port:HOST_PORT];</span><br><span class="line">    <span class="keyword">switch</span> (state) &#123;</span><br><span class="line">        <span class="keyword">case</span> SRV_CONNECT_FAIL:</span><br><span class="line">            [<span class="keyword">self</span> showMessage:<span class="string">@"server error"</span>];</span><br><span class="line">        <span class="keyword">case</span>  SRV_CONNECT_SUC:</span><br><span class="line">            [<span class="keyword">self</span> showMessage:<span class="string">@"connect success"</span>];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span>  SRV_CONNECTED:</span><br><span class="line">            [<span class="keyword">self</span> showMessage:<span class="string">@"connected already,don't do it again!"</span>];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)sendButton:(<span class="built_in">UIButton</span> *)sender &#123;</span><br><span class="line">    <span class="built_in">NSString</span> *sendStr = <span class="keyword">self</span><span class="variable">.textField</span><span class="variable">.text</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *content = [sendStr stringByAppendingString:<span class="string">@"\r\n"</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,content);</span><br><span class="line">    <span class="built_in">NSData</span> *data = [content dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    <span class="comment">// 发送数据到服务器</span></span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.clientSocket</span> writeData:data withTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - asyncScoket delegate</span></span><br><span class="line"><span class="comment">// 连接服务器</span></span><br><span class="line">- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock didConnectToHost:(<span class="built_in">NSString</span> *)host port:(<span class="built_in">UInt16</span>)port</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.clientSocket</span> readDataWithTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将要断开连接</span></span><br><span class="line">- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock willDisconnectWithError:(<span class="built_in">NSError</span> *)err</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,err);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 已经断开连接</span></span><br><span class="line">- (<span class="keyword">void</span>)onSocketDidDisconnect:(AsyncSocket *)sock</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *msg = <span class="string">@"Sorry this connect is failure"</span>;</span><br><span class="line">    [<span class="keyword">self</span> showMessage:msg];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.clientSocket</span> = <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 接收数据</span></span><br><span class="line">- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock didReadData:(<span class="built_in">NSData</span> *)data withTag:(<span class="keyword">long</span>)tag</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *dataStr = [[<span class="built_in">NSString</span> alloc] initWithData:data encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.content</span> = dataStr;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"have received data :%@"</span>,dataStr);</span><br><span class="line">    <span class="built_in">NSString</span> *newStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"\n%@"</span>,dataStr];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.textView</span><span class="variable">.text</span> = newStr;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.clientSocket</span> readDataWithTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>服务端</li>
-</ul>
-<pre><code class="objc"><span class="preprocessor">#import <span class="title">"SocketView.h"</span></span>
-<span class="preprocessor">#import <span class="title">&lt;AsyncSocket.h&gt;</span></span>
-
-<span class="preprocessor">#define WELCOME_MSG  0</span>
-<span class="preprocessor">#define ECHO_MSG     1</span>
-<span class="preprocessor">#define FORMAT(format, ...) [NSString stringWithFormat:format, ##__VA_ARGS__]</span>
-
-<span class="class"><span class="keyword">@interface</span> <span class="title">SocketView</span> () &lt;<span class="title">AsyncSocketDelegate</span>&gt;</span>
-<span class="keyword">@property</span> (<span class="keyword">weak</span>) <span class="keyword">IBOutlet</span> <span class="built_in">NSButton</span> *stopBtn;
-
-- (<span class="keyword">IBAction</span>)stopButton:(<span class="keyword">id</span>)sender;
-<span class="keyword">@property</span> (<span class="keyword">weak</span>) <span class="keyword">IBOutlet</span> <span class="built_in">NSTextField</span> *logView;
-<span class="keyword">@property</span> (<span class="keyword">weak</span>) <span class="keyword">IBOutlet</span> <span class="built_in">NSTextField</span> *portLabel;
-
-<span class="comment">/**监听socket*/</span>
-<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) AsyncSocket *listenSocket;
-<span class="comment">/**socket连接数组*/</span>
-<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSMutableArray</span> *connectedSockets;
-<span class="comment">/**运行与否*/</span>
-<span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> isRuning;
-
-<span class="keyword">@end</span>
-
-<span class="class"><span class="keyword">@implementation</span> <span class="title">SocketView</span></span>
-
-- (<span class="keyword">void</span>)awakeFromNib
-{
-    <span class="comment">// 初始化设置</span>
-    <span class="keyword">self</span><span class="variable">.listenSocket</span> = [[AsyncSocket alloc] initWithDelegate:<span class="keyword">self</span>];
-    [<span class="keyword">self</span><span class="variable">.listenSocket</span> setRunLoopModes:[<span class="built_in">NSArray</span> arrayWithObject:<span class="built_in">NSRunLoopCommonModes</span>]];
-    <span class="keyword">self</span><span class="variable">.connectedSockets</span> = [[<span class="built_in">NSMutableArray</span> alloc] init];
-    <span class="keyword">self</span><span class="variable">.isRuning</span> = <span class="literal">NO</span>;
-    [<span class="keyword">self</span><span class="variable">.stopBtn</span> setTitle:<span class="string">@"Start"</span>];
-}
-
-- (<span class="keyword">IBAction</span>)stopButton:(<span class="keyword">id</span>)sender {
-    <span class="keyword">if</span> (!<span class="keyword">self</span><span class="variable">.isRuning</span>) {
-        <span class="keyword">int</span> port = [<span class="keyword">self</span><span class="variable">.portLabel</span> intValue];
-        port = <span class="number">8008</span>;
-        [<span class="keyword">self</span><span class="variable">.portLabel</span> setStringValue:<span class="string">@"8008"</span>];
-        <span class="keyword">if</span>(port &lt; <span class="number">0</span> || port &gt; <span class="number">65535</span>)
-        {
-            port = <span class="number">0</span>; <span class="comment">// 会随即取端口</span>
-        }
-        <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;
-        <span class="comment">// 开始接受客户端连接</span>
-        <span class="keyword">if</span> (![<span class="keyword">self</span><span class="variable">.listenSocket</span> acceptOnPort:port error:&amp;error]) {
-            [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:FORMAT(<span class="string">@"Error starting server: %@"</span>, error)];
-            <span class="keyword">return</span>;
-        }
-        [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:FORMAT(<span class="string">@"Echo server started on port %hu"</span>, [<span class="keyword">self</span><span class="variable">.listenSocket</span> localPort])];
-
-        <span class="keyword">self</span><span class="variable">.isRuning</span> = <span class="literal">YES</span>;
-        [<span class="keyword">self</span><span class="variable">.portLabel</span> setEnabled:<span class="literal">NO</span>];
-        [<span class="keyword">self</span><span class="variable">.stopBtn</span> setTitle:<span class="string">@"Stop"</span>];
-    }
-    <span class="keyword">else</span>
-    {
-        <span class="comment">// 停止监听socket</span>
-        [<span class="keyword">self</span><span class="variable">.listenSocket</span> disconnect];
-
-        <span class="comment">// 断开所有客户端连接</span>
-        <span class="keyword">int</span> i;
-        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; [<span class="keyword">self</span><span class="variable">.connectedSockets</span> count]; i++)
-        {
-              [[<span class="keyword">self</span><span class="variable">.connectedSockets</span> objectAtIndex:i] disconnect];
-        }
-
-        [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:<span class="string">@"Stopped Echo server"</span>];
-        <span class="keyword">self</span><span class="variable">.isRuning</span> = <span class="literal">false</span>;
-
-        [<span class="keyword">self</span><span class="variable">.portLabel</span> setEnabled:<span class="literal">YES</span>];
-        [<span class="keyword">self</span><span class="variable">.stopBtn</span> setTitle:<span class="string">@"Start"</span>];
-    }
-}
-
-
-
-
-<span class="preprocessor">#pragma mark - asyncSocket Delegate</span>
-<span class="comment">/**
- *  接受客户端连接
- *
- *  @param sock      监听socket
- *  @param newSocket 新连接
- */</span>
-- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket
-{
-    [<span class="keyword">self</span><span class="variable">.connectedSockets</span> addObject:newSocket];
-}
-
-<span class="comment">/**
- *  已经与客户端建立连接
- *
- *  @param sock 连接1
- *  @param host 客户端ip
- *  @param port 连接端口
- */</span>
-- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock didConnectToHost:(<span class="built_in">NSString</span> *)host port:(<span class="built_in">UInt16</span>)port
-{
-    [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:FORMAT(<span class="string">@"Accepted client %@:%hu"</span>, host, port)];
-
-    <span class="built_in">NSString</span> *welcomeMsg = <span class="string">@"恭喜您,已经通过scoket连接上服务器!"</span>;
-    <span class="built_in">NSLog</span>(<span class="string">@"welcomeMsg：%@"</span>,welcomeMsg);
-    <span class="built_in">NSData</span> *welcomeData = [welcomeMsg dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];
-    [sock writeData:welcomeData withTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];
-}
-
-<span class="comment">/**
- *  发送数据到客户端
- *
- *  @param sock 连接
- *  @param tag  标识
- */</span>
-- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock didWriteDataWithTag:(<span class="keyword">long</span>)tag
-{
-    [sock readDataToData:[AsyncSocket CRLFData] withTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];
-}
-<span class="comment">/**
- *  接收客户端数据
- *
- *  @param sock 连接1
- *  @param data 数据
- *  @param tag  标识
- */</span>
-- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock didReadData:(<span class="built_in">NSData</span> *)data withTag:(<span class="keyword">long</span>)tag
-{
-    <span class="built_in">NSData</span> *readData = [data subdataWithRange:<span class="built_in">NSMakeRange</span>(<span class="number">0</span>, data<span class="variable">.length</span> -<span class="number">2</span>)];
-    <span class="built_in">NSString</span> *recvMessage = [[<span class="built_in">NSString</span> alloc] initWithData:readData encoding:<span class="built_in">NSUTF8StringEncoding</span>];
-    <span class="built_in">NSString</span> *recv = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"用户%zd:%@"</span>,[<span class="keyword">self</span><span class="variable">.connectedSockets</span> indexOfObject:sock],recvMessage];
-    <span class="keyword">if</span> (recvMessage) {
-        [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:recv];
-        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,recv);
-    }
-    <span class="keyword">else</span>
-    {
-        [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:<span class="string">@"Error converting received data into UTF-8 String"</span>];
-        <span class="built_in">NSLog</span>(<span class="string">@"Error converting received data into UTF-8 String"</span>);
-    }
-    <span class="built_in">NSString</span> *backStr = <span class="literal">nil</span>;
-    <span class="keyword">for</span> (AsyncSocket *subSock <span class="keyword">in</span> <span class="keyword">self</span><span class="variable">.connectedSockets</span>) {
-        <span class="keyword">if</span> ([subSock isEqual:sock]) {
-            backStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"我说: %@"</span>,recvMessage];
-        }
-        <span class="keyword">else</span>
-        {
-            backStr = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"ta说: %@"</span>,recvMessage];
-        }
-    }
-    <span class="comment">// 回发数据</span>
-    <span class="built_in">NSData</span>* backData = [backStr dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];
-    [sock writeData:backData withTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];
-}
-
-<span class="comment">/**
- *  将要断开连接
- *
- *  @param sock 连接1
- *  @param err  错误码
- */</span>
-- (<span class="keyword">void</span>)onSocket:(AsyncSocket *)sock willDisconnectWithError:(<span class="built_in">NSError</span> *)err
-{
-    [<span class="keyword">self</span><span class="variable">.logView</span> setStringValue:FORMAT(<span class="string">@"Client Disconnected: %@:%hu"</span>, [sock connectedHost], [sock connectedPort])];
-    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,FORMAT(<span class="string">@"Client Disconnected: %@:%hu"</span>, [sock connectedHost], [sock connectedPort]));
-}
-
-<span class="comment">/**
- *  已经断开连接·
- *
- *  @param sock 连接1
- */</span>
-- (<span class="keyword">void</span>)onSocketDidDisconnect:(AsyncSocket *)sock
-{
-    [<span class="keyword">self</span><span class="variable">.connectedSockets</span> removeObject:sock];
-}
-
-- (<span class="built_in">BOOL</span>)onSocketWillConnect:(AsyncSocket *)sock
-{
-    <span class="keyword">return</span> <span class="literal">YES</span>;
-}
-
-<span class="keyword">@end</span>
-</code></pre>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;socket编程&quot;&gt;socket编程&lt;/h1&gt;&lt;h2 id=&quot;CocoaAsyncSocket&quot;&gt;CocoaAsyncSocket&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;开源库：&lt;a href=&quot;https://github.com/robbiehanson/CocoaAsy
     
     </summary>
     
