@@ -13,40 +13,18 @@
     
 
     
-    <meta name="description" content="#Cell高度自适应@(iOS)[UITableView]
-
-这是找到的最简单一种自适应方法了，代码量不多
-
-
-1、首先要在set模型时候将高度计算出来，更新cell布局
-2、然后再tableView代理方法中拿到这个cell去更新高度,主要是这个方法
-
-- (void)setCheckModel:(MMKeyPlacesVisitAgainCheckAreaModel *)checkModel">
+    <meta name="description" content="#Cell高度自适应@(iOS)[UITableView]  这是找到的最简单一种自适应方法了，代码量不多   1、首先要在set模型时候将高度计算出来，更新cell布局 2、然后再tableView代理方法中拿到这个cell去更新高度,主要是这个方法  - (void)setCheckModel:(MMKeyPlacesVisitAgainCheckAreaModel *)checkModel">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cell高度自适应">
 <meta property="og:url" content="http://songliquan.github.io/2017/06/06/Cell高度自适应/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="#Cell高度自适应@(iOS)[UITableView]
-
-这是找到的最简单一种自适应方法了，代码量不多
-
-
-1、首先要在set模型时候将高度计算出来，更新cell布局
-2、然后再tableView代理方法中拿到这个cell去更新高度,主要是这个方法
-
-- (void)setCheckModel:(MMKeyPlacesVisitAgainCheckAreaModel *)checkModel">
+<meta property="og:description" content="#Cell高度自适应@(iOS)[UITableView]  这是找到的最简单一种自适应方法了，代码量不多   1、首先要在set模型时候将高度计算出来，更新cell布局 2、然后再tableView代理方法中拿到这个cell去更新高度,主要是这个方法  - (void)setCheckModel:(MMKeyPlacesVisitAgainCheckAreaModel *)checkModel">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-09-19T07:19:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cell高度自适应">
-<meta name="twitter:description" content="#Cell高度自适应@(iOS)[UITableView]
-
-这是找到的最简单一种自适应方法了，代码量不多
-
-
-1、首先要在set模型时候将高度计算出来，更新cell布局
-2、然后再tableView代理方法中拿到这个cell去更新高度,主要是这个方法
-
-- (void)setCheckModel:(MMKeyPlacesVisitAgainCheckAreaModel *)checkModel">
+<meta name="twitter:description" content="#Cell高度自适应@(iOS)[UITableView]  这是找到的最简单一种自适应方法了，代码量不多   1、首先要在set模型时候将高度计算出来，更新cell布局 2、然后再tableView代理方法中拿到这个cell去更新高度,主要是这个方法  - (void)setCheckModel:(MMKeyPlacesVisitAgainCheckAreaModel *)checkModel">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -58,7 +36,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -134,7 +112,7 @@
 <li>1、首先要在set模型时候将高度计算出来，更新cell布局</li>
 <li>2、然后再tableView代理方法中拿到这个cell去更新高度,主要是这个方法</li>
 </ul>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setCheckModel:(M<span class="built_in">MKeyPlacesVisitAgainCheckAreaModel</span> *)checkModel &#123;</span><br><span class="line">    _checkModel = checkModel;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.titleLable</span><span class="variable">.text</span> = checkModel<span class="variable">.name</span>;</span><br><span class="line">    <span class="built_in">CGSize</span> size = [<span class="keyword">self</span> sizeString:checkModel<span class="variable">.name</span> WithFont:[<span class="built_in">UIFont</span> systemFontOfSize:FontSize] constrainedToSize:<span class="built_in">CGSizeMake</span>(ScreenWidth, MAXFLOAT)];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.titleLable</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, ScreenWidth, size<span class="variable">.height</span> &gt;= <span class="number">40</span> ?:<span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.yesLable</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, _titleLable<span class="variable">.SLQBottom</span>, <span class="number">20</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.yesBtn</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(_yesLable<span class="variable">.SLQRight</span> , _titleLable<span class="variable">.SLQBottom</span>, <span class="number">40</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.noLable</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(_yesBtn<span class="variable">.SLQRight</span> , _titleLable<span class="variable">.SLQBottom</span>, <span class="number">20</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.noBtn</span><span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(_noLable<span class="variable">.SLQRight</span>, _titleLable<span class="variable">.SLQBottom</span>, <span class="number">40</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.SLQHeight</span>  = <span class="keyword">self</span><span class="variable">.noBtn</span><span class="variable">.SLQBottom</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">    <span class="built_in">UITableViewCell</span> *cell = [<span class="keyword">self</span> tableView:tableView cellForRowAtIndexPath:indexPath];</span><br><span class="line">    <span class="keyword">return</span> cell<span class="variable">.frame</span><span class="variable">.size</span><span class="variable">.height</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
+<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setCheckModel:(MMKeyPlacesVisitAgainCheckAreaModel *)checkModel &#123;</span><br><span class="line">    _checkModel = checkModel;</span><br><span class="line">    <span class="keyword">self</span>.titleLable.text = checkModel.name;</span><br><span class="line">    <span class="built_in">CGSize</span> size = [<span class="keyword">self</span> sizeString:checkModel.name WithFont:[<span class="built_in">UIFont</span> systemFontOfSize:FontSize] constrainedToSize:<span class="built_in">CGSizeMake</span>(ScreenWidth, MAXFLOAT)];</span><br><span class="line">    <span class="keyword">self</span>.titleLable.frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, ScreenWidth, size.height &gt;= <span class="number">40</span> ?:<span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span>.yesLable.frame = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, _titleLable.SLQBottom, <span class="number">20</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span>.yesBtn.frame = <span class="built_in">CGRectMake</span>(_yesLable.SLQRight , _titleLable.SLQBottom, <span class="number">40</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span>.noLable.frame = <span class="built_in">CGRectMake</span>(_yesBtn.SLQRight , _titleLable.SLQBottom, <span class="number">20</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span>.noBtn.frame = <span class="built_in">CGRectMake</span>(_noLable.SLQRight, _titleLable.SLQBottom, <span class="number">40</span>, <span class="number">40</span>);</span><br><span class="line">    <span class="keyword">self</span>.SLQHeight  = <span class="keyword">self</span>.noBtn.SLQBottom;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">    <span class="built_in">UITableViewCell</span> *cell = [<span class="keyword">self</span> tableView:tableView cellForRowAtIndexPath:indexPath];</span><br><span class="line">    <span class="keyword">return</span> cell.frame.size.height;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -151,7 +129,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2017/06/06/Cell高度自适应/" data-title="Cell高度自适应 | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2017/06/06/Cell高度自适应/" data-title="Cell高度自适应 | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -233,11 +211,15 @@
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -245,7 +227,7 @@
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -257,7 +239,7 @@
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -270,7 +252,7 @@
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -289,25 +271,21 @@
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -321,7 +299,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

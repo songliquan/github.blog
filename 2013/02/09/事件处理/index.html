@@ -13,56 +13,20 @@
     
 
     
-    <meta name="description" content="事件处理分类
-1、触摸事件
-2、加速器事件：重力感应，旋转等事件
-3、远程遥控事件：蓝牙线控，耳机线控等
-
-触摸事件
-响应者对象
-只有继承了UIResponder得对象才能接收并处理事件
-常见类有：UIApplication、UIViewController、UIView
-
-UIResponder中几个事件响应方法
-触摸事件方法
-
-- (void)touchesBegan:(NSSet *)tou">
+    <meta name="description" content="事件处理分类 1、触摸事件 2、加速器事件：重力感应，旋转等事件 3、远程遥控事件：蓝牙线控，耳机线控等  触摸事件 响应者对象 只有继承了UIResponder得对象才能接收并处理事件 常见类有：UIApplication、UIViewController、UIView  UIResponder中几个事件响应方法 触摸事件方法  - (void)touchesBegan:(NSSet *)tou">
+<meta name="keywords" content="OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="事件处理">
 <meta property="og:url" content="http://songliquan.github.io/2013/02/09/事件处理/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="事件处理分类
-1、触摸事件
-2、加速器事件：重力感应，旋转等事件
-3、远程遥控事件：蓝牙线控，耳机线控等
-
-触摸事件
-响应者对象
-只有继承了UIResponder得对象才能接收并处理事件
-常见类有：UIApplication、UIViewController、UIView
-
-UIResponder中几个事件响应方法
-触摸事件方法
-
-- (void)touchesBegan:(NSSet *)tou">
+<meta property="og:description" content="事件处理分类 1、触摸事件 2、加速器事件：重力感应，旋转等事件 3、远程遥控事件：蓝牙线控，耳机线控等  触摸事件 响应者对象 只有继承了UIResponder得对象才能接收并处理事件 常见类有：UIApplication、UIViewController、UIView  UIResponder中几个事件响应方法 触摸事件方法  - (void)touchesBegan:(NSSet *)tou">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://images0.cnblogs.com/blog/523606/201506/171956061381265.png">
 <meta property="og:updated_time" content="2015-12-10T10:30:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事件处理">
-<meta name="twitter:description" content="事件处理分类
-1、触摸事件
-2、加速器事件：重力感应，旋转等事件
-3、远程遥控事件：蓝牙线控，耳机线控等
-
-触摸事件
-响应者对象
-只有继承了UIResponder得对象才能接收并处理事件
-常见类有：UIApplication、UIViewController、UIView
-
-UIResponder中几个事件响应方法
-触摸事件方法
-
-- (void)touchesBegan:(NSSet *)tou">
+<meta name="twitter:description" content="事件处理分类 1、触摸事件 2、加速器事件：重力感应，旋转等事件 3、远程遥控事件：蓝牙线控，耳机线控等  触摸事件 响应者对象 只有继承了UIResponder得对象才能接收并处理事件 常见类有：UIApplication、UIViewController、UIView  UIResponder中几个事件响应方法 触摸事件方法  - (void)touchesBegan:(NSSet *)tou">
+<meta name="twitter:image" content="http://images0.cnblogs.com/blog/523606/201506/171956061381265.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -74,7 +38,7 @@ UIResponder中几个事件响应方法
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -138,21 +102,21 @@ UIResponder中几个事件响应方法
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#事件处理"><span class="toc-number">1.</span> <span class="toc-text">事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-number">1.1.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#触摸事件"><span class="toc-number">1.2.</span> <span class="toc-text">触摸事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIResponder中几个事件响应方法"><span class="toc-number">1.3.</span> <span class="toc-text">UIResponder中几个事件响应方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UITouch_触摸对象"><span class="toc-number">1.4.</span> <span class="toc-text">UITouch 触摸对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIEvent_事件对象"><span class="toc-number">1.5.</span> <span class="toc-text">UIEvent 事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的产生和传递"><span class="toc-number">1.6.</span> <span class="toc-text">事件的产生和传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#触摸事件的传递顺序是从父控件到子控件"><span class="toc-number">1.6.1.</span> <span class="toc-text">触摸事件的传递顺序是从父控件到子控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UIView_不接收事件的三种情况"><span class="toc-number">1.6.2.</span> <span class="toc-text">UIView 不接收事件的三种情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件传递的完整过程"><span class="toc-number">1.6.3.</span> <span class="toc-text">事件传递的完整过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hitTest和pointInside的使用"><span class="toc-number">1.7.</span> <span class="toc-text">hitTest和pointInside的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多层视图时如何只响应其中一个"><span class="toc-number">1.7.1.</span> <span class="toc-text">多层视图时如何只响应其中一个</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#事件处理"><span class="toc-number">1.</span> <span class="toc-text">事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-number">1.1.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#触摸事件"><span class="toc-number">1.2.</span> <span class="toc-text">触摸事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIResponder中几个事件响应方法"><span class="toc-number">1.3.</span> <span class="toc-text">UIResponder中几个事件响应方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UITouch-触摸对象"><span class="toc-number">1.4.</span> <span class="toc-text">UITouch 触摸对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIEvent-事件对象"><span class="toc-number">1.5.</span> <span class="toc-text">UIEvent 事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的产生和传递"><span class="toc-number">1.6.</span> <span class="toc-text">事件的产生和传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#触摸事件的传递顺序是从父控件到子控件"><span class="toc-number">1.6.1.</span> <span class="toc-text">触摸事件的传递顺序是从父控件到子控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UIView-不接收事件的三种情况"><span class="toc-number">1.6.2.</span> <span class="toc-text">UIView 不接收事件的三种情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件传递的完整过程"><span class="toc-number">1.6.3.</span> <span class="toc-text">事件传递的完整过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hitTest和pointInside的使用"><span class="toc-number">1.7.</span> <span class="toc-text">hitTest和pointInside的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多层视图时如何只响应其中一个"><span class="toc-number">1.7.1.</span> <span class="toc-text">多层视图时如何只响应其中一个</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="事件处理">事件处理</h1><h2 id="分类">分类</h2><ul>
+		<h1 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
 <li>1、触摸事件</li>
 <li>2、加速器事件：重力感应，旋转等事件</li>
 <li>3、远程遥控事件：蓝牙线控，耳机线控等</li>
 </ul>
-<h2 id="触摸事件">触摸事件</h2><ul>
+<h2 id="触摸事件"><a href="#触摸事件" class="headerlink" title="触摸事件"></a>触摸事件</h2><ul>
 <li>响应者对象</li>
 <li>只有继承了UIResponder得对象才能接收并处理事件</li>
 <li>常见类有：UIApplication、UIViewController、UIView</li>
 </ul>
-<h2 id="UIResponder中几个事件响应方法">UIResponder中几个事件响应方法</h2><ul>
+<h2 id="UIResponder中几个事件响应方法"><a href="#UIResponder中几个事件响应方法" class="headerlink" title="UIResponder中几个事件响应方法"></a>UIResponder中几个事件响应方法</h2><ul>
 <li>触摸事件方法</li>
 </ul>
 <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)touchesMoved:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)touchesCancelled:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br></pre></td></tr></table></figure>
@@ -163,8 +127,8 @@ UIResponder中几个事件响应方法
 <ul>
 <li>遥控事件方法</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)remoteControlReceivedWithEvent:(<span class="built_in">UIEvent</span> *)event <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">4</span>_0);</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- *这些方法在响应事件时需要自己重写方法。*</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">##UIView中的触摸事件</span></span><br><span class="line">- 自定义view，实现几个方法，如果要响应<span class="built_in">UIView</span>的触摸事件，需要自定控件的CustomClass为自定义的类，然后再自定义的类中实现以下方法。</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> ```objc</span><br><span class="line"><span class="comment">// 触摸开始</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,__func__);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,touches);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"----%@"</span>,event);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 移动手指</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesMoved:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,__func__);</span><br><span class="line">    <span class="comment">// 获取UITouch</span></span><br><span class="line">    <span class="built_in">UITouch</span> *touch = [touches anyObject];</span><br><span class="line">    <span class="comment">// 获取偏移量</span></span><br><span class="line">    <span class="built_in">CGPoint</span> location = [touch locationInView:<span class="keyword">self</span>];</span><br><span class="line">    <span class="built_in">CGPoint</span> previous = [touch previousLocationInView:<span class="keyword">self</span>];</span><br><span class="line">    <span class="built_in">CGFloat</span> offsetX = location<span class="variable">.x</span> - previous<span class="variable">.x</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> offsetY = location<span class="variable">.y</span> - previous<span class="variable">.y</span>;</span><br><span class="line">    <span class="comment">// 移动view</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.transform</span> = <span class="built_in">CGAffineTransformTranslate</span>(<span class="keyword">self</span><span class="variable">.transform</span>, offsetX, offsetY); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 触摸结束</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,__func__);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 系统事件中断：短信，电话等</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesCancelled:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,__func__);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="UITouch_触摸对象">UITouch 触摸对象</h2><ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)remoteControlReceivedWithEvent:(<span class="built_in">UIEvent</span> *)event <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">4</span>_0);</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">- *这些方法在响应事件时需要自己重写方法。*</span><br><span class="line"></span><br><span class="line"><span class="meta">##UIView中的触摸事件</span></span><br><span class="line">- 自定义view，实现几个方法，如果要响应<span class="built_in">UIView</span>的触摸事件，需要自定控件的CustomClass为自定义的类，然后再自定义的类中实现以下方法。</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> ```objc</span><br><span class="line"><span class="comment">// 触摸开始</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,__func__);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,touches);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"----%@"</span>,event);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 移动手指</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesMoved:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,__func__);</span><br><span class="line">    <span class="comment">// 获取UITouch</span></span><br><span class="line">    <span class="built_in">UITouch</span> *touch = [touches anyObject];</span><br><span class="line">    <span class="comment">// 获取偏移量</span></span><br><span class="line">    <span class="built_in">CGPoint</span> location = [touch locationInView:<span class="keyword">self</span>];</span><br><span class="line">    <span class="built_in">CGPoint</span> previous = [touch previousLocationInView:<span class="keyword">self</span>];</span><br><span class="line">    <span class="built_in">CGFloat</span> offsetX = location.x - previous.x;</span><br><span class="line">    <span class="built_in">CGFloat</span> offsetY = location.y - previous.y;</span><br><span class="line">    <span class="comment">// 移动view</span></span><br><span class="line">    <span class="keyword">self</span>.transform = <span class="built_in">CGAffineTransformTranslate</span>(<span class="keyword">self</span>.transform, offsetX, offsetY); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 触摸结束</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,__func__);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 系统事件中断：短信，电话等</span></span><br><span class="line">- (<span class="keyword">void</span>)touchesCancelled:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,__func__);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="UITouch-触摸对象"><a href="#UITouch-触摸对象" class="headerlink" title="UITouch 触摸对象"></a>UITouch 触摸对象</h2><ul>
 <li>当用户用一根触摸屏幕时，会创建一个与手指相关联的UITouch对象</li>
 <li>一根手指对应一个UITouch对象UITouch的作用保存着跟手指相关的信息，比如触摸的位置、时间、阶段</li>
 <li>当手指移动时，系统会更新同一个UITouch对象，使之能够一直保存该手指在的触摸位置</li>
@@ -175,8 +139,8 @@ UIResponder中几个事件响应方法
 </ul>
 </li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>,retain) <span class="built_in">UIWindow</span>    *window;</span><br><span class="line">触摸产生时所处的视图</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>,retain) <span class="built_in">UIView</span>      *view;</span><br><span class="line">短时间内点按屏幕的次数，可以根据tapCount判断单击、双击或更多的点击</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSUInteger</span>          tapCount;</span><br><span class="line">记录了触摸事件产生或变化时的时间，单位是秒</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span>      timestamp;</span><br><span class="line">当前触摸事件所处的状态</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UITouchPhase</span>        phase;</span><br><span class="line">常用的几个方法</span><br><span class="line"><span class="comment">/*返回值表示触摸在view上的位置</span><br><span class="line"> 这里返回的位置是针对view的坐标系的（以view的左上角为原点(0, 0)）</span><br><span class="line"> 调用时传入的view参数为nil的话，返回的是触摸点在UIWindow的位置*/</span></span><br><span class="line">- (<span class="built_in">CGPoint</span>)locationInView:(<span class="built_in">UIView</span> *)view;</span><br><span class="line"><span class="comment">//该方法记录了前一个触摸点的位置</span></span><br><span class="line">- (<span class="built_in">CGPoint</span>)previousLocationInView:(<span class="built_in">UIView</span> *)view;</span><br></pre></td></tr></table></figure>
-<h2 id="UIEvent_事件对象">UIEvent 事件对象</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//每产生一个事件，就会产生一个UIEvent对象</span></span><br><span class="line"><span class="comment">//UIEvent：称为事件对象，记录事件产生的时刻和类型</span></span><br><span class="line"><span class="comment">//常见属性</span></span><br><span class="line"><span class="comment">//事件类型</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventType</span>     type;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventSubtype</span>  subtype;</span><br><span class="line"><span class="comment">//事件产生的时间</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span>  timestamp;</span><br><span class="line"><span class="comment">//UIEvent还提供了相应的方法可以获得在某个view上面的触摸对象（UITouch）</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>,<span class="keyword">retain</span>) <span class="built_in">UIWindow</span>    *window;</span><br><span class="line">触摸产生时所处的视图</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>,<span class="keyword">retain</span>) <span class="built_in">UIView</span>      *view;</span><br><span class="line">短时间内点按屏幕的次数，可以根据tapCount判断单击、双击或更多的点击</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSUInteger</span>          tapCount;</span><br><span class="line">记录了触摸事件产生或变化时的时间，单位是秒</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span>      timestamp;</span><br><span class="line">当前触摸事件所处的状态</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UITouchPhase</span>        phase;</span><br><span class="line">常用的几个方法</span><br><span class="line"><span class="comment">/*返回值表示触摸在view上的位置</span></span><br><span class="line"><span class="comment"> 这里返回的位置是针对view的坐标系的（以view的左上角为原点(0, 0)）</span></span><br><span class="line"><span class="comment"> 调用时传入的view参数为nil的话，返回的是触摸点在UIWindow的位置*/</span></span><br><span class="line">- (<span class="built_in">CGPoint</span>)locationInView:(<span class="built_in">UIView</span> *)view;</span><br><span class="line"><span class="comment">//该方法记录了前一个触摸点的位置</span></span><br><span class="line">- (<span class="built_in">CGPoint</span>)previousLocationInView:(<span class="built_in">UIView</span> *)view;</span><br></pre></td></tr></table></figure>
+<h2 id="UIEvent-事件对象"><a href="#UIEvent-事件对象" class="headerlink" title="UIEvent 事件对象"></a>UIEvent 事件对象</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">//每产生一个事件，就会产生一个UIEvent对象</span></span><br><span class="line"><span class="comment">//UIEvent：称为事件对象，记录事件产生的时刻和类型</span></span><br><span class="line"><span class="comment">//常见属性</span></span><br><span class="line"><span class="comment">//事件类型</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventType</span>     type;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventSubtype</span>  subtype;</span><br><span class="line"><span class="comment">//事件产生的时间</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span>  timestamp;</span><br><span class="line"><span class="comment">//UIEvent还提供了相应的方法可以获得在某个view上面的触摸对象（UITouch）</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>每个触摸事件都会传入一个UITouch对象和一个UIEvent对象，其内部组成如下，可以通过这两个参数控制控件的运动。<ul>
 <li><img src="http://images0.cnblogs.com/blog/523606/201506/171956061381265.png" alt=""></li>
@@ -187,12 +151,12 @@ UIResponder中几个事件响应方法
 </ul>
 </li>
 </ul>
-<h2 id="事件的产生和传递">事件的产生和传递</h2><ul>
+<h2 id="事件的产生和传递"><a href="#事件的产生和传递" class="headerlink" title="事件的产生和传递"></a>事件的产生和传递</h2><ul>
 <li>1、发生触摸事件后，系统会将该事件加入到一个由UIApplication管理的事件队列中</li>
 <li>2、UIApplication会从事件队列中取出最前面的事件，并将事件分发下去以便处理，通常，先发送事件给应用程序的主窗口（keyWindow）</li>
 <li>3、主窗口会在视图层次结构中找到一个最合适的视图来处理触摸事件，这也是整个事件处理过程的第一步</li>
 </ul>
-<h3 id="触摸事件的传递顺序是从父控件到子控件">触摸事件的传递顺序是从父控件到子控件</h3><ul>
+<h3 id="触摸事件的传递顺序是从父控件到子控件"><a href="#触摸事件的传递顺序是从父控件到子控件" class="headerlink" title="触摸事件的传递顺序是从父控件到子控件"></a>触摸事件的传递顺序是从父控件到子控件</h3><ul>
 <li>如何找到最合适的控件来处理事件？<ul>
 <li>1、自己是否能接收触摸事件？</li>
 <li>2、触摸点是否在自己身上？</li>
@@ -201,30 +165,30 @@ UIResponder中几个事件响应方法
 </ul>
 </li>
 </ul>
-<h3 id="UIView_不接收事件的三种情况">UIView 不接收事件的三种情况</h3><ul>
-<li>1、不接收用户交互<pre><code><span class="escape">`u</span>serInteractionEnabled = NO<span class="comment">;`</span>
+<h3 id="UIView-不接收事件的三种情况"><a href="#UIView-不接收事件的三种情况" class="headerlink" title="UIView 不接收事件的三种情况"></a>UIView 不接收事件的三种情况</h3><ul>
+<li>1、不接收用户交互<pre><code>`userInteractionEnabled = NO;`
 </code></pre></li>
-<li>2、隐藏<pre><code><span class="escape">`h</span>idden = YES<span class="comment">;`</span>
+<li>2、隐藏<pre><code>`hidden = YES;`
 </code></pre></li>
-<li>3、透明<pre><code>`alpha = <span class="number">0.0</span> ~ <span class="number">0.01</span>`
+<li>3、透明<pre><code>`alpha = 0.0 ~ 0.01`
 </code></pre></li>
 <li>这三种情况下，不响应事件，UIImageView默认userInteractionEnabled位NO。</li>
 </ul>
-<h3 id="事件传递的完整过程">事件传递的完整过程</h3><ul>
+<h3 id="事件传递的完整过程"><a href="#事件传递的完整过程" class="headerlink" title="事件传递的完整过程"></a>事件传递的完整过程</h3><ul>
 <li>1、先将事件对象由上往下传递(由父控件传递给子控件)，找到最合适的控件来处理这个事件。</li>
 <li>2、调用最合适控件的touches….方法 </li>
 <li>3、如果调用了[super touches….];就会将事件顺着响应者链条往上传递，传递给上一个响应者 </li>
 <li>4、接着就会调用上一个响应者的touches….方法</li>
 </ul>
-<h2 id="hitTest和pointInside的使用">hitTest和pointInside的使用</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 事件传递的时候调用</span></span><br><span class="line"><span class="comment">// 什么时候调用:当事件传递给控件的时候，就会调用控件的这个方法，去寻找最合适的view</span></span><br><span class="line"><span class="comment">// 作用：寻找最合适的view</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">//point：当前的触摸点，point这个点的坐标系就是方法调用者</span></span><br><span class="line">- (<span class="built_in">UIView</span> *)hitTest:(<span class="built_in">CGPoint</span>)point withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 调用系统的做法去寻找最合适的view，返回最合适的view</span></span><br><span class="line">    <span class="built_in">UIView</span> *fitView = [<span class="keyword">super</span> hitTest:point withEvent:event];</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"fitView--%@"</span>,fitView);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> fitView;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 作用：判断当前这个点在不在方法调用者（控件）上</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)pointInside:(<span class="built_in">CGPoint</span>)point withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="hitTest和pointInside的使用"><a href="#hitTest和pointInside的使用" class="headerlink" title="hitTest和pointInside的使用"></a>hitTest和pointInside的使用</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 事件传递的时候调用</span></span><br><span class="line"><span class="comment">// 什么时候调用:当事件传递给控件的时候，就会调用控件的这个方法，去寻找最合适的view</span></span><br><span class="line"><span class="comment">// 作用：寻找最合适的view</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">//point：当前的触摸点，point这个点的坐标系就是方法调用者</span></span><br><span class="line">- (<span class="built_in">UIView</span> *)hitTest:(<span class="built_in">CGPoint</span>)point withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 调用系统的做法去寻找最合适的view，返回最合适的view</span></span><br><span class="line">    <span class="built_in">UIView</span> *fitView = [<span class="keyword">super</span> hitTest:point withEvent:event];</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"fitView--%@"</span>,fitView);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> fitView;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 作用：判断当前这个点在不在方法调用者（控件）上</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)pointInside:(<span class="built_in">CGPoint</span>)point withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>自定义hitTest文件的实现 </li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> *  自定义hitTest方法</span><br><span class="line"> */</span></span><br><span class="line">- (<span class="built_in">UIView</span> *)hitTest:(<span class="built_in">CGPoint</span>)point withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//    UIView *fview =  [super hitTest:point withEvent:event];</span></span><br><span class="line"><span class="comment">//    </span></span><br><span class="line"><span class="comment">//    NSLog(@"fview----%@",[self class]);</span></span><br><span class="line"><span class="comment">//    return fview;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 自己实现</span></span><br><span class="line">    <span class="comment">// 1、检查view是否能接收事件</span></span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">self</span><span class="variable">.userInteractionEnabled</span> || <span class="keyword">self</span><span class="variable">.hidden</span>  || <span class="keyword">self</span><span class="variable">.alpha</span> &lt;= <span class="number">0.01</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 2、检查触摸点是否在自己身上</span></span><br><span class="line">    <span class="keyword">if</span> (![<span class="keyword">self</span> pointInside:point withEvent:event])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 3、从后往前遍历所有子控件是否满足以上两条</span></span><br><span class="line">    <span class="built_in">NSInteger</span> count = <span class="keyword">self</span><span class="variable">.subviews</span><span class="variable">.count</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = count; i &gt; <span class="number">0</span>; i --)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">UIView</span> *childView = <span class="keyword">self</span><span class="variable">.subviews</span>[i];</span><br><span class="line">        <span class="comment">// 将父控件上得点转换成子控件身上的点</span></span><br><span class="line">        <span class="built_in">CGPoint</span> childPoint = [<span class="keyword">self</span> convertPoint:point toView:childView];</span><br><span class="line">        <span class="comment">// 递归子控件</span></span><br><span class="line">        <span class="built_in">UIView</span> *fitView = [childView hitTest:childPoint withEvent:event];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (fitView)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> childView;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"fview----%@"</span>,[<span class="keyword">self</span> class]);</span><br><span class="line">    <span class="comment">// 如果找不到比自己更合适的就返回自己</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  自定义hitTest方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">- (<span class="built_in">UIView</span> *)hitTest:(<span class="built_in">CGPoint</span>)point withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//    UIView *fview =  [super hitTest:point withEvent:event];</span></span><br><span class="line"><span class="comment">//    </span></span><br><span class="line"><span class="comment">//    NSLog(@"fview----%@",[self class]);</span></span><br><span class="line"><span class="comment">//    return fview;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 自己实现</span></span><br><span class="line">    <span class="comment">// 1、检查view是否能接收事件</span></span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">self</span>.userInteractionEnabled || <span class="keyword">self</span>.hidden  || <span class="keyword">self</span>.alpha &lt;= <span class="number">0.01</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 2、检查触摸点是否在自己身上</span></span><br><span class="line">    <span class="keyword">if</span> (![<span class="keyword">self</span> pointInside:point withEvent:event])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 3、从后往前遍历所有子控件是否满足以上两条</span></span><br><span class="line">    <span class="built_in">NSInteger</span> count = <span class="keyword">self</span>.subviews.count;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSInteger</span> i = count; i &gt; <span class="number">0</span>; i --)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">UIView</span> *childView = <span class="keyword">self</span>.subviews[i];</span><br><span class="line">        <span class="comment">// 将父控件上得点转换成子控件身上的点</span></span><br><span class="line">        <span class="built_in">CGPoint</span> childPoint = [<span class="keyword">self</span> convertPoint:point toView:childView];</span><br><span class="line">        <span class="comment">// 递归子控件</span></span><br><span class="line">        <span class="built_in">UIView</span> *fitView = [childView hitTest:childPoint withEvent:event];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (fitView)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> childView;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"fview----%@"</span>,[<span class="keyword">self</span> <span class="keyword">class</span>]);</span><br><span class="line">    <span class="comment">// 如果找不到比自己更合适的就返回自己</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>由此可见寻找最合适的view的过程就是递归遍历所有控件，找到最合适的view。</li>
 </ul>
-<h3 id="多层视图时如何只响应其中一个">多层视图时如何只响应其中一个</h3> <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 多层视图时如何只响应其中一个</span></span><br><span class="line">- (<span class="built_in">UIView</span> *)hitTest:(<span class="built_in">CGPoint</span>)point withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//    UIView *fview =  [super hitTest:point withEvent:event];</span></span><br><span class="line"><span class="comment">//    </span></span><br><span class="line"><span class="comment">//    NSLog(@"fview----%@",[self class]);</span></span><br><span class="line"><span class="comment">//    return fview;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 1、判断点是否在自己身上</span></span><br><span class="line">    <span class="built_in">CGPoint</span> selfPoint = [<span class="keyword">self</span> convertPoint:point toView:<span class="keyword">self</span><span class="variable">.btn</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断点是否也在按钮上</span></span><br><span class="line">    <span class="keyword">if</span>([<span class="keyword">self</span><span class="variable">.btn</span> pointInside:selfPoint withEvent:event])<span class="comment">// 如果点也在按钮身上身上，就相应按钮</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"btn---%@"</span>,<span class="keyword">self</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span><span class="variable">.btn</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span><span class="comment">// 否则就继续判断父控件</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="keyword">super</span> hitTest:point withEvent:event];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="多层视图时如何只响应其中一个"><a href="#多层视图时如何只响应其中一个" class="headerlink" title="多层视图时如何只响应其中一个"></a>多层视图时如何只响应其中一个</h3> <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 多层视图时如何只响应其中一个</span></span><br><span class="line">- (<span class="built_in">UIView</span> *)hitTest:(<span class="built_in">CGPoint</span>)point withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//    UIView *fview =  [super hitTest:point withEvent:event];</span></span><br><span class="line"><span class="comment">//    </span></span><br><span class="line"><span class="comment">//    NSLog(@"fview----%@",[self class]);</span></span><br><span class="line"><span class="comment">//    return fview;</span></span><br><span class="line"> </span><br><span class="line">    <span class="comment">// 1、判断点是否在自己身上</span></span><br><span class="line">    <span class="built_in">CGPoint</span> selfPoint = [<span class="keyword">self</span> convertPoint:point toView:<span class="keyword">self</span>.btn];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断点是否也在按钮上</span></span><br><span class="line">    <span class="keyword">if</span>([<span class="keyword">self</span>.btn pointInside:selfPoint withEvent:event])<span class="comment">// 如果点也在按钮身上身上，就相应按钮</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"btn---%@"</span>,<span class="keyword">self</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.btn;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span><span class="comment">// 否则就继续判断父控件</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="keyword">super</span> hitTest:point withEvent:event];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -242,7 +206,7 @@ UIResponder中几个事件响应方法
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2013/02/09/事件处理/" data-title="事件处理 | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2013/02/09/事件处理/" data-title="事件处理 | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -286,7 +250,7 @@ UIResponder中几个事件响应方法
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#事件处理"><span class="toc-number">1.</span> <span class="toc-text">事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-number">1.1.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#触摸事件"><span class="toc-number">1.2.</span> <span class="toc-text">触摸事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIResponder中几个事件响应方法"><span class="toc-number">1.3.</span> <span class="toc-text">UIResponder中几个事件响应方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UITouch_触摸对象"><span class="toc-number">1.4.</span> <span class="toc-text">UITouch 触摸对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIEvent_事件对象"><span class="toc-number">1.5.</span> <span class="toc-text">UIEvent 事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的产生和传递"><span class="toc-number">1.6.</span> <span class="toc-text">事件的产生和传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#触摸事件的传递顺序是从父控件到子控件"><span class="toc-number">1.6.1.</span> <span class="toc-text">触摸事件的传递顺序是从父控件到子控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UIView_不接收事件的三种情况"><span class="toc-number">1.6.2.</span> <span class="toc-text">UIView 不接收事件的三种情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件传递的完整过程"><span class="toc-number">1.6.3.</span> <span class="toc-text">事件传递的完整过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hitTest和pointInside的使用"><span class="toc-number">1.7.</span> <span class="toc-text">hitTest和pointInside的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多层视图时如何只响应其中一个"><span class="toc-number">1.7.1.</span> <span class="toc-text">多层视图时如何只响应其中一个</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#事件处理"><span class="toc-number">1.</span> <span class="toc-text">事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-number">1.1.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#触摸事件"><span class="toc-number">1.2.</span> <span class="toc-text">触摸事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIResponder中几个事件响应方法"><span class="toc-number">1.3.</span> <span class="toc-text">UIResponder中几个事件响应方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UITouch-触摸对象"><span class="toc-number">1.4.</span> <span class="toc-text">UITouch 触摸对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIEvent-事件对象"><span class="toc-number">1.5.</span> <span class="toc-text">UIEvent 事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件的产生和传递"><span class="toc-number">1.6.</span> <span class="toc-text">事件的产生和传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#触摸事件的传递顺序是从父控件到子控件"><span class="toc-number">1.6.1.</span> <span class="toc-text">触摸事件的传递顺序是从父控件到子控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UIView-不接收事件的三种情况"><span class="toc-number">1.6.2.</span> <span class="toc-text">UIView 不接收事件的三种情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件传递的完整过程"><span class="toc-number">1.6.3.</span> <span class="toc-text">事件传递的完整过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hitTest和pointInside的使用"><span class="toc-number">1.7.</span> <span class="toc-text">hitTest和pointInside的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多层视图时如何只响应其中一个"><span class="toc-number">1.7.1.</span> <span class="toc-text">多层视图时如何只响应其中一个</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -324,11 +288,15 @@ UIResponder中几个事件响应方法
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -336,7 +304,7 @@ UIResponder中几个事件响应方法
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -348,7 +316,7 @@ UIResponder中几个事件响应方法
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -361,7 +329,7 @@ UIResponder中几个事件响应方法
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -380,25 +348,21 @@ UIResponder中几个事件响应方法
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -412,7 +376,7 @@ UIResponder中几个事件响应方法
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

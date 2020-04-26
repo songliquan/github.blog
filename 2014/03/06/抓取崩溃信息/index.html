@@ -13,34 +13,18 @@
     
 
     
-    <meta name="description" content="抓取崩溃信息
-如果不能用第三方的，只能自己抓取，上传到自己的服务器
-
-在appDelegate里做初始化
-
-
-    // 加入crash handler    NSSetUncaughtExceptionHandler(&amp;amp;uncaughtExceptionHandler);        // 模拟错误信息//    NSArray *array = [NSArray arrayWith">
+    <meta name="description" content="抓取崩溃信息 如果不能用第三方的，只能自己抓取，上传到自己的服务器  在appDelegate里做初始化       // 加入crash handler    NSSetUncaughtExceptionHandler(&amp;amp;uncaughtExceptionHandler);        // 模拟错误信息//    NSArray *array = [NSArray arrayWith">
+<meta name="keywords" content="oc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="抓取崩溃信息">
 <meta property="og:url" content="http://songliquan.github.io/2014/03/06/抓取崩溃信息/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="抓取崩溃信息
-如果不能用第三方的，只能自己抓取，上传到自己的服务器
-
-在appDelegate里做初始化
-
-
-    // 加入crash handler    NSSetUncaughtExceptionHandler(&amp;amp;uncaughtExceptionHandler);        // 模拟错误信息//    NSArray *array = [NSArray arrayWith">
+<meta property="og:description" content="抓取崩溃信息 如果不能用第三方的，只能自己抓取，上传到自己的服务器  在appDelegate里做初始化       // 加入crash handler    NSSetUncaughtExceptionHandler(&amp;amp;uncaughtExceptionHandler);        // 模拟错误信息//    NSArray *array = [NSArray arrayWith">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-03-06T08:58:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="抓取崩溃信息">
-<meta name="twitter:description" content="抓取崩溃信息
-如果不能用第三方的，只能自己抓取，上传到自己的服务器
-
-在appDelegate里做初始化
-
-
-    // 加入crash handler    NSSetUncaughtExceptionHandler(&amp;amp;uncaughtExceptionHandler);        // 模拟错误信息//    NSArray *array = [NSArray arrayWith">
+<meta name="twitter:description" content="抓取崩溃信息 如果不能用第三方的，只能自己抓取，上传到自己的服务器  在appDelegate里做初始化       // 加入crash handler    NSSetUncaughtExceptionHandler(&amp;amp;uncaughtExceptionHandler);        // 模拟错误信息//    NSArray *array = [NSArray arrayWith">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -52,7 +36,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -116,23 +100,23 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#抓取崩溃信息"><span class="toc-number">1.</span> <span class="toc-text">抓取崩溃信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Exception_codes"><span class="toc-number">1.1.</span> <span class="toc-text">Exception codes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Exception_types"><span class="toc-number">1.2.</span> <span class="toc-text">Exception types</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#抓取崩溃信息"><span class="toc-number">1.</span> <span class="toc-text">抓取崩溃信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Exception-codes"><span class="toc-number">1.1.</span> <span class="toc-text">Exception codes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Exception-types"><span class="toc-number">1.2.</span> <span class="toc-text">Exception types</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="抓取崩溃信息">抓取崩溃信息</h1><ul>
+		<h1 id="抓取崩溃信息"><a href="#抓取崩溃信息" class="headerlink" title="抓取崩溃信息"></a>抓取崩溃信息</h1><ul>
 <li><p>如果不能用第三方的，只能自己抓取，上传到自己的服务器</p>
 </li>
 <li><p>在appDelegate里做初始化</p>
 </li>
 </ul>
 <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">    <span class="comment">// 加入crash handler</span></span><br><span class="line">    <span class="built_in">NSSetUncaughtExceptionHandler</span>(&amp;uncaughtExceptionHandler);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 模拟错误信息</span></span><br><span class="line"><span class="comment">//    NSArray *array = [NSArray arrayWithObject:@"0"];</span></span><br><span class="line"><span class="comment">//    NSLog(@"%@", [array objectAtIndex:1]);</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 实现NSUncaughtExceptionHandler方法</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">void</span> uncaughtExceptionHandler(<span class="built_in">NSException</span> *exception)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 调用堆栈</span></span><br><span class="line">    <span class="built_in">NSArray</span> *arr = [exception callStackSymbols];</span><br><span class="line">    <span class="comment">// 错误reason</span></span><br><span class="line">    <span class="built_in">NSString</span> *reason = [exception reason];</span><br><span class="line">    <span class="comment">// exception name</span></span><br><span class="line">    <span class="built_in">NSString</span> *name = [exception name];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 根据自己的需求将crash信息记录下来，下次启动的时候传给服务器。</span></span><br><span class="line">    <span class="comment">// 尽量不要在此处将crash信息上传，因为App将要退出，不保证能够将信息上传至服务器</span></span><br><span class="line">    </span><br><span class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:<span class="string">@"YES"</span> forKey:<span class="string">@"isException"</span>];</span><br><span class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:arr forKey:<span class="string">@"callStackSymbols"</span>];</span><br><span class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:reason forKey:<span class="string">@"reason"</span>];</span><br><span class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:name forKey:<span class="string">@"name"</span>];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实现NSUncaughtExceptionHandler方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">void</span> uncaughtExceptionHandler(<span class="built_in">NSException</span> *exception)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 调用堆栈</span></span><br><span class="line">    <span class="built_in">NSArray</span> *arr = [exception callStackSymbols];</span><br><span class="line">    <span class="comment">// 错误reason</span></span><br><span class="line">    <span class="built_in">NSString</span> *reason = [exception reason];</span><br><span class="line">    <span class="comment">// exception name</span></span><br><span class="line">    <span class="built_in">NSString</span> *name = [exception name];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 根据自己的需求将crash信息记录下来，下次启动的时候传给服务器。</span></span><br><span class="line">    <span class="comment">// 尽量不要在此处将crash信息上传，因为App将要退出，不保证能够将信息上传至服务器</span></span><br><span class="line">    </span><br><span class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:<span class="string">@"YES"</span> forKey:<span class="string">@"isException"</span>];</span><br><span class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:arr forKey:<span class="string">@"callStackSymbols"</span>];</span><br><span class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:reason forKey:<span class="string">@"reason"</span>];</span><br><span class="line">    [[<span class="built_in">NSUserDefaults</span> standardUserDefaults] setObject:name forKey:<span class="string">@"name"</span>];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>然后在合适的时间把这个信息上传到服务器，上传成功后改<code>isException</code> 为<code>YES</code></li>
 </ul>
-<h2 id="Exception_codes">Exception codes</h2><figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line"><span class="number">0x8badf00d</span>错误码：Watchdog超时，意为“ate bad food”。</span><br><span class="line"><span class="number">0xdeadfa11</span>错误码：用户强制退出，意为“dead fall”。</span><br><span class="line"><span class="number">0xbaaaaaad</span>错误码：用户按住Home键和音量键，获取当前内存状态，不代表崩溃。</span><br><span class="line"><span class="number">0xbad22222</span>错误码：VoIP应用（因为太频繁？）被iOS干掉。</span><br><span class="line"><span class="number">0xc00010ff</span>错误码：因为太烫了被干掉，意为“cool off”。</span><br><span class="line"><span class="number">0xdead10cc</span>错误码：因为在后台时仍然占据系统资源（比如通讯录）被干掉，意为“dead <span class="keyword">lock</span>”。</span><br></pre></td></tr></table></figure>
-<h2 id="Exception_types">Exception types</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">查看我们的crash分析报告邮件，会发现最经常遇到的错误类型是SEGV（Segmentation Violation，段违例），表明内存操作不当，比如访问一个没有权限的内存地址。</span><br><span class="line">当我们收到SIGSEGV信号时，可以往以下几个方面考虑：</span><br><span class="line">访问无效内存地址，比如访问Zombie对象；</span><br><span class="line">尝试往只读区域写数据；</span><br><span class="line">解引用空指针；</span><br><span class="line">使用未初始化的指针；</span><br><span class="line">栈溢出；</span><br><span class="line">此外，还有其它常见信号：</span><br><span class="line">SIGABRT：收到Abort信号，可能自身调用<span class="function"><span class="title">abort</span><span class="params">()</span></span>或者收到外部发送过来的信号；</span><br><span class="line">SIGBUS：总线错误。与SIGSEGV不同的是，SIGSEGV访问的是无效地址（比如虚存映射不到物理内存），而SIGBUS访问的是有效地址，但总线访问异常（比如地址对齐问题）；</span><br><span class="line">SIGILL：尝试执行非法的指令，可能不被识别或者没有权限；</span><br><span class="line">SIGFPE：Floating Point Error，数学计算相关问题（可能不限于浮点计算），比如除零操作；</span><br><span class="line">SIGPIPE：管道另一端没有进程接手数据；</span><br></pre></td></tr></table></figure>  
+<h2 id="Exception-codes"><a href="#Exception-codes" class="headerlink" title="Exception codes"></a>Exception codes</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0x8badf00d错误码：Watchdog超时，意为“ate bad food”。</span><br><span class="line">0xdeadfa11错误码：用户强制退出，意为“dead fall”。</span><br><span class="line">0xbaaaaaad错误码：用户按住Home键和音量键，获取当前内存状态，不代表崩溃。</span><br><span class="line">0xbad22222错误码：VoIP应用（因为太频繁？）被iOS干掉。</span><br><span class="line">0xc00010ff错误码：因为太烫了被干掉，意为“cool off”。</span><br><span class="line">0xdead10cc错误码：因为在后台时仍然占据系统资源（比如通讯录）被干掉，意为“dead lock”。</span><br></pre></td></tr></table></figure>
+<h2 id="Exception-types"><a href="#Exception-types" class="headerlink" title="Exception types"></a>Exception types</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">查看我们的crash分析报告邮件，会发现最经常遇到的错误类型是SEGV（Segmentation Violation，段违例），表明内存操作不当，比如访问一个没有权限的内存地址。</span><br><span class="line">当我们收到SIGSEGV信号时，可以往以下几个方面考虑：</span><br><span class="line">访问无效内存地址，比如访问Zombie对象；</span><br><span class="line">尝试往只读区域写数据；</span><br><span class="line">解引用空指针；</span><br><span class="line">使用未初始化的指针；</span><br><span class="line">栈溢出；</span><br><span class="line">此外，还有其它常见信号：</span><br><span class="line">SIGABRT：收到Abort信号，可能自身调用abort()或者收到外部发送过来的信号；</span><br><span class="line">SIGBUS：总线错误。与SIGSEGV不同的是，SIGSEGV访问的是无效地址（比如虚存映射不到物理内存），而SIGBUS访问的是有效地址，但总线访问异常（比如地址对齐问题）；</span><br><span class="line">SIGILL：尝试执行非法的指令，可能不被识别或者没有权限；</span><br><span class="line">SIGFPE：Floating Point Error，数学计算相关问题（可能不限于浮点计算），比如除零操作；</span><br><span class="line">SIGPIPE：管道另一端没有进程接手数据；</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -149,7 +133,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2014/03/06/抓取崩溃信息/" data-title="抓取崩溃信息 | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2014/03/06/抓取崩溃信息/" data-title="抓取崩溃信息 | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -193,7 +177,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#抓取崩溃信息"><span class="toc-number">1.</span> <span class="toc-text">抓取崩溃信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Exception_codes"><span class="toc-number">1.1.</span> <span class="toc-text">Exception codes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Exception_types"><span class="toc-number">1.2.</span> <span class="toc-text">Exception types</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#抓取崩溃信息"><span class="toc-number">1.</span> <span class="toc-text">抓取崩溃信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Exception-codes"><span class="toc-number">1.1.</span> <span class="toc-text">Exception codes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Exception-types"><span class="toc-number">1.2.</span> <span class="toc-text">Exception types</span></a></li></ol></li></ol>
  
   </div>
 
@@ -231,11 +215,15 @@
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -243,7 +231,7 @@
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -255,7 +243,7 @@
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -268,7 +256,7 @@
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -287,25 +275,21 @@
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -319,7 +303,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

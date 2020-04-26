@@ -13,25 +13,18 @@
     
 
     
-    <meta name="description" content="第三方静态库冲突产生的duplicate symbol错误描述
-项目中引用了很多第三方库，有时就会出现一些冲突，比如下面
-
-duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)/.../Frameworks/libWintonePlateIDPro">
+    <meta name="description" content="第三方静态库冲突产生的duplicate symbol错误描述 项目中引用了很多第三方库，有时就会出现一些冲突，比如下面  duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)/.../Frameworks/libWintonePlateIDPro">
+<meta name="keywords" content="Xcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第三方静态库冲突产生的Duplicatesymbol">
 <meta property="og:url" content="http://songliquan.github.io/2016/10/29/第三方静态库冲突产生的duplicatesymbol/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="第三方静态库冲突产生的duplicate symbol错误描述
-项目中引用了很多第三方库，有时就会出现一些冲突，比如下面
-
-duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)/.../Frameworks/libWintonePlateIDPro">
+<meta property="og:description" content="第三方静态库冲突产生的duplicate symbol错误描述 项目中引用了很多第三方库，有时就会出现一些冲突，比如下面  duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)/.../Frameworks/libWintonePlateIDPro">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-03-27T07:13:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第三方静态库冲突产生的Duplicatesymbol">
-<meta name="twitter:description" content="第三方静态库冲突产生的duplicate symbol错误描述
-项目中引用了很多第三方库，有时就会出现一些冲突，比如下面
-
-duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)/.../Frameworks/libWintonePlateIDPro">
+<meta name="twitter:description" content="第三方静态库冲突产生的duplicate symbol错误描述 项目中引用了很多第三方库，有时就会出现一些冲突，比如下面  duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)/.../Frameworks/libWintonePlateIDPro">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -43,7 +36,7 @@ duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCa
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -107,22 +100,22 @@ duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCa
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第三方静态库冲突产生的duplicate_symbol"><span class="toc-number">1.</span> <span class="toc-text">第三方静态库冲突产生的duplicate symbol</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误描述"><span class="toc-number">1.1.</span> <span class="toc-text">错误描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题分析"><span class="toc-number">1.2.</span> <span class="toc-text">问题分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方式"><span class="toc-number">1.3.</span> <span class="toc-text">解决方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、设置_other_linker_flags"><span class="toc-number">1.3.1.</span> <span class="toc-text">一、设置 other linker flags</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、修改静态库"><span class="toc-number">1.3.2.</span> <span class="toc-text">二、修改静态库</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第三方静态库冲突产生的duplicate-symbol"><span class="toc-number">1.</span> <span class="toc-text">第三方静态库冲突产生的duplicate symbol</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误描述"><span class="toc-number">1.1.</span> <span class="toc-text">错误描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题分析"><span class="toc-number">1.2.</span> <span class="toc-text">问题分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方式"><span class="toc-number">1.3.</span> <span class="toc-text">解决方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、设置-other-linker-flags"><span class="toc-number">1.3.1.</span> <span class="toc-text">一、设置 other linker flags</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、修改静态库"><span class="toc-number">1.3.2.</span> <span class="toc-text">二、修改静态库</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="第三方静态库冲突产生的duplicate_symbol">第三方静态库冲突产生的duplicate symbol</h1><h2 id="错误描述">错误描述</h2><ul>
+		<h1 id="第三方静态库冲突产生的duplicate-symbol"><a href="#第三方静态库冲突产生的duplicate-symbol" class="headerlink" title="第三方静态库冲突产生的duplicate symbol"></a>第三方静态库冲突产生的duplicate symbol</h1><h2 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h2><ul>
 <li>项目中引用了很多第三方库，有时就会出现一些冲突，比如下面</li>
 </ul>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">duplicate symbol _OBJC_IVAR_$_RXMLDocHolder<span class="class">.doc_</span> <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">duplicate symbol _OBJC_IVAR_$_RXMLElement<span class="class">.node_</span> <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">duplicate symbol _OBJC_IVAR_$_RXMLElement._xmlDoc <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">duplicate symbol _OBJC_CLASS_$_RXMLDocHolder <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">duplicate symbol _OBJC_METACLASS_$_RXMLDocHolder <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">duplicate symbol _OBJC_CLASS_$_RXMLElement <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">duplicate symbol _OBJC_METACLASS_$_RXMLElement <span class="keyword">in</span>:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.<span class="function"><span class="title">a</span><span class="params">(RXMLElement.o)</span></span></span><br><span class="line">ld: <span class="number">7</span> duplicate symbols <span class="keyword">for</span> architecture arm64</span><br><span class="line">clang: error: linker command failed with exit <span class="tag">code</span> <span class="number">1</span> (use -v to see invocation)</span><br></pre></td></tr></table></figure>
-<h2 id="问题分析">问题分析</h2><ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)</span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.a(RXMLElement.o)</span><br><span class="line">duplicate symbol _OBJC_IVAR_$_RXMLElement.node_ in:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)</span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.a(RXMLElement.o)</span><br><span class="line">duplicate symbol _OBJC_IVAR_$_RXMLElement._xmlDoc in:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)</span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.a(RXMLElement.o)</span><br><span class="line">duplicate symbol _OBJC_CLASS_$_RXMLDocHolder in:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)</span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.a(RXMLElement.o)</span><br><span class="line">duplicate symbol _OBJC_METACLASS_$_RXMLDocHolder in:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)</span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.a(RXMLElement.o)</span><br><span class="line">duplicate symbol _OBJC_CLASS_$_RXMLElement in:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)</span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.a(RXMLElement.o)</span><br><span class="line">duplicate symbol _OBJC_METACLASS_$_RXMLElement in:</span><br><span class="line">/.../Frameworks/libWintoneCardOCR.a(RXMLElement.o)</span><br><span class="line">/.../Frameworks/libWintonePlateIDPro.a(RXMLElement.o)</span><br><span class="line">ld: 7 duplicate symbols for architecture arm64</span><br><span class="line">clang: error: linker command failed with exit code 1 (use -v to see invocation)</span><br></pre></td></tr></table></figure>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><ul>
 <li>初步判断<code>libWintoneCardOCR.a</code>和<code>libWintonePlateIDPro.a</code>两个静态库在<code>RXMLElement.o</code>输出文件中有命名冲突</li>
 <li>而且是<code>duplicate symbols for architecture arm64</code> ，把其中一个的<code>RXMLElement.o</code>移除就行。</li>
 </ul>
-<h2 id="解决方式">解决方式</h2><ul>
+<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><ul>
 <li>mac OS 下使用命令行工具 <code>lipo</code>来的对静态库进行处理。</li>
 </ul>
-<h3 id="一、设置_other_linker_flags">一、设置 <code>other linker flags</code></h3><ul>
+<h3 id="一、设置-other-linker-flags"><a href="#一、设置-other-linker-flags" class="headerlink" title="一、设置 other linker flags"></a>一、设置 <code>other linker flags</code></h3><ul>
 <li><code>Bulding Setting</code>里设置的<code>other linker flags</code>添加的有<code>-Objc</code>，而<code>-Objc</code>得作用就是将加载的静态库中的分类一并加载到程序的可执行文件，如果不添加这个参数，很有可能会出现<code>selector not recognized</code>问题，主要是找不到分类定义的方法。</li>
 <li><code>-Objc</code>添加后就会出现多个静态库定义同样的方法、全局变量等，然后就会出现上面的问题<code>duplicate symbol</code>。</li>
 </ul>
@@ -137,7 +130,7 @@ duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCa
 <ul>
 <li>这种方式，如果项目中第三方库很多，比较难管理</li>
 </ul>
-<h3 id="二、修改静态库">二、修改静态库</h3><ul>
+<h3 id="二、修改静态库"><a href="#二、修改静态库" class="headerlink" title="二、修改静态库"></a>二、修改静态库</h3><ul>
 <li>1、找到静态库文件 <strong>libWintonePlateIDPro.a</strong> 源文件，新建一个文件夹专门处理</li>
 <li>2、查看包信息 <code>lipo -info libWintonePlateIDPro.a</code></li>
 <li>3、创建临时文件夹，用于存放armv7平台解压后的.o文件：<code>mkdir armv7</code></li>
@@ -152,7 +145,7 @@ duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCa
 </li>
 </ul>
 <blockquote>
-<p><a href="http://www.cnblogs.com/rayshen/p/5160218.html" target="_blank" rel="external">参考1</a><br><a href="http://blog.csdn.net/djl4104804/article/details/43099061" target="_blank" rel="external">参考2</a></p>
+<p><a href="http://www.cnblogs.com/rayshen/p/5160218.html" target="_blank" rel="noopener">参考1</a><br><a href="http://blog.csdn.net/djl4104804/article/details/43099061" target="_blank" rel="noopener">参考2</a></p>
 </blockquote>
   
 	</div>
@@ -171,7 +164,7 @@ duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCa
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2016/10/29/第三方静态库冲突产生的duplicatesymbol/" data-title="第三方静态库冲突产生的Duplicatesymbol | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2016/10/29/第三方静态库冲突产生的duplicatesymbol/" data-title="第三方静态库冲突产生的Duplicatesymbol | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -215,7 +208,7 @@ duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCa
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第三方静态库冲突产生的duplicate_symbol"><span class="toc-number">1.</span> <span class="toc-text">第三方静态库冲突产生的duplicate symbol</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误描述"><span class="toc-number">1.1.</span> <span class="toc-text">错误描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题分析"><span class="toc-number">1.2.</span> <span class="toc-text">问题分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方式"><span class="toc-number">1.3.</span> <span class="toc-text">解决方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、设置_other_linker_flags"><span class="toc-number">1.3.1.</span> <span class="toc-text">一、设置 other linker flags</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、修改静态库"><span class="toc-number">1.3.2.</span> <span class="toc-text">二、修改静态库</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第三方静态库冲突产生的duplicate-symbol"><span class="toc-number">1.</span> <span class="toc-text">第三方静态库冲突产生的duplicate symbol</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误描述"><span class="toc-number">1.1.</span> <span class="toc-text">错误描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题分析"><span class="toc-number">1.2.</span> <span class="toc-text">问题分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方式"><span class="toc-number">1.3.</span> <span class="toc-text">解决方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、设置-other-linker-flags"><span class="toc-number">1.3.1.</span> <span class="toc-text">一、设置 other linker flags</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、修改静态库"><span class="toc-number">1.3.2.</span> <span class="toc-text">二、修改静态库</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -253,11 +246,15 @@ duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCa
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -265,7 +262,7 @@ duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCa
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -277,7 +274,7 @@ duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCa
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -290,7 +287,7 @@ duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCa
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -309,25 +306,21 @@ duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCa
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -341,7 +334,7 @@ duplicate symbol _OBJC_IVAR_$_RXMLDocHolder.doc_ in:/.../Frameworks/libWintoneCa
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

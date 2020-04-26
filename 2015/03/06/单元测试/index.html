@@ -13,43 +13,18 @@
     
 
     
-    <meta name="description" content="单元测试
-什么时候用到单元测试：
-1、写完代码以后：想要验证一下自己写的代码是否有问题。
-2、写代码之前：就是写代码之前所有的功能分模块的设计好，测试通过了再写。（我反正是没用过）。
-3、修复某个bug后：一般修复完某个bug，为了确保修复是成功的，会写测试。
-
-
-以test开头的方法，在方法内部进行测试
-
-- (void)setUp &amp;#123;[super setUp];// Put setu">
+    <meta name="description" content="单元测试 什么时候用到单元测试： 1、写完代码以后：想要验证一下自己写的代码是否有问题。 2、写代码之前：就是写代码之前所有的功能分模块的设计好，测试通过了再写。（我反正是没用过）。 3、修复某个bug后：一般修复完某个bug，为了确保修复是成功的，会写测试。   以test开头的方法，在方法内部进行测试  - (void)setUp &amp;#123;[super setUp];// Put setu">
+<meta name="keywords" content="OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单元测试">
 <meta property="og:url" content="http://songliquan.github.io/2015/03/06/单元测试/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="单元测试
-什么时候用到单元测试：
-1、写完代码以后：想要验证一下自己写的代码是否有问题。
-2、写代码之前：就是写代码之前所有的功能分模块的设计好，测试通过了再写。（我反正是没用过）。
-3、修复某个bug后：一般修复完某个bug，为了确保修复是成功的，会写测试。
-
-
-以test开头的方法，在方法内部进行测试
-
-- (void)setUp &amp;#123;[super setUp];// Put setu">
+<meta property="og:description" content="单元测试 什么时候用到单元测试： 1、写完代码以后：想要验证一下自己写的代码是否有问题。 2、写代码之前：就是写代码之前所有的功能分模块的设计好，测试通过了再写。（我反正是没用过）。 3、修复某个bug后：一般修复完某个bug，为了确保修复是成功的，会写测试。   以test开头的方法，在方法内部进行测试  - (void)setUp &amp;#123;[super setUp];// Put setu">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-03-06T08:50:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单元测试">
-<meta name="twitter:description" content="单元测试
-什么时候用到单元测试：
-1、写完代码以后：想要验证一下自己写的代码是否有问题。
-2、写代码之前：就是写代码之前所有的功能分模块的设计好，测试通过了再写。（我反正是没用过）。
-3、修复某个bug后：一般修复完某个bug，为了确保修复是成功的，会写测试。
-
-
-以test开头的方法，在方法内部进行测试
-
-- (void)setUp &amp;#123;[super setUp];// Put setu">
+<meta name="twitter:description" content="单元测试 什么时候用到单元测试： 1、写完代码以后：想要验证一下自己写的代码是否有问题。 2、写代码之前：就是写代码之前所有的功能分模块的设计好，测试通过了再写。（我反正是没用过）。 3、修复某个bug后：一般修复完某个bug，为了确保修复是成功的，会写测试。   以test开头的方法，在方法内部进行测试  - (void)setUp &amp;#123;[super setUp];// Put setu">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -61,7 +36,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -129,7 +104,7 @@
 		
 		</div>
 		
-		<h1 id="单元测试">单元测试</h1><ul>
+		<h1 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h1><ul>
 <li>什么时候用到单元测试：<ul>
 <li>1、写完代码以后：想要验证一下自己写的代码是否有问题。</li>
 <li>2、写代码之前：就是写代码之前所有的功能分模块的设计好，测试通过了再写。（我反正是没用过）。</li>
@@ -142,11 +117,11 @@
 <ul>
 <li>测试某个方法的性能</li>
 </ul>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)testPerformanceExample &#123;</span><br><span class="line">    <span class="comment">// This is an example of a performance test case.</span></span><br><span class="line">    [<span class="keyword">self</span> measureBlock:^&#123;</span><br><span class="line">        <span class="comment">// Put the code you want to measure the time of here.</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">NSInteger</span> i = <span class="number">0</span> ; i &lt; <span class="number">10000</span>;i ++) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"1111"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- (void)testPerformanceExample &#123;</span><br><span class="line">    // This is an example of a performance test case.</span><br><span class="line">    [self measureBlock:^&#123;</span><br><span class="line">        // Put the code you want to measure the time of here.</span><br><span class="line">        for(NSInteger i = 0 ; i &lt; 10000;i ++) &#123;</span><br><span class="line">            NSLog(@&quot;1111&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>常用断言</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">XCTFail(format…) 生成一个失败的测试； </span><br><span class="line">XCTAssertNil(a1, format...)为空判断，a1为空时通过，反之不通过；</span><br><span class="line">XCTAssertNotNil(a1, format…)不为空判断，a1不为空时通过，反之不通过；</span><br><span class="line">XCTAssert(expression, format...)当expression求值为<span class="literal">TRUE</span>时通过；</span><br><span class="line">XCTAssertTrue(expression, format...)当expression求值为<span class="literal">TRUE</span>时通过；</span><br><span class="line">XCTAssertFalse(expression, format...)当expression求值为False时通过；</span><br><span class="line">XCTAssertEqualObjects(a1, a2, format...)判断相等，[a1 isEqual:a2]值为<span class="literal">TRUE</span>时通过，其中一个不为空时，不通过；</span><br><span class="line">XCTAssertNotEqualObjects(a1, a2, format...)判断不等，[a1 isEqual:a2]值为False时通过；</span><br><span class="line">XCTAssertEqual(a1, a2, format...)判断相等（当a1和a2是 C语言标量、结构体或联合体时使用, 判断的是变量的地址，如果地址相同则返回<span class="literal">TRUE</span>，否则返回<span class="literal">NO</span>）；</span><br><span class="line">XCTAssertNotEqual(a1, a2, format...)判断不等（当a1和a2是 C语言标量、结构体或联合体时使用）；</span><br><span class="line">XCTAssertEqualWithAccuracy(a1, a2, accuracy, format...)判断相等，（<span class="keyword">double</span>或<span class="keyword">float</span>类型）提供一个误差范围，当在误差范围（+/-accuracy）以内相等时通过测试；</span><br><span class="line">XCTAssertNotEqualWithAccuracy(a1, a2, accuracy, format...) 判断不等，（<span class="keyword">double</span>或<span class="keyword">float</span>类型）提供一个误差范围，当在误差范围以内不等时通过测试；</span><br><span class="line">XCTAssertThrows(expression, format...)异常测试，当expression发生异常时通过；反之不通过；（很变态） XCTAssertThrowsSpecific(expression, specificException, format...) 异常测试，当expression发生specificException异常时通过；反之发生其他异常或不发生异常均不通过；</span><br><span class="line">XCTAssertThrowsSpecificNamed(expression, specificException, exception_name, format...)异常测试，当expression发生具体异常、具体异常名称的异常时通过测试，反之不通过；</span><br><span class="line">XCTAssertNoThrow(expression, format…)异常测试，当expression没有发生异常时通过测试；</span><br><span class="line">XCTAssertNoThrowSpecific(expression, specificException, format...)异常测试，当expression没有发生具体异常、具体异常名称的异常时通过测试，反之不通过；</span><br><span class="line">XCTAssertNoThrowSpecificNamed(expression, specificException, exception_name, format...)异常测试，当expression没有发生具体异常、具体异常名称的异常时通过测试，反之不通过</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">XCTFail</span>(format…) 生成一个失败的测试； </span><br><span class="line"><span class="built_in">XCTAssertNil</span>(a1, format...)为空判断，a1为空时通过，反之不通过；</span><br><span class="line"><span class="built_in">XCTAssertNotNil</span>(a1, format…)不为空判断，a1不为空时通过，反之不通过；</span><br><span class="line"><span class="built_in">XCTAssert</span>(expression, format...)当expression求值为<span class="literal">TRUE</span>时通过；</span><br><span class="line"><span class="built_in">XCTAssertTrue</span>(expression, format...)当expression求值为<span class="literal">TRUE</span>时通过；</span><br><span class="line"><span class="built_in">XCTAssertFalse</span>(expression, format...)当expression求值为False时通过；</span><br><span class="line"><span class="built_in">XCTAssertEqualObjects</span>(a1, a2, format...)判断相等，[a1 isEqual:a2]值为<span class="literal">TRUE</span>时通过，其中一个不为空时，不通过；</span><br><span class="line"><span class="built_in">XCTAssertNotEqualObjects</span>(a1, a2, format...)判断不等，[a1 isEqual:a2]值为False时通过；</span><br><span class="line"><span class="built_in">XCTAssertEqual</span>(a1, a2, format...)判断相等（当a1和a2是 C语言标量、结构体或联合体时使用, 判断的是变量的地址，如果地址相同则返回<span class="literal">TRUE</span>，否则返回<span class="literal">NO</span>）；</span><br><span class="line"><span class="built_in">XCTAssertNotEqual</span>(a1, a2, format...)判断不等（当a1和a2是 C语言标量、结构体或联合体时使用）；</span><br><span class="line"><span class="built_in">XCTAssertEqualWithAccuracy</span>(a1, a2, accuracy, format...)判断相等，（<span class="keyword">double</span>或<span class="keyword">float</span>类型）提供一个误差范围，当在误差范围（+/-accuracy）以内相等时通过测试；</span><br><span class="line"><span class="built_in">XCTAssertNotEqualWithAccuracy</span>(a1, a2, accuracy, format...) 判断不等，（<span class="keyword">double</span>或<span class="keyword">float</span>类型）提供一个误差范围，当在误差范围以内不等时通过测试；</span><br><span class="line"><span class="built_in">XCTAssertThrows</span>(expression, format...)异常测试，当expression发生异常时通过；反之不通过；（很变态） <span class="built_in">XCTAssertThrowsSpecific</span>(expression, specificException, format...) 异常测试，当expression发生specificException异常时通过；反之发生其他异常或不发生异常均不通过；</span><br><span class="line"><span class="built_in">XCTAssertThrowsSpecificNamed</span>(expression, specificException, exception_name, format...)异常测试，当expression发生具体异常、具体异常名称的异常时通过测试，反之不通过；</span><br><span class="line"><span class="built_in">XCTAssertNoThrow</span>(expression, format…)异常测试，当expression没有发生异常时通过测试；</span><br><span class="line"><span class="built_in">XCTAssertNoThrowSpecific</span>(expression, specificException, format...)异常测试，当expression没有发生具体异常、具体异常名称的异常时通过测试，反之不通过；</span><br><span class="line"><span class="built_in">XCTAssertNoThrowSpecificNamed</span>(expression, specificException, exception_name, format...)异常测试，当expression没有发生具体异常、具体异常名称的异常时通过测试，反之不通过</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -164,7 +139,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2015/03/06/单元测试/" data-title="单元测试 | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2015/03/06/单元测试/" data-title="单元测试 | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -246,11 +221,15 @@
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -258,7 +237,7 @@
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -270,7 +249,7 @@
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -283,7 +262,7 @@
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -302,25 +281,21 @@
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -334,7 +309,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

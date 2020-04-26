@@ -13,28 +13,17 @@
     
 
     
-    <meta name="description" content="URL加解密背景介绍
-iOS 下URL加解密，项目使用AFNetworking 
-虽然是使用HTTPS，但是从安全方面考虑，在很多情况下还是需要对url的参数进行加密的。
-接口如 https://192.160.0.123:92/frame/webInteface.do?(method=addNew&amp;amp;uid=123&amp;amp;pass=131)
-不管是get请求还是post请求，都可以对后边">
+    <meta name="description" content="URL加解密背景介绍 iOS 下URL加解密，项目使用AFNetworking  虽然是使用HTTPS，但是从安全方面考虑，在很多情况下还是需要对url的参数进行加密的。 接口如 https://192.160.0.123:92/frame/webInteface.do?(method=addNew&amp;amp;uid=123&amp;amp;pass=131) 不管是get请求还是post请求，都可以对后边">
 <meta property="og:type" content="article">
 <meta property="og:title" content="URL加解密">
 <meta property="og:url" content="http://songliquan.github.io/2016/04/16/URL加解密/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="URL加解密背景介绍
-iOS 下URL加解密，项目使用AFNetworking 
-虽然是使用HTTPS，但是从安全方面考虑，在很多情况下还是需要对url的参数进行加密的。
-接口如 https://192.160.0.123:92/frame/webInteface.do?(method=addNew&amp;amp;uid=123&amp;amp;pass=131)
-不管是get请求还是post请求，都可以对后边">
+<meta property="og:description" content="URL加解密背景介绍 iOS 下URL加解密，项目使用AFNetworking  虽然是使用HTTPS，但是从安全方面考虑，在很多情况下还是需要对url的参数进行加密的。 接口如 https://192.160.0.123:92/frame/webInteface.do?(method=addNew&amp;amp;uid=123&amp;amp;pass=131) 不管是get请求还是post请求，都可以对后边">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-06-16T07:50:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="URL加解密">
-<meta name="twitter:description" content="URL加解密背景介绍
-iOS 下URL加解密，项目使用AFNetworking 
-虽然是使用HTTPS，但是从安全方面考虑，在很多情况下还是需要对url的参数进行加密的。
-接口如 https://192.160.0.123:92/frame/webInteface.do?(method=addNew&amp;amp;uid=123&amp;amp;pass=131)
-不管是get请求还是post请求，都可以对后边">
+<meta name="twitter:description" content="URL加解密背景介绍 iOS 下URL加解密，项目使用AFNetworking  虽然是使用HTTPS，但是从安全方面考虑，在很多情况下还是需要对url的参数进行加密的。 接口如 https://192.160.0.123:92/frame/webInteface.do?(method=addNew&amp;amp;uid=123&amp;amp;pass=131) 不管是get请求还是post请求，都可以对后边">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -46,7 +35,7 @@ iOS 下URL加解密，项目使用AFNetworking
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -114,14 +103,14 @@ iOS 下URL加解密，项目使用AFNetworking
 		
 		</div>
 		
-		<h1 id="URL加解密">URL加解密</h1><h2 id="背景介绍">背景介绍</h2><ul>
+		<h1 id="URL加解密"><a href="#URL加解密" class="headerlink" title="URL加解密"></a>URL加解密</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><ul>
 <li>iOS 下URL加解密，项目使用<code>AFNetworking</code> </li>
 <li>虽然是使用HTTPS，但是从安全方面考虑，在很多情况下还是需要对url的参数进行加密的。</li>
 <li>接口如 <code>https://192.160.0.123:92/frame/webInteface.do?(method=addNew&amp;uid=123&amp;pass=131)</code></li>
 <li>不管是get请求还是post请求，都可以对后边的参数进行加密</li>
 <li>get请求比较简单，这里直接说post请求吧</li>
 </ul>
-<h2 id="加密方式">加密方式</h2><ul>
+<h2 id="加密方式"><a href="#加密方式" class="headerlink" title="加密方式"></a>加密方式</h2><ul>
 <li>加密：首先对字符串记性AES128加密，然后进行base64加密（主要是为了去除特殊字符）</li>
 <li>解密：先base64解密，然后在AES128解密即可还原数据</li>
 <li>其中base64加解密使用 <code>GTMBase64</code>添加两个方法</li>
@@ -131,8 +120,8 @@ iOS 下URL加解密，项目使用AFNetworking
 <li>AES128使用系统<code>CommonCrypto/CommonCryptor.h</code>实现 //用于AES</li>
 <li>添加<code>NSData</code>分类，增加两个方法</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - AES128位加解密</span></span><br><span class="line">- (<span class="built_in">NSData</span> *)AES128EncryptWithKey:(<span class="built_in">NSString</span> *)key &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> keyPtr[kCCKeySizeAES128 + <span class="number">1</span>];</span><br><span class="line">    memset(keyPtr, <span class="number">0</span>, <span class="keyword">sizeof</span>(keyPtr));</span><br><span class="line">    [key getCString:keyPtr maxLength:<span class="keyword">sizeof</span>(keyPtr) encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSUInteger</span> dataLength = [<span class="keyword">self</span> length];</span><br><span class="line">    </span><br><span class="line">    size_t bufferSize = dataLength + kCCBlockSizeAES128;</span><br><span class="line">    <span class="keyword">void</span> *buffer = malloc(bufferSize);</span><br><span class="line">    </span><br><span class="line">    size_t numBytesEncrypted = <span class="number">0</span>;</span><br><span class="line">    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt,</span><br><span class="line">                                          kC<span class="built_in">CAlgorithmAES</span>,</span><br><span class="line">                                          kCCOptionPKCS7Padding|kCCOptionECBMode,</span><br><span class="line">                                          keyPtr,</span><br><span class="line">                                          kCCBlockSizeAES128,</span><br><span class="line">                                          <span class="literal">NULL</span> <span class="comment">/* initialization vector (optional) */</span>,</span><br><span class="line">                                          [<span class="keyword">self</span> bytes],</span><br><span class="line">                                          dataLength, <span class="comment">/* input */</span></span><br><span class="line">                                          buffer,</span><br><span class="line">                                          bufferSize, <span class="comment">/* output */</span></span><br><span class="line">                                          &amp;numBytesEncrypted);</span><br><span class="line">    <span class="keyword">if</span> (cryptStatus == kCCSuccess) &#123;</span><br><span class="line">        <span class="comment">//the returned NSData takes ownership of the buffer and will free it on deallocation</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSData</span> dataWithBytesNoCopy:buffer length:numBytesEncrypted];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    free(buffer); <span class="comment">//free the buffer;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSData</span> *)AES128DecryptWithKey:(<span class="built_in">NSString</span> *)key &#123;</span><br><span class="line">    <span class="comment">// 'key' should be 32 bytes for AES256, will be null-padded otherwise</span></span><br><span class="line">    <span class="keyword">char</span> keyPtr[kCCKeySizeAES128+<span class="number">1</span>]; <span class="comment">// room for terminator (unused)</span></span><br><span class="line">    bzero(keyPtr, <span class="keyword">sizeof</span>(keyPtr)); <span class="comment">// fill with zeroes (for padding)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// fetch key data</span></span><br><span class="line">    [key getCString:keyPtr maxLength:<span class="keyword">sizeof</span>(keyPtr) encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSUInteger</span> dataLength = [<span class="keyword">self</span> length];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//See the doc: For block ciphers, the output size will always be less than or</span></span><br><span class="line">    <span class="comment">//equal to the input size plus the size of one block.</span></span><br><span class="line">    <span class="comment">//That's why we need to add the size of one block here</span></span><br><span class="line">    size_t bufferSize = dataLength + kCCBlockSizeAES128;</span><br><span class="line">    <span class="keyword">void</span> *buffer = malloc(bufferSize);</span><br><span class="line">    </span><br><span class="line">    size_t numBytesDecrypted = <span class="number">0</span>;</span><br><span class="line">    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,</span><br><span class="line">                                          kC<span class="built_in">CAlgorithmAES128</span>,</span><br><span class="line">                                          kCCOptionPKCS7Padding|kCCOptionECBMode,</span><br><span class="line">                                          keyPtr,</span><br><span class="line">                                          kCCBlockSizeAES128,</span><br><span class="line">                                          <span class="literal">NULL</span> <span class="comment">/* initialization vector (optional) */</span>,</span><br><span class="line">                                          [<span class="keyword">self</span> bytes],</span><br><span class="line">                                          dataLength, <span class="comment">/* input */</span></span><br><span class="line">                                          buffer,</span><br><span class="line">                                          bufferSize, <span class="comment">/* output */</span></span><br><span class="line">                                          &amp;numBytesDecrypted);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (cryptStatus == kCCSuccess) &#123;</span><br><span class="line">        <span class="comment">//the returned NSData takes ownership of the buffer and will free it on deallocation</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSData</span> dataWithBytesNoCopy:buffer length:numBytesDecrypted];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    free(buffer); <span class="comment">//free the buffer;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="直奔主题">直奔主题</h2><ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="meta">#pragma mark - AES128位加解密</span></span><br><span class="line">- (<span class="built_in">NSData</span> *)AES128EncryptWithKey:(<span class="built_in">NSString</span> *)key &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> keyPtr[kCCKeySizeAES128 + <span class="number">1</span>];</span><br><span class="line">    memset(keyPtr, <span class="number">0</span>, <span class="keyword">sizeof</span>(keyPtr));</span><br><span class="line">    [key getCString:keyPtr maxLength:<span class="keyword">sizeof</span>(keyPtr) encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSUInteger</span> dataLength = [<span class="keyword">self</span> length];</span><br><span class="line">    </span><br><span class="line">    size_t bufferSize = dataLength + kCCBlockSizeAES128;</span><br><span class="line">    <span class="keyword">void</span> *buffer = malloc(bufferSize);</span><br><span class="line">    </span><br><span class="line">    size_t numBytesEncrypted = <span class="number">0</span>;</span><br><span class="line">    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt,</span><br><span class="line">                                          kCCAlgorithmAES,</span><br><span class="line">                                          kCCOptionPKCS7Padding|kCCOptionECBMode,</span><br><span class="line">                                          keyPtr,</span><br><span class="line">                                          kCCBlockSizeAES128,</span><br><span class="line">                                          <span class="literal">NULL</span> <span class="comment">/* initialization vector (optional) */</span>,</span><br><span class="line">                                          [<span class="keyword">self</span> bytes],</span><br><span class="line">                                          dataLength, <span class="comment">/* input */</span></span><br><span class="line">                                          buffer,</span><br><span class="line">                                          bufferSize, <span class="comment">/* output */</span></span><br><span class="line">                                          &amp;numBytesEncrypted);</span><br><span class="line">    <span class="keyword">if</span> (cryptStatus == kCCSuccess) &#123;</span><br><span class="line">        <span class="comment">//the returned NSData takes ownership of the buffer and will free it on deallocation</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSData</span> dataWithBytesNoCopy:buffer length:numBytesEncrypted];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    free(buffer); <span class="comment">//free the buffer;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSData</span> *)AES128DecryptWithKey:(<span class="built_in">NSString</span> *)key &#123;</span><br><span class="line">    <span class="comment">// 'key' should be 32 bytes for AES256, will be null-padded otherwise</span></span><br><span class="line">    <span class="keyword">char</span> keyPtr[kCCKeySizeAES128+<span class="number">1</span>]; <span class="comment">// room for terminator (unused)</span></span><br><span class="line">    bzero(keyPtr, <span class="keyword">sizeof</span>(keyPtr)); <span class="comment">// fill with zeroes (for padding)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// fetch key data</span></span><br><span class="line">    [key getCString:keyPtr maxLength:<span class="keyword">sizeof</span>(keyPtr) encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSUInteger</span> dataLength = [<span class="keyword">self</span> length];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//See the doc: For block ciphers, the output size will always be less than or</span></span><br><span class="line">    <span class="comment">//equal to the input size plus the size of one block.</span></span><br><span class="line">    <span class="comment">//That's why we need to add the size of one block here</span></span><br><span class="line">    size_t bufferSize = dataLength + kCCBlockSizeAES128;</span><br><span class="line">    <span class="keyword">void</span> *buffer = malloc(bufferSize);</span><br><span class="line">    </span><br><span class="line">    size_t numBytesDecrypted = <span class="number">0</span>;</span><br><span class="line">    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,</span><br><span class="line">                                          kCCAlgorithmAES128,</span><br><span class="line">                                          kCCOptionPKCS7Padding|kCCOptionECBMode,</span><br><span class="line">                                          keyPtr,</span><br><span class="line">                                          kCCBlockSizeAES128,</span><br><span class="line">                                          <span class="literal">NULL</span> <span class="comment">/* initialization vector (optional) */</span>,</span><br><span class="line">                                          [<span class="keyword">self</span> bytes],</span><br><span class="line">                                          dataLength, <span class="comment">/* input */</span></span><br><span class="line">                                          buffer,</span><br><span class="line">                                          bufferSize, <span class="comment">/* output */</span></span><br><span class="line">                                          &amp;numBytesDecrypted);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (cryptStatus == kCCSuccess) &#123;</span><br><span class="line">        <span class="comment">//the returned NSData takes ownership of the buffer and will free it on deallocation</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSData</span> dataWithBytesNoCopy:buffer length:numBytesDecrypted];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    free(buffer); <span class="comment">//free the buffer;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="直奔主题"><a href="#直奔主题" class="headerlink" title="直奔主题"></a>直奔主题</h2><ul>
 <li><code>AFNetworking</code> 的post请求如下</li>
 </ul>
 <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (AFHTTPRequestOperation *)POST:(<span class="built_in">NSString</span> *)URLString</span><br><span class="line">                      parameters:(<span class="keyword">id</span>)parameters</span><br><span class="line">       constructingBodyWithBlock:(<span class="keyword">void</span> (^)(<span class="keyword">id</span> &lt;AFMultipartFormData&gt; formData))block</span><br><span class="line">                         success:(<span class="keyword">void</span> (^)(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject))success</span><br><span class="line">                         failure:(<span class="keyword">void</span> (^)(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error))failure</span><br></pre></td></tr></table></figure>
@@ -140,8 +129,8 @@ iOS 下URL加解密，项目使用AFNetworking
 <li>其中URLString可以作为最基础的，不需要加密</li>
 <li>parameters 就是我们需要加密的地方，这是一个字典,因为AFN会对这个parameters进行解析，所以对这个参数集合进行一次包装，拼接成一个字符串。然后对字符串进行加密。</li>
 </ul>
-<h3 id="原来的代码是这样请求数据的">原来的代码是这样请求数据的</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSMutableDictionary</span> *para = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">para[<span class="string">@"method"</span>] = <span class="string">@"securityAdd"</span>;</span><br><span class="line">para[<span class="string">@"userId"</span>] = userId;</span><br><span class="line">para[<span class="string">@"userPsw"</span>] = userPsw;</span><br><span class="line">para[<span class="string">@"content"</span>] = <span class="string">@"ddddd123891237"</span>;</span><br><span class="line"></span><br><span class="line">      <span class="built_in">NSString</span> *url = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"https://%@:82/frame/webInteface.do?"</span>, NHBaseURL];</span><br><span class="line">AFHTTPRequestOperation *operation = [NetWorkInst POST:url parameters:dict constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt; formData) &#123;       </span><br><span class="line">&#125; success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<h3 id="加密后代码是这样的">加密后代码是这样的</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSMutableDictionary</span> *para = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">para[<span class="string">@"method"</span>] = <span class="string">@"securityAdd"</span>;</span><br><span class="line">para[<span class="string">@"userId"</span>] = userId;</span><br><span class="line">para[<span class="string">@"userPsw"</span>] = userPsw;</span><br><span class="line">para[<span class="string">@"content"</span>] = <span class="string">@"ddddd123891237"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开始加密,格式化数据****************************</span></span><br><span class="line"><span class="built_in">NSString</span> *str = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"'method':'securityAdd','userId':'%@','userPsw':'%@','content':'%@'"</span>,userId,userPsw,content];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"原始数据：%@"</span>,str);</span><br><span class="line"><span class="built_in">NSData</span> *data = [str dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line"><span class="built_in">NSData</span> *aaa = [data AES128EncryptWithKey:<span class="string">@"song.com"</span>]; <span class="comment">// aes加密</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"加密AES128后：%@"</span>,aaa);</span><br><span class="line"><span class="built_in">NSString</span> *bbb = [PublicMethod encodeBase64Data:aaa];<span class="comment">//base64加密</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"base64加密后：%@"</span>,bbb);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">dict[<span class="string">@"info"</span>] = bbb;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开始解密****************************</span></span><br><span class="line"><span class="built_in">NSData</span> *da = [PublicMethod decodeBase64String:bbb]; <span class="comment">//base64解密</span></span><br><span class="line"><span class="built_in">NSString</span> *ccc = [[<span class="built_in">NSString</span> alloc] initWithData:da encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"base64解密后：%@"</span>,ccc);</span><br><span class="line"><span class="built_in">NSData</span> *ddd = [da AES128DecryptWithKey:<span class="string">@"song.com"</span>];<span class="comment">// aes解密</span></span><br><span class="line"><span class="built_in">NSString</span> *eee = [[<span class="built_in">NSString</span> alloc] initWithData:ddd encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"解密AES128后：%@"</span>,eee);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *url = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"https://%@:82/frame/webInteface.do?"</span>, NHBaseURL];</span><br><span class="line">AFHTTPRequestOperation *operation = [NetWorkInst POST:url parameters:dict constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt; formData) &#123;       </span><br><span class="line">&#125; success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="原来的代码是这样请求数据的"><a href="#原来的代码是这样请求数据的" class="headerlink" title="原来的代码是这样请求数据的"></a>原来的代码是这样请求数据的</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSMutableDictionary</span> *para = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">para[<span class="string">@"method"</span>] = <span class="string">@"securityAdd"</span>;</span><br><span class="line">para[<span class="string">@"userId"</span>] = userId;</span><br><span class="line">para[<span class="string">@"userPsw"</span>] = userPsw;</span><br><span class="line">para[<span class="string">@"content"</span>] = <span class="string">@"ddddd123891237"</span>;</span><br><span class="line"></span><br><span class="line">      <span class="built_in">NSString</span> *url = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"https://%@:82/frame/webInteface.do?"</span>, NHBaseURL];</span><br><span class="line">AFHTTPRequestOperation *operation = [NetWorkInst POST:url parameters:dict constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt; formData) &#123;       </span><br><span class="line">&#125; success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h3 id="加密后代码是这样的"><a href="#加密后代码是这样的" class="headerlink" title="加密后代码是这样的"></a>加密后代码是这样的</h3><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="built_in">NSMutableDictionary</span> *para = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">para[<span class="string">@"method"</span>] = <span class="string">@"securityAdd"</span>;</span><br><span class="line">para[<span class="string">@"userId"</span>] = userId;</span><br><span class="line">para[<span class="string">@"userPsw"</span>] = userPsw;</span><br><span class="line">para[<span class="string">@"content"</span>] = <span class="string">@"ddddd123891237"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开始加密,格式化数据****************************</span></span><br><span class="line"><span class="built_in">NSString</span> *str = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"'method':'securityAdd','userId':'%@','userPsw':'%@','content':'%@'"</span>,userId,userPsw,content];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"原始数据：%@"</span>,str);</span><br><span class="line"><span class="built_in">NSData</span> *data = [str dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line"><span class="built_in">NSData</span> *aaa = [data AES128EncryptWithKey:<span class="string">@"song.com"</span>]; <span class="comment">// aes加密</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"加密AES128后：%@"</span>,aaa);</span><br><span class="line"><span class="built_in">NSString</span> *bbb = [PublicMethod encodeBase64Data:aaa];<span class="comment">//base64加密</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"base64加密后：%@"</span>,bbb);</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">dict[<span class="string">@"info"</span>] = bbb;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开始解密****************************</span></span><br><span class="line"><span class="built_in">NSData</span> *da = [PublicMethod decodeBase64String:bbb]; <span class="comment">//base64解密</span></span><br><span class="line"><span class="built_in">NSString</span> *ccc = [[<span class="built_in">NSString</span> alloc] initWithData:da encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"base64解密后：%@"</span>,ccc);</span><br><span class="line"><span class="built_in">NSData</span> *ddd = [da AES128DecryptWithKey:<span class="string">@"song.com"</span>];<span class="comment">// aes解密</span></span><br><span class="line"><span class="built_in">NSString</span> *eee = [[<span class="built_in">NSString</span> alloc] initWithData:ddd encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"解密AES128后：%@"</span>,eee);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *url = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"https://%@:82/frame/webInteface.do?"</span>, NHBaseURL];</span><br><span class="line">AFHTTPRequestOperation *operation = [NetWorkInst POST:url parameters:dict constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt; formData) &#123;       </span><br><span class="line">&#125; success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -154,7 +143,7 @@ iOS 下URL加解密，项目使用AFNetworking
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2016/04/16/URL加解密/" data-title="URL加解密 | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2016/04/16/URL加解密/" data-title="URL加解密 | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -236,11 +225,15 @@ iOS 下URL加解密，项目使用AFNetworking
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -248,7 +241,7 @@ iOS 下URL加解密，项目使用AFNetworking
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -260,7 +253,7 @@ iOS 下URL加解密，项目使用AFNetworking
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -273,7 +266,7 @@ iOS 下URL加解密，项目使用AFNetworking
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -292,25 +285,21 @@ iOS 下URL加解密，项目使用AFNetworking
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -324,7 +313,7 @@ iOS 下URL加解密，项目使用AFNetworking
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

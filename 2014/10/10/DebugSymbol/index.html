@@ -13,25 +13,17 @@
     
 
     
-    <meta name="description" content="Debug Symbol(调试符号)编译警告
-从svn下载下来的文件，到处都是编译警告，看着不爽，找下原因，没想到还是一条大鱼
-
-warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaazwurqcvfzmyzzacvlbg/Build/Intermediates/ ProjectName.bui">
+    <meta name="description" content="Debug Symbol(调试符号)编译警告 从svn下载下来的文件，到处都是编译警告，看着不爽，找下原因，没想到还是一条大鱼  warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaazwurqcvfzmyzzacvlbg/Build/Intermediates/ ProjectName.bui">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DebugSymbol">
 <meta property="og:url" content="http://songliquan.github.io/2014/10/10/DebugSymbol/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="Debug Symbol(调试符号)编译警告
-从svn下载下来的文件，到处都是编译警告，看着不爽，找下原因，没想到还是一条大鱼
-
-warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaazwurqcvfzmyzzacvlbg/Build/Intermediates/ ProjectName.bui">
+<meta property="og:description" content="Debug Symbol(调试符号)编译警告 从svn下载下来的文件，到处都是编译警告，看着不爽，找下原因，没想到还是一条大鱼  warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaazwurqcvfzmyzzacvlbg/Build/Intermediates/ ProjectName.bui">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-12-10T10:52:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DebugSymbol">
-<meta name="twitter:description" content="Debug Symbol(调试符号)编译警告
-从svn下载下来的文件，到处都是编译警告，看着不爽，找下原因，没想到还是一条大鱼
-
-warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaazwurqcvfzmyzzacvlbg/Build/Intermediates/ ProjectName.bui">
+<meta name="twitter:description" content="Debug Symbol(调试符号)编译警告 从svn下载下来的文件，到处都是编译警告，看着不爽，找下原因，没想到还是一条大鱼  warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaazwurqcvfzmyzzacvlbg/Build/Intermediates/ ProjectName.bui">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -43,7 +35,7 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaaz
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -107,34 +99,34 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaaz
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Debug_Symbol(调试符号)"><span class="toc-number">1.</span> <span class="toc-text">Debug Symbol(调试符号)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译警告"><span class="toc-number">1.1.</span> <span class="toc-text">编译警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、_Debug_Symbol(调试符号)"><span class="toc-number">1.2.</span> <span class="toc-text">一、 Debug Symbol(调试符号)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、DWARF"><span class="toc-number">1.3.</span> <span class="toc-text">二、DWARF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、dSYM"><span class="toc-number">1.4.</span> <span class="toc-text">三、dSYM</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Debug-Symbol-调试符号"><span class="toc-number">1.</span> <span class="toc-text">Debug Symbol(调试符号)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译警告"><span class="toc-number">1.1.</span> <span class="toc-text">编译警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、-Debug-Symbol-调试符号"><span class="toc-number">1.2.</span> <span class="toc-text">一、 Debug Symbol(调试符号)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、DWARF"><span class="toc-number">1.3.</span> <span class="toc-text">二、DWARF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、dSYM"><span class="toc-number">1.4.</span> <span class="toc-text">三、dSYM</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="Debug_Symbol(调试符号)">Debug Symbol(调试符号)</h1><h2 id="编译警告">编译警告</h2><ul>
+		<h1 id="Debug-Symbol-调试符号"><a href="#Debug-Symbol-调试符号" class="headerlink" title="Debug Symbol(调试符号)"></a>Debug Symbol(调试符号)</h1><h2 id="编译警告"><a href="#编译警告" class="headerlink" title="编译警告"></a>编译警告</h2><ul>
 <li>从svn下载下来的文件，到处都是编译警告，看着不爽，找下原因，没想到还是一条大鱼</li>
 </ul>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">warning:</span> (i386) <span class="regexp">/UsersLibrary/</span>Developer<span class="regexp">/Xcode/</span>DerivedData/</span><br><span class="line">ProjectName-ebyadedaazwurqcvfzmyzzacvlbg<span class="regexp">/Build/</span></span><br><span class="line">Intermediates<span class="regexp">/ ProjectName.build/</span>Debug-iphonesimulator/</span><br><span class="line">ProjectName.build<span class="regexp">/Objects-normal/</span>i386/ClassName.o unable to open object file</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/</span><br><span class="line">ProjectName-ebyadedaazwurqcvfzmyzzacvlbg/Build/</span><br><span class="line">Intermediates/ ProjectName.build/Debug-iphonesimulator/</span><br><span class="line">ProjectName.build/Objects-normal/i386/ClassName.o unable to open object file</span><br></pre></td></tr></table></figure>
 <ul>
 <li>通过在Google里面搜索，终于弄明白了，通过在XCode里面将Generate Debug Symbol的值设为NO，重新编译一下生成静态库，这次编译出来的静态库再也不会产生已经警告了。这是为什么呢？</li>
 </ul>
-<h2 id="一、_Debug_Symbol(调试符号)">一、 Debug Symbol(调试符号)</h2><ul>
+<h2 id="一、-Debug-Symbol-调试符号"><a href="#一、-Debug-Symbol-调试符号" class="headerlink" title="一、 Debug Symbol(调试符号)"></a>一、 Debug Symbol(调试符号)</h2><ul>
 <li><p>因为借助符号调试程序可以将类似</p>
-  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Thread <span class="number">0</span> Crashed:</span><br><span class="line"><span class="number">0</span> libobjc.A.dylib <span class="number">0</span>×<span class="number">300</span>c87ec <span class="number">0</span>×<span class="number">300</span>bb000 + <span class="number">55276</span></span><br><span class="line"><span class="number">1</span> MobileLines <span class="number">0</span>×<span class="number">00006434</span> <span class="number">0</span>×<span class="number">1000</span> + <span class="number">21556</span></span><br><span class="line"><span class="number">2</span> MobileLines <span class="number">0</span>×<span class="number">000064</span>c2 <span class="number">0</span>×<span class="number">1000</span> + <span class="number">21698</span></span><br><span class="line"><span class="number">3</span> UIKit <span class="number">0</span>×<span class="number">30</span>a740ac <span class="number">0</span>×<span class="number">30</span>a54000 + <span class="number">131244</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Thread 0 Crashed:</span><br><span class="line">0 libobjc.A.dylib 0×300c87ec 0×300bb000 + 55276</span><br><span class="line">1 MobileLines 0×00006434 0×1000 + 21556</span><br><span class="line">2 MobileLines 0×000064c2 0×1000 + 21698</span><br><span class="line">3 UIKit 0×30a740ac 0×30a54000 + 131244</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
 <li><p>log信息转换成</p>
-  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Thread <span class="number">0</span> Crashed:</span><br><span class="line"><span class="number">0</span> libobjc.A.dylib <span class="number">0</span>×<span class="number">300</span>c87ec objc_msgSend + <span class="number">20</span></span><br><span class="line"><span class="number">1</span> MobileLines <span class="number">0</span>×<span class="number">00006434</span> -[BoardView setSelectedPiece:] (BoardView.m:<span class="number">321</span>)</span><br><span class="line"><span class="number">2</span> MobileLines <span class="number">0</span>×<span class="number">000064</span>c2 -[BoardView touchesBegan:withEvent:] (BoardView.m:<span class="number">349</span>)</span><br><span class="line"><span class="number">3</span> UIKit <span class="number">0</span>×<span class="number">30</span>a740ac -[UIWindow sendEvent:] + <span class="number">264</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Thread 0 Crashed:</span><br><span class="line">0 libobjc.A.dylib 0×300c87ec objc_msgSend + 20</span><br><span class="line">1 MobileLines 0×00006434 -[BoardView setSelectedPiece:] (BoardView.m:321)</span><br><span class="line">2 MobileLines 0×000064c2 -[BoardView touchesBegan:withEvent:] (BoardView.m:349)</span><br><span class="line">3 UIKit 0×30a740ac -[UIWindow sendEvent:] + 264</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
 <li>主要是方便开发人员获取调试信息</li>
 </ul>
-<h2 id="二、DWARF">二、DWARF</h2><ul>
+<h2 id="二、DWARF"><a href="#二、DWARF" class="headerlink" title="二、DWARF"></a>二、DWARF</h2><ul>
 <li>DWARF是一种被众多编译器和调试器使用的用于支持源代码级别调试的调试文件格式。它满足了许多程序语言的需求，比如C,C++和Fortran，而且被设计成可拓展到其它语言。DWARF是平台独立的且适用于任何处理器任何操作系统。 DWARF广泛应用于Unix,Linux和其它操作系统,以及独立的环境中。</li>
 </ul>
-<h2 id="三、dSYM">三、dSYM</h2><ul>
+<h2 id="三、dSYM"><a href="#三、dSYM" class="headerlink" title="三、dSYM"></a>三、dSYM</h2><ul>
 <li>为了避免进行stripping操作后调试符号的丢失，你可以使用dwarf-with-dsym选项. DWARF with dSYM 选项在标准的DWARF之外执行一个额外的步骤：创建一个单独的MyApp.app.dSYM文件，这个文件包含你的程序的所有调试符号(这个文件其实是一个包，可以通过右键-&gt;显示包内容进行查看)。事实上，DWARF with dSYM选项允许你对你进行单步调试而不管可执行程序是否被剥离了调试信息(stripped)。这是可能的，这是因为gdb将会在你的程序的目录下查找.dSYM文件。它不需要知道对象文件(object files)的名字或者路径。如果你不除去调试符号 (strip debugging symbols), 你可以使用.o或者.dSYM文件来调试。</li>
 </ul>
   
@@ -149,7 +141,7 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaaz
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2014/10/10/DebugSymbol/" data-title="DebugSymbol | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2014/10/10/DebugSymbol/" data-title="DebugSymbol | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -193,7 +185,7 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaaz
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Debug_Symbol(调试符号)"><span class="toc-number">1.</span> <span class="toc-text">Debug Symbol(调试符号)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译警告"><span class="toc-number">1.1.</span> <span class="toc-text">编译警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、_Debug_Symbol(调试符号)"><span class="toc-number">1.2.</span> <span class="toc-text">一、 Debug Symbol(调试符号)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、DWARF"><span class="toc-number">1.3.</span> <span class="toc-text">二、DWARF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、dSYM"><span class="toc-number">1.4.</span> <span class="toc-text">三、dSYM</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Debug-Symbol-调试符号"><span class="toc-number">1.</span> <span class="toc-text">Debug Symbol(调试符号)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译警告"><span class="toc-number">1.1.</span> <span class="toc-text">编译警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、-Debug-Symbol-调试符号"><span class="toc-number">1.2.</span> <span class="toc-text">一、 Debug Symbol(调试符号)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、DWARF"><span class="toc-number">1.3.</span> <span class="toc-text">二、DWARF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、dSYM"><span class="toc-number">1.4.</span> <span class="toc-text">三、dSYM</span></a></li></ol></li></ol>
  
   </div>
 
@@ -231,11 +223,15 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaaz
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -243,7 +239,7 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaaz
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -255,7 +251,7 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaaz
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -268,7 +264,7 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaaz
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -287,25 +283,21 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaaz
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -319,7 +311,7 @@ warning: (i386) /UsersLibrary/Developer/Xcode/DerivedData/ProjectName-ebyadedaaz
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

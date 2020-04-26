@@ -13,24 +13,13 @@
     
 
     
-    <meta name="description" content="UIButtonUIButton做frame动画时，不响应点击
-在一个View内部加入几个按钮，然后改变这个view的frame来做动画，但是按钮不响应点击事件。
-
-问题代码
-
-
-__block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bounds.size.width;[UIView setAni">
+    <meta name="description" content="UIButtonUIButton做frame动画时，不响应点击 在一个View内部加入几个按钮，然后改变这个view的frame来做动画，但是按钮不响应点击事件。  问题代码   __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bounds.size.width;[UIView setAni">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UIButton内部子控件自定义布局-“UIEdgeInsets”">
 <meta property="og:url" content="http://songliquan.github.io/2013/04/10/UIButton内部子控件自定义布局-“UIEdgeInsets”/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="UIButtonUIButton做frame动画时，不响应点击
-在一个View内部加入几个按钮，然后改变这个view的frame来做动画，但是按钮不响应点击事件。
-
-问题代码
-
-
-__block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bounds.size.width;[UIView setAni">
+<meta property="og:description" content="UIButtonUIButton做frame动画时，不响应点击 在一个View内部加入几个按钮，然后改变这个view的frame来做动画，但是按钮不响应点击事件。  问题代码   __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bounds.size.width;[UIView setAni">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://christ.gitbooks.io/ios-learner/content/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-10-28%20%E4%B8%8B%E5%8D%8810.04.11.png">
 <meta property="og:image" content="https://christ.gitbooks.io/ios-learner/content/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-10-29%2008.44.43.png">
 <meta property="og:image" content="https://christ.gitbooks.io/ios-learner/content/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-10-29%2008.52.37.png">
@@ -43,13 +32,8 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
 <meta property="og:updated_time" content="2015-12-10T09:28:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIButton内部子控件自定义布局-“UIEdgeInsets”">
-<meta name="twitter:description" content="UIButtonUIButton做frame动画时，不响应点击
-在一个View内部加入几个按钮，然后改变这个view的frame来做动画，但是按钮不响应点击事件。
-
-问题代码
-
-
-__block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bounds.size.width;[UIView setAni">
+<meta name="twitter:description" content="UIButtonUIButton做frame动画时，不响应点击 在一个View内部加入几个按钮，然后改变这个view的frame来做动画，但是按钮不响应点击事件。  问题代码   __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bounds.size.width;[UIView setAni">
+<meta name="twitter:image" content="https://christ.gitbooks.io/ios-learner/content/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-10-28%20%E4%B8%8B%E5%8D%8810.04.11.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -61,7 +45,7 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -125,31 +109,31 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UIButton"><span class="toc-number">1.</span> <span class="toc-text">UIButton</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UIButton做frame动画时，不响应点击"><span class="toc-number">1.1.</span> <span class="toc-text">UIButton做frame动画时，不响应点击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIButton_内部布局变化"><span class="toc-number">1.2.</span> <span class="toc-text">UIButton 内部布局变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIButton_默认布局"><span class="toc-number">1.3.</span> <span class="toc-text">UIButton 默认布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#label居中问题"><span class="toc-number">1.4.</span> <span class="toc-text">label居中问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结：_这个UIButton的内部控件的自定义，位置调整最重要。"><span class="toc-number">1.5.</span> <span class="toc-text">总结： 这个UIButton的内部控件的自定义，位置调整最重要。</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UIButton"><span class="toc-number">1.</span> <span class="toc-text">UIButton</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UIButton做frame动画时，不响应点击"><span class="toc-number">1.1.</span> <span class="toc-text">UIButton做frame动画时，不响应点击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIButton-内部布局变化"><span class="toc-number">1.2.</span> <span class="toc-text">UIButton 内部布局变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIButton-默认布局"><span class="toc-number">1.3.</span> <span class="toc-text">UIButton 默认布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#label居中问题"><span class="toc-number">1.4.</span> <span class="toc-text">label居中问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结：-这个UIButton的内部控件的自定义，位置调整最重要。"><span class="toc-number">1.5.</span> <span class="toc-text">总结： 这个UIButton的内部控件的自定义，位置调整最重要。</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="UIButton">UIButton</h1><h2 id="UIButton做frame动画时，不响应点击">UIButton做frame动画时，不响应点击</h2><ul>
+		<h1 id="UIButton"><a href="#UIButton" class="headerlink" title="UIButton"></a>UIButton</h1><h2 id="UIButton做frame动画时，不响应点击"><a href="#UIButton做frame动画时，不响应点击" class="headerlink" title="UIButton做frame动画时，不响应点击"></a>UIButton做frame动画时，不响应点击</h2><ul>
 <li><p>在一个View内部加入几个按钮，然后改变这个view的frame来做动画，但是按钮不响应点击事件。</p>
 </li>
 <li><p>问题代码</p>
 </li>
 </ul>
-<figure class="highlight processing"><table><tr><td class="code"><pre><span class="line">__block CGRect <span class="built_in">rect</span> = _scrollView.frame;</span><br><span class="line">CGFloat <span class="variable">width</span> = [UIScreen mainScreen].bounds.<span class="built_in">size</span>.<span class="variable">width</span>;</span><br><span class="line">[UIView setAnimationsEnabled:YES];</span><br><span class="line">[UIView animateWithDuration:<span class="number">0.3</span>f animations:^&#123;</span><br><span class="line">    <span class="built_in">rect</span>.origin.x -= <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">rect</span>.origin.x &lt;= - <span class="variable">width</span>) &#123;</span><br><span class="line">         <span class="comment">// 添加下一个scrollView到self</span></span><br><span class="line">        [UIView setAnimationsEnabled:NO];</span><br><span class="line">        <span class="built_in">rect</span>.origin.x = <span class="variable">width</span> + <span class="number">10</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    _scrollView.frame = <span class="built_in">rect</span>;</span><br><span class="line">&#125; completion:^(BOOL finished) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">__block CGRect rect = _scrollView.frame;</span><br><span class="line">CGFloat width = [UIScreen mainScreen].bounds.size.width;</span><br><span class="line">[UIView setAnimationsEnabled:YES];</span><br><span class="line">[UIView animateWithDuration:0.3f animations:^&#123;</span><br><span class="line">    rect.origin.x -= 10;</span><br><span class="line">    if (rect.origin.x &lt;= - width) &#123;</span><br><span class="line">         // 添加下一个scrollView到self</span><br><span class="line">        [UIView setAnimationsEnabled:NO];</span><br><span class="line">        rect.origin.x = width + 10;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    _scrollView.frame = rect;</span><br><span class="line">&#125; completion:^(BOOL finished) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 <ul>
 <li>解决问题</li>
 </ul>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">[UIView <span class="string">animateWithDuration:</span><span class="number">0.3</span>f <span class="string">delay:</span><span class="number">0</span> <span class="string">options:</span>UIViewAnimationOptionAllowUserInteraction <span class="string">animations:</span>^&#123;</span><br><span class="line">    rect.origin.x -= <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">if</span> (rect.origin.x &lt;= - width) &#123;</span><br><span class="line">        <span class="comment">// 添加下一个scrollView到self</span></span><br><span class="line">        [UIView <span class="string">setAnimationsEnabled:</span>NO];</span><br><span class="line">        rect.origin.x = width + <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    _scrollView.frame = rect;</span><br><span class="line">&#125; <span class="string">completion:</span>^(BOOL finished) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^&#123;</span><br><span class="line">    rect.origin.x -= 10;</span><br><span class="line">    if (rect.origin.x &lt;= - width) &#123;</span><br><span class="line">        // 添加下一个scrollView到self</span><br><span class="line">        [UIView setAnimationsEnabled:NO];</span><br><span class="line">        rect.origin.x = width + 10;</span><br><span class="line">    &#125;</span><br><span class="line">    _scrollView.frame = rect;</span><br><span class="line">&#125; completion:^(BOOL finished) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 <ul>
-<li>结论<pre><code><span class="bullet">- </span>应该是在改变一个控件的frame做动画时，控件的交互被关闭了，所以要在做动画时改变方法，手动开启交互。
+<li>结论<pre><code>- 应该是在改变一个控件的frame做动画时，控件的交互被关闭了，所以要在做动画时改变方法，手动开启交互。
 </code></pre></li>
 </ul>
-<h2 id="UIButton_内部布局变化">UIButton 内部布局变化</h2><ul>
+<h2 id="UIButton-内部布局变化"><a href="#UIButton-内部布局变化" class="headerlink" title="UIButton 内部布局变化"></a>UIButton 内部布局变化</h2><ul>
 <li>控件竖排</li>
 </ul>
 <p><img src="https://christ.gitbooks.io/ios-learner/content/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-10-28%20%E4%B8%8B%E5%8D%8810.04.11.png" alt=""></p>
-<figure class="highlight objectivec"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line">    _focusBtn  = [<span class="built_in">UIButton</span> buttonWithType:<span class="built_in">UIButtonTypeCustom</span>];</span><br><span class="line">    _focusBtn<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">10</span>, <span class="number">100</span>, <span class="number">52</span>, <span class="number">52</span>);</span><br><span class="line">    _focusBtn<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line">    [_focusBtn setTitle:<span class="string">@"关注"</span> forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">CGFloat</span> buttonWidth = <span class="number">52</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> textWidth = <span class="number">30</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> imageWidth = <span class="number">19</span>;</span><br><span class="line">    [_focusBtn setImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"focusBtn"</span>] forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    [_focusBtn setBackgroundImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"redcolor"</span>] forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    [_focusBtn setContentHorizontalAlignment:<span class="built_in">UIControlContentHorizontalAlignmentLeft</span>];</span><br><span class="line">    [_focusBtn setContentVerticalAlignment:<span class="built_in">UIControlContentVerticalAlignmentTop</span>];</span><br><span class="line">    </span><br><span class="line">    [_focusBtn setImageEdgeInsets:<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">6</span>,(<span class="number">52</span>-<span class="number">20</span>)/<span class="number">2</span>, <span class="number">0</span>, _focusBtn<span class="variable">.titleLabel</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span> )];</span><br><span class="line">    [_focusBtn setTitleEdgeInsets:<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">17.5</span> + <span class="number">6</span> , - ([_focusBtn currentImage]<span class="variable">.size</span><span class="variable">.width</span>)  + <span class="number">7</span> , <span class="number">9</span>,<span class="number">0</span> )];</span><br><span class="line">   </span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addSubview:_focusBtn];</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="UIButton_默认布局">UIButton 默认布局</h2><ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    // Do any additional setup after loading the view, typically from a nib.</span><br><span class="line">    _focusBtn  = [UIButton buttonWithType:UIButtonTypeCustom];</span><br><span class="line">    _focusBtn.frame = CGRectMake(10, 100, 52, 52);</span><br><span class="line">    _focusBtn.backgroundColor = [UIColor greenColor];</span><br><span class="line">    [_focusBtn setTitle:@&quot;关注&quot; forState:UIControlStateNormal];</span><br><span class="line">    </span><br><span class="line">    CGFloat buttonWidth = 52;</span><br><span class="line">    CGFloat textWidth = 30;</span><br><span class="line">    CGFloat imageWidth = 19;</span><br><span class="line">    [_focusBtn setImage:[UIImage imageNamed:@&quot;focusBtn&quot;] forState:UIControlStateNormal];</span><br><span class="line">    [_focusBtn setBackgroundImage:[UIImage imageNamed:@&quot;redcolor&quot;] forState:UIControlStateNormal];</span><br><span class="line">    [_focusBtn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];</span><br><span class="line">    [_focusBtn setContentVerticalAlignment:UIControlContentVerticalAlignmentTop];</span><br><span class="line">    </span><br><span class="line">    [_focusBtn setImageEdgeInsets:UIEdgeInsetsMake(6,(52-20)/2, 0, _focusBtn.titleLabel.bounds.size.width )];</span><br><span class="line">    [_focusBtn setTitleEdgeInsets:UIEdgeInsetsMake(17.5 + 6 , - ([_focusBtn currentImage].size.width)  + 7 , 9,0 )];</span><br><span class="line">   </span><br><span class="line">    </span><br><span class="line">    [self.view addSubview:_focusBtn];</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="UIButton-默认布局"><a href="#UIButton-默认布局" class="headerlink" title="UIButton 默认布局"></a>UIButton 默认布局</h2><ul>
 <li>默认布局是横排：图片在左，label在右，并且居中方式是水平居中对齐，垂直居中对齐。<ul>
 <li><img src="https://christ.gitbooks.io/ios-learner/content/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-10-29%2008.44.43.png" alt=""></li>
 <li>紫色是image的frame，绿色是label的frame，黄色是button的frame</li>
@@ -169,21 +153,21 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
 <ul>
 <li>注：在iOS中，UIEdgeInsets跟web中的padding一样的分top，left，bottom和right，正数就表示与周围的距离变大，例如：默认在是0，我把top变成了10，这时该元素与顶端的距离就会增加10，即元素下移，距离变大。如果是负数的话效果就相反了，距离拉近。</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"> [_focusBtn setImageEdgeInsets:<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">6</span>,(<span class="number">52</span>-<span class="number">20</span>)/<span class="number">2</span>, <span class="number">0</span>, _focusBtn<span class="variable">.titleLabel</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span> )];</span><br><span class="line">[_focusBtn setTitleEdgeInsets:<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">17.5</span> + <span class="number">6</span> , - ([_focusBtn currentImage]<span class="variable">.size</span><span class="variable">.width</span>)  + <span class="number">7</span> , <span class="number">9</span>,<span class="number">0</span> )];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"> [_focusBtn setImageEdgeInsets:<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">6</span>,(<span class="number">52</span><span class="number">-20</span>)/<span class="number">2</span>, <span class="number">0</span>, _focusBtn.titleLabel.bounds.size.width )];</span><br><span class="line">[_focusBtn setTitleEdgeInsets:<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">17.5</span> + <span class="number">6</span> , - ([_focusBtn currentImage].size.width)  + <span class="number">7</span> , <span class="number">9</span>,<span class="number">0</span> )];</span><br></pre></td></tr></table></figure>
 <ul>
 <li>这样的效果就是<ul>
 <li><img src="https://christ.gitbooks.io/ios-learner/content/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-10-28%20%E4%B8%8B%E5%8D%8810.04.11.png" alt=""></li>
 </ul>
 </li>
 </ul>
-<h2 id="label居中问题">label居中问题</h2><ul>
+<h2 id="label居中问题"><a href="#label居中问题" class="headerlink" title="label居中问题"></a>label居中问题</h2><ul>
 <li>下午计算文字的宽度的时候一直出问题，主要是根据文字宽度计算内边距，但是文字长度不等，对这个布局有很大影响。</li>
 <li><img src="https://christ.gitbooks.io/ios-learner/content/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-10-29%20%E4%B8%8B%E5%8D%889.18.35.png" alt=""></li>
 <li><img src="https://christ.gitbooks.io/ios-learner/content/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-10-29%20%E4%B8%8B%E5%8D%889.21.42.png" alt=""></li>
 <li><img src="https://christ.gitbooks.io/ios-learner/content/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-10-29%20%E4%B8%8B%E5%8D%889.17.55.png" alt=""></li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)focusedBtn:(<span class="built_in">NSInteger</span>)number</span><br><span class="line">&#123;</span><br><span class="line">    _focusedBtn = [[<span class="built_in">UIButton</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">100</span>, <span class="number">52</span>, <span class="number">52</span>)];</span><br><span class="line">    <span class="built_in">NSString</span> *title = <span class="string">@""</span>;</span><br><span class="line">    <span class="keyword">if</span> (number &gt;= <span class="number">10000</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        title = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%.1f万"</span>,number/<span class="number">10000.0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        title = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%zd"</span>,number];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    [_focusedBtn setTitle:title forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UILabel</span> *lab = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">    lab<span class="variable">.text</span> = <span class="string">@"1"</span>;</span><br><span class="line">    lab<span class="variable">.font</span> = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">12</span>]; <span class="comment">// font 12 ： label.width 7</span></span><br><span class="line">    [lab sizeToFit];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromCGSize</span>(lab<span class="variable">.bounds</span><span class="variable">.size</span>));</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"buttuon:%@"</span>,<span class="built_in">NSStringFromCGRect</span>(_focusedBtn<span class="variable">.frame</span>));</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"imageView:%@"</span>,<span class="built_in">NSStringFromCGRect</span>(_focusedBtn<span class="variable">.imageView</span><span class="variable">.frame</span>));</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"textLabel:%@"</span>,<span class="built_in">NSStringFromCGRect</span>(_focusedBtn<span class="variable">.titleLabel</span><span class="variable">.frame</span>));</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"---------------------"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGFloat</span> buttonWidth = <span class="number">52</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> textWidth = <span class="number">40</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> imageWidth = <span class="number">19</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> imageHeight = <span class="number">19</span>;</span><br><span class="line">    [_focusedBtn setImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"focusBtn"</span>] forState:<span class="built_in">UIControlStateNormal</span>]; <span class="comment">// 关注后这个图片改变了</span></span><br><span class="line">    [_focusedBtn setBackgroundImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"redcolor"</span>] forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    [_focusedBtn setContentHorizontalAlignment:<span class="built_in">UIControlContentHorizontalAlignmentLeft</span>];</span><br><span class="line">    [_focusedBtn setContentVerticalAlignment:<span class="built_in">UIControlContentVerticalAlignmentTop</span>];</span><br><span class="line">    </span><br><span class="line">    [_focusedBtn setImageEdgeInsets:<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">6</span>,(buttonWidth-imageWidth)/<span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span> )];</span><br><span class="line">  </span><br><span class="line">    [_focusedBtn<span class="variable">.titleLabel</span> setFont:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">12.0</span>f]];</span><br><span class="line">    [_focusedBtn<span class="variable">.titleLabel</span> setContentMode:<span class="built_in">UIViewContentModeCenter</span>];</span><br><span class="line">    _focusedBtn<span class="variable">.titleLabel</span><span class="variable">.textAlignment</span> = <span class="built_in">NSTextAlignmentCenter</span>;</span><br><span class="line">    [_focusedBtn<span class="variable">.titleLabel</span> sizeToFit];</span><br><span class="line">    <span class="comment">// 我尝试在label宽度基础上加上一个字符宽度。只要字符不超过一定长度，显示就没有问题,这个调整具体问题具体分析</span></span><br><span class="line">    [_focusedBtn setTitleEdgeInsets:<span class="built_in">UIEdgeInsetsMake</span>(imageHeight + <span class="number">10</span> ,- _focusedBtn<span class="variable">.titleLabel</span><span class="variable">.bounds</span><span class="variable">.size</span><span class="variable">.width</span>/<span class="number">2</span> + <span class="number">7</span>, <span class="number">9</span>,<span class="number">0</span>)];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"buttuon:%@"</span>,<span class="built_in">NSStringFromCGRect</span>(_focusedBtn<span class="variable">.frame</span>));</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"imageView:%@"</span>,<span class="built_in">NSStringFromCGRect</span>(_focusedBtn<span class="variable">.imageView</span><span class="variable">.frame</span>));</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"textLabel:%@"</span>,<span class="built_in">NSStringFromCGRect</span>(_focusedBtn<span class="variable">.titleLabel</span><span class="variable">.frame</span>));</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> addSubview:_focusedBtn];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="总结：_这个UIButton的内部控件的自定义，位置调整最重要。">总结： 这个UIButton的内部控件的自定义，位置调整最重要。</h2><ul>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)focusedBtn:(<span class="built_in">NSInteger</span>)number</span><br><span class="line">&#123;</span><br><span class="line">    _focusedBtn = [[<span class="built_in">UIButton</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">100</span>, <span class="number">52</span>, <span class="number">52</span>)];</span><br><span class="line">    <span class="built_in">NSString</span> *title = <span class="string">@""</span>;</span><br><span class="line">    <span class="keyword">if</span> (number &gt;= <span class="number">10000</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        title = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%.1f万"</span>,number/<span class="number">10000.0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        title = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%zd"</span>,number];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    [_focusedBtn setTitle:title forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UILabel</span> *lab = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">    lab.text = <span class="string">@"1"</span>;</span><br><span class="line">    lab.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">12</span>]; <span class="comment">// font 12 ： label.width 7</span></span><br><span class="line">    [lab sizeToFit];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromCGSize</span>(lab.bounds.size));</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"buttuon:%@"</span>,<span class="built_in">NSStringFromCGRect</span>(_focusedBtn.frame));</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"imageView:%@"</span>,<span class="built_in">NSStringFromCGRect</span>(_focusedBtn.imageView.frame));</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"textLabel:%@"</span>,<span class="built_in">NSStringFromCGRect</span>(_focusedBtn.titleLabel.frame));</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"---------------------"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGFloat</span> buttonWidth = <span class="number">52</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> textWidth = <span class="number">40</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> imageWidth = <span class="number">19</span>;</span><br><span class="line">    <span class="built_in">CGFloat</span> imageHeight = <span class="number">19</span>;</span><br><span class="line">    [_focusedBtn setImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"focusBtn"</span>] forState:<span class="built_in">UIControlStateNormal</span>]; <span class="comment">// 关注后这个图片改变了</span></span><br><span class="line">    [_focusedBtn setBackgroundImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"redcolor"</span>] forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    [_focusedBtn setContentHorizontalAlignment:<span class="built_in">UIControlContentHorizontalAlignmentLeft</span>];</span><br><span class="line">    [_focusedBtn setContentVerticalAlignment:<span class="built_in">UIControlContentVerticalAlignmentTop</span>];</span><br><span class="line">    </span><br><span class="line">    [_focusedBtn setImageEdgeInsets:<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">6</span>,(buttonWidth-imageWidth)/<span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span> )];</span><br><span class="line">  </span><br><span class="line">    [_focusedBtn.titleLabel setFont:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">12.0</span>f]];</span><br><span class="line">    [_focusedBtn.titleLabel setContentMode:<span class="built_in">UIViewContentModeCenter</span>];</span><br><span class="line">    _focusedBtn.titleLabel.textAlignment = <span class="built_in">NSTextAlignmentCenter</span>;</span><br><span class="line">    [_focusedBtn.titleLabel sizeToFit];</span><br><span class="line">    <span class="comment">// 我尝试在label宽度基础上加上一个字符宽度。只要字符不超过一定长度，显示就没有问题,这个调整具体问题具体分析</span></span><br><span class="line">    [_focusedBtn setTitleEdgeInsets:<span class="built_in">UIEdgeInsetsMake</span>(imageHeight + <span class="number">10</span> ,- _focusedBtn.titleLabel.bounds.size.width/<span class="number">2</span> + <span class="number">7</span>, <span class="number">9</span>,<span class="number">0</span>)];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"buttuon:%@"</span>,<span class="built_in">NSStringFromCGRect</span>(_focusedBtn.frame));</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"imageView:%@"</span>,<span class="built_in">NSStringFromCGRect</span>(_focusedBtn.imageView.frame));</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"textLabel:%@"</span>,<span class="built_in">NSStringFromCGRect</span>(_focusedBtn.titleLabel.frame));</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:_focusedBtn];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结：-这个UIButton的内部控件的自定义，位置调整最重要。"><a href="#总结：-这个UIButton的内部控件的自定义，位置调整最重要。" class="headerlink" title="总结： 这个UIButton的内部控件的自定义，位置调整最重要。"></a>总结： 这个UIButton的内部控件的自定义，位置调整最重要。</h2><ul>
 <li>1、首先要改变内部控件的对其方式，<code>setContentHorizontalAlignment</code> <code>setContentVerticalAlignment</code></li>
 <li>2、然后重新设置每个子控件的内部间距，这个设置要注意，如果要实现比较好的效果，需要精细调整。</li>
 <li>3、其实主要是理解<code>UIEdgeInsets</code>的使用。<code>UIEdgeInsets</code>内部包含四个值{top，left，bottom,right}，每个值都是以自身位置为标准进行偏移。比如top，为正数时向下偏移，负数向上偏移。所以对子控件进行布局时一定要明确最初所处的位置。</li>
@@ -200,7 +184,7 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2013/04/10/UIButton内部子控件自定义布局-“UIEdgeInsets”/" data-title="UIButton内部子控件自定义布局-“UIEdgeInsets” | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2013/04/10/UIButton内部子控件自定义布局-“UIEdgeInsets”/" data-title="UIButton内部子控件自定义布局-“UIEdgeInsets” | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -244,7 +228,7 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UIButton"><span class="toc-number">1.</span> <span class="toc-text">UIButton</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UIButton做frame动画时，不响应点击"><span class="toc-number">1.1.</span> <span class="toc-text">UIButton做frame动画时，不响应点击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIButton_内部布局变化"><span class="toc-number">1.2.</span> <span class="toc-text">UIButton 内部布局变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIButton_默认布局"><span class="toc-number">1.3.</span> <span class="toc-text">UIButton 默认布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#label居中问题"><span class="toc-number">1.4.</span> <span class="toc-text">label居中问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结：_这个UIButton的内部控件的自定义，位置调整最重要。"><span class="toc-number">1.5.</span> <span class="toc-text">总结： 这个UIButton的内部控件的自定义，位置调整最重要。</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UIButton"><span class="toc-number">1.</span> <span class="toc-text">UIButton</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UIButton做frame动画时，不响应点击"><span class="toc-number">1.1.</span> <span class="toc-text">UIButton做frame动画时，不响应点击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIButton-内部布局变化"><span class="toc-number">1.2.</span> <span class="toc-text">UIButton 内部布局变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIButton-默认布局"><span class="toc-number">1.3.</span> <span class="toc-text">UIButton 默认布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#label居中问题"><span class="toc-number">1.4.</span> <span class="toc-text">label居中问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结：-这个UIButton的内部控件的自定义，位置调整最重要。"><span class="toc-number">1.5.</span> <span class="toc-text">总结： 这个UIButton的内部控件的自定义，位置调整最重要。</span></a></li></ol></li></ol>
  
   </div>
 
@@ -282,11 +266,15 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -294,7 +282,7 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -306,7 +294,7 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -319,7 +307,7 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -338,25 +326,21 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -370,7 +354,7 @@ __block CGRect rect = _scrollView.frame;CGFloat width = [UIScreen mainScreen].bo
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

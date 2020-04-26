@@ -13,34 +13,18 @@
     
 
     
-    <meta name="description" content="关联
-关联是指把两个对象相互关联起来，使得其中的一个对象作为另外一个对象的一部分。
-关联特性只有在Mac OS X V10.6以及以后的版本上才是可用的。
-关联是基于关键字的，因此，我们可以为任何对象增加任意多的关联，每个都使用不同的关键字即可。
-关联是可以保证被关联的对象在关联对象的整个生命周期都是可用的（在垃圾自动回收环境下也不会导致资源不可回收)。
-
-关联策略表明了相关的对象是通过赋值，保留">
+    <meta name="description" content="关联 关联是指把两个对象相互关联起来，使得其中的一个对象作为另外一个对象的一部分。 关联特性只有在Mac OS X V10.6以及以后的版本上才是可用的。 关联是基于关键字的，因此，我们可以为任何对象增加任意多的关联，每个都使用不同的关键字即可。 关联是可以保证被关联的对象在关联对象的整个生命周期都是可用的（在垃圾自动回收环境下也不会导致资源不可回收)。  关联策略表明了相关的对象是通过赋值，保留">
+<meta name="keywords" content="OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="运行时-关联">
 <meta property="og:url" content="http://songliquan.github.io/2013/11/10/运行时-关联/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="关联
-关联是指把两个对象相互关联起来，使得其中的一个对象作为另外一个对象的一部分。
-关联特性只有在Mac OS X V10.6以及以后的版本上才是可用的。
-关联是基于关键字的，因此，我们可以为任何对象增加任意多的关联，每个都使用不同的关键字即可。
-关联是可以保证被关联的对象在关联对象的整个生命周期都是可用的（在垃圾自动回收环境下也不会导致资源不可回收)。
-
-关联策略表明了相关的对象是通过赋值，保留">
+<meta property="og:description" content="关联 关联是指把两个对象相互关联起来，使得其中的一个对象作为另外一个对象的一部分。 关联特性只有在Mac OS X V10.6以及以后的版本上才是可用的。 关联是基于关键字的，因此，我们可以为任何对象增加任意多的关联，每个都使用不同的关键字即可。 关联是可以保证被关联的对象在关联对象的整个生命周期都是可用的（在垃圾自动回收环境下也不会导致资源不可回收)。  关联策略表明了相关的对象是通过赋值，保留">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-12-10T09:48:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="运行时-关联">
-<meta name="twitter:description" content="关联
-关联是指把两个对象相互关联起来，使得其中的一个对象作为另外一个对象的一部分。
-关联特性只有在Mac OS X V10.6以及以后的版本上才是可用的。
-关联是基于关键字的，因此，我们可以为任何对象增加任意多的关联，每个都使用不同的关键字即可。
-关联是可以保证被关联的对象在关联对象的整个生命周期都是可用的（在垃圾自动回收环境下也不会导致资源不可回收)。
-
-关联策略表明了相关的对象是通过赋值，保留">
+<meta name="twitter:description" content="关联 关联是指把两个对象相互关联起来，使得其中的一个对象作为另外一个对象的一部分。 关联特性只有在Mac OS X V10.6以及以后的版本上才是可用的。 关联是基于关键字的，因此，我们可以为任何对象增加任意多的关联，每个都使用不同的关键字即可。 关联是可以保证被关联的对象在关联对象的整个生命周期都是可用的（在垃圾自动回收环境下也不会导致资源不可回收)。  关联策略表明了相关的对象是通过赋值，保留">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -52,7 +36,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -120,7 +104,7 @@
 		
 		</div>
 		
-		<h1 id="关联">关联</h1><ul>
+		<h1 id="关联"><a href="#关联" class="headerlink" title="关联"></a>关联</h1><ul>
 <li>关联是指把两个对象相互关联起来，使得其中的一个对象作为另外一个对象的一部分。</li>
 <li>关联特性只有在Mac OS X V10.6以及以后的版本上才是可用的。</li>
 <li>关联是基于关键字的，因此，我们可以为任何对象增加任意多的关联，每个都使用不同的关键字即可。</li>
@@ -129,13 +113,13 @@
 <li><p>关联策略表明了相关的对象是通过赋值，保留引用还是复制的方式进行关联的；还有这种关联是原子的还是非原子的。这里的关联策略和声明属性时的很类似。</p>
 </li>
 </ul>
-<h2 id="关键方法">关键方法</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 关联策略</span></span><br><span class="line"><span class="keyword">enum</span> &#123;</span><br><span class="line"></span><br><span class="line">    OBJC_ASSO<span class="built_in">CIATION_ASSIGN</span> = <span class="number">0</span>, <span class="comment">// 赋值</span></span><br><span class="line"></span><br><span class="line">    OBJC_ASSO<span class="built_in">CIATION_RETAIN_NONATOMIC</span> = <span class="number">1</span>, <span class="comment">// 保留引用非原子对象 OBJC_ASSOCIATION_COPY_NONATOMIC = 3, // 复制非原子对象</span></span><br><span class="line"></span><br><span class="line">    OBJC_ASSO<span class="built_in">CIATION_RETAIN</span> = <span class="number">01401</span>, <span class="comment">// 保留引用</span></span><br><span class="line"></span><br><span class="line">    OBJC_ASSO<span class="built_in">CIATION_COPY</span> = <span class="number">01403</span> <span class="comment">// 复制</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="关键方法"><a href="#关键方法" class="headerlink" title="关键方法"></a>关键方法</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 关联策略</span></span><br><span class="line"><span class="keyword">enum</span> &#123;</span><br><span class="line"></span><br><span class="line">    OBJC_ASSOCIATION_ASSIGN = <span class="number">0</span>, <span class="comment">// 赋值</span></span><br><span class="line"></span><br><span class="line">    OBJC_ASSOCIATION_RETAIN_NONATOMIC = <span class="number">1</span>, <span class="comment">// 保留引用非原子对象 OBJC_ASSOCIATION_COPY_NONATOMIC = 3, // 复制非原子对象</span></span><br><span class="line"></span><br><span class="line">    OBJC_ASSOCIATION_RETAIN = <span class="number">01401</span>, <span class="comment">// 保留引用</span></span><br><span class="line"></span><br><span class="line">    OBJC_ASSOCIATION_COPY = <span class="number">01403</span> <span class="comment">// 复制</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">objc_setAssociatedObject(<span class="keyword">id</span> object,<span class="comment">// 源对象</span></span><br><span class="line"></span><br><span class="line">                         <span class="keyword">const</span> <span class="keyword">void</span> *key,<span class="comment">// 关键字，key，根据这个key获取关联的对象</span></span><br><span class="line"></span><br><span class="line">                         <span class="keyword">id</span> value,<span class="comment">// 要关联的对象，关联后这个对象的生命周期和源对象有关</span></span><br><span class="line"></span><br><span class="line">                         objc_AssociationPolicy policy); <span class="comment">// 关联策略</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">id</span> objc_getAssociatedObject(<span class="keyword">id</span> object, <span class="comment">// 源对象</span></span><br><span class="line"></span><br><span class="line">                            <span class="keyword">const</span> <span class="keyword">void</span> *key) <span class="comment">// 关联对象使用的key，返回值是关联对象</span></span><br></pre></td></tr></table></figure>
-<h2 id="实现">实现</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 执行唯一关键字，用于获取关联对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span>* PersonName = &amp;PersonName;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span>* Dog = &amp;Dog;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line"></span><br><span class="line">    [superviewDidLoad];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关联的使用，在不修改类的基础上给类增加新的属性</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 比如说给对象SLQPerson增加一个姓名,关联一个dog对象</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *name =  <span class="string">@"小明"</span>;</span><br><span class="line"></span><br><span class="line">    SLQPerson *person1 = [[SLQPerson alloc] init];</span><br><span class="line"></span><br><span class="line">    SLQDog *dog = [[SLQDog alloc] init];</span><br><span class="line"></span><br><span class="line">    dog<span class="variable">.dogName</span> = <span class="string">@"旺财"</span>;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关联对象</span></span><br><span class="line"></span><br><span class="line">    objc_setAssociatedObject(person1, PersonName, name, OBJC_ASSO<span class="built_in">CIATION_RETAIN_NONATOMIC</span>);</span><br><span class="line"></span><br><span class="line">    objc_setAssociatedObject(person1, Dog, dog, OBJC_ASSO<span class="built_in">CIATION_RETAIN_NONATOMIC</span>);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *person1Name = objc_getAssociatedObject(person1, PersonName);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@------%@的小狗叫%@"</span>,person1,person1Name,dog<span class="variable">.dogName</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 断开关联</span></span><br><span class="line"></span><br><span class="line">    objc_setAssociatedObject(person1, PersonName, <span class="literal">nil</span>, OBJC_ASSO<span class="built_in">CIATION_RETAIN_NONATOMIC</span>);</span><br><span class="line"></span><br><span class="line">    objc_setAssociatedObject(person1, Dog, <span class="literal">nil</span>, OBJC_ASSO<span class="built_in">CIATION_RETAIN_NONATOMIC</span>); </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="获取运行时的某个类的属性列表">获取运行时的某个类的属性列表</h2><ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 执行唯一关键字，用于获取关联对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span>* PersonName = &amp;PersonName;</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span>* Dog = &amp;Dog;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line"></span><br><span class="line">    [superviewDidLoad];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关联的使用，在不修改类的基础上给类增加新的属性</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 比如说给对象SLQPerson增加一个姓名,关联一个dog对象</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *name =  <span class="string">@"小明"</span>;</span><br><span class="line"></span><br><span class="line">    SLQPerson *person1 = [[SLQPerson alloc] init];</span><br><span class="line"></span><br><span class="line">    SLQDog *dog = [[SLQDog alloc] init];</span><br><span class="line"></span><br><span class="line">    dog.dogName = <span class="string">@"旺财"</span>;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关联对象</span></span><br><span class="line"></span><br><span class="line">    objc_setAssociatedObject(person1, PersonName, name, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</span><br><span class="line"></span><br><span class="line">    objc_setAssociatedObject(person1, Dog, dog, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSString</span> *person1Name = objc_getAssociatedObject(person1, PersonName);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@------%@的小狗叫%@"</span>,person1,person1Name,dog.dogName);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 断开关联</span></span><br><span class="line"></span><br><span class="line">    objc_setAssociatedObject(person1, PersonName, <span class="literal">nil</span>, OBJC_ASSOCIATION_RETAIN_NONATOMIC);</span><br><span class="line"></span><br><span class="line">    objc_setAssociatedObject(person1, Dog, <span class="literal">nil</span>, OBJC_ASSOCIATION_RETAIN_NONATOMIC); </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="获取运行时的某个类的属性列表"><a href="#获取运行时的某个类的属性列表" class="headerlink" title="获取运行时的某个类的属性列表"></a>获取运行时的某个类的属性列表</h2><ul>
 <li>首先包含头文件，然后使用里面的方法即可</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 运行时对象</span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历某个类里面所有属性 Ivar:表示成员属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// copyIvarList只能获取哪个类下面的属性，并不会越界（不会把它的父类的属性给遍历出来）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Class 获取哪个类的成员属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// count:告诉你当前类里面成员属性的总数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//    unsigned int count = 0;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//    // 返回成员属性的数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    Ivar *name =   class_copyIvarList([<span class="built_in">UIGestureRecognizer</span> class], &amp;count);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i ++) &#123;</span><br><span class="line"></span><br><span class="line">        Ivar ivar = name[i];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取属性名</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSString</span> *proName = @(ivar_getName(ivar));</span><br><span class="line"></span><br><span class="line">         <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,proName);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 运行时对象</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历某个类里面所有属性 Ivar:表示成员属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// copyIvarList只能获取哪个类下面的属性，并不会越界（不会把它的父类的属性给遍历出来）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Class 获取哪个类的成员属性</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// count:告诉你当前类里面成员属性的总数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//    unsigned int count = 0;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//    // 返回成员属性的数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    Ivar *name =   class_copyIvarList([<span class="built_in">UIGestureRecognizer</span> <span class="keyword">class</span>], &amp;count);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i ++) &#123;</span><br><span class="line"></span><br><span class="line">        Ivar ivar = name[i];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取属性名</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSString</span> *proName = @(ivar_getName(ivar));</span><br><span class="line"></span><br><span class="line">         <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,proName);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>输出</li>
 </ul>
@@ -156,7 +140,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2013/11/10/运行时-关联/" data-title="运行时-关联 | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2013/11/10/运行时-关联/" data-title="运行时-关联 | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -238,11 +222,15 @@
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -250,7 +238,7 @@
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -262,7 +250,7 @@
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -275,7 +263,7 @@
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -294,25 +282,21 @@
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -326,7 +310,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

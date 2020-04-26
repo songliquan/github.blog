@@ -13,32 +13,20 @@
     
 
     
-    <meta name="description" content="闪退bug修复
-http://www.educity.cn/wenda/418906.html
-
-SIGABRT 一般是过度release 或者 发送 unrecogized selector导致。
-
-EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received signal SIGSEGV　Application received signal SIGBUS">
+    <meta name="description" content="闪退bug修复 http://www.educity.cn/wenda/418906.html  SIGABRT 一般是过度release 或者 发送 unrecogized selector导致。  EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received signal SIGSEGV　Application received signal SIGBUS">
+<meta name="keywords" content="OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="闪退问题解析">
 <meta property="og:url" content="http://songliquan.github.io/2015/04/06/闪退问题解析/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="闪退bug修复
-http://www.educity.cn/wenda/418906.html
-
-SIGABRT 一般是过度release 或者 发送 unrecogized selector导致。
-
-EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received signal SIGSEGV　Application received signal SIGBUS">
+<meta property="og:description" content="闪退bug修复 http://www.educity.cn/wenda/418906.html  SIGABRT 一般是过度release 或者 发送 unrecogized selector导致。  EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received signal SIGSEGV　Application received signal SIGBUS">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://songliquan.github.io/images/error001.png">
 <meta property="og:updated_time" content="2016-03-06T08:54:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="闪退问题解析">
-<meta name="twitter:description" content="闪退bug修复
-http://www.educity.cn/wenda/418906.html
-
-SIGABRT 一般是过度release 或者 发送 unrecogized selector导致。
-
-EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received signal SIGSEGV　Application received signal SIGBUS">
+<meta name="twitter:description" content="闪退bug修复 http://www.educity.cn/wenda/418906.html  SIGABRT 一般是过度release 或者 发送 unrecogized selector导致。  EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received signal SIGSEGV　Application received signal SIGBUS">
+<meta name="twitter:image" content="http://songliquan.github.io/images/error001.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -50,7 +38,7 @@ EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received si
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -118,23 +106,23 @@ EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received si
 		
 		</div>
 		
-		<h1 id="闪退bug修复">闪退bug修复</h1><ul>
-<li><p><a href="http://www.educity.cn/wenda/418906.html" target="_blank" rel="external">http://www.educity.cn/wenda/418906.html</a></p>
+		<h1 id="闪退bug修复"><a href="#闪退bug修复" class="headerlink" title="闪退bug修复"></a>闪退bug修复</h1><ul>
+<li><p><a href="http://www.educity.cn/wenda/418906.html" target="_blank" rel="noopener">http://www.educity.cn/wenda/418906.html</a></p>
 </li>
 <li><p>SIGABRT 一般是过度release 或者 发送 unrecogized selector导致。</p>
 </li>
 <li>EXC_BAD_ACCESS 是访问已被释放的内存导致。<br>　Application received signal SIGSEGV<br>　Application received signal SIGBUS<br>　Application received signal SIGABRT</li>
 <li>IGSEGV和SIGBUS一般是因为访问已被释放的内存或者调用不存在的方法导致的</li>
-<li><a href="http://blog.csdn.net/xyxjn/article/details/43310061" target="_blank" rel="external">http://blog.csdn.net/xyxjn/article/details/43310061</a></li>
+<li><a href="http://blog.csdn.net/xyxjn/article/details/43310061" target="_blank" rel="noopener">http://blog.csdn.net/xyxjn/article/details/43310061</a></li>
 </ul>
-<h2 id="解析">解析</h2><ul>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><ul>
 <li><code>SIGABRT</code>是处于程序控制状态下的crash，SIGABRT引起的crash是因为系统发现了应用程序正在做一些系统不希望它去做的事情(Exception)。</li>
 <li><code>EXC_BAD_ACCESS</code>意味着你的程序在内存管理方面有bug。与<code>SIGABRT</code>不同，发生EXC_BAD_ACCESS错误时，在控制台里你不会得到一个错误的信息，但是你可以通过一些设置得到这些错误信息并进一步定位内存错误发生的位置。</li>
 <li><code>EXC_BAD_ACCESS</code>意味着你的程序在内存管理方面有bug。与<code>SIGABRT</code>不同，发生<code>EXC_BAD_ACCESS</code>错误时，在控制台里你不会得到一个错误的信息，但是你可以通过一些设置得到这些错误信息并进一步定位内存错误发生的位置。</li>
 </ul>
-<h2 id="错误">错误</h2><ul>
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><ul>
 <li><code>Error: CUICatalog: Invalid asset name supplied: (null), or invalid scale factor : 2.000000</code></li>
-<li><a href="http://stackoverflow.com/questions/22011106/error-cuicatalog-invalid-asset-name-supplied-null-or-invalid-scale-factor" target="_blank" rel="external">http://stackoverflow.com/questions/22011106/error-cuicatalog-invalid-asset-name-supplied-null-or-invalid-scale-factor</a></li>
+<li><a href="http://stackoverflow.com/questions/22011106/error-cuicatalog-invalid-asset-name-supplied-null-or-invalid-scale-factor" target="_blank" rel="noopener">http://stackoverflow.com/questions/22011106/error-cuicatalog-invalid-asset-name-supplied-null-or-invalid-scale-factor</a></li>
 <li>处理方式<ul>
 <li>This one appears when someone is trying to put nil eventually in <code>[UIImage imageNamed:]</code></li>
 <li>Add symbolic breakpoint for <code>[UIImage imageNamed:]</code><br><img src="/images/error001.png" alt="">  </li>
@@ -160,7 +148,7 @@ EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received si
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2015/04/06/闪退问题解析/" data-title="闪退问题解析 | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2015/04/06/闪退问题解析/" data-title="闪退问题解析 | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -242,11 +230,15 @@ EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received si
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -254,7 +246,7 @@ EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received si
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -266,7 +258,7 @@ EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received si
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -279,7 +271,7 @@ EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received si
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -298,25 +290,21 @@ EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received si
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -330,7 +318,7 @@ EXC_BAD_ACCESS 是访问已被释放的内存导致。　Application received si
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

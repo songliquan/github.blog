@@ -13,43 +13,18 @@
     
 
     
-    <meta name="description" content="&amp;lt;!--# 多个target使用Cocoapod--&amp;gt;
-@(iOS)[CocoaPods]
-
-默认是放到主target
-
-- platform :ios, &apos;7.0&apos;# 多个target使用1pod &apos;FlatUIKit&apos;end
-
-多个target的话，简单一点可以一个一个指定，这样可以做到精确控制，但是有很多重复代码
-
-- platform :ios, &apos;7.0&apos;# 多个target使用1tar">
+    <meta name="description" content="@(iOS)[CocoaPods]  默认是放到主target  - platform :ios, &amp;apos;7.0&amp;apos;# 多个target使用1pod &amp;apos;FlatUIKit&amp;apos;end  多个target的话，简单一点可以一个一个指定，这样可以做到精确控制，但是有很多重复代码  - platform :ios, &amp;apos;7.0&amp;apos;# 多个target使用1">
+<meta name="keywords" content="CocoaPods">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多个target使用Cocoapod">
 <meta property="og:url" content="http://songliquan.github.io/2016/10/28/多个target使用Cocoapod/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="&amp;lt;!--# 多个target使用Cocoapod--&amp;gt;
-@(iOS)[CocoaPods]
-
-默认是放到主target
-
-- platform :ios, &apos;7.0&apos;# 多个target使用1pod &apos;FlatUIKit&apos;end
-
-多个target的话，简单一点可以一个一个指定，这样可以做到精确控制，但是有很多重复代码
-
-- platform :ios, &apos;7.0&apos;# 多个target使用1tar">
+<meta property="og:description" content="@(iOS)[CocoaPods]  默认是放到主target  - platform :ios, &amp;apos;7.0&amp;apos;# 多个target使用1pod &amp;apos;FlatUIKit&amp;apos;end  多个target的话，简单一点可以一个一个指定，这样可以做到精确控制，但是有很多重复代码  - platform :ios, &amp;apos;7.0&amp;apos;# 多个target使用1">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-03-27T06:51:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多个target使用Cocoapod">
-<meta name="twitter:description" content="&amp;lt;!--# 多个target使用Cocoapod--&amp;gt;
-@(iOS)[CocoaPods]
-
-默认是放到主target
-
-- platform :ios, &apos;7.0&apos;# 多个target使用1pod &apos;FlatUIKit&apos;end
-
-多个target的话，简单一点可以一个一个指定，这样可以做到精确控制，但是有很多重复代码
-
-- platform :ios, &apos;7.0&apos;# 多个target使用1tar">
+<meta name="twitter:description" content="@(iOS)[CocoaPods]  默认是放到主target  - platform :ios, &amp;apos;7.0&amp;apos;# 多个target使用1pod &amp;apos;FlatUIKit&amp;apos;end  多个target的话，简单一点可以一个一个指定，这样可以做到精确控制，但是有很多重复代码  - platform :ios, &amp;apos;7.0&amp;apos;# 多个target使用1">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -61,7 +36,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -134,17 +109,17 @@
 <ul>
 <li>默认是放到主target</li>
 </ul>
-<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">- platform <span class="symbol">:ios</span>, <span class="string">'7.0'</span></span><br><span class="line"><span class="comment"># 多个target使用1</span></span><br><span class="line">pod <span class="string">'FlatUIKit'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- platform :ios, &apos;7.0&apos;</span><br><span class="line"># 多个target使用1</span><br><span class="line">pod &apos;FlatUIKit&apos;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <ul>
 <li>多个target的话，简单一点可以一个一个指定，这样可以做到精确控制，但是有很多重复代码</li>
 </ul>
-<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">- platform <span class="symbol">:ios</span>, <span class="string">'7.0'</span></span><br><span class="line"><span class="comment"># 多个target使用1</span></span><br><span class="line">target <span class="string">'FTest2'</span> <span class="keyword">do</span></span><br><span class="line">pod <span class="string">'FlatUIKit'</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'FTest1'</span> <span class="keyword">do</span></span><br><span class="line">pod <span class="string">'FlatUIKit'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- platform :ios, &apos;7.0&apos;</span><br><span class="line"># 多个target使用1</span><br><span class="line">target &apos;FTest2&apos; do</span><br><span class="line">pod &apos;FlatUIKit&apos;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">target &apos;FTest1&apos; do</span><br><span class="line">pod &apos;FlatUIKit&apos;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <ul>
 <li>或者这样写，使用ruby函数定义，这样比上一个方法要清晰，公共的一个，不同的一个</li>
 </ul>
-<figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, <span class="string">'7.0'</span></span><br><span class="line"><span class="comment"># 多个target使用2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">CommonPod</span></span></span><br><span class="line">pod <span class="string">'AFNetworking'</span></span><br><span class="line">pod <span class="string">'SLQCategories'</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">PodTest1</span></span></span><br><span class="line">pod <span class="string">'FlatUIKit'</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'FTest2'</span> <span class="keyword">do</span></span><br><span class="line"><span class="constant">CommonPod</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'FTest1'</span> <span class="keyword">do</span></span><br><span class="line"><span class="constant">CommonPod</span></span><br><span class="line"><span class="constant">PodTest1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">platform :ios, &apos;7.0&apos;</span><br><span class="line"># 多个target使用2</span><br><span class="line">def CommonPod</span><br><span class="line">pod &apos;AFNetworking&apos;</span><br><span class="line">pod &apos;SLQCategories&apos;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">def PodTest1</span><br><span class="line">pod &apos;FlatUIKit&apos;</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">target &apos;FTest2&apos; do</span><br><span class="line">CommonPod</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">target &apos;FTest1&apos; do</span><br><span class="line">CommonPod</span><br><span class="line">PodTest1</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><a href="https://skyline75489.github.io/post/2015-11-26_cocoapods_multiple_target.html" target="_blank" rel="external">参考1</a></p>
+<p><a href="https://skyline75489.github.io/post/2015-11-26_cocoapods_multiple_target.html" target="_blank" rel="noopener">参考1</a></p>
 </blockquote>
   
 	</div>
@@ -163,7 +138,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2016/10/28/多个target使用Cocoapod/" data-title="多个target使用Cocoapod | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2016/10/28/多个target使用Cocoapod/" data-title="多个target使用Cocoapod | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -245,11 +220,15 @@
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -257,7 +236,7 @@
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -269,7 +248,7 @@
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -282,7 +261,7 @@
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -301,25 +280,21 @@
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -333,7 +308,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

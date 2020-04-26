@@ -13,34 +13,18 @@
     
 
     
-    <meta name="description" content="如何在OC中判断基本数据类型变量的类型
-可以在工程中添加C++库，然后引用这个方法。
-
-用C++的方法typeid
-
-
-#include &amp;lt;iostream&amp;gt;using namespace std;void test()&amp;#123;    cout &amp;lt;&amp;lt; typeid(int).name() &amp;lt;&amp;lt; endl    &amp;lt;&amp;lt; typeid(unsigned">
+    <meta name="description" content="如何在OC中判断基本数据类型变量的类型 可以在工程中添加C++库，然后引用这个方法。  用C++的方法typeid   #include &amp;lt;iostream&amp;gt;using namespace std;void test()&amp;#123;    cout &amp;lt;&amp;lt; typeid(int).name() &amp;lt;&amp;lt; endl    &amp;lt;&amp;lt; typeid(unsigned">
+<meta name="keywords" content="OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何在OC中判断基本数据类型变量的类型">
 <meta property="og:url" content="http://songliquan.github.io/2014/02/15/如何在oc中判断基本数据类型变量的类型/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="如何在OC中判断基本数据类型变量的类型
-可以在工程中添加C++库，然后引用这个方法。
-
-用C++的方法typeid
-
-
-#include &amp;lt;iostream&amp;gt;using namespace std;void test()&amp;#123;    cout &amp;lt;&amp;lt; typeid(int).name() &amp;lt;&amp;lt; endl    &amp;lt;&amp;lt; typeid(unsigned">
+<meta property="og:description" content="如何在OC中判断基本数据类型变量的类型 可以在工程中添加C++库，然后引用这个方法。  用C++的方法typeid   #include &amp;lt;iostream&amp;gt;using namespace std;void test()&amp;#123;    cout &amp;lt;&amp;lt; typeid(int).name() &amp;lt;&amp;lt; endl    &amp;lt;&amp;lt; typeid(unsigned">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-12-10T10:14:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在OC中判断基本数据类型变量的类型">
-<meta name="twitter:description" content="如何在OC中判断基本数据类型变量的类型
-可以在工程中添加C++库，然后引用这个方法。
-
-用C++的方法typeid
-
-
-#include &amp;lt;iostream&amp;gt;using namespace std;void test()&amp;#123;    cout &amp;lt;&amp;lt; typeid(int).name() &amp;lt;&amp;lt; endl    &amp;lt;&amp;lt; typeid(unsigned">
+<meta name="twitter:description" content="如何在OC中判断基本数据类型变量的类型 可以在工程中添加C++库，然后引用这个方法。  用C++的方法typeid   #include &amp;lt;iostream&amp;gt;using namespace std;void test()&amp;#123;    cout &amp;lt;&amp;lt; typeid(int).name() &amp;lt;&amp;lt; endl    &amp;lt;&amp;lt; typeid(unsigned">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -52,7 +36,7 @@
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -120,13 +104,13 @@
 		
 		</div>
 		
-		<h1 id="如何在OC中判断基本数据类型变量的类型">如何在OC中判断基本数据类型变量的类型</h1><ul>
+		<h1 id="如何在OC中判断基本数据类型变量的类型"><a href="#如何在OC中判断基本数据类型变量的类型" class="headerlink" title="如何在OC中判断基本数据类型变量的类型"></a>如何在OC中判断基本数据类型变量的类型</h1><ul>
 <li><p>可以在工程中添加C++库，然后引用这个方法。</p>
 </li>
 <li><p>用C++的方法typeid</p>
 </li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">int</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">unsigned</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">long</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">unsigned</span> <span class="keyword">long</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">char</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">unsigned</span> <span class="keyword">char</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">float</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="keyword">double</span>).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; <span class="keyword">typeid</span>(<span class="built_in">string</span>).name() &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">void test()</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; typeid(int).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; typeid(unsigned).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; typeid(long).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; typeid(unsigned long).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; typeid(char).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; typeid(unsigned char).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; typeid(float).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; typeid(double).name() &lt;&lt; endl</span><br><span class="line">    &lt;&lt; typeid(string).name() &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -144,7 +128,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2014/02/15/如何在oc中判断基本数据类型变量的类型/" data-title="如何在OC中判断基本数据类型变量的类型 | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2014/02/15/如何在oc中判断基本数据类型变量的类型/" data-title="如何在OC中判断基本数据类型变量的类型 | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -226,11 +210,15 @@
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -238,7 +226,7 @@
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -250,7 +238,7 @@
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -263,7 +251,7 @@
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -282,25 +270,21 @@
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -314,7 +298,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

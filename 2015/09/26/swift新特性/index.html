@@ -13,43 +13,18 @@
     
 
     
-    <meta name="description" content="Swift 与众不同的地方switch（元组）
-特点
-
-其他语言中的switch语句只能比较离散的整形数据（字符可以转换成整数）
-但是swift中可以比较整数、浮点数、字符、字符串、和元组数据类型，而且它可以是离散的也可以使连续的范围
-而且在swift中case语句不需要显示的添加break语句，分支语句会自动进行跳转
-每个switch语句至少有一个default语句
-
-
-switch中比较元组">
+    <meta name="description" content="Swift 与众不同的地方switch（元组） 特点  其他语言中的switch语句只能比较离散的整形数据（字符可以转换成整数） 但是swift中可以比较整数、浮点数、字符、字符串、和元组数据类型，而且它可以是离散的也可以使连续的范围 而且在swift中case语句不需要显示的添加break语句，分支语句会自动进行跳转 每个switch语句至少有一个default语句   switch中比较元组">
+<meta name="keywords" content="swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift与众不同的地方">
 <meta property="og:url" content="http://songliquan.github.io/2015/09/26/swift新特性/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="Swift 与众不同的地方switch（元组）
-特点
-
-其他语言中的switch语句只能比较离散的整形数据（字符可以转换成整数）
-但是swift中可以比较整数、浮点数、字符、字符串、和元组数据类型，而且它可以是离散的也可以使连续的范围
-而且在swift中case语句不需要显示的添加break语句，分支语句会自动进行跳转
-每个switch语句至少有一个default语句
-
-
-switch中比较元组">
+<meta property="og:description" content="Swift 与众不同的地方switch（元组） 特点  其他语言中的switch语句只能比较离散的整形数据（字符可以转换成整数） 但是swift中可以比较整数、浮点数、字符、字符串、和元组数据类型，而且它可以是离散的也可以使连续的范围 而且在swift中case语句不需要显示的添加break语句，分支语句会自动进行跳转 每个switch语句至少有一个default语句   switch中比较元组">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2015-10-01T10:24:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift与众不同的地方">
-<meta name="twitter:description" content="Swift 与众不同的地方switch（元组）
-特点
-
-其他语言中的switch语句只能比较离散的整形数据（字符可以转换成整数）
-但是swift中可以比较整数、浮点数、字符、字符串、和元组数据类型，而且它可以是离散的也可以使连续的范围
-而且在swift中case语句不需要显示的添加break语句，分支语句会自动进行跳转
-每个switch语句至少有一个default语句
-
-
-switch中比较元组">
+<meta name="twitter:description" content="Swift 与众不同的地方switch（元组） 特点  其他语言中的switch语句只能比较离散的整形数据（字符可以转换成整数） 但是swift中可以比较整数、浮点数、字符、字符串、和元组数据类型，而且它可以是离散的也可以使连续的范围 而且在swift中case语句不需要显示的添加break语句，分支语句会自动进行跳转 每个switch语句至少有一个default语句   switch中比较元组">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -61,7 +36,7 @@ switch中比较元组">
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -125,11 +100,11 @@ switch中比较元组">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift_与众不同的地方"><span class="toc-number">1.</span> <span class="toc-text">Swift 与众不同的地方</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#switch（元组）"><span class="toc-number">1.1.</span> <span class="toc-text">switch（元组）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跳转语句"><span class="toc-number">1.2.</span> <span class="toc-text">跳转语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#break"><span class="toc-number">1.2.1.</span> <span class="toc-text">break</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue"><span class="toc-number">1.2.2.</span> <span class="toc-text">continue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fallthrough"><span class="toc-number">1.2.3.</span> <span class="toc-text">fallthrough</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#return"><span class="toc-number">1.2.4.</span> <span class="toc-text">return</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组和字典"><span class="toc-number">1.3.</span> <span class="toc-text">数组和字典</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-number">1.4.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛型和泛型函数"><span class="toc-number">1.5.</span> <span class="toc-text">泛型和泛型函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.6.</span> <span class="toc-text">闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用举例"><span class="toc-number">1.6.1.</span> <span class="toc-text">使用举例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swift中的面向对象"><span class="toc-number">1.7.</span> <span class="toc-text">swift中的面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举"><span class="toc-number">1.7.1.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构体"><span class="toc-number">1.7.2.</span> <span class="toc-text">结构体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可选类型和可选链"><span class="toc-number">1.8.</span> <span class="toc-text">可选类型和可选链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问限定"><span class="toc-number">1.9.</span> <span class="toc-text">访问限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性和下标"><span class="toc-number">1.10.</span> <span class="toc-text">属性和下标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、存储属性"><span class="toc-number">1.10.1.</span> <span class="toc-text">1、存储属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、计算属性"><span class="toc-number">1.10.2.</span> <span class="toc-text">2、计算属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、静态属性"><span class="toc-number">1.10.3.</span> <span class="toc-text">3、静态属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、下标"><span class="toc-number">1.10.4.</span> <span class="toc-text">4、下标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-number">1.11.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态方法"><span class="toc-number">1.11.1.</span> <span class="toc-text">静态方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造和析构"><span class="toc-number">1.12.</span> <span class="toc-text">构造和析构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">1.12.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#析构器"><span class="toc-number">1.12.2.</span> <span class="toc-text">析构器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">1.13.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展和协议"><span class="toc-number">1.14.</span> <span class="toc-text">扩展和协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展extension"><span class="toc-number">1.14.1.</span> <span class="toc-text">扩展extension</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议_protocol"><span class="toc-number">1.14.2.</span> <span class="toc-text">协议 protocol</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swift内存管理"><span class="toc-number">1.15.</span> <span class="toc-text">swift内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#循环引用问题"><span class="toc-number">1.15.1.</span> <span class="toc-text">循环引用问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包中的循环引用问题"><span class="toc-number">1.15.2.</span> <span class="toc-text">闭包中的循环引用问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OC与Swift"><span class="toc-number">1.16.</span> <span class="toc-text">OC与Swift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实战"><span class="toc-number">1.17.</span> <span class="toc-text">实战</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift-与众不同的地方"><span class="toc-number">1.</span> <span class="toc-text">Swift 与众不同的地方</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#switch（元组）"><span class="toc-number">1.1.</span> <span class="toc-text">switch（元组）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跳转语句"><span class="toc-number">1.2.</span> <span class="toc-text">跳转语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#break"><span class="toc-number">1.2.1.</span> <span class="toc-text">break</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue"><span class="toc-number">1.2.2.</span> <span class="toc-text">continue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fallthrough"><span class="toc-number">1.2.3.</span> <span class="toc-text">fallthrough</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#return"><span class="toc-number">1.2.4.</span> <span class="toc-text">return</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组和字典"><span class="toc-number">1.3.</span> <span class="toc-text">数组和字典</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-number">1.4.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛型和泛型函数"><span class="toc-number">1.5.</span> <span class="toc-text">泛型和泛型函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.6.</span> <span class="toc-text">闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用举例"><span class="toc-number">1.6.1.</span> <span class="toc-text">使用举例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swift中的面向对象"><span class="toc-number">1.7.</span> <span class="toc-text">swift中的面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举"><span class="toc-number">1.7.1.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构体"><span class="toc-number">1.7.2.</span> <span class="toc-text">结构体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可选类型和可选链"><span class="toc-number">1.8.</span> <span class="toc-text">可选类型和可选链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问限定"><span class="toc-number">1.9.</span> <span class="toc-text">访问限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性和下标"><span class="toc-number">1.10.</span> <span class="toc-text">属性和下标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、存储属性"><span class="toc-number">1.10.1.</span> <span class="toc-text">1、存储属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、计算属性"><span class="toc-number">1.10.2.</span> <span class="toc-text">2、计算属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、静态属性"><span class="toc-number">1.10.3.</span> <span class="toc-text">3、静态属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、下标"><span class="toc-number">1.10.4.</span> <span class="toc-text">4、下标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-number">1.11.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态方法"><span class="toc-number">1.11.1.</span> <span class="toc-text">静态方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造和析构"><span class="toc-number">1.12.</span> <span class="toc-text">构造和析构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">1.12.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#析构器"><span class="toc-number">1.12.2.</span> <span class="toc-text">析构器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">1.13.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展和协议"><span class="toc-number">1.14.</span> <span class="toc-text">扩展和协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展extension"><span class="toc-number">1.14.1.</span> <span class="toc-text">扩展extension</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议-protocol"><span class="toc-number">1.14.2.</span> <span class="toc-text">协议 protocol</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swift内存管理"><span class="toc-number">1.15.</span> <span class="toc-text">swift内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#循环引用问题"><span class="toc-number">1.15.1.</span> <span class="toc-text">循环引用问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包中的循环引用问题"><span class="toc-number">1.15.2.</span> <span class="toc-text">闭包中的循环引用问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OC与Swift"><span class="toc-number">1.16.</span> <span class="toc-text">OC与Swift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实战"><span class="toc-number">1.17.</span> <span class="toc-text">实战</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="Swift_与众不同的地方">Swift 与众不同的地方</h1><h2 id="switch（元组）">switch（元组）</h2><ul>
+		<h1 id="Swift-与众不同的地方"><a href="#Swift-与众不同的地方" class="headerlink" title="Swift 与众不同的地方"></a>Swift 与众不同的地方</h1><h2 id="switch（元组）"><a href="#switch（元组）" class="headerlink" title="switch（元组）"></a>switch（元组）</h2><ul>
 <li><p>特点</p>
 <ul>
 <li>其他语言中的switch语句只能比较离散的整形数据（字符可以转换成整数）</li>
@@ -145,28 +120,28 @@ switch中比较元组">
 </ul>
 </li>
 </ul>
-<h2 id="跳转语句">跳转语句</h2><ul>
+<h2 id="跳转语句"><a href="#跳转语句" class="headerlink" title="跳转语句"></a>跳转语句</h2><ul>
 <li>break、contune、fallthrough、return</li>
 </ul>
-<h3 id="break">break</h3><ul>
+<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><ul>
 <li>主要用户循环体中终止循环 </li>
 <li><p>break的使用有两种方式</p>
-  <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">break</span>	<span class="comment">// 	没有标签</span></span><br><span class="line"><span class="keyword">break</span> label <span class="comment">// 添加标签</span></span><br><span class="line"><span class="comment">// break语句中标签的使用</span></span><br><span class="line">label1: <span class="keyword">for</span> <span class="keyword">var</span> x = <span class="number">0</span>; x &lt; <span class="number">5</span>; x++ &#123; <span class="comment">// 标签1</span></span><br><span class="line">    label2: <span class="keyword">for</span> <span class="keyword">var</span> y = <span class="number">0</span>; y &gt; <span class="number">0</span>; y-- &#123; <span class="comment">// 标签2</span></span><br><span class="line">        <span class="keyword">if</span> x == y &#123;</span><br><span class="line">        <span class="keyword">break</span> label1 <span class="comment">// 默认是跳出标签2，加上标签，可以直接跳出到指定循环</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"(x,y) = (<span class="subst">\(x)</span>,<span class="subst">\(y)</span>)"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">break</span>	<span class="comment">// 	没有标签</span></span><br><span class="line"><span class="keyword">break</span> label <span class="comment">// 添加标签</span></span><br><span class="line"><span class="comment">// break语句中标签的使用</span></span><br><span class="line">label1: <span class="keyword">for</span> <span class="keyword">var</span> x = <span class="number">0</span>; x &lt; <span class="number">5</span>; x++ &#123; <span class="comment">// 标签1</span></span><br><span class="line">    label2: <span class="keyword">for</span> <span class="keyword">var</span> y = <span class="number">0</span>; y &gt; <span class="number">0</span>; y-- &#123; <span class="comment">// 标签2</span></span><br><span class="line">        <span class="keyword">if</span> x == y &#123;</span><br><span class="line">        <span class="keyword">break</span> label1 <span class="comment">// 默认是跳出标签2，加上标签，可以直接跳出到指定循环</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"(x,y) = (\(x),\(y))"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="continue">continue</h3><ul>
+<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><ul>
 <li><p><code>continue</code> 的使用和break类似，可以使用标签指定继续的循环</p>
   <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line"><span class="comment">// continue语句中标签的使用</span></span><br><span class="line">label1: <span class="keyword">for</span> var x = <span class="number">0</span>; x &lt; <span class="number">5</span>; x++ &#123; <span class="comment">// 标签1</span></span><br><span class="line">    label2: <span class="keyword">for</span> var y = <span class="number">0</span>; y &gt; <span class="number">0</span>; y-- &#123; <span class="comment">// 标签2</span></span><br><span class="line">        <span class="keyword">if</span> x == y &#123;</span><br><span class="line">            <span class="keyword">continue</span> label1 <span class="comment">// 默认是跳出标签2，加上标签，可以直接跳出到指定循环</span></span><br><span class="line">        &#125;</span><br><span class="line">        print(<span class="string">"(x,y) = (\(x),\(y))"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="fallthrough">fallthrough</h3><ul>
+<h3 id="fallthrough"><a href="#fallthrough" class="headerlink" title="fallthrough"></a>fallthrough</h3><ul>
 <li>fallthrough是贯通语句，在swift的swiftch语句中case语句不能贯通，但是如果我们需要设置贯通语句，可以使用fallthrough语句</li>
 <li>在switch语句中case后fallthrough，会执行下一个case语句</li>
 </ul>
-<h3 id="return">return</h3><ul>
+<h3 id="return"><a href="#return" class="headerlink" title="return"></a>return</h3><ul>
 <li>函数返回值</li>
 </ul>
-<h2 id="数组和字典">数组和字典</h2><ul>
+<h2 id="数组和字典"><a href="#数组和字典" class="headerlink" title="数组和字典"></a>数组和字典</h2><ul>
 <li>数组<ul>
 <li>和oc中数组没啥大的区别</li>
 </ul>
@@ -180,7 +155,7 @@ switch中比较元组">
 </ul>
 </li>
 </ul>
-<h2 id="函数">函数</h2><ul>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
 <li><p>参数传递</p>
 <ul>
 <li>外部参数名和内部参数名</li>
@@ -188,12 +163,12 @@ switch中比较元组">
 <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">func rectangle(W width:Int, H height:Int) -&gt; Int &#123;</span><br><span class="line">	<span class="comment">// 	其中W\H是外部参数名，在外部调用这个方法时会显示出来，提示这个参数是神马意思</span></span><br><span class="line">	<span class="comment">// width\height 是内部参数，在函数内部调用使用</span></span><br><span class="line">	<span class="keyword">return</span> width * height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>也可以让内部便令名变为外部变量名，使用字符 “#”</p>
-<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">func rectangle(<span class="preprocessor">#width:Int, #height:Int) -&gt; Int&#123;</span></span><br><span class="line">	<span class="comment">// 	其中W\H是外部参数名，在外部调用这个方法时会显示出来，提示这个参数是神马意思</span></span><br><span class="line">	<span class="comment">// width\height 是内部参数，在函数内部调用使用</span></span><br><span class="line">	<span class="keyword">return</span> width * height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">func rectangle(<span class="meta">#width:Int, #height:Int) -&gt; Int&#123;</span></span><br><span class="line">	<span class="comment">// 	其中W\H是外部参数名，在外部调用这个方法时会显示出来，提示这个参数是神马意思</span></span><br><span class="line">	<span class="comment">// width\height 是内部参数，在函数内部调用使用</span></span><br><span class="line">	<span class="keyword">return</span> width * height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>参数默认值</p>
-  <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">func rectangle(<span class="preprocessor">#width:Int = 100, #height:Int = 100) -&gt; Int &#123;</span></span><br><span class="line">	<span class="comment">// 	其中W\H是外部参数名，在外部调用这个方法时会显示出来，提示这个参数是神马意思</span></span><br><span class="line">	<span class="comment">// width\height 是内部参数，在函数内部调用使用</span></span><br><span class="line">	<span class="keyword">return</span> width * height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">func rectangle(<span class="meta">#width:Int = 100, #height:Int = 100) -&gt; Int &#123;</span></span><br><span class="line">	<span class="comment">// 	其中W\H是外部参数名，在外部调用这个方法时会显示出来，提示这个参数是神马意思</span></span><br><span class="line">	<span class="comment">// width\height 是内部参数，在函数内部调用使用</span></span><br><span class="line">	<span class="keyword">return</span> width * height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
@@ -236,7 +211,7 @@ switch中比较元组">
 </ul>
 </li>
 </ul>
-<h2 id="泛型和泛型函数">泛型和泛型函数</h2><ul>
+<h2 id="泛型和泛型函数"><a href="#泛型和泛型函数" class="headerlink" title="泛型和泛型函数"></a>泛型和泛型函数</h2><ul>
 <li><p>泛型就是在运行时才确定类型的一种机制,这个C++中的泛型如出一辙</p>
   <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">func add(a:Int, b:Int) -&gt; Int</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line">func add(a:Double, b:Double) -&gt; Double</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -247,12 +222,12 @@ switch中比较元组">
   <figure class="highlight objc"><table><tr><td class="code"><pre><span class="line">func isEquals&lt;T: Comparable&gt;(a:T, b:T) -&gt; Bool &#123;</span><br><span class="line">	<span class="keyword">return</span> (a == b)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="闭包">闭包</h2><ul>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><ul>
 <li><p>闭包是自包含的匿名函数代码块，可以作为表达式、函数参数和函数返回值。</p>
   <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">&#123; (参数列表) -&gt; 返回值类型 <span class="keyword">in</span></span><br><span class="line">		语句组</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="使用举例">使用举例</h3><ul>
+<h3 id="使用举例"><a href="#使用举例" class="headerlink" title="使用举例"></a>使用举例</h3><ul>
 <li><p>完整版本 </p>
   <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">&#123;(a:<span class="type">Int</span>, b:<span class="type">Int</span>) -&gt; <span class="type">Int</span> <span class="keyword">in</span> </span><br><span class="line">		<span class="keyword">return</span> a + b</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -273,7 +248,7 @@ switch中比较元组">
 </ul>
 </li>
 </ul>
-<h2 id="swift中的面向对象">swift中的面向对象</h2><h3 id="枚举">枚举</h3><ul>
+<h2 id="swift中的面向对象"><a href="#swift中的面向对象" class="headerlink" title="swift中的面向对象"></a>swift中的面向对象</h2><h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><ul>
 <li><p>swift中枚举可以存储多种数据类型，并不是真正的整数</p>
   <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 默认并不是整形</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">WeekDays</span> </span>&#123;		</span><br><span class="line">	<span class="keyword">case</span> <span class="type">Monday</span></span><br><span class="line">	<span class="keyword">case</span> <span class="type">Tuesday</span></span><br><span class="line">	<span class="keyword">case</span> <span class="type">Wednesday</span></span><br><span class="line">	<span class="keyword">case</span> <span class="type">Thursday</span></span><br><span class="line">	<span class="keyword">case</span> <span class="type">Friday</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 简写</span></span><br><span class="line">	<span class="class"><span class="keyword">enum</span> <span class="title">WeekDays</span> </span>&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="type">Monday</span>, <span class="type">Tuesday</span>, <span class="type">Wednesday</span>, <span class="type">Thursday</span>, <span class="type">Friday</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -281,16 +256,16 @@ switch中比较元组">
 </li>
 <li>指定没枚举的原始值，可以是字符、字符串、整数、浮点数等</li>
 </ul>
-<pre><code><span class="comment"><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指定枚举的原始值</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">WeekDays</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="type">Monday</span> = <span class="number">0</span></span><br><span class="line">	<span class="keyword">case</span> <span class="type">Tuesday</span></span><br><span class="line">	<span class="keyword">case</span> <span class="type">Wednesday</span></span><br><span class="line">	<span class="keyword">case</span> <span class="type">Thursday</span></span><br><span class="line">	<span class="keyword">case</span> <span class="type">Friday</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
+<pre><code><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指定枚举的原始值</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">WeekDays</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="type">Monday</span> = <span class="number">0</span></span><br><span class="line">	<span class="keyword">case</span> <span class="type">Tuesday</span></span><br><span class="line">	<span class="keyword">case</span> <span class="type">Wednesday</span></span><br><span class="line">	<span class="keyword">case</span> <span class="type">Thursday</span></span><br><span class="line">	<span class="keyword">case</span> <span class="type">Friday</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </code></pre><ul>
 <li>原始值使用的话，要用到函数 <code>toRaw()</code> 和 <code>fromRaw()</code> </li>
 </ul>
-<h3 id="结构体">结构体</h3><ul>
+<h3 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h3><ul>
 <li>swift中结构体和类非常类似，可以定义成员变量和方法</li>
 <li>结构体不具备继承、运行时强制类型转换、析构函数、引用计数等</li>
 <li>除了对象是引用传递，其他数据类型都是值传递，引用之间的比较可以使用 ‘===’ 和 ‘!===’</li>
 </ul>
-<h2 id="可选类型和可选链">可选类型和可选链</h2><ul>
+<h2 id="可选类型和可选链"><a href="#可选类型和可选链" class="headerlink" title="可选类型和可选链"></a>可选类型和可选链</h2><ul>
 <li>“?” 和 “!”<ul>
 <li>不确定一个变量是否有值，可以加 ?</li>
 </ul>
@@ -310,7 +285,7 @@ switch中比较元组">
 </ul>
 </li>
 </ul>
-<h2 id="访问限定">访问限定</h2><ul>
+<h2 id="访问限定"><a href="#访问限定" class="headerlink" title="访问限定"></a>访问限定</h2><ul>
 <li>访问范围的界定主要有：模块和源文件</li>
 <li>访问级别：public、internal、private</li>
 <li>可修饰类、结构体、枚举等面向对象的类型，还可以修饰变量、常量、下标、元组、函数、属性等。以上这些统称“实体”</li>
@@ -326,7 +301,7 @@ switch中比较元组">
 </ul>
 </li>
 </ul>
-<h2 id="属性和下标">属性和下标</h2><h3 id="1、存储属性">1、存储属性</h3><ul>
+<h2 id="属性和下标"><a href="#属性和下标" class="headerlink" title="属性和下标"></a>属性和下标</h2><h3 id="1、存储属性"><a href="#1、存储属性" class="headerlink" title="1、存储属性"></a>1、存储属性</h3><ul>
 <li>存储属性适用于类和结构体两种类型，包括常量属性（<code>let</code>）和变量属性（<code>var</code>）<ul>
 <li>在一个类中定义一个结构体对象属性或者类对象属性时就算是存储属性，可以指定默认值</li>
 </ul>
@@ -342,7 +317,7 @@ switch中比较元组">
 </ul>
 </li>
 </ul>
-<h3 id="2、计算属性">2、计算属性</h3><ul>
+<h3 id="2、计算属性"><a href="#2、计算属性" class="headerlink" title="2、计算属性"></a>2、计算属性</h3><ul>
 <li>计算属性本身不存储数据，只从其他存储属性中获得数据。类、结构体、枚举都可以定义计算属性</li>
 <li><p>计算属性只能使用<code>var</code>修饰</p>
   <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> firstName: <span class="type">String</span> = <span class="string">"Jone"</span></span><br><span class="line"><span class="keyword">var</span> secondName: <span class="type">String</span> = <span class="string">"Hu"</span></span><br><span class="line"><span class="comment">// 计算属性</span></span><br><span class="line"><span class="keyword">var</span> fullName: <span class="type">String</span> &#123;</span><br><span class="line">    <span class="keyword">get</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> firstName + <span class="string">"."</span> + secondName</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span> (newValue) &#123;</span><br><span class="line">        <span class="keyword">let</span> names = newValue.componentsSeparatedByString(<span class="string">"."</span>)</span><br><span class="line">        firstName = names[<span class="number">0</span>]</span><br><span class="line">        secondName = names[<span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -353,14 +328,14 @@ switch中比较元组">
   <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> firstName: <span class="type">String</span> = <span class="string">"Jone"</span></span><br><span class="line"><span class="keyword">var</span> secondName: <span class="type">String</span> = <span class="string">"Hu"</span></span><br><span class="line"><span class="comment">// 计算属性</span></span><br><span class="line"><span class="keyword">var</span> fullName: <span class="type">String</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> firstName + <span class="string">"."</span> + secondName</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="3、静态属性">3、静态属性</h3><ul>
+<h3 id="3、静态属性"><a href="#3、静态属性" class="headerlink" title="3、静态属性"></a>3、静态属性</h3><ul>
 <li>可以在类、结构体、枚举中定义静态属性</li>
 </ul>
-<h3 id="4、下标">4、下标</h3><ul>
+<h3 id="4、下标"><a href="#4、下标" class="headerlink" title="4、下标"></a>4、下标</h3><ul>
 <li>一些集合类型，可以使用下标访问</li>
 </ul>
-<pre><code><span class="comment"><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">*  定义二维数组，使用下标访问数组</span><br><span class="line">*  内部还是一个一维数组，不过展示给外界的时一个二维访问方式</span><br><span class="line">*/</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">DoubleArray</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 属性定义</span></span><br><span class="line">    <span class="keyword">let</span> rows: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> cols: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> grid: [<span class="type">Int</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 构造方法</span></span><br><span class="line">    <span class="keyword">init</span>(rows: <span class="type">Int</span>, cols: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.rows = rows</span><br><span class="line">        <span class="keyword">self</span>.cols = cols</span><br><span class="line">        grid = <span class="type">Array</span>(<span class="built_in">count</span>: rows * cols, repeatedValue: <span class="number">0</span>) <span class="comment">// 利用泛型创建一个数组</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 下标定义</span></span><br><span class="line">    <span class="keyword">subscript</span>(row: <span class="type">Int</span>, col: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> grid[row * col + col]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> (newValue) &#123;</span><br><span class="line">            grid[row * col + col] = newValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用二维数组</span></span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="type">DoubleArray</span>(rows: <span class="number">10</span>, cols: <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化二维数组</span></span><br><span class="line"><span class="keyword">for</span> <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">    <span class="keyword">for</span> <span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++ &#123;</span><br><span class="line">        arr2[i,j] = i * j</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出二维数组</span></span><br><span class="line"><span class="keyword">for</span> <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">    <span class="keyword">for</span> <span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++ &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"\t <span class="subst">\(arr2[i,j])</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
-</code></pre><h2 id="方法">方法</h2><ul>
+<pre><code><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*  定义二维数组，使用下标访问数组</span></span><br><span class="line"><span class="comment">*  内部还是一个一维数组，不过展示给外界的时一个二维访问方式</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">DoubleArray</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 属性定义</span></span><br><span class="line">    <span class="keyword">let</span> rows: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> cols: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> grid: [<span class="type">Int</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 构造方法</span></span><br><span class="line">    <span class="keyword">init</span>(rows: <span class="type">Int</span>, cols: <span class="type">Int</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.rows = rows</span><br><span class="line">        <span class="keyword">self</span>.cols = cols</span><br><span class="line">        grid = <span class="type">Array</span>(<span class="built_in">count</span>: rows * cols, repeatedValue: <span class="number">0</span>) <span class="comment">// 利用泛型创建一个数组</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 下标定义</span></span><br><span class="line">    <span class="keyword">subscript</span>(row: <span class="type">Int</span>, col: <span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> grid[row * col + col]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span> (newValue) &#123;</span><br><span class="line">            grid[row * col + col] = newValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用二维数组</span></span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="type">DoubleArray</span>(rows: <span class="number">10</span>, cols: <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化二维数组</span></span><br><span class="line"><span class="keyword">for</span> <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">    <span class="keyword">for</span> <span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++ &#123;</span><br><span class="line">        arr2[i,j] = i * j</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出二维数组</span></span><br><span class="line"><span class="keyword">for</span> <span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">    <span class="keyword">for</span> <span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++ &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"\t \(arr2[i,j])"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
 <li>类、结构体、枚举中都可以定义方法</li>
 <li>这里主要说结构体和枚举中方法的定义<ul>
 <li>默认情况下，结构体和枚举中的方法是不能修改属性的</li>
@@ -368,12 +343,12 @@ switch中比较元组">
 </ul>
 </li>
 </ul>
-<h3 id="静态方法">静态方法</h3><ul>
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><ul>
 <li>结构体和枚举中静态方法用<code>static</code>，类中静态方法使用<code>class</code></li>
 <li><p>1、结构体中的静态方法</p>
 <ul>
 <li><p>不能访问示例属性和示例方法 </p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">	<span class="comment">/**</span><br><span class="line">	*  结构体中的静态方法</span><br><span class="line">	*/</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Account</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">var</span> owner: <span class="type">String</span> = <span class="string">"Jack"</span></span><br><span class="line">	    <span class="keyword">static</span> <span class="keyword">var</span> interestRate: <span class="type">Double</span> = <span class="number">0.668</span></span><br><span class="line">	    <span class="comment">// 静态方法</span></span><br><span class="line">	    <span class="keyword">static</span> <span class="func"><span class="keyword">func</span> <span class="title">interestRateBy</span><span class="params">(amount: Double)</span></span> -&gt; <span class="type">Double</span>  &#123;</span><br><span class="line">	        <span class="keyword">return</span> interestRate * amount</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="func"><span class="keyword">func</span> <span class="title">messageWith</span><span class="params">(amount: Double)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">	        <span class="keyword">let</span> interest  = <span class="type">Account</span>.interestRateBy(amount)</span><br><span class="line">	        <span class="keyword">return</span> <span class="string">"<span class="subst">\(<span class="keyword">self</span>.owner)</span> 的利息是 <span class="subst">\(interest)</span>"</span></span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 调用静态方法</span></span><br><span class="line">	<span class="built_in">print</span>(<span class="type">Account</span>.interestRateBy(<span class="number">10_000.00</span>))</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	<span class="keyword">var</span> myAccount = <span class="type">Account</span>()</span><br><span class="line">	<span class="built_in">print</span>(myAccount.messageWith(<span class="number">10_000</span>))</span><br><span class="line">	```	</span><br><span class="line"></span><br><span class="line">- <span class="number">2</span>、枚举中的静态方法 	</span><br><span class="line">	- 不能访问示例属性和示例方法 </span><br><span class="line"></span><br><span class="line">	```<span class="built_in">swift</span></span><br><span class="line">	<span class="comment">/// 枚举中的静态方法</span></span><br><span class="line">	<span class="class"><span class="keyword">enum</span> <span class="title">Account1</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">case</span> 中国银行</span><br><span class="line">	    <span class="keyword">case</span> 中国工商银行</span><br><span class="line">	    <span class="keyword">case</span> 中国建设银行</span><br><span class="line">	    <span class="keyword">case</span> 中国农业因银行</span><br><span class="line">	    <span class="keyword">static</span> <span class="keyword">var</span> interestRate: <span class="type">Double</span> = <span class="number">0.669</span></span><br><span class="line">	    <span class="comment">// 静态方法定义</span></span><br><span class="line">	    <span class="keyword">static</span> <span class="func"><span class="keyword">func</span> <span class="title">interestBy</span><span class="params">(amount: Double)</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">	        <span class="keyword">return</span> interestRate * amount</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 静态方法的调用</span></span><br><span class="line">	<span class="built_in">print</span>(<span class="type">Account1</span>.interestBy(<span class="number">10_000.00</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	*  结构体中的静态方法</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Account</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">var</span> owner: <span class="type">String</span> = <span class="string">"Jack"</span></span><br><span class="line">	    <span class="keyword">static</span> <span class="keyword">var</span> interestRate: <span class="type">Double</span> = <span class="number">0.668</span></span><br><span class="line">	    <span class="comment">// 静态方法</span></span><br><span class="line">	    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">interestRateBy</span><span class="params">(amount: Double)</span></span> -&gt; <span class="type">Double</span>  &#123;</span><br><span class="line">	        <span class="keyword">return</span> interestRate * amount</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="function"><span class="keyword">func</span> <span class="title">messageWith</span><span class="params">(amount: Double)</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">	        <span class="keyword">let</span> interest  = <span class="type">Account</span>.interestRateBy(amount)</span><br><span class="line">	        <span class="keyword">return</span> <span class="string">"\(self.owner) 的利息是 \(interest)"</span></span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 调用静态方法</span></span><br><span class="line">	<span class="built_in">print</span>(<span class="type">Account</span>.interestRateBy(<span class="number">10_000.00</span>))</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	<span class="keyword">var</span> myAccount = <span class="type">Account</span>()</span><br><span class="line">	<span class="built_in">print</span>(myAccount.messageWith(<span class="number">10_000</span>))</span><br><span class="line">	```	</span><br><span class="line"></span><br><span class="line">- <span class="number">2</span>、枚举中的静态方法 	</span><br><span class="line">	- 不能访问示例属性和示例方法 </span><br><span class="line"></span><br><span class="line">	```swift</span><br><span class="line">	<span class="comment">/// 枚举中的静态方法</span></span><br><span class="line">	<span class="class"><span class="keyword">enum</span> <span class="title">Account1</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">case</span> 中国银行</span><br><span class="line">	    <span class="keyword">case</span> 中国工商银行</span><br><span class="line">	    <span class="keyword">case</span> 中国建设银行</span><br><span class="line">	    <span class="keyword">case</span> 中国农业因银行</span><br><span class="line">	    <span class="keyword">static</span> <span class="keyword">var</span> interestRate: <span class="type">Double</span> = <span class="number">0.669</span></span><br><span class="line">	    <span class="comment">// 静态方法定义</span></span><br><span class="line">	    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">interestBy</span><span class="params">(amount: Double)</span></span> -&gt; <span class="type">Double</span> &#123;</span><br><span class="line">	        <span class="keyword">return</span> interestRate * amount</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 静态方法的调用</span></span><br><span class="line">	<span class="built_in">print</span>(<span class="type">Account1</span>.interestBy(<span class="number">10_000.00</span>))</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -387,25 +362,25 @@ switch中比较元组">
 </ul>
 </li>
 </ul>
-<h2 id="构造和析构">构造和析构</h2><ul>
+<h2 id="构造和析构"><a href="#构造和析构" class="headerlink" title="构造和析构"></a>构造和析构</h2><ul>
 <li>只有类和结构体才有构造<code>init()</code>和析构函数<code>deinit</code></li>
 <li>在创建实例过程中需要一些初始化操作，这个过程称为<em>构造</em></li>
 <li>在实例最后被释放的过程中，需要清楚资源，这个过程称为<em>析构</em></li>
 <li><em>注意： 构造器 可以重载，没有返回值</em></li>
 </ul>
-<h3 id="构造器">构造器</h3><ul>
+<h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><ul>
 <li>构造器主做一些属性的初始化操作</li>
 <li>如果不写init方法，那么会自动生成一个空的init构造器</li>
 <li>如果有继承关系，要先调用父类的构造器</li>
 <li>横向代理与向上代理<ul>
 <li>横向代理：构造器调用发生在本类内部，添加<code>convenience</code>关键字即可作为便利构造器，便利构造器必须调用本类内部的其他构造器</li>
-<li>向上代理：有继承关系，就先调用父类的构造器<h3 id="析构器">析构器</h3></li>
+<li>向上代理：有继承关系，就先调用父类的构造器<h3 id="析构器"><a href="#析构器" class="headerlink" title="析构器"></a>析构器</h3></li>
 </ul>
 </li>
 <li>析构器只作用于类</li>
 <li>析构器没有返回值，没有参数，不能重载</li>
 </ul>
-<h2 id="继承">继承</h2><ul>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
 <li>swift单继承</li>
 <li>重写属性、下标以及方法</li>
 <li>重写父类的方法使用<code>override</code></li>
@@ -414,24 +389,24 @@ switch中比较元组">
 <li><code>is</code> 类型判断</li>
 <li><code>as</code> 类型转换</li>
 <li><code>Any</code> 任何类型，包括类和其他数据类型</li>
-<li><code>AnyObject</code> 任何类 <h2 id="扩展和协议">扩展和协议</h2></li>
+<li><code>AnyObject</code> 任何类 <h2 id="扩展和协议"><a href="#扩展和协议" class="headerlink" title="扩展和协议"></a>扩展和协议</h2></li>
 </ul>
 </li>
 </ul>
-<h3 id="扩展extension">扩展<code>extension</code></h3><ul>
+<h3 id="扩展extension"><a href="#扩展extension" class="headerlink" title="扩展extension"></a>扩展<code>extension</code></h3><ul>
 <li>扩展的类型可以使类、结构体、枚举</li>
 <li>扩展可以增加属性和方法</li>
 <li>扩展计算属性、方法、构造器、下标</li>
 <li><strong>注意：扩展类的构造器的时只能增加遍历构造器，指定构造器和析构器只能由源类型指定</strong></li>
 </ul>
-<h3 id="协议_protocol">协议 <code>protocol</code></h3><ul>
+<h3 id="协议-protocol"><a href="#协议-protocol" class="headerlink" title="协议 protocol"></a>协议 <code>protocol</code></h3><ul>
 <li>类似C++中的纯虚类</li>
 <li>可以定义属性和方法</li>
 <li>协议可以继承协议</li>
 </ul>
-<h2 id="swift内存管理">swift内存管理</h2><ul>
+<h2 id="swift内存管理"><a href="#swift内存管理" class="headerlink" title="swift内存管理"></a>swift内存管理</h2><ul>
 <li>swift内存管理遵循ARC特性</li>
-<li>对引用类型进行引用计数，基本数据类型由系统管理<h3 id="循环引用问题">循环引用问题</h3></li>
+<li>对引用类型进行引用计数，基本数据类型由系统管理<h3 id="循环引用问题"><a href="#循环引用问题" class="headerlink" title="循环引用问题"></a>循环引用问题</h3></li>
 <li>swift中解决循环引用由两种方式<ul>
 <li>1、弱引用（<code>weak reference</code>）</li>
 <li>2、无主引用(<code>unowned reference</code>) </li>
@@ -440,12 +415,12 @@ switch中比较元组">
 <li>弱引用可以没有值，因此必须设置成可选类型</li>
 <li>无主引用适用于引用对象永远有值 </li>
 </ul>
-<h3 id="闭包中的循环引用问题">闭包中的循环引用问题</h3><ul>
+<h3 id="闭包中的循环引用问题"><a href="#闭包中的循环引用问题" class="headerlink" title="闭包中的循环引用问题"></a>闭包中的循环引用问题</h3><ul>
 <li><p>闭包中的循环引用的解决方法和上面的一样，使用弱引用和无主引用</p>
-  <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> firstName: <span class="type">String</span> = <span class="string">"Jack"</span></span><br><span class="line">    <span class="keyword">let</span> secondName: <span class="type">String</span> = <span class="string">"lu"</span></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">    *  解决闭包强循环引用</span><br><span class="line">    */</span></span><br><span class="line">    lazy <span class="keyword">var</span> fullName: (<span class="type">String</span>, <span class="type">String</span>) -&gt; <span class="type">String</span> = &#123;</span><br><span class="line">        <span class="comment">// [weak self] (firstName: String, secondName: String) -&gt; String in</span></span><br><span class="line">        [<span class="keyword">unowned</span> <span class="keyword">self</span>] (firstName: <span class="type">String</span>, secondName: <span class="type">String</span>) -&gt; <span class="type">String</span> <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">return</span> firstName + secondName</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> firstName: <span class="type">String</span> = <span class="string">"Jack"</span></span><br><span class="line">    <span class="keyword">let</span> secondName: <span class="type">String</span> = <span class="string">"lu"</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    *  解决闭包强循环引用</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="built_in">lazy</span> <span class="keyword">var</span> fullName: (<span class="type">String</span>, <span class="type">String</span>) -&gt; <span class="type">String</span> = &#123;</span><br><span class="line">        <span class="comment">// [weak self] (firstName: String, secondName: String) -&gt; String in</span></span><br><span class="line">        [<span class="keyword">unowned</span> <span class="keyword">self</span>] (firstName: <span class="type">String</span>, secondName: <span class="type">String</span>) -&gt; <span class="type">String</span> <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">return</span> firstName + secondName</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="OC与Swift">OC与Swift</h2><ul>
+<h2 id="OC与Swift"><a href="#OC与Swift" class="headerlink" title="OC与Swift"></a>OC与Swift</h2><ul>
 <li><p>OC和swift可以混合开发</p>
 </li>
 <li><p>1、swift 调用 OC</p>
@@ -461,7 +436,7 @@ switch中比较元组">
 </ul>
 </li>
 </ul>
-<h2 id="实战">实战</h2><ul>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><ul>
 <li>1、需求分析<ul>
 <li>用户群：确定大体功能</li>
 <li>确定应用发布平台</li>
@@ -494,7 +469,7 @@ switch中比较元组">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2015/09/26/swift新特性/" data-title="Swift与众不同的地方 | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2015/09/26/swift新特性/" data-title="Swift与众不同的地方 | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -538,7 +513,7 @@ switch中比较元组">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift_与众不同的地方"><span class="toc-number">1.</span> <span class="toc-text">Swift 与众不同的地方</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#switch（元组）"><span class="toc-number">1.1.</span> <span class="toc-text">switch（元组）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跳转语句"><span class="toc-number">1.2.</span> <span class="toc-text">跳转语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#break"><span class="toc-number">1.2.1.</span> <span class="toc-text">break</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue"><span class="toc-number">1.2.2.</span> <span class="toc-text">continue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fallthrough"><span class="toc-number">1.2.3.</span> <span class="toc-text">fallthrough</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#return"><span class="toc-number">1.2.4.</span> <span class="toc-text">return</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组和字典"><span class="toc-number">1.3.</span> <span class="toc-text">数组和字典</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-number">1.4.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛型和泛型函数"><span class="toc-number">1.5.</span> <span class="toc-text">泛型和泛型函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.6.</span> <span class="toc-text">闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用举例"><span class="toc-number">1.6.1.</span> <span class="toc-text">使用举例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swift中的面向对象"><span class="toc-number">1.7.</span> <span class="toc-text">swift中的面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举"><span class="toc-number">1.7.1.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构体"><span class="toc-number">1.7.2.</span> <span class="toc-text">结构体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可选类型和可选链"><span class="toc-number">1.8.</span> <span class="toc-text">可选类型和可选链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问限定"><span class="toc-number">1.9.</span> <span class="toc-text">访问限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性和下标"><span class="toc-number">1.10.</span> <span class="toc-text">属性和下标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、存储属性"><span class="toc-number">1.10.1.</span> <span class="toc-text">1、存储属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、计算属性"><span class="toc-number">1.10.2.</span> <span class="toc-text">2、计算属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、静态属性"><span class="toc-number">1.10.3.</span> <span class="toc-text">3、静态属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、下标"><span class="toc-number">1.10.4.</span> <span class="toc-text">4、下标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-number">1.11.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态方法"><span class="toc-number">1.11.1.</span> <span class="toc-text">静态方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造和析构"><span class="toc-number">1.12.</span> <span class="toc-text">构造和析构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">1.12.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#析构器"><span class="toc-number">1.12.2.</span> <span class="toc-text">析构器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">1.13.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展和协议"><span class="toc-number">1.14.</span> <span class="toc-text">扩展和协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展extension"><span class="toc-number">1.14.1.</span> <span class="toc-text">扩展extension</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议_protocol"><span class="toc-number">1.14.2.</span> <span class="toc-text">协议 protocol</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swift内存管理"><span class="toc-number">1.15.</span> <span class="toc-text">swift内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#循环引用问题"><span class="toc-number">1.15.1.</span> <span class="toc-text">循环引用问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包中的循环引用问题"><span class="toc-number">1.15.2.</span> <span class="toc-text">闭包中的循环引用问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OC与Swift"><span class="toc-number">1.16.</span> <span class="toc-text">OC与Swift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实战"><span class="toc-number">1.17.</span> <span class="toc-text">实战</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Swift-与众不同的地方"><span class="toc-number">1.</span> <span class="toc-text">Swift 与众不同的地方</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#switch（元组）"><span class="toc-number">1.1.</span> <span class="toc-text">switch（元组）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跳转语句"><span class="toc-number">1.2.</span> <span class="toc-text">跳转语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#break"><span class="toc-number">1.2.1.</span> <span class="toc-text">break</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#continue"><span class="toc-number">1.2.2.</span> <span class="toc-text">continue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fallthrough"><span class="toc-number">1.2.3.</span> <span class="toc-text">fallthrough</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#return"><span class="toc-number">1.2.4.</span> <span class="toc-text">return</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组和字典"><span class="toc-number">1.3.</span> <span class="toc-text">数组和字典</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数"><span class="toc-number">1.4.</span> <span class="toc-text">函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛型和泛型函数"><span class="toc-number">1.5.</span> <span class="toc-text">泛型和泛型函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.6.</span> <span class="toc-text">闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用举例"><span class="toc-number">1.6.1.</span> <span class="toc-text">使用举例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swift中的面向对象"><span class="toc-number">1.7.</span> <span class="toc-text">swift中的面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举"><span class="toc-number">1.7.1.</span> <span class="toc-text">枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构体"><span class="toc-number">1.7.2.</span> <span class="toc-text">结构体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可选类型和可选链"><span class="toc-number">1.8.</span> <span class="toc-text">可选类型和可选链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问限定"><span class="toc-number">1.9.</span> <span class="toc-text">访问限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性和下标"><span class="toc-number">1.10.</span> <span class="toc-text">属性和下标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、存储属性"><span class="toc-number">1.10.1.</span> <span class="toc-text">1、存储属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、计算属性"><span class="toc-number">1.10.2.</span> <span class="toc-text">2、计算属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、静态属性"><span class="toc-number">1.10.3.</span> <span class="toc-text">3、静态属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、下标"><span class="toc-number">1.10.4.</span> <span class="toc-text">4、下标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-number">1.11.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态方法"><span class="toc-number">1.11.1.</span> <span class="toc-text">静态方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造和析构"><span class="toc-number">1.12.</span> <span class="toc-text">构造和析构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构造器"><span class="toc-number">1.12.1.</span> <span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#析构器"><span class="toc-number">1.12.2.</span> <span class="toc-text">析构器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#继承"><span class="toc-number">1.13.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展和协议"><span class="toc-number">1.14.</span> <span class="toc-text">扩展和协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展extension"><span class="toc-number">1.14.1.</span> <span class="toc-text">扩展extension</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议-protocol"><span class="toc-number">1.14.2.</span> <span class="toc-text">协议 protocol</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#swift内存管理"><span class="toc-number">1.15.</span> <span class="toc-text">swift内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#循环引用问题"><span class="toc-number">1.15.1.</span> <span class="toc-text">循环引用问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包中的循环引用问题"><span class="toc-number">1.15.2.</span> <span class="toc-text">闭包中的循环引用问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OC与Swift"><span class="toc-number">1.16.</span> <span class="toc-text">OC与Swift</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实战"><span class="toc-number">1.17.</span> <span class="toc-text">实战</span></a></li></ol></li></ol>
  
   </div>
 
@@ -576,11 +551,15 @@ switch中比较元组">
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -588,7 +567,7 @@ switch中比较元组">
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -600,7 +579,7 @@ switch中比较元组">
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -613,7 +592,7 @@ switch中比较元组">
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -632,25 +611,21 @@ switch中比较元组">
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -664,7 +639,7 @@ switch中比较元组">
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		

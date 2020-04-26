@@ -13,25 +13,17 @@
     
 
     
-    <meta name="description" content="证书打包发布一.App ID（bundle identifier）
-App ID即Product ID，用于标识一个或者一组App。
-App ID应该和Xcode中的Bundle Identifier是一致（Explicit）的或匹配（Wildcard）的。
-App ID字符串通常以反域名（reverse-domain-name）格式的Company Identifier（Company ID）作">
+    <meta name="description" content="证书打包发布一.App ID（bundle identifier） App ID即Product ID，用于标识一个或者一组App。 App ID应该和Xcode中的Bundle Identifier是一致（Explicit）的或匹配（Wildcard）的。 App ID字符串通常以反域名（reverse-domain-name）格式的Company Identifier（Company ID）作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="证书打包发布">
 <meta property="og:url" content="http://songliquan.github.io/2015/05/06/证书打包发布/index.html">
 <meta property="og:site_name" content="Bloging">
-<meta property="og:description" content="证书打包发布一.App ID（bundle identifier）
-App ID即Product ID，用于标识一个或者一组App。
-App ID应该和Xcode中的Bundle Identifier是一致（Explicit）的或匹配（Wildcard）的。
-App ID字符串通常以反域名（reverse-domain-name）格式的Company Identifier（Company ID）作">
+<meta property="og:description" content="证书打包发布一.App ID（bundle identifier） App ID即Product ID，用于标识一个或者一组App。 App ID应该和Xcode中的Bundle Identifier是一致（Explicit）的或匹配（Wildcard）的。 App ID字符串通常以反域名（reverse-domain-name）格式的Company Identifier（Company ID）作">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2016-03-06T08:56:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="证书打包发布">
-<meta name="twitter:description" content="证书打包发布一.App ID（bundle identifier）
-App ID即Product ID，用于标识一个或者一组App。
-App ID应该和Xcode中的Bundle Identifier是一致（Explicit）的或匹配（Wildcard）的。
-App ID字符串通常以反域名（reverse-domain-name）格式的Company Identifier（Company ID）作">
+<meta name="twitter:description" content="证书打包发布一.App ID（bundle identifier） App ID即Product ID，用于标识一个或者一组App。 App ID应该和Xcode中的Bundle Identifier是一致（Explicit）的或匹配（Wildcard）的。 App ID字符串通常以反域名（reverse-domain-name）格式的Company Identifier（Company ID）作">
 
     
     <link rel="alternative" href="/atom.xml" title="Bloging" type="application/atom+xml">
@@ -43,7 +35,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
     <link rel="apple-touch-icon" href="/img/jacman.jpg">
     <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
     
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
   <body>
@@ -107,11 +99,11 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#证书打包发布"><span class="toc-number">1.</span> <span class="toc-text">证书打包发布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-App_ID（bundle_identifier）"><span class="toc-number">1.1.</span> <span class="toc-text">一.App ID（bundle identifier）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-设备（Device）"><span class="toc-number">1.2.</span> <span class="toc-text">二.设备（Device）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-开发证书（Certificates）"><span class="toc-number">1.3.</span> <span class="toc-text">三.开发证书（Certificates）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-供应配置文件（Provisioning_Profiles）"><span class="toc-number">1.4.</span> <span class="toc-text">四.供应配置文件（Provisioning Profiles）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-开发组供应配置文件（Team_Provisioning_Profiles）"><span class="toc-number">1.5.</span> <span class="toc-text">五.开发组供应配置文件（Team Provisioning Profiles）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六-App_Group_（ID）"><span class="toc-number">1.6.</span> <span class="toc-text">六.App Group （ID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七-证书与签名（Certificate&_Signature）"><span class="toc-number">1.7.</span> <span class="toc-text">七.证书与签名（Certificate& Signature）</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#证书打包发布"><span class="toc-number">1.</span> <span class="toc-text">证书打包发布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-App-ID（bundle-identifier）"><span class="toc-number">1.1.</span> <span class="toc-text">一.App ID（bundle identifier）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-设备（Device）"><span class="toc-number">1.2.</span> <span class="toc-text">二.设备（Device）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-开发证书（Certificates）"><span class="toc-number">1.3.</span> <span class="toc-text">三.开发证书（Certificates）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-供应配置文件（Provisioning-Profiles）"><span class="toc-number">1.4.</span> <span class="toc-text">四.供应配置文件（Provisioning Profiles）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-开发组供应配置文件（Team-Provisioning-Profiles）"><span class="toc-number">1.5.</span> <span class="toc-text">五.开发组供应配置文件（Team Provisioning Profiles）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六-App-Group-（ID）"><span class="toc-number">1.6.</span> <span class="toc-text">六.App Group （ID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七-证书与签名（Certificate-amp-Signature）"><span class="toc-number">1.7.</span> <span class="toc-text">七.证书与签名（Certificate&amp; Signature）</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="证书打包发布">证书打包发布</h1><h2 id="一-App_ID（bundle_identifier）">一.App ID（bundle identifier）</h2><ul>
+		<h1 id="证书打包发布"><a href="#证书打包发布" class="headerlink" title="证书打包发布"></a>证书打包发布</h1><h2 id="一-App-ID（bundle-identifier）"><a href="#一-App-ID（bundle-identifier）" class="headerlink" title="一.App ID（bundle identifier）"></a>一.App ID（bundle identifier）</h2><ul>
 <li>App ID即Product ID，用于标识一个或者一组App。</li>
 <li>App ID应该和Xcode中的Bundle Identifier是一致（Explicit）的或匹配（Wildcard）的。</li>
 <li>App ID字符串通常以反域名（reverse-domain-name）格式的Company Identifier（Company ID）作为前缀（Prefix/Seed），一般不超过255个ASCII字符。</li>
@@ -121,7 +113,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 <li>用户可在Developer MemberCenter网站上注册（Register）或删除（Delete）已注册的App IDs。</li>
 <li>App ID被配置到【XcodeTarget|Info|Bundle Identifier】下；对于Wildcard App ID，只要bundle identifier包含其作为Prefix/Seed即可。</li>
 </ul>
-<h2 id="二-设备（Device）">二.设备（Device）</h2><ul>
+<h2 id="二-设备（Device）"><a href="#二-设备（Device）" class="headerlink" title="二.设备（Device）"></a>二.设备（Device）</h2><ul>
 <li>Device就是运行iOS系统用于开发调试App的设备。每台Apple设备使用UDID来唯一标识。</li>
 <li>iOS设备连接Mac后，可通过iTunes-&gt;Summary或者Xcode-&gt;Window-&gt;Devices获取iPhone的UDID（identifier）。</li>
 <li>Apple Member Center网站个人账号下的Devices中包含了注册过的所有可用于开发和测试的设备，普通个人开发账号每年累计最多只能注册100个设备。<ul>
@@ -132,7 +124,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 <li>用户可在网站上注册或启用/禁用（Enable/Disable）已注册的Device。</li>
 <li>本文的Devices是指连接到Xcode被授权用于开发测试的iOS设备（iPhone/iPad）。</li>
 </ul>
-<h2 id="三-开发证书（Certificates）">三.开发证书（Certificates）</h2><ul>
+<h2 id="三-开发证书（Certificates）"><a href="#三-开发证书（Certificates）" class="headerlink" title="三.开发证书（Certificates）"></a>三.开发证书（Certificates）</h2><ul>
 <li>1.证书的概念<ul>
 <li>证书是由公证处或认证机关开具的证明资格或权力的证件，它是表明（或帮助断定）事理的一个凭证。证件或凭证的尾部通常会烙印公章。</li>
 <li>每个中国人一生可能需要70多个证件，含15种身份证明。证件中“必需的”有30到40个。将这些证件按时间顺序铺开，那就是一个天朝子民的一生——持准生证许可落地，以户籍证明入籍，以身份证认证身份，持结婚证以合法同居，最终以死亡证明注销。</li>
@@ -183,7 +175,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 </ul>
 </li>
 </ul>
-<h2 id="四-供应配置文件（Provisioning_Profiles）">四.供应配置文件（Provisioning Profiles）</h2><ul>
+<h2 id="四-供应配置文件（Provisioning-Profiles）"><a href="#四-供应配置文件（Provisioning-Profiles）" class="headerlink" title="四.供应配置文件（Provisioning Profiles）"></a>四.供应配置文件（Provisioning Profiles）</h2><ul>
 <li>1.Provisioning Profile的概念<ul>
 <li>一个Provisioning Profile对应一个Explicit App ID或Wildcard App ID（一组相同Prefix/Seed的App IDs）。在网站上手动创建一个Provisioning Profile时，需要依次指定App ID（单选）、证书（Certificates，可多选）和设备（Devices，可多选）。用户可在网站上删除（Delete）已注册的Provisioning Profiles。</li>
 <li>Provisioning Profile决定Xcode用哪个证书（公钥）/私钥组合（Key Pair/Signing Identity）来签署应用程序（Signing Product）,将在应用程序打包时嵌入到.ipa包里。安装应用程序时，Provisioning Profile文件被拷贝到iOS设备中，运行该iOS App的设备也通过它来认证安装的程序。</li>
@@ -199,7 +191,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 </ul>
 </li>
 </ul>
-<h2 id="五-开发组供应配置文件（Team_Provisioning_Profiles）">五.开发组供应配置文件（Team Provisioning Profiles）</h2><ul>
+<h2 id="五-开发组供应配置文件（Team-Provisioning-Profiles）"><a href="#五-开发组供应配置文件（Team-Provisioning-Profiles）" class="headerlink" title="五.开发组供应配置文件（Team Provisioning Profiles）"></a>五.开发组供应配置文件（Team Provisioning Profiles）</h2><ul>
 <li>1.Team Provisioning Profile的概念<ul>
 <li>每个Apple开发者账号都对应一个唯一的Team ID，Xcode3.2.3预发布版本中加入了Team Provisioning Profile这项新功能。</li>
 <li>在Xcode中添加Apple Developer Account时，它将与Apple Member Center后台勾兑自动生成iOS Team Provisioning Profile（Managed by Xcode）。</li>
@@ -216,7 +208,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 </ul>
 </li>
 </ul>
-<h2 id="六-App_Group_（ID）">六.App Group （ID）</h2><ul>
+<h2 id="六-App-Group-（ID）"><a href="#六-App-Group-（ID）" class="headerlink" title="六.App Group （ID）"></a>六.App Group （ID）</h2><ul>
 <li>1.App Group的概念<ul>
 <li>WWDC14除了发布了OS X v10.10和switf外，iOS 8.0也开始变得更加开放了。说到开放，当然要数应用扩展（App Extension）了。顾名思义，应用扩展允许开发者扩展应用的自定义功能和内容，能够让用户在使用其他应用程序时使用该项功能，从而实现各个应用程序间的功能和资源共享。可以将扩展理解为一个轻量级（nimble and lightweight）的分身。</li>
 <li>扩展和其Containing App各自拥有自己的沙盒，虽然扩展以插件形式内嵌在Containing App中，但是它们是独立的二进制包，不可以互访彼此的沙盒。为了实现Containing App与扩展的数据共享，苹果在iOS 8中引入了一个新的概念——App Group，它主要用于同一Group下的APP实现数据共享，具体来说是通过以App Group ID标识的共享资源区——App Group Container。</li>
@@ -236,7 +228,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 </ul>
 </li>
 </ul>
-<h2 id="七-证书与签名（Certificate&amp;_Signature）">七.证书与签名（Certificate&amp; Signature）</h2><ul>
+<h2 id="七-证书与签名（Certificate-amp-Signature）"><a href="#七-证书与签名（Certificate-amp-Signature）" class="headerlink" title="七.证书与签名（Certificate&amp; Signature）"></a>七.证书与签名（Certificate&amp; Signature）</h2><ul>
 <li><p>1.Code Signing Identity</p>
 <ul>
 <li>Xcode中配置的Code Signing Identity（entitlements、certificate）必须与Provisioning Profile匹配，并且配置的Certificate必须在本机Keychain Access中存在对应Public／Private Key Pair，否则编译会报错。</li>
@@ -264,7 +256,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://songliquan.github.io/2015/05/06/证书打包发布/" data-title="证书打包发布 | Bloging" data-tsina="null" class="share clearfix">
+	  <div data-url="http://songliquan.github.io/2015/05/06/证书打包发布/" data-title="证书打包发布 | Bloging" data-tsina="undefined" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -308,7 +300,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#证书打包发布"><span class="toc-number">1.</span> <span class="toc-text">证书打包发布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-App_ID（bundle_identifier）"><span class="toc-number">1.1.</span> <span class="toc-text">一.App ID（bundle identifier）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-设备（Device）"><span class="toc-number">1.2.</span> <span class="toc-text">二.设备（Device）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-开发证书（Certificates）"><span class="toc-number">1.3.</span> <span class="toc-text">三.开发证书（Certificates）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-供应配置文件（Provisioning_Profiles）"><span class="toc-number">1.4.</span> <span class="toc-text">四.供应配置文件（Provisioning Profiles）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-开发组供应配置文件（Team_Provisioning_Profiles）"><span class="toc-number">1.5.</span> <span class="toc-text">五.开发组供应配置文件（Team Provisioning Profiles）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六-App_Group_（ID）"><span class="toc-number">1.6.</span> <span class="toc-text">六.App Group （ID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七-证书与签名（Certificate&_Signature）"><span class="toc-number">1.7.</span> <span class="toc-text">七.证书与签名（Certificate& Signature）</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#证书打包发布"><span class="toc-number">1.</span> <span class="toc-text">证书打包发布</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-App-ID（bundle-identifier）"><span class="toc-number">1.1.</span> <span class="toc-text">一.App ID（bundle identifier）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-设备（Device）"><span class="toc-number">1.2.</span> <span class="toc-text">二.设备（Device）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-开发证书（Certificates）"><span class="toc-number">1.3.</span> <span class="toc-text">三.开发证书（Certificates）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-供应配置文件（Provisioning-Profiles）"><span class="toc-number">1.4.</span> <span class="toc-text">四.供应配置文件（Provisioning Profiles）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-开发组供应配置文件（Team-Provisioning-Profiles）"><span class="toc-number">1.5.</span> <span class="toc-text">五.开发组供应配置文件（Team Provisioning Profiles）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六-App-Group-（ID）"><span class="toc-number">1.6.</span> <span class="toc-text">六.App Group （ID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七-证书与签名（Certificate-amp-Signature）"><span class="toc-number">1.7.</span> <span class="toc-text">七.证书与签名（Certificate&amp; Signature）</span></a></li></ol></li></ol>
  
   </div>
 
@@ -346,11 +338,15 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 			
 		
 			
-				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
+				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
 			
 		
 			
@@ -358,7 +354,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 			
 		
 			
-				<li><a href="/tags/ios/" title="ios">ios<sup>1</sup></a></li>
+				<li><a href="/tags/Xcode/" title="Xcode">Xcode<sup>1</sup></a></li>
 			
 		
 			
@@ -370,7 +366,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 			
 		
 			
-				<li><a href="/tags/Git/" title="Git">Git<sup>1</sup></a></li>
+				<li><a href="/tags/oc/" title="oc">oc<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -383,7 +379,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
         
           <li>
             
-            	<a href="http://www.jianshu.com/users/62ebba79ec57" target="_blank" title="简书博客">简书博客</a>
+            	<a href="https://www.cnblogs.com/songliquan/" target="_blank" title="博客园 Blog">博客园 Blog</a>
             
           </li>
         
@@ -402,25 +398,21 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 	
 	
 	<section class="info">
-		<p> This is my blog,believe it or not. <br/>
-			To be or not to be, this is the question.</p>
+		<p> To be or not to be, This is a question. <br/>
+			Do what you want.</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/1728379850" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		<a href="https://github.com/slq0378" target="_blank" class="icon-github" title="github"></a>
 		
 		
-		<a href="http://stackoverflow.com/users/5396469" target="_blank" class="icon-stack-overflow" title="stackoverflow"></a>
 		
 		
 		
-		<a href="https://www.facebook.com/song.liquan" target="_blank" class="icon-facebook" title="facebook"></a>
 		
-		
+		<a href="https://www.douban.com/people/72784204" target="_blank" class="icon-douban" title="豆瓣"></a>
 		
 		
 		<a href="http://www.zhihu.com/people/song88" target="_blank" class="icon-zhihu" title="知乎"></a>
@@ -434,7 +426,7 @@ App ID字符串通常以反域名（reverse-domain-name）格式的Company Ident
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
 		
 		<a href="/about" target="_blank" title="Mr Song">Mr Song</a>
 		
